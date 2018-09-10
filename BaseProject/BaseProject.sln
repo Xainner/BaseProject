@@ -7,6 +7,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "LogicLibrary", "LogicLibrar
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "UI", "UI\UI.csproj", "{30FEDA8C-9A14-4A34-8D55-3CEE2622956C}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "BusinessLibrary", "BusinessLibrary\BusinessLibrary.csproj", "{193FE192-0DC3-44CF-B2E1-B9E9AA513A39}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -21,6 +23,10 @@ Global
 		{30FEDA8C-9A14-4A34-8D55-3CEE2622956C}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{30FEDA8C-9A14-4A34-8D55-3CEE2622956C}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{30FEDA8C-9A14-4A34-8D55-3CEE2622956C}.Release|Any CPU.Build.0 = Release|Any CPU
+		{193FE192-0DC3-44CF-B2E1-B9E9AA513A39}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{193FE192-0DC3-44CF-B2E1-B9E9AA513A39}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{193FE192-0DC3-44CF-B2E1-B9E9AA513A39}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{193FE192-0DC3-44CF-B2E1-B9E9AA513A39}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
