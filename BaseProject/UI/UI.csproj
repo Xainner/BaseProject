@@ -63,6 +63,24 @@
     </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="UserControls\UcBusiness.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="UserControls\UcBusiness.Designer.cs">
+      <DependentUpon>UcBusiness.cs</DependentUpon>
+    </Compile>
+    <Compile Include="UserControls\UcCategory.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="UserControls\UcCategory.Designer.cs">
+      <DependentUpon>UcCategory.cs</DependentUpon>
+    </Compile>
+    <Compile Include="UserControls\UcClient.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="UserControls\UcClient.Designer.cs">
+      <DependentUpon>UcClient.cs</DependentUpon>
+    </Compile>
     <Compile Include="UserControls\UcDashboard.cs">
       <SubType>UserControl</SubType>
     </Compile>
@@ -81,6 +99,15 @@
       <AutoGen>True</AutoGen>
       <DependentUpon>Resources.resx</DependentUpon>
     </Compile>
+    <EmbeddedResource Include="UserControls\UcBusiness.resx">
+      <DependentUpon>UcBusiness.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="UserControls\UcCategory.resx">
+      <DependentUpon>UcCategory.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="UserControls\UcClient.resx">
+      <DependentUpon>UcClient.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="UserControls\UcDashboard.resx">
       <DependentUpon>UcDashboard.cs</DependentUpon>
     </EmbeddedResource>

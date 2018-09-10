@@ -28,108 +28,111 @@
         /// </summary>
         private void InitializeComponent()
         {
-            this.metroTile1 = new MetroFramework.Controls.MetroTile();
-            this.metroTile2 = new MetroFramework.Controls.MetroTile();
-            this.metroTile3 = new MetroFramework.Controls.MetroTile();
-            this.metroTile4 = new MetroFramework.Controls.MetroTile();
-            this.metroTile5 = new MetroFramework.Controls.MetroTile();
-            this.metroTile6 = new MetroFramework.Controls.MetroTile();
-            this.metroTile7 = new MetroFramework.Controls.MetroTile();
-            this.metroTile8 = new MetroFramework.Controls.MetroTile();
+            this.btnProducts = new MetroFramework.Controls.MetroTile();
+            this.btnBusiness = new MetroFramework.Controls.MetroTile();
+            this.btnEmployee = new MetroFramework.Controls.MetroTile();
+            this.btnClient = new MetroFramework.Controls.MetroTile();
+            this.btnCategory = new MetroFramework.Controls.MetroTile();
+            this.btnSalary = new MetroFramework.Controls.MetroTile();
+            this.btnPosition = new MetroFramework.Controls.MetroTile();
+            this.btnBrand = new MetroFramework.Controls.MetroTile();
             this.SuspendLayout();
             // 
-            // metroTile1
+            // btnProducts
             // 
-            this.metroTile1.ActiveControl = null;
-            this.metroTile1.Location = new System.Drawing.Point(70, 51);
-            this.metroTile1.Name = "metroTile1";
-            this.metroTile1.Size = new System.Drawing.Size(140, 105);
-            this.metroTile1.TabIndex = 0;
-            this.metroTile1.Text = "metroTile1";
-            this.metroTile1.UseSelectable = true;
+            this.btnProducts.ActiveControl = null;
+            this.btnProducts.Location = new System.Drawing.Point(70, 51);
+            this.btnProducts.Name = "btnProducts";
+            this.btnProducts.Size = new System.Drawing.Size(140, 105);
+            this.btnProducts.TabIndex = 0;
+            this.btnProducts.Text = "Productos";
+            this.btnProducts.UseSelectable = true;
             // 
-            // metroTile2
+            // btnBusiness
             // 
-            this.metroTile2.ActiveControl = null;
-            this.metroTile2.Location = new System.Drawing.Point(254, 51);
-            this.metroTile2.Name = "metroTile2";
-            this.metroTile2.Size = new System.Drawing.Size(140, 105);
-            this.metroTile2.TabIndex = 0;
-            this.metroTile2.Text = "metroTile1";
-            this.metroTile2.UseSelectable = true;
+            this.btnBusiness.ActiveControl = null;
+            this.btnBusiness.Location = new System.Drawing.Point(254, 51);
+            this.btnBusiness.Name = "btnBusiness";
+            this.btnBusiness.Size = new System.Drawing.Size(140, 105);
+            this.btnBusiness.TabIndex = 0;
+            this.btnBusiness.Text = "Negocio";
+            this.btnBusiness.UseSelectable = true;
+            this.btnBusiness.Click += new System.EventHandler(this.btnBusiness_Click);
             // 
-            // metroTile3
+            // btnEmployee
             // 
-            this.metroTile3.ActiveControl = null;
-            this.metroTile3.Location = new System.Drawing.Point(70, 181);
-            this.metroTile3.Name = "metroTile3";
-            this.metroTile3.Size = new System.Drawing.Size(140, 105);
-            this.metroTile3.TabIndex = 0;
-            this.metroTile3.Text = "metroTile1";
-            this.metroTile3.UseSelectable = true;
+            this.btnEmployee.ActiveControl = null;
+            this.btnEmployee.Location = new System.Drawing.Point(70, 181);
+            this.btnEmployee.Name = "btnEmployee";
+            this.btnEmployee.Size = new System.Drawing.Size(140, 105);
+            this.btnEmployee.TabIndex = 0;
+            this.btnEmployee.Text = "Empleados";
+            this.btnEmployee.UseSelectable = true;
             // 
-            // metroTile4
+            // btnClient
             // 
-            this.metroTile4.ActiveControl = null;
-            this.metroTile4.Location = new System.Drawing.Point(254, 181);
-            this.metroTile4.Name = "metroTile4";
-            this.metroTile4.Size = new System.Drawing.Size(140, 105);
-            this.metroTile4.TabIndex = 0;
-            this.metroTile4.Text = "metroTile1";
-            this.metroTile4.UseSelectable = true;
+            this.btnClient.ActiveControl = null;
+            this.btnClient.Location = new System.Drawing.Point(254, 181);
+            this.btnClient.Name = "btnClient";
+            this.btnClient.Size = new System.Drawing.Size(140, 105);
+            this.btnClient.TabIndex = 0;
+            this.btnClient.Text = "Cliente";
+            this.btnClient.UseSelectable = true;
+            this.btnClient.Click += new System.EventHandler(this.btnClient_Click);
             // 
-            // metroTile5
+            // btnCategory
             // 
-            this.metroTile5.ActiveControl = null;
-            this.metroTile5.Location = new System.Drawing.Point(540, 298);
-            this.metroTile5.Name = "metroTile5";
-            this.metroTile5.Size = new System.Drawing.Size(140, 105);
-            this.metroTile5.TabIndex = 0;
-            this.metroTile5.Text = "metroTile1";
-            this.metroTile5.UseSelectable = true;
+            this.btnCategory.ActiveControl = null;
+            this.btnCategory.Location = new System.Drawing.Point(540, 298);
+            this.btnCategory.Name = "btnCategory";
+            this.btnCategory.Size = new System.Drawing.Size(140, 105);
+            this.btnCategory.TabIndex = 0;
+            this.btnCategory.Text = "Categoria";
+            this.btnCategory.UseSelectable = true;
+            this.btnCategory.Click += new System.EventHandler(this.btnCategory_Click);
             // 
-            // metroTile6
+            // btnSalary
             // 
-            this.metroTile6.ActiveControl = null;
-            this.metroTile6.Location = new System.Drawing.Point(724, 298);
-            this.metroTile6.Name = "metroTile6";
-            this.metroTile6.Size = new System.Drawing.Size(140, 105);
-            this.metroTile6.TabIndex = 0;
-            this.metroTile6.Text = "metroTile1";
-            this.metroTile6.UseSelectable = true;
+            this.btnSalary.ActiveControl = null;
+            this.btnSalary.Location = new System.Drawing.Point(724, 298);
+            this.btnSalary.Name = "btnSalary";
+            this.btnSalary.Size = new System.Drawing.Size(140, 105);
+            this.btnSalary.TabIndex = 0;
+            this.btnSalary.Text = "Salario";
+            this.btnSalary.UseSelectable = true;
             // 
-            // metroTile7
+            // btnPosition
             // 
-            this.metroTile7.ActiveControl = null;
-            this.metroTile7.Location = new System.Drawing.Point(540, 428);
-            this.metroTile7.Name = "metroTile7";
-            this.metroTile7.Size = new System.Drawing.Size(140, 105);
-            this.metroTile7.TabIndex = 0;
-            this.metroTile7.Text = "metroTile1";
-            this.metroTile7.UseSelectable = true;
+            this.btnPosition.ActiveControl = null;
+            this.btnPosition.Location = new System.Drawing.Point(540, 428);
+            this.btnPosition.Name = "btnPosition";
+            this.btnPosition.Size = new System.Drawing.Size(140, 105);
+            this.btnPosition.TabIndex = 0;
+            this.btnPosition.Text = "Posición";
+            this.btnPosition.UseSelectable = true;
             // 
-            // metroTile8
+            // btnBrand
             // 
-            this.metroTile8.ActiveControl = null;
-            this.metroTile8.Location = new System.Drawing.Point(724, 428);
-            this.metroTile8.Name = "metroTile8";
-            this.metroTile8.Size = new System.Drawing.Size(140, 105);
-            this.metroTile8.TabIndex = 0;
-            this.metroTile8.Text = "metroTile1";
-            this.metroTile8.UseSelectable = true;
+            this.btnBrand.ActiveControl = null;
+            this.btnBrand.Location = new System.Drawing.Point(724, 428);
+            this.btnBrand.Name = "btnBrand";
+            this.btnBrand.Size = new System.Drawing.Size(140, 105);
+            this.btnBrand.TabIndex = 0;
+            this.btnBrand.Text = "Marca";
+            this.btnBrand.UseSelectable = true;
             // 
             // UcDashboard
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.Controls.Add(this.metroTile8);
-            this.Controls.Add(this.metroTile4);
-            this.Controls.Add(this.metroTile7);
-            this.Controls.Add(this.metroTile3);
-            this.Controls.Add(this.metroTile6);
-            this.Controls.Add(this.metroTile2);
-            this.Controls.Add(this.metroTile5);
-            this.Controls.Add(this.metroTile1);
+            this.Controls.Add(this.btnBrand);
+            this.Controls.Add(this.btnClient);
+            this.Controls.Add(this.btnPosition);
+            this.Controls.Add(this.btnEmployee);
+            this.Controls.Add(this.btnSalary);
+            this.Controls.Add(this.btnBusiness);
+            this.Controls.Add(this.btnCategory);
+            this.Controls.Add(this.btnProducts);
             this.Name = "UcDashboard";
             this.Size = new System.Drawing.Size(955, 612);
             this.ResumeLayout(false);
@@ -138,13 +141,13 @@
 
         #endregion
 
-        private MetroFramework.Controls.MetroTile metroTile1;
-        private MetroFramework.Controls.MetroTile metroTile2;
-        private MetroFramework.Controls.MetroTile metroTile3;
-        private MetroFramework.Controls.MetroTile metroTile4;
-        private MetroFramework.Controls.MetroTile metroTile5;
-        private MetroFramework.Controls.MetroTile metroTile6;
-        private MetroFramework.Controls.MetroTile metroTile7;
-        private MetroFramework.Controls.MetroTile metroTile8;
+        private MetroFramework.Controls.MetroTile btnProducts;
+        private MetroFramework.Controls.MetroTile btnBusiness;
+        private MetroFramework.Controls.MetroTile btnEmployee;
+        private MetroFramework.Controls.MetroTile btnClient;
+        private MetroFramework.Controls.MetroTile btnCategory;
+        private MetroFramework.Controls.MetroTile btnSalary;
+        private MetroFramework.Controls.MetroTile btnPosition;
+        private MetroFramework.Controls.MetroTile btnBrand;
     }
 }
