@@ -41,7 +41,6 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Class1.cs" />
     <Compile Include="Models\BrandModel.cs" />
     <Compile Include="Models\BusinessModel.cs" />
     <Compile Include="Models\CategoryModel.cs" />
