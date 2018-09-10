@@ -31,6 +31,9 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <ItemGroup>
+    <Reference Include="log4net, Version=2.0.8.0, Culture=neutral, PublicKeyToken=669e0ddf0bb1aa2a, processorArchitecture=MSIL">
+      <HintPath>..\packages\log4net.2.0.8\lib\net45-full\log4net.dll</HintPath>
+    </Reference>
     <Reference Include="System" />
     <Reference Include="System.Core" />
     <Reference Include="System.Xml.Linq" />
@@ -41,6 +44,16 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Conection\BrandConection.cs" />
+    <Compile Include="Conection\BusinessConection.cs" />
+    <Compile Include="Conection\CategoryConection.cs" />
+    <Compile Include="Conection\ClientConection.cs" />
+    <Compile Include="Conection\EmployeeConection.cs" />
+    <Compile Include="Conection\PositionConection.cs" />
+    <Compile Include="Conection\ProductConection.cs" />
+    <Compile Include="Conection\SalaryConection.cs" />
+    <Compile Include="Conection\SubcategoryConection.cs" />
+    <Compile Include="Conection\UserConection.cs" />
     <Compile Include="Models\BrandModel.cs" />
     <Compile Include="Models\BusinessModel.cs" />
     <Compile Include="Models\CategoryModel.cs" />
@@ -52,6 +65,9 @@
     <Compile Include="Models\SubcategoryModel.cs" />
     <Compile Include="Models\UserModel.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="packages.config" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>
