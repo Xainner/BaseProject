@@ -7,13 +7,27 @@ using System.Threading.Tasks;
 
 namespace BusinessLibrary.Conection
 {
-    class CategoryConection
+    public class ProductConnection
     {
-        public static List<CategoryModel> SelectCategory(CategoryModel category)
+        public static ProductModel SelectProduct(ProductModel product)
         {
             try
             {
-                //ClaseBD.SelectCategory(category);
+                //product = ClaseBD.SelectProduct(product);
+                return product;
+            }
+            catch (Exception)
+            {
+
+                throw;
+            }
+        }
+
+        public static List<ProductModel> SelectAllProduct(ProductModel product)
+        {
+            try
+            {
+                //ClaseBD.SelectAllProduct(product);
                 return null;
             }
             catch (Exception)
@@ -23,11 +37,11 @@ namespace BusinessLibrary.Conection
             }
         }
 
-        public static bool InsertCategory(CategoryModel category)
+        public static bool InsertProduct(ProductModel product)
         {
             try
             {
-                //ClaseBD.InsertCategory(category);
+                //ClaseBD.InsertProduct(position);
                 return true;
             }
             catch (Exception)
@@ -37,11 +51,11 @@ namespace BusinessLibrary.Conection
             }
         }
 
-        public static bool UpdateCategory(CategoryModel category)
+        public static bool UpdateProduct(ProductModel product)
         {
             try
             {
-                //ClaseBD.UpdateCategory(category);
+                //ClaseBD.UpdateProduct(position);
                 return true;
             }
             catch (Exception)
@@ -51,11 +65,11 @@ namespace BusinessLibrary.Conection
             }
         }
 
-        public static bool DeleteCategory(CategoryModel category)
+        public static bool DeleteProduct(ProductModel product)
         {
             try
             {
-                //ClaseBD.DeleteCategory(category);
+                //ClaseBD.DeleteProduct(position);
                 return true;
             }
             catch (Exception)

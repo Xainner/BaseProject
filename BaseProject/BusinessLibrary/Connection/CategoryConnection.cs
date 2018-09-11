@@ -7,13 +7,27 @@ using System.Threading.Tasks;
 
 namespace BusinessLibrary.Conection
 {
-    class PositionConection
+    public class CategoryConnection
     {
-        public static List<PositionModel> SelectPosition(PositionModel position)
+        public static ClientModel SelectCategory(ClientModel category)
         {
             try
             {
-                //ClaseBD.SelectPosition(position);
+                //category = ClaseBD.SelectCategory(category);
+                return category;
+            }
+            catch (Exception)
+            {
+
+                throw;
+            }
+        }
+
+        public static List<CategoryModel> SelectAllCategory(CategoryModel category)
+        {
+            try
+            {
+                //ClaseBD.SelectAllCategory(category);
                 return null;
             }
             catch (Exception)
@@ -23,11 +37,11 @@ namespace BusinessLibrary.Conection
             }
         }
 
-        public static bool InsertPosition(PositionModel position)
+        public static bool InsertCategory(CategoryModel category)
         {
             try
             {
-                //ClaseBD.InsertPosition(position);
+                //ClaseBD.InsertCategory(category);
                 return true;
             }
             catch (Exception)
@@ -37,11 +51,11 @@ namespace BusinessLibrary.Conection
             }
         }
 
-        public static bool UpdatePosition(PositionModel position)
+        public static bool UpdateCategory(CategoryModel category)
         {
             try
             {
-                //ClaseBD.UpdatePosition(position);
+                //ClaseBD.UpdateCategory(category);
                 return true;
             }
             catch (Exception)
@@ -51,11 +65,11 @@ namespace BusinessLibrary.Conection
             }
         }
 
-        public static bool DeletePosition(PositionModel position)
+        public static bool DeleteCategory(CategoryModel category)
         {
             try
             {
-                //ClaseBD.DeletePosition(position);
+                //ClaseBD.DeleteCategory(category);
                 return true;
             }
             catch (Exception)

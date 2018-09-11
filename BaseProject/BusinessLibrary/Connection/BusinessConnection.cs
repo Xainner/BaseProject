@@ -7,13 +7,27 @@ using System.Threading.Tasks;
 
 namespace BusinessLibrary.Conection
 {
-    class SubcategoryConection
+    public class BusinessConnection
     {
-        public static List<SubcategoryModel> SelectSubcategory(SubcategoryModel subcategory)
+        public static BusinessModel SelectBusiness(BusinessModel business)
         {
             try
             {
-                //ClaseBD.SelectSubcategory(subcategory);
+                //business = ClaseBD.SelectBusiness(business);
+                return business;
+            }
+            catch (Exception)
+            {
+
+                throw;
+            }
+        }
+
+        public static List<BusinessModel> SelectAllBusiness(BusinessModel business)
+        {
+            try
+            {
+                //ClaseBD.SelectAllBusiness(business);
                 return null;
             }
             catch (Exception)
@@ -23,11 +37,11 @@ namespace BusinessLibrary.Conection
             }
         }
 
-        public static bool InsertSubcategory(SubcategoryModel subcategory)
+        public static bool InsertBusiness(BusinessModel business)
         {
             try
             {
-                //ClaseBD.InsertSubcategory(subcategory);
+                //ClaseBD.InsertBusiness(business);
                 return true;
             }
             catch (Exception)
@@ -37,11 +51,11 @@ namespace BusinessLibrary.Conection
             }
         }
 
-        public static bool UpdateSubcategory(SubcategoryModel subcategory)
+        public static bool UpdateBusiness(BusinessModel business)
         {
             try
             {
-                //ClaseBD.UpdateSubcategory(subcategory);
+                //ClaseBD.UpdateBusiness(business);
                 return true;
             }
             catch (Exception)
@@ -51,11 +65,11 @@ namespace BusinessLibrary.Conection
             }
         }
 
-        public static bool DeleteSubcategory(SubcategoryModel subcategory)
+        public static bool DeleteBusiness(BusinessModel business)
         {
             try
             {
-                //ClaseBD.DeleteSubcategory(subcategory);
+                //ClaseBD.DeleteBusiness(business);
                 return true;
             }
             catch (Exception)
@@ -64,5 +78,6 @@ namespace BusinessLibrary.Conection
                 throw;
             }
         }
+
     }
 }

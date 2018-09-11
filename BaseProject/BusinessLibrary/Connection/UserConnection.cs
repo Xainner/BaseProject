@@ -7,13 +7,27 @@ using System.Threading.Tasks;
 
 namespace BusinessLibrary.Conection
 {
-    class SalaryConection
+    public class UserConnection
     {
-        public static List<SalaryModel> SelectSalary(SalaryModel salary)
+        public static UserModel SelectUser(UserModel user)
         {
             try
             {
-                //ClaseBD.SelectSalary(salary);
+                //user = ClaseBD.SelectUser(user);
+                return user;
+            }
+            catch (Exception)
+            {
+
+                throw;
+            }
+        }
+
+        public static List<UserModel> SelectAllUser(UserModel user)
+        {
+            try
+            {
+                //ClaseBD.SelectAllUser(user);
                 return null;
             }
             catch (Exception)
@@ -23,11 +37,11 @@ namespace BusinessLibrary.Conection
             }
         }
 
-        public static bool InsertSalary(SalaryModel salary)
+        public static bool InsertUser(UserModel user)
         {
             try
             {
-                //ClaseBD.InsertSalary(salary);
+                //ClaseBD.InsertUser(user);
                 return true;
             }
             catch (Exception)
@@ -37,11 +51,11 @@ namespace BusinessLibrary.Conection
             }
         }
 
-        public static bool UpdateSalary(SalaryModel salary)
+        public static bool UpdateUser(UserModel user)
         {
             try
             {
-                //ClaseBD.UpdateSalary(salary);
+                //ClaseBD.UpdateUser(user);
                 return true;
             }
             catch (Exception)
@@ -51,11 +65,11 @@ namespace BusinessLibrary.Conection
             }
         }
 
-        public static bool DeleteSalary(SalaryModel salary)
+        public static bool DeleteUser(UserModel user)
         {
             try
             {
-                //ClaseBD.DeleteSalary(salary);
+                //ClaseBD.DeleteUser(user);
                 return true;
             }
             catch (Exception)

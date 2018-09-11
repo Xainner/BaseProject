@@ -7,13 +7,27 @@ using System.Threading.Tasks;
 
 namespace BusinessLibrary.Conection
 {
-    class BrandConection
+    public class BrandConnection
     {
-        public static List<BrandModel> SelectBrand(BrandModel brand)
+        public static BrandModel SelectBrand(BrandModel brand)
         {
             try
             {
-                //ClaseBD.SelectBrand(brand);
+                //brand = ClaseBD.SelectBrand(brand);
+                return brand;
+            }
+            catch (Exception)
+            {
+
+                throw;
+            }
+        }
+
+        public static List<BrandModel> SelectAllBrand(BrandModel brand)
+        {
+            try
+            {
+                //ClaseBD.SelectAllBrand(brand);
                 return null;
             }
             catch (Exception)

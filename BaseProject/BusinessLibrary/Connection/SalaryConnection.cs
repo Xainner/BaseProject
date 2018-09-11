@@ -1,20 +1,33 @@
 ﻿using BusinessLibrary.Models;
-using log4net.Config;
 using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace BusinessLibrary.DataManagement
+namespace BusinessLibrary.Conection
 {
-    class ClientConection
+    public class SalaryConnection
     {
-        public static List<ClientModel> SelectClient(ClientModel client)
+        public static SalaryModel SelectSalary(SalaryModel salary)
         {
             try
             {
-                //ClaseBD.SelectClient(client);
+                //salary = ClaseBD.SelectSalary(salary);
+                return salary;
+            }
+            catch (Exception)
+            {
+
+                throw;
+            }
+        }
+
+        public static List<SalaryModel> SelectAllSalary(SalaryModel salary)
+        {
+            try
+            {
+                //ClaseBD.SelectAllSalary(salary);
                 return null;
             }
             catch (Exception)
@@ -24,11 +37,11 @@ namespace BusinessLibrary.DataManagement
             }
         }
 
-        public static bool InsertClient(ClientModel client)
+        public static bool InsertSalary(SalaryModel salary)
         {
             try
             {
-                //ClaseBD.InsertClient(client);
+                //ClaseBD.InsertSalary(salary);
                 return true;
             }
             catch (Exception)
@@ -38,11 +51,11 @@ namespace BusinessLibrary.DataManagement
             }
         }
 
-        public static bool UpdateClient(ClientModel client)
+        public static bool UpdateSalary(SalaryModel salary)
         {
             try
             {
-                //ClaseBD.UpdateClient(client);
+                //ClaseBD.UpdateSalary(salary);
                 return true;
             }
             catch (Exception)
@@ -50,14 +63,13 @@ namespace BusinessLibrary.DataManagement
 
                 throw;
             }
-
         }
 
-        public static bool DeleteClient(ClientModel client)
+        public static bool DeleteSalary(SalaryModel salary)
         {
             try
             {
-                //ClaseBD.DeleteClient(client);
+                //ClaseBD.DeleteSalary(salary);
                 return true;
             }
             catch (Exception)
@@ -65,7 +77,6 @@ namespace BusinessLibrary.DataManagement
 
                 throw;
             }
-        }        
-
+        }
     }
 }

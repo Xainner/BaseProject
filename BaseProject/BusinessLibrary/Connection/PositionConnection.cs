@@ -7,13 +7,27 @@ using System.Threading.Tasks;
 
 namespace BusinessLibrary.Conection
 {
-    class BusinessConection
+    public class PositionConnection
     {
-        public static List<BusinessModel> SelectBusiness(BusinessModel business)
+        public static PositionModel SelectPosition(PositionModel position)
         {
             try
             {
-                //ClaseBD.SelectBusiness(business);
+                //position = ClaseBD.SelectPosition(position);
+                return position;
+            }
+            catch (Exception)
+            {
+
+                throw;
+            }
+        }
+
+        public static List<PositionModel> SelectAllPosition(PositionModel position)
+        {
+            try
+            {
+                //ClaseBD.SelectAllPosition(position);
                 return null;
             }
             catch (Exception)
@@ -23,11 +37,11 @@ namespace BusinessLibrary.Conection
             }
         }
 
-        public static bool InsertBusiness(BusinessModel business)
+        public static bool InsertPosition(PositionModel position)
         {
             try
             {
-                //ClaseBD.InsertBusiness(business);
+                //ClaseBD.InsertPosition(position);
                 return true;
             }
             catch (Exception)
@@ -37,11 +51,11 @@ namespace BusinessLibrary.Conection
             }
         }
 
-        public static bool UpdateBusiness(BusinessModel business)
+        public static bool UpdatePosition(PositionModel position)
         {
             try
             {
-                //ClaseBD.UpdateBusiness(business);
+                //ClaseBD.UpdatePosition(position);
                 return true;
             }
             catch (Exception)
@@ -51,11 +65,11 @@ namespace BusinessLibrary.Conection
             }
         }
 
-        public static bool DeleteBusiness(BusinessModel business)
+        public static bool DeletePosition(PositionModel position)
         {
             try
             {
-                //ClaseBD.DeleteBusiness(business);
+                //ClaseBD.DeletePosition(position);
                 return true;
             }
             catch (Exception)
@@ -64,6 +78,5 @@ namespace BusinessLibrary.Conection
                 throw;
             }
         }
-
     }
 }

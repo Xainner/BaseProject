@@ -44,16 +44,16 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Conection\BrandConection.cs" />
-    <Compile Include="Conection\BusinessConection.cs" />
-    <Compile Include="Conection\CategoryConection.cs" />
-    <Compile Include="Conection\ClientConection.cs" />
-    <Compile Include="Conection\EmployeeConection.cs" />
-    <Compile Include="Conection\PositionConection.cs" />
-    <Compile Include="Conection\ProductConection.cs" />
-    <Compile Include="Conection\SalaryConection.cs" />
-    <Compile Include="Conection\SubcategoryConection.cs" />
-    <Compile Include="Conection\UserConection.cs" />
+    <Compile Include="Connection\BrandConnection.cs" />
+    <Compile Include="Connection\BusinessConnection.cs" />
+    <Compile Include="Connection\CategoryConnection.cs" />
+    <Compile Include="Connection\ClientConnection.cs" />
+    <Compile Include="Connection\EmployeeConnection.cs" />
+    <Compile Include="Connection\PositionConnection.cs" />
+    <Compile Include="Connection\ProductConnection.cs" />
+    <Compile Include="Connection\SalaryConnection.cs" />
+    <Compile Include="Connection\SubcategoryConnection.cs" />
+    <Compile Include="Connection\UserConnection.cs" />
     <Compile Include="Models\BrandModel.cs" />
     <Compile Include="Models\BusinessModel.cs" />
     <Compile Include="Models\CategoryModel.cs" />

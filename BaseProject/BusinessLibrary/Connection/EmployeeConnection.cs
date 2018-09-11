@@ -7,13 +7,27 @@ using System.Threading.Tasks;
 
 namespace BusinessLibrary.Conection
 {
-    class EmployeeConection
+    public class EmployeeConnection
     {
-        public static List<EmployeeModel> SelectEmployee(EmployeeModel employee)
+        public static EmployeeModel SelectEmployee(EmployeeModel employee)
         {
             try
             {
-                //ClaseBD.SelectEmployee(employee);
+                //employee = ClaseBD.SelectEmployee(employee);
+                return employee;
+            }
+            catch (Exception)
+            {
+
+                throw;
+            }
+        }
+
+        public static List<EmployeeModel> SelectAllEmployee(EmployeeModel employee)
+        {
+            try
+            {
+                //ClaseBD.SelectAllEmployee(employee);
                 return null;
             }
             catch (Exception)
