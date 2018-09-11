@@ -64,7 +64,7 @@
             this.groupBox1.Controls.Add(this.cmbIdentificationType);
             this.groupBox1.Controls.Add(this.metroLabel5);
             this.groupBox1.Controls.Add(this.metroLabel7);
-            this.groupBox1.Location = new System.Drawing.Point(56, 35);
+            this.groupBox1.Location = new System.Drawing.Point(43, 17);
             this.groupBox1.Name = "groupBox1";
             this.groupBox1.Size = new System.Drawing.Size(709, 189);
             this.groupBox1.TabIndex = 29;
@@ -266,7 +266,7 @@
             // btnDeleteClient
             // 
             this.btnDeleteClient.ActiveControl = null;
-            this.btnDeleteClient.Location = new System.Drawing.Point(682, 534);
+            this.btnDeleteClient.Location = new System.Drawing.Point(643, 481);
             this.btnDeleteClient.Name = "btnDeleteClient";
             this.btnDeleteClient.Size = new System.Drawing.Size(83, 42);
             this.btnDeleteClient.TabIndex = 27;
@@ -276,7 +276,7 @@
             // btnUpdateClient
             // 
             this.btnUpdateClient.ActiveControl = null;
-            this.btnUpdateClient.Location = new System.Drawing.Point(816, 135);
+            this.btnUpdateClient.Location = new System.Drawing.Point(816, 97);
             this.btnUpdateClient.Name = "btnUpdateClient";
             this.btnUpdateClient.Size = new System.Drawing.Size(83, 43);
             this.btnUpdateClient.TabIndex = 26;
@@ -286,7 +286,7 @@
             // btnAddClient
             // 
             this.btnAddClient.ActiveControl = null;
-            this.btnAddClient.Location = new System.Drawing.Point(816, 62);
+            this.btnAddClient.Location = new System.Drawing.Point(816, 35);
             this.btnAddClient.Name = "btnAddClient";
             this.btnAddClient.Size = new System.Drawing.Size(83, 42);
             this.btnAddClient.TabIndex = 25;
@@ -296,7 +296,7 @@
             // dgvClient
             // 
             this.dgvClient.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dgvClient.Location = new System.Drawing.Point(117, 292);
+            this.dgvClient.Location = new System.Drawing.Point(117, 252);
             this.dgvClient.Name = "dgvClient";
             this.dgvClient.Size = new System.Drawing.Size(609, 213);
             this.dgvClient.TabIndex = 24;
@@ -315,7 +315,7 @@
             this.txtSearchClient.CustomButton.Theme = MetroFramework.MetroThemeStyle.Light;
             this.txtSearchClient.CustomButton.UseSelectable = true;
             this.txtSearchClient.Lines = new string[0];
-            this.txtSearchClient.Location = new System.Drawing.Point(561, 254);
+            this.txtSearchClient.Location = new System.Drawing.Point(561, 223);
             this.txtSearchClient.MaxLength = 32767;
             this.txtSearchClient.Name = "txtSearchClient";
             this.txtSearchClient.PasswordChar = '\0';
@@ -344,7 +344,7 @@
             this.Controls.Add(this.dgvClient);
             this.Controls.Add(this.txtSearchClient);
             this.Name = "UcClient";
-            this.Size = new System.Drawing.Size(955, 612);
+            this.Size = new System.Drawing.Size(955, 536);
             this.groupBox1.ResumeLayout(false);
             this.groupBox1.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgvClient)).EndInit();

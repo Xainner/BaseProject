@@ -60,5 +60,27 @@ namespace UI.UserControls
             FrmMain.Instance.MetroContainer.Controls["ucProduct"].BringToFront();
             FrmMain.Instance.MetroBack.Visible = true;
         }
+
+        private void btnSalary_Click(object sender, EventArgs e)
+        {
+            UcPositionSalary ucPositionSalary = new UcPositionSalary
+            {
+                Dock = DockStyle.Fill
+            };
+            FrmMain.Instance.MetroContainer.Controls.Add(ucPositionSalary);
+            FrmMain.Instance.MetroContainer.Controls["ucPositionSalary"].BringToFront();
+            FrmMain.Instance.MetroBack.Visible = true;
+        }
+
+        private void btnBrandSize_Click(object sender, EventArgs e)
+        {
+            UcBrandSize ucBrandSize = new UcBrandSize
+            {
+                Dock = DockStyle.Fill
+            };
+            FrmMain.Instance.MetroContainer.Controls.Add(ucBrandSize);
+            FrmMain.Instance.MetroContainer.Controls["ucBrandSize"].BringToFront();
+            FrmMain.Instance.MetroBack.Visible = true;
+        }
     }
 }

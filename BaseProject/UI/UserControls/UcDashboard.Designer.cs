@@ -34,8 +34,7 @@
             this.btnClient = new MetroFramework.Controls.MetroTile();
             this.btnCategory = new MetroFramework.Controls.MetroTile();
             this.btnSalary = new MetroFramework.Controls.MetroTile();
-            this.btnPosition = new MetroFramework.Controls.MetroTile();
-            this.btnBrand = new MetroFramework.Controls.MetroTile();
+            this.btnBrandSize = new MetroFramework.Controls.MetroTile();
             this.SuspendLayout();
             // 
             // btnProducts
@@ -84,58 +83,49 @@
             // btnCategory
             // 
             this.btnCategory.ActiveControl = null;
-            this.btnCategory.Location = new System.Drawing.Point(540, 298);
+            this.btnCategory.Location = new System.Drawing.Point(578, 401);
             this.btnCategory.Name = "btnCategory";
-            this.btnCategory.Size = new System.Drawing.Size(140, 105);
+            this.btnCategory.Size = new System.Drawing.Size(284, 89);
             this.btnCategory.TabIndex = 0;
-            this.btnCategory.Text = "Categoria";
+            this.btnCategory.Text = "Categoria y Subcategoria";
             this.btnCategory.UseSelectable = true;
             this.btnCategory.Click += new System.EventHandler(this.btnCategory_Click);
             // 
             // btnSalary
             // 
             this.btnSalary.ActiveControl = null;
-            this.btnSalary.Location = new System.Drawing.Point(724, 298);
+            this.btnSalary.Location = new System.Drawing.Point(736, 290);
             this.btnSalary.Name = "btnSalary";
-            this.btnSalary.Size = new System.Drawing.Size(140, 105);
+            this.btnSalary.Size = new System.Drawing.Size(125, 86);
             this.btnSalary.TabIndex = 0;
-            this.btnSalary.Text = "Salario";
+            this.btnSalary.Text = "Salario y Posición";
             this.btnSalary.UseSelectable = true;
+            this.btnSalary.Click += new System.EventHandler(this.btnSalary_Click);
             // 
-            // btnPosition
+            // btnBrandSize
             // 
-            this.btnPosition.ActiveControl = null;
-            this.btnPosition.Location = new System.Drawing.Point(540, 428);
-            this.btnPosition.Name = "btnPosition";
-            this.btnPosition.Size = new System.Drawing.Size(140, 105);
-            this.btnPosition.TabIndex = 0;
-            this.btnPosition.Text = "Posición";
-            this.btnPosition.UseSelectable = true;
-            // 
-            // btnBrand
-            // 
-            this.btnBrand.ActiveControl = null;
-            this.btnBrand.Location = new System.Drawing.Point(724, 428);
-            this.btnBrand.Name = "btnBrand";
-            this.btnBrand.Size = new System.Drawing.Size(140, 105);
-            this.btnBrand.TabIndex = 0;
-            this.btnBrand.Text = "Marca";
-            this.btnBrand.UseSelectable = true;
+            this.btnBrandSize.ActiveControl = null;
+            this.btnBrandSize.Location = new System.Drawing.Point(578, 290);
+            this.btnBrandSize.Name = "btnBrandSize";
+            this.btnBrandSize.Size = new System.Drawing.Size(133, 86);
+            this.btnBrandSize.TabIndex = 1;
+            this.btnBrandSize.Text = "Marca y Talla";
+            this.btnBrandSize.UseSelectable = true;
+            this.btnBrandSize.Click += new System.EventHandler(this.btnBrandSize_Click);
             // 
             // UcDashboard
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.Controls.Add(this.btnBrand);
+            this.Controls.Add(this.btnBrandSize);
             this.Controls.Add(this.btnClient);
-            this.Controls.Add(this.btnPosition);
             this.Controls.Add(this.btnEmployee);
             this.Controls.Add(this.btnSalary);
             this.Controls.Add(this.btnBusiness);
             this.Controls.Add(this.btnCategory);
             this.Controls.Add(this.btnProducts);
             this.Name = "UcDashboard";
-            this.Size = new System.Drawing.Size(955, 612);
+            this.Size = new System.Drawing.Size(955, 536);
             this.ResumeLayout(false);
 
         }
@@ -148,7 +138,6 @@
         private MetroFramework.Controls.MetroTile btnClient;
         private MetroFramework.Controls.MetroTile btnCategory;
         private MetroFramework.Controls.MetroTile btnSalary;
-        private MetroFramework.Controls.MetroTile btnPosition;
-        private MetroFramework.Controls.MetroTile btnBrand;
+        private MetroFramework.Controls.MetroTile btnBrandSize;
     }
 }

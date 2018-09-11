@@ -65,7 +65,7 @@
             this.groupBox2.Controls.Add(this.cmbCategory);
             this.groupBox2.Controls.Add(this.metroLabel3);
             this.groupBox2.Controls.Add(this.metroLabel4);
-            this.groupBox2.Location = new System.Drawing.Point(500, 68);
+            this.groupBox2.Location = new System.Drawing.Point(505, 20);
             this.groupBox2.Name = "groupBox2";
             this.groupBox2.Size = new System.Drawing.Size(429, 476);
             this.groupBox2.TabIndex = 1;
@@ -211,7 +211,7 @@
             this.groupBox1.Controls.Add(this.cmbGender);
             this.groupBox1.Controls.Add(this.metroLabel2);
             this.groupBox1.Controls.Add(this.metroLabel1);
-            this.groupBox1.Location = new System.Drawing.Point(25, 68);
+            this.groupBox1.Location = new System.Drawing.Point(17, 20);
             this.groupBox1.Name = "groupBox1";
             this.groupBox1.Size = new System.Drawing.Size(429, 476);
             this.groupBox1.TabIndex = 2;
@@ -353,7 +353,7 @@
             this.Controls.Add(this.groupBox2);
             this.Controls.Add(this.groupBox1);
             this.Name = "UcCategory";
-            this.Size = new System.Drawing.Size(955, 612);
+            this.Size = new System.Drawing.Size(955, 536);
             this.groupBox2.ResumeLayout(false);
             this.groupBox2.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgvSubcategory)).EndInit();

@@ -30,9 +30,9 @@
         {
             this.mainPanel = new MetroFramework.Controls.MetroPanel();
             this.statusStrip1 = new System.Windows.Forms.StatusStrip();
-            this.goBackLink = new MetroFramework.Controls.MetroLink();
             this.toolStripStatusLabel = new System.Windows.Forms.ToolStripStatusLabel();
             this.toolStripStatusLabel1 = new System.Windows.Forms.ToolStripStatusLabel();
+            this.goBackLink = new MetroFramework.Controls.MetroLink();
             this.statusStrip1.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -43,7 +43,7 @@
             this.mainPanel.HorizontalScrollbarSize = 10;
             this.mainPanel.Location = new System.Drawing.Point(23, 63);
             this.mainPanel.Name = "mainPanel";
-            this.mainPanel.Size = new System.Drawing.Size(955, 612);
+            this.mainPanel.Size = new System.Drawing.Size(955, 536);
             this.mainPanel.TabIndex = 0;
             this.mainPanel.VerticalScrollbarBarColor = true;
             this.mainPanel.VerticalScrollbarHighlightOnWheel = false;
@@ -54,20 +54,10 @@
             this.statusStrip1.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.toolStripStatusLabel,
             this.toolStripStatusLabel1});
-            this.statusStrip1.Location = new System.Drawing.Point(20, 715);
+            this.statusStrip1.Location = new System.Drawing.Point(20, 622);
             this.statusStrip1.Name = "statusStrip1";
             this.statusStrip1.Size = new System.Drawing.Size(961, 22);
             this.statusStrip1.TabIndex = 1;
-            // 
-            // goBackLink
-            // 
-            this.goBackLink.Location = new System.Drawing.Point(903, 34);
-            this.goBackLink.Name = "goBackLink";
-            this.goBackLink.Size = new System.Drawing.Size(75, 23);
-            this.goBackLink.TabIndex = 2;
-            this.goBackLink.Text = "<";
-            this.goBackLink.UseSelectable = true;
-            this.goBackLink.Click += new System.EventHandler(this.goBackLink_Click);
             // 
             // toolStripStatusLabel
             // 
@@ -79,11 +69,21 @@
             this.toolStripStatusLabel1.Name = "toolStripStatusLabel1";
             this.toolStripStatusLabel1.Size = new System.Drawing.Size(0, 17);
             // 
+            // goBackLink
+            // 
+            this.goBackLink.Location = new System.Drawing.Point(903, 34);
+            this.goBackLink.Name = "goBackLink";
+            this.goBackLink.Size = new System.Drawing.Size(75, 23);
+            this.goBackLink.TabIndex = 2;
+            this.goBackLink.Text = "<";
+            this.goBackLink.UseSelectable = true;
+            this.goBackLink.Click += new System.EventHandler(this.goBackLink_Click);
+            // 
             // FrmMain
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(1001, 757);
+            this.ClientSize = new System.Drawing.Size(1001, 664);
             this.Controls.Add(this.goBackLink);
             this.Controls.Add(this.statusStrip1);
             this.Controls.Add(this.mainPanel);
