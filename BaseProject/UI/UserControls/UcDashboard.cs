@@ -49,5 +49,16 @@ namespace UI.UserControls
             FrmMain.Instance.MetroContainer.Controls["ucCategory"].BringToFront();
             FrmMain.Instance.MetroBack.Visible = true;
         }
+
+        private void btnProducts_Click(object sender, EventArgs e)
+        {
+            UcProduct ucProduct = new UcProduct
+            {
+                Dock = DockStyle.Fill
+            };
+            FrmMain.Instance.MetroContainer.Controls.Add(ucProduct);
+            FrmMain.Instance.MetroContainer.Controls["ucProduct"].BringToFront();
+            FrmMain.Instance.MetroBack.Visible = true;
+        }
     }
 }

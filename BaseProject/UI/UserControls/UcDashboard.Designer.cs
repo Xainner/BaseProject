@@ -47,6 +47,7 @@
             this.btnProducts.TabIndex = 0;
             this.btnProducts.Text = "Productos";
             this.btnProducts.UseSelectable = true;
+            this.btnProducts.Click += new System.EventHandler(this.btnProducts_Click);
             // 
             // btnBusiness
             // 

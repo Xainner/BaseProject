@@ -87,6 +87,12 @@
     <Compile Include="UserControls\UcDashboard.Designer.cs">
       <DependentUpon>UcDashboard.cs</DependentUpon>
     </Compile>
+    <Compile Include="UserControls\UcProduct.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="UserControls\UcProduct.Designer.cs">
+      <DependentUpon>UcProduct.cs</DependentUpon>
+    </Compile>
     <EmbeddedResource Include="FrmMain.resx">
       <DependentUpon>FrmMain.cs</DependentUpon>
     </EmbeddedResource>
@@ -110,6 +116,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="UserControls\UcDashboard.resx">
       <DependentUpon>UcDashboard.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="UserControls\UcProduct.resx">
+      <DependentUpon>UcProduct.cs</DependentUpon>
     </EmbeddedResource>
     <None Include="packages.config" />
     <None Include="Properties\Settings.settings">
