@@ -68,6 +68,7 @@
             this.btnEmployee.TabIndex = 0;
             this.btnEmployee.Text = "Empleados";
             this.btnEmployee.UseSelectable = true;
+            this.btnEmployee.Click += new System.EventHandler(this.btnEmployee_Click);
             // 
             // btnClient
             // 

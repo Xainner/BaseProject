@@ -93,6 +93,12 @@
     <Compile Include="UserControls\UcDashboard.Designer.cs">
       <DependentUpon>UcDashboard.cs</DependentUpon>
     </Compile>
+    <Compile Include="UserControls\UcEmployee.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="UserControls\UcEmployee.Designer.cs">
+      <DependentUpon>UcEmployee.cs</DependentUpon>
+    </Compile>
     <Compile Include="UserControls\UcPositionSalary.cs">
       <SubType>UserControl</SubType>
     </Compile>
@@ -131,6 +137,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="UserControls\UcDashboard.resx">
       <DependentUpon>UcDashboard.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="UserControls\UcEmployee.resx">
+      <DependentUpon>UcEmployee.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="UserControls\UcPositionSalary.resx">
       <DependentUpon>UcPositionSalary.cs</DependentUpon>

@@ -82,5 +82,16 @@ namespace UI.UserControls
             FrmMain.Instance.MetroContainer.Controls["ucBrandSize"].BringToFront();
             FrmMain.Instance.MetroBack.Visible = true;
         }
+
+        private void btnEmployee_Click(object sender, EventArgs e)
+        {
+            UcEmployee ucEmployee = new UcEmployee
+            {
+                Dock = DockStyle.Fill
+            };
+            FrmMain.Instance.MetroContainer.Controls.Add(ucEmployee);
+            FrmMain.Instance.MetroContainer.Controls["ucEmployee"].BringToFront();
+            FrmMain.Instance.MetroBack.Visible = true;
+        }
     }
 }
