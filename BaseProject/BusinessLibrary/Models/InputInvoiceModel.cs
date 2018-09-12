@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace BusinessLibrary.Models
 {
-    public class InputInvoice
+    public class InputInvoiceModel
     {
         public int idInputInovice;
         public List<ProductModel> products;

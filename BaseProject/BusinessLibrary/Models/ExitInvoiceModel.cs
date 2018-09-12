@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace BusinessLibrary.Models
 {
-    public class ExitInvoice
+    public class ExitInvoiceModel
     {
         public int idInputInovice;
         public int idBusiness;

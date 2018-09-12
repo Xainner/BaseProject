@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace BusinessLibrary.Models
 {
-    public class ExternalSellinvoice
+    public class InternalSellinvoiceModel
     {
         public int idSellinvoice;
         public string numInvoice;
