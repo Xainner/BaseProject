@@ -1,4 +1,6 @@
-﻿using System;
+﻿using BusinessLibrary.Conection;
+using BusinessLibrary.Models;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -26,10 +28,20 @@ namespace LogicLibrary
             {
                 //TEMP
                 string[] business = new string[] { fantasyName, societyName, legalCertification, telephone, mainAddress, generalAddress, email, webPage };
-                //TEMP
+                BusinessModel businessModel = new BusinessModel()
+                {
+                    FantasyName = fantasyName,
+                    SocietyName = societyName,
+                    LegalCertification = legalCertification,
+                    Telephone = telephone,
+                    MainAddress = mainAddress,
+                    GeneralAddress = generalAddress,
+                    Email = email,
+                    WebPage = webPage
+                };
                 if (VerifyFields(business))
                 {
-                    //BS.InsertUser(user);
+                    BusinessConnection.InsertBusiness(businessModel);
                     return true;
                 }
                 else
@@ -50,10 +62,13 @@ namespace LogicLibrary
             {
                 //TEMP
                 string[] business = new string[] { idBusiness, fantasyName, societyName, legalCertification, telephone, mainAddress, generalAddress, email, webPage };
-                //TEMP
+                BusinessModel businessModel = new BusinessModel()
+                {
+                    IdBusiness = int.Parse(idBusiness)
+                };
                 if (VerifyFields(business))
                 {
-                    //BS.UpdateUserById(user);
+                    BusinessConnection.UpdateBusiness(businessModel);
                     return true;
                 }
                 else
@@ -74,10 +89,13 @@ namespace LogicLibrary
             {
                 //TEMP
                 string[] business = new string[] { idBusiness };
-                //TEMP
+                BusinessModel businessModel = new BusinessModel()
+                {
+                    IdBusiness = int.Parse(idBusiness)
+                };
                 if (VerifyFields(business))
                 {
-                    //BS.DeleteUserById(business);
+                    BusinessConnection.DeleteBusiness(businessModel);
                     return true;
                 }
                 else
@@ -98,10 +116,13 @@ namespace LogicLibrary
             {
                 //TEMP
                 string[] business = new string[] { idBusiness };
-                //TEMP
+                BusinessModel businessModel = new BusinessModel()
+                {
+                    IdBusiness = int.Parse(idBusiness)
+                };
                 if (VerifyFields(business))
                 {
-                    //BS.SelectUserById(user);
+                    BusinessConnection.SelectBusiness(businessModel);
                     return true;
                 }
                 else
@@ -116,17 +137,17 @@ namespace LogicLibrary
             }
         }
 
-        //public static List<UsertModel> SelectAllUsers()
-        //{
-        //    try
-        //    {
-        //        return BS.SelectAllUsers();
-        //    }
-        //    catch (Exception ex)
-        //    {
-        //        return false;
-        //        Log4Net
-        //    }
-        //}
+        public static List<BusinessModel> SelectAllBusiness()
+        {
+            try
+            {
+                return BusinessConnection.SelectAllBusiness();
+            }
+            catch (Exception ex)
+            {
+                //Log4Net
+                return null;
+            }
+        }
     }
 }

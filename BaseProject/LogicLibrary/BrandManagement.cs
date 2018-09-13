@@ -1,4 +1,6 @@
-﻿using System;
+﻿using BusinessLibrary.Conection;
+using BusinessLibrary.Models;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -24,12 +26,14 @@ namespace LogicLibrary
         {
             try
             {
-                //TEMP
                 string[] brand = new string[] { name };
-                //TEMP
+                BrandModel brandModel = new BrandModel()
+                {
+                    Name = name
+                };
                 if (VerifyFields(brand))
                 {
-                    //BS.InsertBrand(user);
+                    BrandConnection.InsertBrand(brandModel);
                     return true;
                 }
                 else
@@ -48,12 +52,15 @@ namespace LogicLibrary
         {
             try
             {
-                //TEMP
                 string[] brand = new string[] { idBrand, name };
-                //TEMP
+                BrandModel brandModel = new BrandModel()
+                {
+                    IdBrand = int.Parse(idBrand),
+                    Name = name
+                };
                 if (VerifyFields(brand))
                 {
-                    //METHOD
+                    BrandConnection.UpdateBrand(brandModel);
                     return true;
                 }
                 else
@@ -74,10 +81,13 @@ namespace LogicLibrary
             {
                 //TEMP
                 string[] brand = new string[] { idBrand };
-                //TEMP
+                BrandModel brandModel = new BrandModel()
+                {
+                    IdBrand = int.Parse(idBrand)
+                };
                 if (VerifyFields(brand))
                 {
-                    //METHOD
+                    BrandConnection.DeleteBrand(brandModel);
                     return true;
                 }
                 else
@@ -98,10 +108,13 @@ namespace LogicLibrary
             {
                 //TEMP
                 string[] brand = new string[] { idBrand };
-                //TEMP
+                BrandModel brandModel = new BrandModel()
+                {
+                    IdBrand = int.Parse(idBrand)
+                };
                 if (VerifyFields(brand))
                 {
-                    //METHOD
+                    BrandConnection.SelectBrand(brandModel);
                     return true;
                 }
                 else
@@ -116,17 +129,17 @@ namespace LogicLibrary
             }
         }
 
-        //public static BrandModel SelectAllSalaries()
-        //{
-        //    try
-        //    {
-        //        //METHOD
-        //    }
-        //    catch (Exception ex)
-        //    {
-        //        return false;
-        //        Log4Net
-        //    }
-        //}
+        public static List<BrandModel> SelectAllSalaries()
+        {
+            try
+            {
+                return BrandConnection.SelectAllBrand();
+            }
+            catch (Exception ex)
+            {
+                //Log4Net
+                return null;
+            }
+        }
     }
 }

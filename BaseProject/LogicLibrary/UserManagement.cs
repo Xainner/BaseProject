@@ -1,4 +1,6 @@
-﻿using System;
+﻿using BusinessLibrary.Conection;
+using BusinessLibrary.Models;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -26,11 +28,16 @@ namespace LogicLibrary
             {
                 //TEMP
                 string[] user = new string[] { userName, password, name, lastName };
+                UserModel userModel = new UserModel()
+                {
+                    UserName = userName,
+                    Password = password,
+                    IdRole = 0
+                };
                 //TEMP
                 if (VerifyFields(user))
                 {
-                    //BS.InsertUser(user);
-                    return true;
+                    return UserConnection.InsertUser(userModel);
                 }
                 else
                 {
@@ -44,6 +51,7 @@ namespace LogicLibrary
             }
         }
 
+        //Para qué?
         public static bool UpdateUserById(string idUser, string userName, string password, string[] idRole, string name, string lastName)
         {
             try
@@ -74,10 +82,14 @@ namespace LogicLibrary
             {
                 //TEMP
                 string[] user = new string[] { idUser, password };
-                //TEMP
+                UserModel userModel = new UserModel()
+                {
+                    IdUser = int.Parse(idUser),
+                    Password = password,
+                };
                 if (VerifyFields(user))
                 {
-                    //BS.UpdateUserPassword(user);
+                    UserConnection.UpdateUserPassword(userModel);
                     return true;
                 }
                 else
@@ -98,10 +110,9 @@ namespace LogicLibrary
             {
                 //TEMP
                 string[] user = new string[] { idUser };
-                //TEMP
                 if (VerifyFields(user))
                 {
-                    //BS.DeleteUserById(user);
+                    UserConnection.DeleteUser(int.Parse(idUser));
                     return true;
                 }
                 else
@@ -116,41 +127,40 @@ namespace LogicLibrary
             }
         }
 
-        public static bool SelectUserById(string idUser)
+        public static UserModel SelectUserById(string idUser)
         {
             try
             {
                 //TEMP
                 string[] user = new string[] { idUser };
-                //TEMP
+
                 if (VerifyFields(user))
                 {
-                    //BS.SelectUserById(user);
-                    return true;
+                    return UserConnection.SelectUser(int.Parse(idUser));
                 }
                 else
                 {
-                    return false;
+                    return null;
                 }
             }
             catch (Exception ex)
             {
-                return false;
+                return null;
                 //Log4Net
             }
         }
 
-        //public static List<UsertModel> SelectAllUsers()
-        //{
-        //    try
-        //    {
-        //        return BS.SelectAllUsers();
-        //    }
-        //    catch (Exception ex)
-        //    {
-        //        return false;
-        //        Log4Net
-        //    }
-        //}
+        public static List<UserModel> SelectAllUsers()
+        {
+            try
+            {
+                return UserConnection.SelectAllUser();
+            }
+            catch (Exception ex)
+            {
+                //Log4Net
+                return null;
+            }
+        }
     }
 }
