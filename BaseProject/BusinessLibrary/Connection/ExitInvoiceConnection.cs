@@ -23,11 +23,11 @@ namespace BusinessLibrary.Connection
             }
         }
 
-        public static List<ExitInvoiceModel> SelectAllExitInvoice(ExitInvoiceModel exitInvoice)
+        public static List<ExitInvoiceModel> SelectAllExitInvoice()
         {
             try
             {
-                //ClaseBD.SelectAllExitInvoice(exitInvoice);
+                //ClaseBD.SelectAllExitInvoice();
                 return null;
             }
             catch (Exception)

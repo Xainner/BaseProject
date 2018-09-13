@@ -23,11 +23,11 @@ namespace BusinessLibrary.Conection
             }
         }
 
-        public static List<SubcategoryModel> SelectAllSubcategory(SubcategoryModel subcategory)
+        public static List<SubcategoryModel> SelectAllSubcategory()
         {
             try
             {
-                //ClaseBD.SelectAllSubcategory(subcategory);
+                //ClaseBD.SelectAllSubcategory();
                 return null;
             }
             catch (Exception)

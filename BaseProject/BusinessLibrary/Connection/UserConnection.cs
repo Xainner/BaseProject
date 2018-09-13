@@ -9,12 +9,12 @@ namespace BusinessLibrary.Conection
 {
     public class UserConnection
     {
-        public static UserModel SelectUser(UserModel user)
+        public static bool SelectUser(UserModel user)
         {
             try
             {
                 //user = ClaseBD.SelectUser(user);
-                return user;
+                return true;
             }
             catch (Exception)
             {
@@ -23,11 +23,11 @@ namespace BusinessLibrary.Conection
             }
         }
 
-        public static List<UserModel> SelectAllUser(UserModel user)
+        public static List<UserModel> SelectAllUser()
         {
             try
             {
-                //ClaseBD.SelectAllUser(user);
+                //ClaseBD.SelectAllUser();
                 return null;
             }
             catch (Exception)

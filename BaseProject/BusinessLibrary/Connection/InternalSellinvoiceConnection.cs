@@ -23,11 +23,11 @@ namespace BusinessLibrary.Connection
             }
         }
 
-        public static List<InternalSellinvoiceModel> SelectAllInternalSellinvoice(InternalSellinvoiceModel internalSellinvoice)
+        public static List<InternalSellinvoiceModel> SelectAllInternalSellinvoice()
         {
             try
             {
-                //ClaseBD.SelectAllInternalSellinvoice(internalSellinvoice);
+                //ClaseBD.SelectAllInternalSellinvoice();
                 return null;
             }
             catch (Exception)

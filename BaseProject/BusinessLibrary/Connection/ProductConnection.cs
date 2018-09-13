@@ -23,11 +23,11 @@ namespace BusinessLibrary.Conection
             }
         }
 
-        public static List<ProductModel> SelectAllProduct(ProductModel product)
+        public static List<ProductModel> SelectAllProduct()
         {
             try
             {
-                //ClaseBD.SelectAllProduct(product);
+                //ClaseBD.SelectAllProduct();
                 return null;
             }
             catch (Exception)

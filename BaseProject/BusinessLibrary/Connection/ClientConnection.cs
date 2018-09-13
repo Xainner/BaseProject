@@ -1,5 +1,4 @@
 ﻿using BusinessLibrary.Models;
-using log4net.Config;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -24,11 +23,11 @@ namespace BusinessLibrary.DataManagement
             }
         }
 
-        public static List<ClientModel> SelectAllClient(ClientModel client)
+        public static List<ClientModel> SelectAllClient()
         {
             try
             {
-                //ClaseBD.SelectAllClient(client);
+                //ClaseBD.SelectAllClient();
                 return null;
             }
             catch (Exception)
