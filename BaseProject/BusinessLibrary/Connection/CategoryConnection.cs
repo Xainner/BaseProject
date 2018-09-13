@@ -9,7 +9,7 @@ namespace BusinessLibrary.Conection
 {
     public class CategoryConnection
     {
-        public static ClientModel SelectCategory(ClientModel category)
+        public static CategoryModel SelectCategory(CategoryModel category)
         {
             try
             {

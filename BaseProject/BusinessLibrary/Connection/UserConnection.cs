@@ -9,12 +9,12 @@ namespace BusinessLibrary.Conection
 {
     public class UserConnection
     {
-        public static bool SelectUser(UserModel user)
+        public static UserModel SelectUser(UserModel user)
         {
             try
             {
                 //user = ClaseBD.SelectUser(user);
-                return true;
+                return user;
             }
             catch (Exception)
             {
