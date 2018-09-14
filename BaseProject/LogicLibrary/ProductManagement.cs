@@ -44,7 +44,7 @@ namespace LogicLibrary
                     LowerPrice = decimal.Parse(lowerPrice),
                     EstableQuantity = int.Parse(estableQuantity),
                     VariableQuantity = int.Parse(variableQuantity),
-                    Ivi = decimal.Parse(ivi),
+                    Ivi = false,
                     ExistingInvoice = false,
                     Image = image
 
@@ -88,7 +88,7 @@ namespace LogicLibrary
                     LowerPrice = decimal.Parse(lowerPrice),
                     EstableQuantity = int.Parse(estableQuantity),
                     VariableQuantity = int.Parse(variableQuantity),
-                    Ivi = decimal.Parse(ivi),
+                    Ivi = false,
                     ExistingInvoice = false,
                     Image = image
 

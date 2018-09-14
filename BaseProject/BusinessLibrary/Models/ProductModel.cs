@@ -23,7 +23,7 @@ namespace BusinessLibrary.Models
         public bool ivi;
         public bool existingInvoice;
 
-        public int Id { get => idProduct; set => idProduct = value; }
+        public int IdProduct { get => idProduct; set => idProduct = value; }
         public int Code { get => code; set => code = value; }
         public string Style { get => style; set => style = value; }
         public int IdBrand { get => idBrand; set => idBrand = value; }
