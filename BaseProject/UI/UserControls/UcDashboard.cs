@@ -104,5 +104,16 @@ namespace UI.UserControls
             FrmMain.Instance.MetroContainer.Controls["ucInputInvoice"].BringToFront();
             FrmMain.Instance.MetroBack.Visible = true;
         }
+
+        private void btnExitInvoice_Click(object sender, EventArgs e)
+        {
+            UcExitInvoice ucExitInvoice = new UcExitInvoice
+            {
+                Dock = DockStyle.Fill
+            };
+            FrmMain.Instance.MetroContainer.Controls.Add(ucExitInvoice);
+            FrmMain.Instance.MetroContainer.Controls["ucExitInvoice"].BringToFront();
+            FrmMain.Instance.MetroBack.Visible = true;
+        }
     }
 }

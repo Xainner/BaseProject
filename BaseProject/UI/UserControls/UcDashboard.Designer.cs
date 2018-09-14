@@ -36,11 +36,11 @@
             this.btnSalary = new MetroFramework.Controls.MetroTile();
             this.btnBrandSize = new MetroFramework.Controls.MetroTile();
             this.btnInputInvoice = new MetroFramework.Controls.MetroTile();
-            this.metroTile2 = new MetroFramework.Controls.MetroTile();
-            this.metroTile3 = new MetroFramework.Controls.MetroTile();
-            this.metroTile4 = new MetroFramework.Controls.MetroTile();
-            this.metroTile5 = new MetroFramework.Controls.MetroTile();
+            this.btnSellinvoice = new MetroFramework.Controls.MetroTile();
+            this.btnApartInvoice = new MetroFramework.Controls.MetroTile();
+            this.btnCreditInvoice = new MetroFramework.Controls.MetroTile();
             this.metroTile6 = new MetroFramework.Controls.MetroTile();
+            this.btnExitInvoice = new MetroFramework.Controls.MetroTile();
             this.SuspendLayout();
             // 
             // btnProducts
@@ -57,7 +57,7 @@
             // btnBusiness
             // 
             this.btnBusiness.ActiveControl = null;
-            this.btnBusiness.Location = new System.Drawing.Point(603, 202);
+            this.btnBusiness.Location = new System.Drawing.Point(603, 211);
             this.btnBusiness.Name = "btnBusiness";
             this.btnBusiness.Size = new System.Drawing.Size(140, 105);
             this.btnBusiness.TabIndex = 0;
@@ -79,7 +79,7 @@
             // btnClient
             // 
             this.btnClient.ActiveControl = null;
-            this.btnClient.Location = new System.Drawing.Point(223, 394);
+            this.btnClient.Location = new System.Drawing.Point(30, 211);
             this.btnClient.Name = "btnClient";
             this.btnClient.Size = new System.Drawing.Size(140, 105);
             this.btnClient.TabIndex = 0;
@@ -112,7 +112,7 @@
             // btnBrandSize
             // 
             this.btnBrandSize.ActiveControl = null;
-            this.btnBrandSize.Location = new System.Drawing.Point(415, 202);
+            this.btnBrandSize.Location = new System.Drawing.Point(415, 211);
             this.btnBrandSize.Name = "btnBrandSize";
             this.btnBrandSize.Size = new System.Drawing.Size(140, 105);
             this.btnBrandSize.TabIndex = 1;
@@ -123,7 +123,7 @@
             // btnInputInvoice
             // 
             this.btnInputInvoice.ActiveControl = null;
-            this.btnInputInvoice.Location = new System.Drawing.Point(223, 211);
+            this.btnInputInvoice.Location = new System.Drawing.Point(30, 394);
             this.btnInputInvoice.Name = "btnInputInvoice";
             this.btnInputInvoice.Size = new System.Drawing.Size(140, 105);
             this.btnInputInvoice.TabIndex = 2;
@@ -131,45 +131,35 @@
             this.btnInputInvoice.UseSelectable = true;
             this.btnInputInvoice.Click += new System.EventHandler(this.btnInputInvoice_Click);
             // 
-            // metroTile2
+            // btnSellinvoice
             // 
-            this.metroTile2.ActiveControl = null;
-            this.metroTile2.Location = new System.Drawing.Point(30, 394);
-            this.metroTile2.Name = "metroTile2";
-            this.metroTile2.Size = new System.Drawing.Size(140, 105);
-            this.metroTile2.TabIndex = 2;
-            this.metroTile2.Text = "Factura Salida";
-            this.metroTile2.UseSelectable = true;
+            this.btnSellinvoice.ActiveControl = null;
+            this.btnSellinvoice.Location = new System.Drawing.Point(30, 26);
+            this.btnSellinvoice.Name = "btnSellinvoice";
+            this.btnSellinvoice.Size = new System.Drawing.Size(140, 105);
+            this.btnSellinvoice.TabIndex = 2;
+            this.btnSellinvoice.Text = "Factura Venta";
+            this.btnSellinvoice.UseSelectable = true;
             // 
-            // metroTile3
+            // btnApartInvoice
             // 
-            this.metroTile3.ActiveControl = null;
-            this.metroTile3.Location = new System.Drawing.Point(30, 26);
-            this.metroTile3.Name = "metroTile3";
-            this.metroTile3.Size = new System.Drawing.Size(140, 105);
-            this.metroTile3.TabIndex = 2;
-            this.metroTile3.Text = "Factura Venta";
-            this.metroTile3.UseSelectable = true;
+            this.btnApartInvoice.ActiveControl = null;
+            this.btnApartInvoice.Location = new System.Drawing.Point(218, 26);
+            this.btnApartInvoice.Name = "btnApartInvoice";
+            this.btnApartInvoice.Size = new System.Drawing.Size(140, 105);
+            this.btnApartInvoice.TabIndex = 2;
+            this.btnApartInvoice.Text = "Factura Apartado";
+            this.btnApartInvoice.UseSelectable = true;
             // 
-            // metroTile4
+            // btnCreditInvoice
             // 
-            this.metroTile4.ActiveControl = null;
-            this.metroTile4.Location = new System.Drawing.Point(218, 26);
-            this.metroTile4.Name = "metroTile4";
-            this.metroTile4.Size = new System.Drawing.Size(140, 105);
-            this.metroTile4.TabIndex = 2;
-            this.metroTile4.Text = "Factura Apartado";
-            this.metroTile4.UseSelectable = true;
-            // 
-            // metroTile5
-            // 
-            this.metroTile5.ActiveControl = null;
-            this.metroTile5.Location = new System.Drawing.Point(30, 211);
-            this.metroTile5.Name = "metroTile5";
-            this.metroTile5.Size = new System.Drawing.Size(140, 105);
-            this.metroTile5.TabIndex = 2;
-            this.metroTile5.Text = "Factura Credito";
-            this.metroTile5.UseSelectable = true;
+            this.btnCreditInvoice.ActiveControl = null;
+            this.btnCreditInvoice.Location = new System.Drawing.Point(218, 211);
+            this.btnCreditInvoice.Name = "btnCreditInvoice";
+            this.btnCreditInvoice.Size = new System.Drawing.Size(140, 105);
+            this.btnCreditInvoice.TabIndex = 2;
+            this.btnCreditInvoice.Text = "Factura Credito";
+            this.btnCreditInvoice.UseSelectable = true;
             // 
             // metroTile6
             // 
@@ -181,15 +171,26 @@
             this.metroTile6.Text = "Registros";
             this.metroTile6.UseSelectable = true;
             // 
+            // btnExitInvoice
+            // 
+            this.btnExitInvoice.ActiveControl = null;
+            this.btnExitInvoice.Location = new System.Drawing.Point(218, 394);
+            this.btnExitInvoice.Name = "btnExitInvoice";
+            this.btnExitInvoice.Size = new System.Drawing.Size(140, 105);
+            this.btnExitInvoice.TabIndex = 2;
+            this.btnExitInvoice.Text = "Factura Salida";
+            this.btnExitInvoice.UseSelectable = true;
+            this.btnExitInvoice.Click += new System.EventHandler(this.btnExitInvoice_Click);
+            // 
             // UcDashboard
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.Controls.Add(this.metroTile3);
+            this.Controls.Add(this.btnSellinvoice);
             this.Controls.Add(this.metroTile6);
-            this.Controls.Add(this.metroTile2);
-            this.Controls.Add(this.metroTile4);
-            this.Controls.Add(this.metroTile5);
+            this.Controls.Add(this.btnApartInvoice);
+            this.Controls.Add(this.btnCreditInvoice);
+            this.Controls.Add(this.btnExitInvoice);
             this.Controls.Add(this.btnInputInvoice);
             this.Controls.Add(this.btnBrandSize);
             this.Controls.Add(this.btnClient);
@@ -214,10 +215,10 @@
         private MetroFramework.Controls.MetroTile btnSalary;
         private MetroFramework.Controls.MetroTile btnBrandSize;
         private MetroFramework.Controls.MetroTile btnInputInvoice;
-        private MetroFramework.Controls.MetroTile metroTile2;
-        private MetroFramework.Controls.MetroTile metroTile3;
-        private MetroFramework.Controls.MetroTile metroTile4;
-        private MetroFramework.Controls.MetroTile metroTile5;
+        private MetroFramework.Controls.MetroTile btnSellinvoice;
+        private MetroFramework.Controls.MetroTile btnApartInvoice;
+        private MetroFramework.Controls.MetroTile btnCreditInvoice;
         private MetroFramework.Controls.MetroTile metroTile6;
+        private MetroFramework.Controls.MetroTile btnExitInvoice;
     }
 }

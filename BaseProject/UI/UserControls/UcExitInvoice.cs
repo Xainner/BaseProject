@@ -10,18 +10,13 @@ using System.Windows.Forms;
 
 namespace UI.UserControls
 {
-    public partial class UcInputInvoice : UserControl
+    public partial class UcExitInvoice : UserControl
     {
-        public UcInputInvoice()
+        public UcExitInvoice()
         {
             InitializeComponent();
 
-            FrmMain.Instance.ToolStripLabel.Text = "Estas en la pantalla de facturas de entrada";
-        }
-
-        private void UcInputInvoice_Load(object sender, EventArgs e)
-        {
-
+            FrmMain.Instance.ToolStripLabel.Text = "Estas en la pantalla de facturas de salida de mercaderia";
         }
     }
 }
