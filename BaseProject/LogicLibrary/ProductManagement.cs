@@ -1,4 +1,6 @@
-﻿using System;
+﻿using BusinessLibrary.Conection;
+using BusinessLibrary.Models;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -30,11 +32,26 @@ namespace LogicLibrary
                 string[] Product = new string[] { code,  style,  idBrand,  description,  idCategory,  idSubCategory,
                                                     normalPrice,  lowerPrice,  estableQuantity,  variableQuantity, ivi,
                                                     existingInvoice,  size };
-                //TEMP
+                ProductModel productModel = new ProductModel()
+                {
+                    Code = int.Parse(code),
+                    Style = style,
+                    IdBrand = int.Parse(idBrand),
+                    Description = description,
+                    IdCategory = int.Parse(idCategory),
+                    IdSubCategory = int.Parse(idSubCategory),
+                    NormalPrice = decimal.Parse(normalPrice),
+                    LowerPrice = decimal.Parse(lowerPrice),
+                    EstableQuantity = int.Parse(estableQuantity),
+                    VariableQuantity = int.Parse(variableQuantity),
+                    Ivi = decimal.Parse(ivi),
+                    ExistingInvoice = false,
+                    Image = image
+
+                };
                 if (VerifyFields(Product))
                 {
-                    //BS.InsertSalary(user);
-                    return true;
+                    return ProductConnection.InsertProduct(productModel);
                 }
                 else
                 {
@@ -58,11 +75,27 @@ namespace LogicLibrary
                 string[] product = new string[] { idProduct, code,  style,  idBrand,  description,  idCategory,  idSubCategory,
                                                     normalPrice,  lowerPrice,  estableQuantity,  variableQuantity, ivi,
                                                     existingInvoice,  size };
-                //TEMP
+                ProductModel productModel = new ProductModel()
+                {
+                    IdProduct = int.Parse(idProduct),
+                    Code = int.Parse(code),
+                    Style = style,
+                    IdBrand = int.Parse(idBrand),
+                    Description = description,
+                    IdCategory = int.Parse(idCategory),
+                    IdSubCategory = int.Parse(idSubCategory),
+                    NormalPrice = decimal.Parse(normalPrice),
+                    LowerPrice = decimal.Parse(lowerPrice),
+                    EstableQuantity = int.Parse(estableQuantity),
+                    VariableQuantity = int.Parse(variableQuantity),
+                    Ivi = decimal.Parse(ivi),
+                    ExistingInvoice = false,
+                    Image = image
+
+                };
                 if (VerifyFields(product))
                 {
-                    //METHOD
-                    return true;
+                    return ProductConnection.UpdateProduct(productModel);
                 }
                 else
                 {
@@ -82,11 +115,13 @@ namespace LogicLibrary
             {
                 //TEMP
                 string[] product = new string[] { idProduct };
-                //TEMP
+                ProductModel productModel = new ProductModel()
+                {
+                    IdProduct = int.Parse(idProduct),
+                };
                 if (VerifyFields(product))
                 {
-                    //METHOD
-                    return true;
+                    return ProductConnection.UpdateProduct(productModel);
                 }
                 else
                 {
@@ -106,11 +141,14 @@ namespace LogicLibrary
             {
                 //TEMP
                 string[] product = new string[] { idProduct };
-                //TEMP
+                ProductModel productModel = new ProductModel()
+                {
+                    IdProduct = int.Parse(idProduct),
+
+                };
                 if (VerifyFields(product))
                 {
-                    //METHOD
-                    return true;
+                    return ProductConnection.UpdateProduct(productModel);
                 }
                 else
                 {
@@ -124,17 +162,17 @@ namespace LogicLibrary
             }
         }
 
-        //public static ProductModel SelectAllSalaries()
-        //{
-        //    try
-        //    {
-        //        //METHOD
-        //    }
-        //    catch (Exception ex)
-        //    {
-        //        return false;
-        //        Log4Net
-        //    }
-        //}
+        public static List<ProductModel> SelectAllProducts()
+        {
+            try
+            {
+                return ProductConnection.SelectAllProduct();
+            }
+            catch (Exception ex)
+            {
+                return null;
+                //Log4Net
+            }
+        }
     }
 }

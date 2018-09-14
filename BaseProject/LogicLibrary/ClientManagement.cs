@@ -1,4 +1,5 @@
-﻿using BusinessLibrary.Models;
+﻿using BusinessLibrary.DataManagement;
+using BusinessLibrary.Models;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -40,7 +41,7 @@ namespace LogicLibrary
 
                 if (VerifyFields(client))
                 {
-                    //BS.InsertClient(client);
+                    ClientConnection.InsertClient(clientModel);
                     return true;
                 }
                 else
@@ -75,7 +76,7 @@ namespace LogicLibrary
 
                 if (VerifyFields(client))
                 {
-                    //BS.UpdateClientById(client);
+                    ClientConnection.UpdateClient(clientModel);
                     return true;
                 }
                 else
@@ -104,8 +105,7 @@ namespace LogicLibrary
 
                 if (VerifyFields(client))
                 {
-                    //BS.DeleteClientById(client);
-                    return true;
+                    return ClientConnection.DeleteClient(clientModel);
                 }
                 else
                 {
@@ -119,46 +119,43 @@ namespace LogicLibrary
             }
         }
 
-        public static bool SelectClientById(string idClient)
+        public static ClientModel SelectClientById(string idClient)
         {
             try
             {
                 //TEMP
                 string[] client = new string[] { idClient };
-                //TEMP
                 ClientModel clientModel = new ClientModel()
                 {
-                    IdClient = Int32.Parse(idClient)
+                    IdClient = int.Parse(idClient)
                 };
-
                 if (VerifyFields(client))
                 {
-                    //BS.SelectClientById(client);
-                    return true;
+                    return ClientConnection.SelectClient(clientModel);
                 }
                 else
                 {
-                    return false;
+                    return null;
                 }
             }
             catch (Exception ex)
             {
-                return false;
+                return null;
                 //Log4Net
             }
         }
 
-        //public static List<ClientModel> SelectAllClients()
-        //{
-        //    try
-        //    {
-        //        //return BS.SelectAllClients();
-        //    }
-        //    catch (Exception ex)
-        //    {
-        //        return null;
-        //        //Log4Net
-        //    }
-        //}
+        public static List<ClientModel> SelectAllClients()
+        {
+            try
+            {
+                return ClientConnection.SelectAllClient();
+            }
+            catch (Exception ex)
+            {
+                return null;
+                //Log4Net
+            }
+        }
     }
 }

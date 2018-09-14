@@ -45,7 +45,12 @@
     <Compile Include="BusinessManagement.cs" />
     <Compile Include="CategoryManagement.cs" />
     <Compile Include="ClientManagement.cs" />
+    <Compile Include="CreditInvoiceManagement.cs" />
     <Compile Include="EmployeeManagement.cs" />
+    <Compile Include="ExitInvoiceManagement.cs" />
+    <Compile Include="ExternalSellInvoiceManagement.cs" />
+    <Compile Include="InputInvoiceManagement.cs" />
+    <Compile Include="InternalSellInvoiceManagement.cs" />
     <Compile Include="PositionManagement.cs" />
     <Compile Include="ProductManagement.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />

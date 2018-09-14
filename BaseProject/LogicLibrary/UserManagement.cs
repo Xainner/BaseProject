@@ -84,13 +84,12 @@ namespace LogicLibrary
                 string[] user = new string[] { idUser, password };
                 UserModel userModel = new UserModel()
                 {
-                    IdUser = int.Parse(idUser),
-                    Password = password,
+                    IdUser = int.Parse(idUser)
+                    
                 };
                 if (VerifyFields(user))
                 {
-                    UserConnection.UpdateUserPassword(userModel);
-                    return true;
+                    return UserConnection.UpdateUser(userModel);
                 }
                 else
                 {
@@ -110,10 +109,14 @@ namespace LogicLibrary
             {
                 //TEMP
                 string[] user = new string[] { idUser };
+                UserModel userModel = new UserModel()
+                {
+                    IdUser = int.Parse(idUser)
+                };
                 if (VerifyFields(user))
                 {
-                    UserConnection.DeleteUser(int.Parse(idUser));
-                    return true;
+                    return UserConnection.DeleteUser(userModel);
+
                 }
                 else
                 {
@@ -133,10 +136,13 @@ namespace LogicLibrary
             {
                 //TEMP
                 string[] user = new string[] { idUser };
-
+                UserModel userModel = new UserModel()
+                {
+                    IdUser = int.Parse(idUser)
+                };
                 if (VerifyFields(user))
                 {
-                    return UserConnection.SelectUser(int.Parse(idUser));
+                    return UserConnection.SelectUser(userModel);
                 }
                 else
                 {

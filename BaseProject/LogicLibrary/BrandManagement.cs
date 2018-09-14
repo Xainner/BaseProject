@@ -22,6 +22,7 @@ namespace LogicLibrary
             return false;
         }
 
+        //INSERT
         public static bool InsertBrand(string name)
         {
             try
@@ -102,7 +103,7 @@ namespace LogicLibrary
             }
         }
 
-        public static bool SelectBrandById(string idBrand)
+        public static BrandModel SelectBrandById(string idBrand)
         {
             try
             {
@@ -114,22 +115,21 @@ namespace LogicLibrary
                 };
                 if (VerifyFields(brand))
                 {
-                    BrandConnection.SelectBrand(brandModel);
-                    return true;
+                    return BrandConnection.SelectBrand(brandModel);
                 }
                 else
                 {
-                    return false;
+                    return null;
                 }
             }
             catch (Exception ex)
             {
-                return false;
+                return null;
                 //Log4Net
             }
         }
 
-        public static List<BrandModel> SelectAllSalaries()
+        public static List<BrandModel> SelectAllBrands()
         {
             try
             {

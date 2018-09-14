@@ -1,4 +1,6 @@
-﻿using System;
+﻿using BusinessLibrary.Conection;
+using BusinessLibrary.Models;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -27,10 +29,14 @@ namespace LogicLibrary
                 //TEMP
                 string[] position = new string[] { positionName, idSalary };
                 //TEMP
+                PositionModel positionModel = new PositionModel()
+                {
+                    IdSalary = int.Parse(idSalary),
+                    PositionName = positionName
+                };
                 if (VerifyFields(position))
                 {
-                    //METHOD
-                    return true;
+                    return PositionConnection.InsertPosition(positionModel);
                 }
                 else
                 {
@@ -44,17 +50,21 @@ namespace LogicLibrary
             }
         }
 
-        public static bool UpdatePositionById(string idPosition, string positionName)
+        public static bool UpdatePositionById(string idPosition, string positionName, string idSalary)
         {
             try
             {
                 //TEMP
                 string[] position = new string[] { idPosition, positionName };
-                //TEMP
+                PositionModel positionModel = new PositionModel()
+                {
+                    IdSalary = int.Parse(idSalary),
+                    IdPosition = int.Parse(idPosition),
+                    PositionName = positionName
+                };
                 if (VerifyFields(position))
                 {
-                    //METHOD
-                    return true;
+                    return PositionConnection.UpdatePosition(positionModel);
                 }
                 else
                 {
@@ -74,11 +84,13 @@ namespace LogicLibrary
             {
                 //TEMP
                 string[] position = new string[] { idPosition };
-                //TEMP
+                PositionModel positionModel = new PositionModel()
+                {
+                    IdPosition = int.Parse(idPosition)
+                };
                 if (VerifyFields(position))
                 {
-                    //METHOD
-                    return true;
+                    return PositionConnection.UpdatePosition(positionModel);
                 }
                 else
                 {
@@ -92,26 +104,28 @@ namespace LogicLibrary
             }
         }
 
-        public static bool SelectPositionById(string idPosition)
+        public static PositionModel SelectPositionById(string idPosition)
         {
             try
             {
                 //TEMP
                 string[] position = new string[] { idPosition };
-                //TEMP
+                PositionModel positionModel = new PositionModel()
+                {
+                    IdPosition = int.Parse(idPosition)
+                };
                 if (VerifyFields(position))
                 {
-                    //METHOD
-                    return true;
+                    return PositionConnection.SelectPosition(positionModel);
                 }
                 else
                 {
-                    return false;
+                    return null;
                 }
             }
             catch (Exception ex)
             {
-                return false;
+                return null;
                 //Log4Net
             }
         }

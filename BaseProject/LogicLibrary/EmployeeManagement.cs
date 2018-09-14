@@ -1,4 +1,6 @@
-﻿using System;
+﻿using BusinessLibrary.Conection;
+using BusinessLibrary.Models;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -32,11 +34,31 @@ namespace LogicLibrary
                                                     civilState,  childs,  telephone,  cellphone,  enterStore,
                                                     nationality,  idPosition,  workingState,
                                                     enterDate,  endDate,  obervation,  nameEmergency,  cellphoneEmergency };
-                //TEMP
+                EmployeeModel employeeModel = new EmployeeModel()
+                {
+                    Name = name,
+                    LastName = lastName,
+                    IdentificationType = idType,
+                    Identification = id,
+                    Residence = residence,
+                    BornDate = bornDate,
+                    CivilState = civilState,
+                    Childs = childs,
+                    Telephone = telephone,
+                    Cellphone = cellphone,
+                    EnterStore = enterStore,
+                    Nationality = nationality,
+                    IdPosition = int.Parse(idPosition),
+                    WorkingState = workingState,
+                    EnterDate = enterDate,
+                    EndDate = endDate,
+                    Observation = obervation,
+                    NameEmergency = nameEmergency,
+                    CellphoneEmergency = cellphoneEmergency
+                };
                 if (VerifyFields(employee))
                 {
-                    //BS.InsertSalary(user);
-                    return true;
+                    return EmployeeConnection.InsertEmployee(employeeModel);
                 }
                 else
                 {
@@ -62,11 +84,32 @@ namespace LogicLibrary
                                                     civilState,  childs,  telephone,  cellphone,  enterStore,
                                                     nationality,  idPosition,  workingState,
                                                     enterDate,  endDate,  obervation,  nameEmergency,  cellphoneEmergency };
-                //TEMP
+                EmployeeModel employeeModel = new EmployeeModel()
+                {
+                    IdEmployee = int.Parse(idEmployee),
+                    Name = name,
+                    LastName = lastName,
+                    IdentificationType = idType,
+                    Identification = id,
+                    Residence = residence,
+                    BornDate = bornDate,
+                    CivilState = civilState,
+                    Childs = childs,
+                    Telephone = telephone,
+                    Cellphone = cellphone,
+                    EnterStore = enterStore,
+                    Nationality = nationality,
+                    IdPosition = int.Parse(idPosition),
+                    WorkingState = workingState,
+                    EnterDate = enterDate,
+                    EndDate = endDate,
+                    Observation = obervation,
+                    NameEmergency = nameEmergency,
+                    CellphoneEmergency = cellphoneEmergency
+                };
                 if (VerifyFields(employee))
                 {
-                    //METHOD
-                    return true;
+                    return EmployeeConnection.UpdateEmployee(employeeModel);
                 }
                 else
                 {
@@ -86,11 +129,13 @@ namespace LogicLibrary
             {
                 //TEMP
                 string[] employee = new string[] { idEmployee };
-                //TEMP
+                EmployeeModel employeeModel = new EmployeeModel()
+                {
+                    IdEmployee = int.Parse(idEmployee),
+                };
                 if (VerifyFields(employee))
                 {
-                    //METHOD
-                    return true;
+                    return EmployeeConnection.UpdateEmployee(employeeModel);
                 }
                 else
                 {
@@ -110,11 +155,13 @@ namespace LogicLibrary
             {
                 //TEMP
                 string[] employee = new string[] { idEmployee };
-                //TEMP
+                EmployeeModel employeeModel = new EmployeeModel()
+                {
+                    IdEmployee = int.Parse(idEmployee),
+                };
                 if (VerifyFields(employee))
                 {
-                    //METHOD
-                    return true;
+                    return EmployeeConnection.UpdateEmployee(employeeModel);
                 }
                 else
                 {
@@ -128,17 +175,17 @@ namespace LogicLibrary
             }
         }
 
-        //public static EmployeeModel SelectAllSalaries()
-        //{
-        //    try
-        //    {
-        //        //METHOD
-        //    }
-        //    catch (Exception ex)
-        //    {
-        //        return false;
-        //        Log4Net
-        //    }
-        //}
+        public static List<EmployeeModel> SelectAllEmployees()
+        {
+            try
+            {
+                return EmployeeConnection.SelectAllEmployee();
+            }
+            catch (Exception ex)
+            {
+                return null;
+                //Log4Net
+            }
+        }
     }
 }

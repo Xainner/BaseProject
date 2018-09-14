@@ -1,4 +1,5 @@
-﻿using System;
+﻿using BusinessLibrary.Models;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -26,7 +27,11 @@ namespace LogicLibrary
             {
                 //TEMP
                 string[] salary = new string[] { positionName, registrationDate };
-                //TEMP
+                SalaryModel salaryModel = new SalaryModel()
+                {
+                    RegistrationDate = registrationDate,
+
+                };
                 if (VerifyFields(salary))
                 {
                     //BS.InsertSalary(user);

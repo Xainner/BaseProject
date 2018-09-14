@@ -89,13 +89,9 @@ namespace LogicLibrary
             {
                 //TEMP
                 string[] business = new string[] { idBusiness };
-                BusinessModel businessModel = new BusinessModel()
-                {
-                    IdBusiness = int.Parse(idBusiness)
-                };
                 if (VerifyFields(business))
                 {
-                    BusinessConnection.DeleteBusiness(businessModel);
+                    BusinessConnection.DeleteBusiness(int.Parse(idBusiness));
                     return true;
                 }
                 else
@@ -110,7 +106,7 @@ namespace LogicLibrary
             }
         }
 
-        public static bool SelectBusinessById(string idBusiness)
+        public static BusinessModel SelectBusinessById(string idBusiness)
         {
             try
             {
@@ -122,17 +118,16 @@ namespace LogicLibrary
                 };
                 if (VerifyFields(business))
                 {
-                    BusinessConnection.SelectBusiness(businessModel);
-                    return true;
+                    return BusinessConnection.SelectBusiness(businessModel);
                 }
                 else
                 {
-                    return false;
+                    return null;
                 }
             }
             catch (Exception ex)
             {
-                return false;
+                return null;
                 //Log4Net
             }
         }

@@ -1,4 +1,6 @@
-﻿using System;
+﻿using BusinessLibrary.Conection;
+using BusinessLibrary.Models;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -26,10 +28,13 @@ namespace LogicLibrary
             {
                 //TEMP
                 string[] category = new string[] { name };
-                //TEMP
+                CategoryModel categoryModel = new CategoryModel()
+                {
+                    Name = name,
+                };
                 if (VerifyFields(category))
                 {
-                    //BS.InsertCategory(user);
+                    CategoryConnection.InsertCategory(categoryModel);
                     return true;
                 }
                 else
@@ -50,10 +55,14 @@ namespace LogicLibrary
             {
                 //TEMP
                 string[] category = new string[] { idCategory, name };
-                //TEMP
+                CategoryModel categoryModel = new CategoryModel()
+                {
+                    Name = name,
+                    IdCategoy = int.Parse(idCategory)
+                };
                 if (VerifyFields(category))
                 {
-                    //METHOD
+                    CategoryConnection.UpdateCategory(categoryModel);
                     return true;
                 }
                 else
@@ -74,10 +83,13 @@ namespace LogicLibrary
             {
                 //TEMP
                 string[] category = new string[] { idCategory };
-                //TEMP
+                CategoryModel categoryModel = new CategoryModel()
+                {
+                    IdCategoy = int.Parse(idCategory)
+                };
                 if (VerifyFields(category))
                 {
-                    //METHOD
+                    CategoryConnection.DeleteCategory(categoryModel);
                     return true;
                 }
                 else
@@ -92,41 +104,45 @@ namespace LogicLibrary
             }
         }
 
-        public static bool SelectCategoryById(string idCategory)
+        public static CategoryModel SelectCategoryById(string idCategory)
         {
             try
             {
                 //TEMP
                 string[] category = new string[] { idCategory };
                 //TEMP
+                CategoryModel categoryModel = new CategoryModel()
+                {
+                    IdCategoy = int.Parse(idCategory)
+                };
                 if (VerifyFields(category))
                 {
-                    //METHOD
-                    return true;
+                    return CategoryConnection.SelectCategory(categoryModel);
                 }
                 else
                 {
-                    return false;
+                    return null;
                 }
             }
             catch (Exception ex)
             {
-                return false;
+                return null;
                 //Log4Net
             }
         }
 
-        //public static CategoryModel SelectAllSalaries()
-        //{
-        //    try
-        //    {
-        //        //METHOD
-        //    }
-        //    catch (Exception ex)
-        //    {
-        //        return false;
-        //        Log4Net
-        //    }
-        //}
+        public static List<CategoryModel> SelectAllCategories()
+        {
+            try
+            {
+                return CategoryConnection.SelectAllCategory();
+                //METHOD
+            }
+            catch (Exception ex)
+            {
+                return null;
+                //*Log4Net
+            }
+        }
     }
 }

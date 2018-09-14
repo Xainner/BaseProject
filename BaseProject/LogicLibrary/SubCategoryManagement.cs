@@ -1,4 +1,6 @@
-﻿using System;
+﻿using BusinessLibrary.Conection;
+using BusinessLibrary.Models;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -116,17 +118,17 @@ namespace LogicLibrary
             }
         }
 
-        //public static SubCategoryModel SelectAllSalaries()
-        //{
-        //    try
-        //    {
-        //        //METHOD
-        //    }
-        //    catch (Exception ex)
-        //    {
-        //        return false;
-        //        Log4Net
-        //    }
-        //}
+        public static List<SubcategoryModel> SelectAllSubCategories()
+        {
+            try
+            {
+                return SubcategoryConnection.SelectAllSubcategory();
+            }
+            catch (Exception ex)
+            {
+                return null;
+                //Log4Net
+            }
+        }
     }
 }
