@@ -89,9 +89,13 @@ namespace LogicLibrary
             {
                 //TEMP
                 string[] business = new string[] { idBusiness };
+                BusinessModel businessModel = new BusinessModel()
+                {
+                    IdBusiness = int.Parse(idBusiness)
+                };
                 if (VerifyFields(business))
                 {
-                    BusinessConnection.DeleteBusiness(int.Parse(idBusiness));
+                    BusinessConnection.DeleteBusiness(businessModel);
                     return true;
                 }
                 else
