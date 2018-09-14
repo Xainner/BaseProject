@@ -93,5 +93,16 @@ namespace UI.UserControls
             FrmMain.Instance.MetroContainer.Controls["ucEmployee"].BringToFront();
             FrmMain.Instance.MetroBack.Visible = true;
         }
+
+        private void btnInputInvoice_Click(object sender, EventArgs e)
+        {
+            UcInputInvoice ucInputInvoice = new UcInputInvoice
+            {
+                Dock = DockStyle.Fill
+            };
+            FrmMain.Instance.MetroContainer.Controls.Add(ucInputInvoice);
+            FrmMain.Instance.MetroContainer.Controls["ucInputInvoice"].BringToFront();
+            FrmMain.Instance.MetroBack.Visible = true;
+        }
     }
 }

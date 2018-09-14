@@ -99,6 +99,12 @@
     <Compile Include="UserControls\UcEmployee.Designer.cs">
       <DependentUpon>UcEmployee.cs</DependentUpon>
     </Compile>
+    <Compile Include="UserControls\UcInputInvoice.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="UserControls\UcInputInvoice.Designer.cs">
+      <DependentUpon>UcInputInvoice.cs</DependentUpon>
+    </Compile>
     <Compile Include="UserControls\UcPositionSalary.cs">
       <SubType>UserControl</SubType>
     </Compile>
@@ -140,6 +146,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="UserControls\UcEmployee.resx">
       <DependentUpon>UcEmployee.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="UserControls\UcInputInvoice.resx">
+      <DependentUpon>UcInputInvoice.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="UserControls\UcPositionSalary.resx">
       <DependentUpon>UcPositionSalary.cs</DependentUpon>
