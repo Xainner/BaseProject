@@ -8,12 +8,12 @@ namespace BusinessLibrary.Models
 {
     public class InputInvoiceModel
     {
-        public int idInputInovice;
+        public int idInputInvoice;
         public List<ProductModel> products;
         public string date;
         public string provider;
 
-        public int IdInputInovice { get => idInputInovice; set => idInputInovice = value; }
+        public int IdInputInovice { get => idInputInvoice; set => idInputInvoice = value; }
         public List<ProductModel> Products { get => products; set => products = value; }
         public string Date { get => date; set => date = value; }
         public string Provider { get => provider; set => provider = value; }
