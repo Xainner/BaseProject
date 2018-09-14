@@ -23,11 +23,11 @@ namespace BusinessLibrary.Connection
             }
         }
 
-        public static List<CreditInvoiceModel> SelectAllCreditInvoice(CreditInvoiceModel creditInvoice)
+        public static List<CreditInvoiceModel> SelectAllCreditInvoice()
         {
             try
             {
-                //ClaseBD.SelectAllCreditInvoice(creditInvoice);
+                //ClaseBD.SelectAllCreditInvoice();
                 return null;
             }
             catch (Exception)

@@ -8,6 +8,7 @@ namespace BusinessLibrary.Models
 {
     public class ProductModel
     {
+        public int id;
         public int code;
         public string style;
         public int idBrand;
@@ -22,6 +23,7 @@ namespace BusinessLibrary.Models
         public bool ivi;
         public bool existingInvoice;
 
+        public int Id { get => id; set => id = value; }
         public int Code { get => code; set => code = value; }
         public string Style { get => style; set => style = value; }
         public int IdBrand { get => idBrand; set => idBrand = value; }

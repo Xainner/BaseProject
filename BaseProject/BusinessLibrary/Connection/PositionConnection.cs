@@ -23,11 +23,11 @@ namespace BusinessLibrary.Conection
             }
         }
 
-        public static List<PositionModel> SelectAllPosition(PositionModel position)
+        public static List<PositionModel> SelectAllPosition()
         {
             try
             {
-                //ClaseBD.SelectAllPosition(position);
+                //ClaseBD.SelectAllPosition();
                 return null;
             }
             catch (Exception)

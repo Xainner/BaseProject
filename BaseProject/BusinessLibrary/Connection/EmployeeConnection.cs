@@ -23,11 +23,11 @@ namespace BusinessLibrary.Conection
             }
         }
 
-        public static List<EmployeeModel> SelectAllEmployee(EmployeeModel employee)
+        public static List<EmployeeModel> SelectAllEmployee()
         {
             try
             {
-                //ClaseBD.SelectAllEmployee(employee);
+                //ClaseBD.SelectAllEmployee();
                 return null;
             }
             catch (Exception)

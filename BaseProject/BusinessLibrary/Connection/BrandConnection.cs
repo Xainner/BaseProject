@@ -23,11 +23,11 @@ namespace BusinessLibrary.Conection
             }
         }
 
-        public static List<BrandModel> SelectAllBrand(BrandModel brand)
+        public static List<BrandModel> SelectAllBrand()
         {
             try
             {
-                //ClaseBD.SelectAllBrand(brand);
+                //ClaseBD.SelectAllBrand();
                 return null;
             }
             catch (Exception)

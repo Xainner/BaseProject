@@ -9,7 +9,7 @@ namespace BusinessLibrary.Conection
 {
     public class CategoryConnection
     {
-        public static ClientModel SelectCategory(ClientModel category)
+        public static CategoryModel SelectCategory(CategoryModel category)
         {
             try
             {
@@ -23,11 +23,11 @@ namespace BusinessLibrary.Conection
             }
         }
 
-        public static List<CategoryModel> SelectAllCategory(CategoryModel category)
+        public static List<CategoryModel> SelectAllCategory()
         {
             try
             {
-                //ClaseBD.SelectAllCategory(category);
+                //ClaseBD.SelectAllCategory();
                 return null;
             }
             catch (Exception)
