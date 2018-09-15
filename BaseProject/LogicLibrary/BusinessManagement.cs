@@ -22,7 +22,7 @@ namespace LogicLibrary
             return false;
         }
 
-        public static bool InsertUser(string fantasyName, string societyName, string legalCertification, string telephone, string mainAddress, string generalAddress, string email, string webPage, byte[] logo)
+        public static bool InsertBusiness(string fantasyName, string societyName, string legalCertification, string telephone, string mainAddress, string generalAddress, string email, string webPage, byte[] logo)
         {
             try
             {
