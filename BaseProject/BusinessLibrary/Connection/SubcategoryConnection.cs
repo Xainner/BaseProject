@@ -9,7 +9,7 @@ namespace BusinessLibrary.Conection
 {
     public class SubcategoryConnection
     {
-        public static SubcategoryModel SelectSubcategory(SubcategoryModel subcategory)
+        public static SubCategoryModel SelectSubcategory(SubCategoryModel subcategory)
         {
             try
             {
@@ -23,7 +23,7 @@ namespace BusinessLibrary.Conection
             }
         }
 
-        public static List<SubcategoryModel> SelectAllSubcategory()
+        public static List<SubCategoryModel> SelectAllSubcategory()
         {
             try
             {
@@ -37,7 +37,7 @@ namespace BusinessLibrary.Conection
             }
         }
 
-        public static bool InsertSubcategory(SubcategoryModel subcategory)
+        public static bool InsertSubcategory(SubCategoryModel subcategory)
         {
             try
             {
@@ -51,7 +51,7 @@ namespace BusinessLibrary.Conection
             }
         }
 
-        public static bool UpdateSubcategory(SubcategoryModel subcategory)
+        public static bool UpdateSubcategory(SubCategoryModel subcategory)
         {
             try
             {
@@ -65,7 +65,7 @@ namespace BusinessLibrary.Conection
             }
         }
 
-        public static bool DeleteSubcategory(SubcategoryModel subcategory)
+        public static bool DeleteSubcategory(SubCategoryModel subcategory)
         {
             try
             {

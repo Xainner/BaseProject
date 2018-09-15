@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace BusinessLibrary.Models
 {
-    public class SubcategoryModel
+    public class SubCategoryModel
     {
         public int idsubCategory;
         public int name;

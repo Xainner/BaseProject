@@ -118,7 +118,7 @@ namespace LogicLibrary
             }
         }
 
-        public static List<SubcategoryModel> SelectAllSubCategories()
+        public static List<SubCategoryModel> SelectAllSubCategories()
         {
             try
             {
