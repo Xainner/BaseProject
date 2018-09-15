@@ -28,9 +28,9 @@
         /// </summary>
         private void InitializeComponent()
         {
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle3 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle10 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle11 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle12 = new System.Windows.Forms.DataGridViewCellStyle();
             this.txtSearchBusiness = new MetroFramework.Controls.MetroTextBox();
             this.btnDeleteBusiness = new MetroFramework.Controls.MetroTile();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
@@ -40,8 +40,8 @@
             this.btnUpdateBusiness = new MetroFramework.Controls.MetroTile();
             this.txtWebPage = new MetroFramework.Controls.MetroTextBox();
             this.btnAddBusiness = new MetroFramework.Controls.MetroTile();
-            this.txtaGeneralAddress = new MetroFramework.Controls.MetroTextBox();
-            this.txtaMainAddress = new MetroFramework.Controls.MetroTextBox();
+            this.txaGeneralAddress = new MetroFramework.Controls.MetroTextBox();
+            this.txaMainAddress = new MetroFramework.Controls.MetroTextBox();
             this.txtlegalCertification = new MetroFramework.Controls.MetroTextBox();
             this.txtSocietyName = new MetroFramework.Controls.MetroTextBox();
             this.txtFantasyName = new MetroFramework.Controls.MetroTextBox();
@@ -92,6 +92,7 @@
             this.txtSearchBusiness.WaterMark = "Ingrese texto a buscar";
             this.txtSearchBusiness.WaterMarkColor = System.Drawing.Color.FromArgb(((int)(((byte)(109)))), ((int)(((byte)(109)))), ((int)(((byte)(109)))));
             this.txtSearchBusiness.WaterMarkFont = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Pixel);
+            this.txtSearchBusiness.Click += new System.EventHandler(this.txtSearchBusiness_Click);
             // 
             // btnDeleteBusiness
             // 
@@ -102,6 +103,7 @@
             this.btnDeleteBusiness.TabIndex = 5;
             this.btnDeleteBusiness.Text = "Eliminar";
             this.btnDeleteBusiness.UseSelectable = true;
+            this.btnDeleteBusiness.Click += new System.EventHandler(this.btnDeleteBusiness_Click);
             // 
             // groupBox1
             // 
@@ -111,8 +113,8 @@
             this.groupBox1.Controls.Add(this.btnUpdateBusiness);
             this.groupBox1.Controls.Add(this.txtWebPage);
             this.groupBox1.Controls.Add(this.btnAddBusiness);
-            this.groupBox1.Controls.Add(this.txtaGeneralAddress);
-            this.groupBox1.Controls.Add(this.txtaMainAddress);
+            this.groupBox1.Controls.Add(this.txaGeneralAddress);
+            this.groupBox1.Controls.Add(this.txaMainAddress);
             this.groupBox1.Controls.Add(this.txtlegalCertification);
             this.groupBox1.Controls.Add(this.txtSocietyName);
             this.groupBox1.Controls.Add(this.txtFantasyName);
@@ -188,6 +190,7 @@
             this.btnUpdateBusiness.TabIndex = 1;
             this.btnUpdateBusiness.Text = "Actualizar";
             this.btnUpdateBusiness.UseSelectable = true;
+            this.btnUpdateBusiness.Click += new System.EventHandler(this.btnUpdateBusiness_Click);
             // 
             // txtWebPage
             // 
@@ -228,68 +231,69 @@
             this.btnAddBusiness.TabIndex = 1;
             this.btnAddBusiness.Text = "Agregar";
             this.btnAddBusiness.UseSelectable = true;
+            this.btnAddBusiness.Click += new System.EventHandler(this.btnAddBusiness_Click);
             // 
-            // txtaGeneralAddress
-            // 
-            // 
-            // 
-            // 
-            this.txtaGeneralAddress.CustomButton.Image = null;
-            this.txtaGeneralAddress.CustomButton.Location = new System.Drawing.Point(167, 2);
-            this.txtaGeneralAddress.CustomButton.Name = "";
-            this.txtaGeneralAddress.CustomButton.Size = new System.Drawing.Size(105, 105);
-            this.txtaGeneralAddress.CustomButton.Style = MetroFramework.MetroColorStyle.Blue;
-            this.txtaGeneralAddress.CustomButton.TabIndex = 1;
-            this.txtaGeneralAddress.CustomButton.Theme = MetroFramework.MetroThemeStyle.Light;
-            this.txtaGeneralAddress.CustomButton.UseSelectable = true;
-            this.txtaGeneralAddress.CustomButton.Visible = false;
-            this.txtaGeneralAddress.Lines = new string[0];
-            this.txtaGeneralAddress.Location = new System.Drawing.Point(357, 254);
-            this.txtaGeneralAddress.MaxLength = 32767;
-            this.txtaGeneralAddress.Multiline = true;
-            this.txtaGeneralAddress.Name = "txtaGeneralAddress";
-            this.txtaGeneralAddress.PasswordChar = '\0';
-            this.txtaGeneralAddress.ScrollBars = System.Windows.Forms.ScrollBars.None;
-            this.txtaGeneralAddress.SelectedText = "";
-            this.txtaGeneralAddress.SelectionLength = 0;
-            this.txtaGeneralAddress.SelectionStart = 0;
-            this.txtaGeneralAddress.ShortcutsEnabled = true;
-            this.txtaGeneralAddress.Size = new System.Drawing.Size(275, 110);
-            this.txtaGeneralAddress.TabIndex = 5;
-            this.txtaGeneralAddress.UseSelectable = true;
-            this.txtaGeneralAddress.WaterMarkColor = System.Drawing.Color.FromArgb(((int)(((byte)(109)))), ((int)(((byte)(109)))), ((int)(((byte)(109)))));
-            this.txtaGeneralAddress.WaterMarkFont = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Pixel);
-            // 
-            // txtaMainAddress
+            // txaGeneralAddress
             // 
             // 
             // 
             // 
-            this.txtaMainAddress.CustomButton.Image = null;
-            this.txtaMainAddress.CustomButton.Location = new System.Drawing.Point(200, 2);
-            this.txtaMainAddress.CustomButton.Name = "";
-            this.txtaMainAddress.CustomButton.Size = new System.Drawing.Size(105, 105);
-            this.txtaMainAddress.CustomButton.Style = MetroFramework.MetroColorStyle.Blue;
-            this.txtaMainAddress.CustomButton.TabIndex = 1;
-            this.txtaMainAddress.CustomButton.Theme = MetroFramework.MetroThemeStyle.Light;
-            this.txtaMainAddress.CustomButton.UseSelectable = true;
-            this.txtaMainAddress.CustomButton.Visible = false;
-            this.txtaMainAddress.Lines = new string[0];
-            this.txtaMainAddress.Location = new System.Drawing.Point(22, 254);
-            this.txtaMainAddress.MaxLength = 32767;
-            this.txtaMainAddress.Multiline = true;
-            this.txtaMainAddress.Name = "txtaMainAddress";
-            this.txtaMainAddress.PasswordChar = '\0';
-            this.txtaMainAddress.ScrollBars = System.Windows.Forms.ScrollBars.None;
-            this.txtaMainAddress.SelectedText = "";
-            this.txtaMainAddress.SelectionLength = 0;
-            this.txtaMainAddress.SelectionStart = 0;
-            this.txtaMainAddress.ShortcutsEnabled = true;
-            this.txtaMainAddress.Size = new System.Drawing.Size(308, 110);
-            this.txtaMainAddress.TabIndex = 5;
-            this.txtaMainAddress.UseSelectable = true;
-            this.txtaMainAddress.WaterMarkColor = System.Drawing.Color.FromArgb(((int)(((byte)(109)))), ((int)(((byte)(109)))), ((int)(((byte)(109)))));
-            this.txtaMainAddress.WaterMarkFont = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Pixel);
+            this.txaGeneralAddress.CustomButton.Image = null;
+            this.txaGeneralAddress.CustomButton.Location = new System.Drawing.Point(167, 2);
+            this.txaGeneralAddress.CustomButton.Name = "";
+            this.txaGeneralAddress.CustomButton.Size = new System.Drawing.Size(105, 105);
+            this.txaGeneralAddress.CustomButton.Style = MetroFramework.MetroColorStyle.Blue;
+            this.txaGeneralAddress.CustomButton.TabIndex = 1;
+            this.txaGeneralAddress.CustomButton.Theme = MetroFramework.MetroThemeStyle.Light;
+            this.txaGeneralAddress.CustomButton.UseSelectable = true;
+            this.txaGeneralAddress.CustomButton.Visible = false;
+            this.txaGeneralAddress.Lines = new string[0];
+            this.txaGeneralAddress.Location = new System.Drawing.Point(357, 254);
+            this.txaGeneralAddress.MaxLength = 32767;
+            this.txaGeneralAddress.Multiline = true;
+            this.txaGeneralAddress.Name = "txaGeneralAddress";
+            this.txaGeneralAddress.PasswordChar = '\0';
+            this.txaGeneralAddress.ScrollBars = System.Windows.Forms.ScrollBars.None;
+            this.txaGeneralAddress.SelectedText = "";
+            this.txaGeneralAddress.SelectionLength = 0;
+            this.txaGeneralAddress.SelectionStart = 0;
+            this.txaGeneralAddress.ShortcutsEnabled = true;
+            this.txaGeneralAddress.Size = new System.Drawing.Size(275, 110);
+            this.txaGeneralAddress.TabIndex = 5;
+            this.txaGeneralAddress.UseSelectable = true;
+            this.txaGeneralAddress.WaterMarkColor = System.Drawing.Color.FromArgb(((int)(((byte)(109)))), ((int)(((byte)(109)))), ((int)(((byte)(109)))));
+            this.txaGeneralAddress.WaterMarkFont = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Pixel);
+            // 
+            // txaMainAddress
+            // 
+            // 
+            // 
+            // 
+            this.txaMainAddress.CustomButton.Image = null;
+            this.txaMainAddress.CustomButton.Location = new System.Drawing.Point(200, 2);
+            this.txaMainAddress.CustomButton.Name = "";
+            this.txaMainAddress.CustomButton.Size = new System.Drawing.Size(105, 105);
+            this.txaMainAddress.CustomButton.Style = MetroFramework.MetroColorStyle.Blue;
+            this.txaMainAddress.CustomButton.TabIndex = 1;
+            this.txaMainAddress.CustomButton.Theme = MetroFramework.MetroThemeStyle.Light;
+            this.txaMainAddress.CustomButton.UseSelectable = true;
+            this.txaMainAddress.CustomButton.Visible = false;
+            this.txaMainAddress.Lines = new string[0];
+            this.txaMainAddress.Location = new System.Drawing.Point(22, 254);
+            this.txaMainAddress.MaxLength = 32767;
+            this.txaMainAddress.Multiline = true;
+            this.txaMainAddress.Name = "txaMainAddress";
+            this.txaMainAddress.PasswordChar = '\0';
+            this.txaMainAddress.ScrollBars = System.Windows.Forms.ScrollBars.None;
+            this.txaMainAddress.SelectedText = "";
+            this.txaMainAddress.SelectionLength = 0;
+            this.txaMainAddress.SelectionStart = 0;
+            this.txaMainAddress.ShortcutsEnabled = true;
+            this.txaMainAddress.Size = new System.Drawing.Size(308, 110);
+            this.txaMainAddress.TabIndex = 5;
+            this.txaMainAddress.UseSelectable = true;
+            this.txaMainAddress.WaterMarkColor = System.Drawing.Color.FromArgb(((int)(((byte)(109)))), ((int)(((byte)(109)))), ((int)(((byte)(109)))));
+            this.txaMainAddress.WaterMarkFont = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Pixel);
             // 
             // txtlegalCertification
             // 
@@ -477,37 +481,37 @@
             this.dgvBusiness.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.dgvBusiness.CellBorderStyle = System.Windows.Forms.DataGridViewCellBorderStyle.None;
             this.dgvBusiness.ColumnHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.None;
-            dataGridViewCellStyle1.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(174)))), ((int)(((byte)(219)))));
-            dataGridViewCellStyle1.Font = new System.Drawing.Font("Segoe UI", 11F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Pixel);
-            dataGridViewCellStyle1.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(255)))), ((int)(((byte)(255)))));
-            dataGridViewCellStyle1.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(198)))), ((int)(((byte)(247)))));
-            dataGridViewCellStyle1.SelectionForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(17)))), ((int)(((byte)(17)))), ((int)(((byte)(17)))));
-            dataGridViewCellStyle1.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.dgvBusiness.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle1;
+            dataGridViewCellStyle10.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle10.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(174)))), ((int)(((byte)(219)))));
+            dataGridViewCellStyle10.Font = new System.Drawing.Font("Segoe UI", 11F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Pixel);
+            dataGridViewCellStyle10.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(255)))), ((int)(((byte)(255)))));
+            dataGridViewCellStyle10.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(198)))), ((int)(((byte)(247)))));
+            dataGridViewCellStyle10.SelectionForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(17)))), ((int)(((byte)(17)))), ((int)(((byte)(17)))));
+            dataGridViewCellStyle10.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.dgvBusiness.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle10;
             this.dgvBusiness.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            dataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle2.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(255)))), ((int)(((byte)(255)))));
-            dataGridViewCellStyle2.Font = new System.Drawing.Font("Segoe UI", 11F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Pixel);
-            dataGridViewCellStyle2.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(136)))), ((int)(((byte)(136)))), ((int)(((byte)(136)))));
-            dataGridViewCellStyle2.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(198)))), ((int)(((byte)(247)))));
-            dataGridViewCellStyle2.SelectionForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(17)))), ((int)(((byte)(17)))), ((int)(((byte)(17)))));
-            dataGridViewCellStyle2.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
-            this.dgvBusiness.DefaultCellStyle = dataGridViewCellStyle2;
+            dataGridViewCellStyle11.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle11.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(255)))), ((int)(((byte)(255)))));
+            dataGridViewCellStyle11.Font = new System.Drawing.Font("Segoe UI", 11F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Pixel);
+            dataGridViewCellStyle11.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(136)))), ((int)(((byte)(136)))), ((int)(((byte)(136)))));
+            dataGridViewCellStyle11.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(198)))), ((int)(((byte)(247)))));
+            dataGridViewCellStyle11.SelectionForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(17)))), ((int)(((byte)(17)))), ((int)(((byte)(17)))));
+            dataGridViewCellStyle11.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
+            this.dgvBusiness.DefaultCellStyle = dataGridViewCellStyle11;
             this.dgvBusiness.EnableHeadersVisualStyles = false;
             this.dgvBusiness.Font = new System.Drawing.Font("Segoe UI", 11F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Pixel);
             this.dgvBusiness.GridColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(255)))), ((int)(((byte)(255)))));
             this.dgvBusiness.Location = new System.Drawing.Point(113, 483);
             this.dgvBusiness.Name = "dgvBusiness";
             this.dgvBusiness.RowHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.None;
-            dataGridViewCellStyle3.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle3.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(174)))), ((int)(((byte)(219)))));
-            dataGridViewCellStyle3.Font = new System.Drawing.Font("Segoe UI", 11F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Pixel);
-            dataGridViewCellStyle3.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(255)))), ((int)(((byte)(255)))));
-            dataGridViewCellStyle3.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(198)))), ((int)(((byte)(247)))));
-            dataGridViewCellStyle3.SelectionForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(17)))), ((int)(((byte)(17)))), ((int)(((byte)(17)))));
-            dataGridViewCellStyle3.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.dgvBusiness.RowHeadersDefaultCellStyle = dataGridViewCellStyle3;
+            dataGridViewCellStyle12.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle12.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(174)))), ((int)(((byte)(219)))));
+            dataGridViewCellStyle12.Font = new System.Drawing.Font("Segoe UI", 11F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Pixel);
+            dataGridViewCellStyle12.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(255)))), ((int)(((byte)(255)))));
+            dataGridViewCellStyle12.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(198)))), ((int)(((byte)(247)))));
+            dataGridViewCellStyle12.SelectionForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(17)))), ((int)(((byte)(17)))), ((int)(((byte)(17)))));
+            dataGridViewCellStyle12.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.dgvBusiness.RowHeadersDefaultCellStyle = dataGridViewCellStyle12;
             this.dgvBusiness.RowHeadersWidthSizeMode = System.Windows.Forms.DataGridViewRowHeadersWidthSizeMode.DisableResizing;
             this.dgvBusiness.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
             this.dgvBusiness.Size = new System.Drawing.Size(595, 183);
@@ -524,6 +528,7 @@
             this.Controls.Add(this.groupBox1);
             this.Name = "UcBusiness";
             this.Size = new System.Drawing.Size(955, 685);
+            this.Load += new System.EventHandler(this.UcBusiness_Load);
             this.groupBox1.ResumeLayout(false);
             this.groupBox1.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pbLogo)).EndInit();
@@ -542,8 +547,8 @@
         private MetroFramework.Controls.MetroTile btnUpdateBusiness;
         private MetroFramework.Controls.MetroTextBox txtWebPage;
         private MetroFramework.Controls.MetroTile btnAddBusiness;
-        private MetroFramework.Controls.MetroTextBox txtaGeneralAddress;
-        private MetroFramework.Controls.MetroTextBox txtaMainAddress;
+        private MetroFramework.Controls.MetroTextBox txaGeneralAddress;
+        private MetroFramework.Controls.MetroTextBox txaMainAddress;
         private MetroFramework.Controls.MetroTextBox txtlegalCertification;
         private MetroFramework.Controls.MetroTextBox txtSocietyName;
         private MetroFramework.Controls.MetroTextBox txtFantasyName;

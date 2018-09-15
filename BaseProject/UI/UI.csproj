@@ -197,5 +197,15 @@
   <ItemGroup>
     <None Include="App.config" />
   </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\BusinessLibrary\BusinessLibrary.csproj">
+      <Project>{193fe192-0dc3-44cf-b2e1-b9e9aa513a39}</Project>
+      <Name>BusinessLibrary</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\LogicLibrary\LogicLibrary.csproj">
+      <Project>{ab8caad2-d498-4f2f-8993-b4dd3688e33b}</Project>
+      <Name>LogicLibrary</Name>
+    </ProjectReference>
+  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>
