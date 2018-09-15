@@ -140,6 +140,7 @@
             this.btnSellinvoice.TabIndex = 2;
             this.btnSellinvoice.Text = "Factura Venta";
             this.btnSellinvoice.UseSelectable = true;
+            this.btnSellinvoice.Click += new System.EventHandler(this.btnSellinvoice_Click);
             // 
             // btnApartInvoice
             // 
@@ -160,6 +161,7 @@
             this.btnCreditInvoice.TabIndex = 2;
             this.btnCreditInvoice.Text = "Factura Credito";
             this.btnCreditInvoice.UseSelectable = true;
+            this.btnCreditInvoice.Click += new System.EventHandler(this.btnCreditInvoice_Click);
             // 
             // metroTile6
             // 

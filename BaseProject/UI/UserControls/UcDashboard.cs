@@ -115,5 +115,27 @@ namespace UI.UserControls
             FrmMain.Instance.MetroContainer.Controls["ucExitInvoice"].BringToFront();
             FrmMain.Instance.MetroBack.Visible = true;
         }
+
+        private void btnSellinvoice_Click(object sender, EventArgs e)
+        {
+            UcSellinvoice ucSellinvoice = new UcSellinvoice
+            {
+                Dock = DockStyle.Fill
+            };
+            FrmMain.Instance.MetroContainer.Controls.Add(ucSellinvoice);
+            FrmMain.Instance.MetroContainer.Controls["ucSellinvoice"].BringToFront();
+            FrmMain.Instance.MetroBack.Visible = true;
+        }
+
+        private void btnCreditInvoice_Click(object sender, EventArgs e)
+        {
+            UcCreditInvoice ucCreditInvoice = new UcCreditInvoice
+            {
+                Dock = DockStyle.Fill
+            };
+            FrmMain.Instance.MetroContainer.Controls.Add(ucCreditInvoice);
+            FrmMain.Instance.MetroContainer.Controls["ucCreditInvoice"].BringToFront();
+            FrmMain.Instance.MetroBack.Visible = true;
+        }
     }
 }

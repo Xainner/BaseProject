@@ -87,6 +87,12 @@
     <Compile Include="UserControls\UcClient.Designer.cs">
       <DependentUpon>UcClient.cs</DependentUpon>
     </Compile>
+    <Compile Include="UserControls\UcCreditInvoice.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="UserControls\UcCreditInvoice.Designer.cs">
+      <DependentUpon>UcCreditInvoice.cs</DependentUpon>
+    </Compile>
     <Compile Include="UserControls\UcDashboard.cs">
       <SubType>UserControl</SubType>
     </Compile>
@@ -123,6 +129,12 @@
     <Compile Include="UserControls\UcProduct.Designer.cs">
       <DependentUpon>UcProduct.cs</DependentUpon>
     </Compile>
+    <Compile Include="UserControls\UcSellinvoice.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="UserControls\UcSellinvoice.Designer.cs">
+      <DependentUpon>UcSellinvoice.cs</DependentUpon>
+    </Compile>
     <EmbeddedResource Include="FrmMain.resx">
       <DependentUpon>FrmMain.cs</DependentUpon>
     </EmbeddedResource>
@@ -147,6 +159,9 @@
     <EmbeddedResource Include="UserControls\UcClient.resx">
       <DependentUpon>UcClient.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="UserControls\UcCreditInvoice.resx">
+      <DependentUpon>UcCreditInvoice.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="UserControls\UcDashboard.resx">
       <DependentUpon>UcDashboard.cs</DependentUpon>
     </EmbeddedResource>
@@ -164,6 +179,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="UserControls\UcProduct.resx">
       <DependentUpon>UcProduct.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="UserControls\UcSellinvoice.resx">
+      <DependentUpon>UcSellinvoice.cs</DependentUpon>
     </EmbeddedResource>
     <None Include="packages.config" />
     <None Include="Properties\Settings.settings">
