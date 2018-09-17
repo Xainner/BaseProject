@@ -32,6 +32,8 @@
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle3 = new System.Windows.Forms.DataGridViewCellStyle();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
+            this.mtxtCellphone = new System.Windows.Forms.MaskedTextBox();
+            this.mtxtTelephone = new System.Windows.Forms.MaskedTextBox();
             this.btnSelectPhoto = new MetroFramework.Controls.MetroButton();
             this.picPhoto = new System.Windows.Forms.PictureBox();
             this.txtNacionality = new MetroFramework.Controls.MetroTextBox();
@@ -69,15 +71,15 @@
             this.txaObservation = new MetroFramework.Controls.MetroTextBox();
             this.txtWorkStatus = new MetroFramework.Controls.MetroTextBox();
             this.groupBox3 = new System.Windows.Forms.GroupBox();
-            this.txtEmergencyName = new MetroFramework.Controls.MetroTextBox();
+            this.mtxtEmergencyPhone = new System.Windows.Forms.MaskedTextBox();
             this.btnAddEmployee = new MetroFramework.Controls.MetroTile();
             this.btnUpdateEmployee = new MetroFramework.Controls.MetroTile();
             this.txtSearchEmployee = new MetroFramework.Controls.MetroTextBox();
             this.btnDeleteEmployee = new MetroFramework.Controls.MetroTile();
-            this.mtxtTelephone = new System.Windows.Forms.MaskedTextBox();
-            this.mtxtCellphone = new System.Windows.Forms.MaskedTextBox();
-            this.mtxtEmergencyPhone = new System.Windows.Forms.MaskedTextBox();
             this.dgvEmployee = new MetroFramework.Controls.MetroGrid();
+            this.txtPosition = new MetroFramework.Controls.MetroLabel();
+            this.txtEmergencyName = new System.Windows.Forms.MaskedTextBox();
+            this.cmbPosition = new MetroFramework.Controls.MetroComboBox();
             this.groupBox1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.picPhoto)).BeginInit();
             this.groupBox2.SuspendLayout();
@@ -120,6 +122,20 @@
             this.groupBox1.TabIndex = 30;
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "Información del Empleado";
+            // 
+            // mtxtCellphone
+            // 
+            this.mtxtCellphone.Location = new System.Drawing.Point(118, 164);
+            this.mtxtCellphone.Name = "mtxtCellphone";
+            this.mtxtCellphone.Size = new System.Drawing.Size(171, 20);
+            this.mtxtCellphone.TabIndex = 16;
+            // 
+            // mtxtTelephone
+            // 
+            this.mtxtTelephone.Location = new System.Drawing.Point(118, 124);
+            this.mtxtTelephone.Name = "mtxtTelephone";
+            this.mtxtTelephone.Size = new System.Drawing.Size(171, 20);
+            this.mtxtTelephone.TabIndex = 16;
             // 
             // btnSelectPhoto
             // 
@@ -521,7 +537,7 @@
             // metroLabel21
             // 
             this.metroLabel21.AutoSize = true;
-            this.metroLabel21.Location = new System.Drawing.Point(40, 89);
+            this.metroLabel21.Location = new System.Drawing.Point(40, 109);
             this.metroLabel21.Name = "metroLabel21";
             this.metroLabel21.Size = new System.Drawing.Size(134, 19);
             this.metroLabel21.TabIndex = 1;
@@ -529,7 +545,9 @@
             // 
             // groupBox2
             // 
+            this.groupBox2.Controls.Add(this.cmbPosition);
             this.groupBox2.Controls.Add(this.metroLabel19);
+            this.groupBox2.Controls.Add(this.txtPosition);
             this.groupBox2.Controls.Add(this.metroLabel15);
             this.groupBox2.Controls.Add(this.metroLabel14);
             this.groupBox2.Controls.Add(this.metroLabel11);
@@ -539,7 +557,7 @@
             this.groupBox2.Controls.Add(this.txtWorkStatus);
             this.groupBox2.Location = new System.Drawing.Point(24, 345);
             this.groupBox2.Name = "groupBox2";
-            this.groupBox2.Size = new System.Drawing.Size(510, 151);
+            this.groupBox2.Size = new System.Drawing.Size(510, 185);
             this.groupBox2.TabIndex = 31;
             this.groupBox2.TabStop = false;
             this.groupBox2.Text = "Informacion de trabajo";
@@ -610,9 +628,9 @@
             // 
             // 
             this.txaObservation.CustomButton.Image = null;
-            this.txaObservation.CustomButton.Location = new System.Drawing.Point(107, 1);
+            this.txaObservation.CustomButton.Location = new System.Drawing.Point(73, 2);
             this.txaObservation.CustomButton.Name = "";
-            this.txaObservation.CustomButton.Size = new System.Drawing.Size(69, 69);
+            this.txaObservation.CustomButton.Size = new System.Drawing.Size(101, 101);
             this.txaObservation.CustomButton.Style = MetroFramework.MetroColorStyle.Blue;
             this.txaObservation.CustomButton.TabIndex = 1;
             this.txaObservation.CustomButton.Theme = MetroFramework.MetroThemeStyle.Light;
@@ -629,7 +647,7 @@
             this.txaObservation.SelectionLength = 0;
             this.txaObservation.SelectionStart = 0;
             this.txaObservation.ShortcutsEnabled = true;
-            this.txaObservation.Size = new System.Drawing.Size(177, 71);
+            this.txaObservation.Size = new System.Drawing.Size(177, 106);
             this.txaObservation.TabIndex = 10;
             this.txaObservation.UseSelectable = true;
             this.txaObservation.WaterMarkColor = System.Drawing.Color.FromArgb(((int)(((byte)(109)))), ((int)(((byte)(109)))), ((int)(((byte)(109)))));
@@ -667,46 +685,23 @@
             // 
             // groupBox3
             // 
+            this.groupBox3.Controls.Add(this.txtEmergencyName);
             this.groupBox3.Controls.Add(this.mtxtEmergencyPhone);
             this.groupBox3.Controls.Add(this.metroLabel20);
             this.groupBox3.Controls.Add(this.metroLabel21);
-            this.groupBox3.Controls.Add(this.txtEmergencyName);
             this.groupBox3.Location = new System.Drawing.Point(557, 345);
             this.groupBox3.Name = "groupBox3";
-            this.groupBox3.Size = new System.Drawing.Size(227, 151);
+            this.groupBox3.Size = new System.Drawing.Size(227, 185);
             this.groupBox3.TabIndex = 31;
             this.groupBox3.TabStop = false;
             this.groupBox3.Text = "En caso de emergencia";
             // 
-            // txtEmergencyName
+            // mtxtEmergencyPhone
             // 
-            // 
-            // 
-            // 
-            this.txtEmergencyName.CustomButton.Image = null;
-            this.txtEmergencyName.CustomButton.Location = new System.Drawing.Point(167, 1);
-            this.txtEmergencyName.CustomButton.Name = "";
-            this.txtEmergencyName.CustomButton.Size = new System.Drawing.Size(21, 21);
-            this.txtEmergencyName.CustomButton.Style = MetroFramework.MetroColorStyle.Blue;
-            this.txtEmergencyName.CustomButton.TabIndex = 1;
-            this.txtEmergencyName.CustomButton.Theme = MetroFramework.MetroThemeStyle.Light;
-            this.txtEmergencyName.CustomButton.UseSelectable = true;
-            this.txtEmergencyName.CustomButton.Visible = false;
-            this.txtEmergencyName.Lines = new string[0];
-            this.txtEmergencyName.Location = new System.Drawing.Point(18, 52);
-            this.txtEmergencyName.MaxLength = 32767;
-            this.txtEmergencyName.Name = "txtEmergencyName";
-            this.txtEmergencyName.PasswordChar = '\0';
-            this.txtEmergencyName.ScrollBars = System.Windows.Forms.ScrollBars.None;
-            this.txtEmergencyName.SelectedText = "";
-            this.txtEmergencyName.SelectionLength = 0;
-            this.txtEmergencyName.SelectionStart = 0;
-            this.txtEmergencyName.ShortcutsEnabled = true;
-            this.txtEmergencyName.Size = new System.Drawing.Size(189, 23);
-            this.txtEmergencyName.TabIndex = 10;
-            this.txtEmergencyName.UseSelectable = true;
-            this.txtEmergencyName.WaterMarkColor = System.Drawing.Color.FromArgb(((int)(((byte)(109)))), ((int)(((byte)(109)))), ((int)(((byte)(109)))));
-            this.txtEmergencyName.WaterMarkFont = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Pixel);
+            this.mtxtEmergencyPhone.Location = new System.Drawing.Point(18, 141);
+            this.mtxtEmergencyPhone.Name = "mtxtEmergencyPhone";
+            this.mtxtEmergencyPhone.Size = new System.Drawing.Size(189, 20);
+            this.mtxtEmergencyPhone.TabIndex = 16;
             // 
             // btnAddEmployee
             // 
@@ -717,6 +712,7 @@
             this.btnAddEmployee.TabIndex = 32;
             this.btnAddEmployee.Text = "Agregar";
             this.btnAddEmployee.UseSelectable = true;
+            this.btnAddEmployee.Click += new System.EventHandler(this.btnAddEmployee_Click);
             // 
             // btnUpdateEmployee
             // 
@@ -727,6 +723,7 @@
             this.btnUpdateEmployee.TabIndex = 32;
             this.btnUpdateEmployee.Text = "Modificar";
             this.btnUpdateEmployee.UseSelectable = true;
+            this.btnUpdateEmployee.Click += new System.EventHandler(this.btnUpdateEmployee_Click);
             // 
             // txtSearchEmployee
             // 
@@ -742,7 +739,7 @@
             this.txtSearchEmployee.CustomButton.Theme = MetroFramework.MetroThemeStyle.Light;
             this.txtSearchEmployee.CustomButton.UseSelectable = true;
             this.txtSearchEmployee.Lines = new string[0];
-            this.txtSearchEmployee.Location = new System.Drawing.Point(615, 536);
+            this.txtSearchEmployee.Location = new System.Drawing.Point(615, 566);
             this.txtSearchEmployee.MaxLength = 32767;
             this.txtSearchEmployee.Name = "txtSearchEmployee";
             this.txtSearchEmployee.PasswordChar = '\0';
@@ -759,37 +756,18 @@
             this.txtSearchEmployee.WaterMark = "Ingrese texto a buscar";
             this.txtSearchEmployee.WaterMarkColor = System.Drawing.Color.FromArgb(((int)(((byte)(109)))), ((int)(((byte)(109)))), ((int)(((byte)(109)))));
             this.txtSearchEmployee.WaterMarkFont = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Pixel);
+            this.txtSearchEmployee.Click += new System.EventHandler(this.txtSearchEmployee_Click);
             // 
             // btnDeleteEmployee
             // 
             this.btnDeleteEmployee.ActiveControl = null;
-            this.btnDeleteEmployee.Location = new System.Drawing.Point(729, 853);
+            this.btnDeleteEmployee.Location = new System.Drawing.Point(729, 892);
             this.btnDeleteEmployee.Name = "btnDeleteEmployee";
             this.btnDeleteEmployee.Size = new System.Drawing.Size(103, 44);
             this.btnDeleteEmployee.TabIndex = 32;
             this.btnDeleteEmployee.Text = "Eliminar";
             this.btnDeleteEmployee.UseSelectable = true;
-            // 
-            // mtxtTelephone
-            // 
-            this.mtxtTelephone.Location = new System.Drawing.Point(118, 124);
-            this.mtxtTelephone.Name = "mtxtTelephone";
-            this.mtxtTelephone.Size = new System.Drawing.Size(171, 20);
-            this.mtxtTelephone.TabIndex = 16;
-            // 
-            // mtxtCellphone
-            // 
-            this.mtxtCellphone.Location = new System.Drawing.Point(118, 164);
-            this.mtxtCellphone.Name = "mtxtCellphone";
-            this.mtxtCellphone.Size = new System.Drawing.Size(171, 20);
-            this.mtxtCellphone.TabIndex = 16;
-            // 
-            // mtxtEmergencyPhone
-            // 
-            this.mtxtEmergencyPhone.Location = new System.Drawing.Point(18, 111);
-            this.mtxtEmergencyPhone.Name = "mtxtEmergencyPhone";
-            this.mtxtEmergencyPhone.Size = new System.Drawing.Size(189, 20);
-            this.mtxtEmergencyPhone.TabIndex = 16;
+            this.btnDeleteEmployee.Click += new System.EventHandler(this.btnDeleteEmployee_Click);
             // 
             // dgvEmployee
             // 
@@ -818,7 +796,7 @@
             this.dgvEmployee.EnableHeadersVisualStyles = false;
             this.dgvEmployee.Font = new System.Drawing.Font("Segoe UI", 11F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Pixel);
             this.dgvEmployee.GridColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(255)))), ((int)(((byte)(255)))));
-            this.dgvEmployee.Location = new System.Drawing.Point(90, 565);
+            this.dgvEmployee.Location = new System.Drawing.Point(90, 604);
             this.dgvEmployee.Name = "dgvEmployee";
             this.dgvEmployee.RowHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.None;
             dataGridViewCellStyle3.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
@@ -834,6 +812,32 @@
             this.dgvEmployee.Size = new System.Drawing.Size(742, 282);
             this.dgvEmployee.TabIndex = 34;
             // 
+            // txtPosition
+            // 
+            this.txtPosition.AutoSize = true;
+            this.txtPosition.Location = new System.Drawing.Point(21, 146);
+            this.txtPosition.Name = "txtPosition";
+            this.txtPosition.Size = new System.Drawing.Size(124, 19);
+            this.txtPosition.TabIndex = 1;
+            this.txtPosition.Text = "Posición de trabajo:";
+            // 
+            // txtEmergencyName
+            // 
+            this.txtEmergencyName.Location = new System.Drawing.Point(18, 57);
+            this.txtEmergencyName.Name = "txtEmergencyName";
+            this.txtEmergencyName.Size = new System.Drawing.Size(189, 20);
+            this.txtEmergencyName.TabIndex = 16;
+            // 
+            // cmbPosition
+            // 
+            this.cmbPosition.FormattingEnabled = true;
+            this.cmbPosition.ItemHeight = 23;
+            this.cmbPosition.Location = new System.Drawing.Point(146, 143);
+            this.cmbPosition.Name = "cmbPosition";
+            this.cmbPosition.Size = new System.Drawing.Size(143, 29);
+            this.cmbPosition.TabIndex = 11;
+            this.cmbPosition.UseSelectable = true;
+            // 
             // UcEmployee
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -848,7 +852,8 @@
             this.Controls.Add(this.groupBox2);
             this.Controls.Add(this.groupBox1);
             this.Name = "UcEmployee";
-            this.Size = new System.Drawing.Size(955, 911);
+            this.Size = new System.Drawing.Size(955, 939);
+            this.Load += new System.EventHandler(this.UcEmployee_Load);
             this.groupBox1.ResumeLayout(false);
             this.groupBox1.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.picPhoto)).EndInit();
@@ -901,7 +906,6 @@
         private MetroFramework.Controls.MetroTextBox txaObservation;
         private MetroFramework.Controls.MetroTextBox txtWorkStatus;
         private System.Windows.Forms.GroupBox groupBox3;
-        private MetroFramework.Controls.MetroTextBox txtEmergencyName;
         private MetroFramework.Controls.MetroTile btnAddEmployee;
         private MetroFramework.Controls.MetroTile btnUpdateEmployee;
         private MetroFramework.Controls.MetroTextBox txtSearchEmployee;
@@ -910,5 +914,8 @@
         private System.Windows.Forms.MaskedTextBox mtxtTelephone;
         private System.Windows.Forms.MaskedTextBox mtxtEmergencyPhone;
         private MetroFramework.Controls.MetroGrid dgvEmployee;
+        private MetroFramework.Controls.MetroLabel txtPosition;
+        private System.Windows.Forms.MaskedTextBox txtEmergencyName;
+        private MetroFramework.Controls.MetroComboBox cmbPosition;
     }
 }

@@ -13,7 +13,7 @@ namespace BusinessLibrary.DataManagement
         {
             try
             {
-                //client = ClaseBD.SelectClient(client);
+                //client = BDClient.SelectClient(client);
                 return client;
             }
             catch (Exception)
@@ -27,7 +27,7 @@ namespace BusinessLibrary.DataManagement
         {
             try
             {
-                //ClaseBD.SelectAllClient();
+                //BDClient.SelectAllClient();
                 return null;
             }
             catch (Exception)
@@ -41,7 +41,7 @@ namespace BusinessLibrary.DataManagement
         {
             try
             {
-                //ClaseBD.InsertClient(client);
+                //BDClient.InsertClient(client);
                 return true;
             }
             catch (Exception)
@@ -55,7 +55,7 @@ namespace BusinessLibrary.DataManagement
         {
             try
             {
-                //ClaseBD.UpdateClient(client);
+                //BDClient.UpdateClient(client);
                 return true;
             }
             catch (Exception)
@@ -70,7 +70,7 @@ namespace BusinessLibrary.DataManagement
         {
             try
             {
-                //ClaseBD.DeleteClient(client);
+                //BDClient.DeleteClient(client);
                 return true;
             }
             catch (Exception)
