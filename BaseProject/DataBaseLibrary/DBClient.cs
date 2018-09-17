@@ -58,7 +58,7 @@ namespace DataBaseLibrary
         /// </summary>
         /// <param name="Client"></param>
         /// <returns>output</returns>
-        public List<ClientModel> SelectNameorLastName(ClientModel Client)
+        public List<ClientModel> SelectNameOrLastName(ClientModel Client)
         {
             using (IDbConnection cnn = new MySqlConnection(LoadConnectionString()))
             {
@@ -101,11 +101,11 @@ namespace DataBaseLibrary
         /// Update a client from client
         /// </summary>
         /// <param name="Client"></param>
-        public static void UpdateBusiness(ClientModel Client)
+        public static void UpdateClient(ClientModel Client)
         {
             using (IDbConnection cnn = new MySqlConnection(LoadConnectionString()))
             {
-                cnn.Execute("UPDATE business " +
+                cnn.Execute("UPDATE client " +
                     "SET Name = @Name, lastName = @lastName, " +
                     "identificationType = @identificationType, " +
                     "Identification = @Identification, Email = @Email, " +

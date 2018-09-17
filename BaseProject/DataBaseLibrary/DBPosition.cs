@@ -12,7 +12,7 @@ using System.Configuration;
 
 namespace DataBaseLibrary
 {
-    public class DBCategory
+    public class DBPosition
     {
         /// <summary>
         /// Make the connection with the database
@@ -24,70 +24,72 @@ namespace DataBaseLibrary
             return ConfigurationManager.ConnectionStrings[id].ConnectionString;
         }
 
-        // Category
+        // Position
 
         /// <summary>
-        /// Show all categories in the table category
+        /// Show all positions in the table position
         /// </summary>
         /// <returns>output</returns>
-        public List<CategoryModel> SelectCategoryAll()
+        public List<PositionModel> SelectPositionAll()
         {
             using (IDbConnection cnn = new MySqlConnection(LoadConnectionString()))
             {
-                var output = cnn.Query<CategoryModel>("SELECT * FROM category");
+                var output = cnn.Query<PositionModel>("SELECT * FROM position");
                 return output.ToList();
             }
         }
 
         /// <summary>
-        /// Show a specific category
+        /// Show a specific position by idPosition
         /// </summary>
-        /// <param name="Category"></param>
+        /// <param name="Position"></param>
         /// <returns>output</returns>
-        public List<CategoryModel> SelectCategoryName(CategoryModel Category)
+        public List<PositionModel> SelectidPosition(PositionModel Position)
         {
             using (IDbConnection cnn = new MySqlConnection(LoadConnectionString()))
             {
-                var output = cnn.Query<CategoryModel>("SELECT * FROM category WHERE idCategory = @idCategory", Category);
+                var output = cnn.Query<PositionModel>("SELECT * FROM position WHERE idPosition = @idPosition", Position);
                 return output.ToList();
             }
         }
 
         /// <summary>
-        /// Insert a category from category
+        /// Insert a position from position
         /// </summary>
-        /// <param name="Category"></param>
-        public static void InsertCategory(CategoryModel Category)
+        /// <param name="Position"></param>
+        public static void InsertPosition(PositionModel Position)
         {
             using (IDbConnection cnn = new MySqlConnection(LoadConnectionString()))
             {
-                cnn.Execute("INSERT INTO category(Name, idSubCategory) VALUES" +
-                    "(@Name, @idSubCategory)", Category);
+                cnn.Execute("INSERT INTO position" +
+                    "(positionName, idSalary) VALUES" +
+                    "(@positionName, @idSalary)", Position);
             }
         }
 
         /// <summary>
-        /// Delete a category from category
+        /// Delete a position from position
         /// </summary>
-        /// <param name="Category"></param>
-        public static void DeleteCategory(CategoryModel Category)
+        /// <param name="Position"></param>
+        public static void DeletePosition(PositionModel Position)
         {
             using (IDbConnection cnn = new MySqlConnection(LoadConnectionString()))
             {
-                cnn.Execute("DELETE FROM category WHERE idCategory = @idCategory", Category);
+                cnn.Execute("DELETE FROM position WHERE idPosition = @idPosition", Position);
             }
         }
 
         /// <summary>
-        /// Update a category from category
+        /// Update a position from position
         /// </summary>
-        /// <param name="Category"></param>
-        public static void UpdateCategory(CategoryModel Category)
+        /// <param name="Position"></param>
+        public static void UpdatePosition(PositionModel Position)
         {
             using (IDbConnection cnn = new MySqlConnection(LoadConnectionString()))
             {
-                cnn.Execute("UPDATE category SET Name = @Name, " +
-                    "idSubCategory = @idSubCategory WHERE idCategory = @idCategory", Category);
+                cnn.Execute("UPDATE position " +
+                    "SET positionName = @positionName, idSalary = @idSalary " +
+                    "WHERE idPosition = @idPosition", Position);
             }
         }
     }
