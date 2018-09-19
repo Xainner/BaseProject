@@ -1,4 +1,5 @@
 ﻿using BusinessLibrary.Models;
+using DataBaseLibrary;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -13,7 +14,7 @@ namespace BusinessLibrary.Conection
         {
             try
             {
-                //brand = ClaseBD.SelectBrand(brand);
+                //brand = DBBrand.SelectBrand(brand);
                 return brand;
             }
             catch (Exception)
@@ -27,7 +28,7 @@ namespace BusinessLibrary.Conection
         {
             try
             {
-                //ClaseBD.SelectAllBrand();
+                //DBBrand.SelectAllBrand();
                 return null;
             }
             catch (Exception)
@@ -41,7 +42,7 @@ namespace BusinessLibrary.Conection
         {
             try
             {
-                //ClaseBD.InsertBrand(brand);
+                DBBrand.InsertBrand(brand);
                 return true;
             }
             catch (Exception)
@@ -55,7 +56,7 @@ namespace BusinessLibrary.Conection
         {
             try
             {
-                //ClaseBD.UpdateBrand(brand);
+                DBBrand.UpdateBrand(brand);
                 return true;
             }
             catch (Exception)
@@ -69,7 +70,7 @@ namespace BusinessLibrary.Conection
         {
             try
             {
-                //ClaseBD.DeleteBrand(brand);
+                DBBrand.DeleteBrand(brand);
                 return true;
             }
             catch (Exception)

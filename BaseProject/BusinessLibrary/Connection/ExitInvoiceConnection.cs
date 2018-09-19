@@ -13,7 +13,7 @@ namespace BusinessLibrary.Connection
         {
             try
             {
-                //exitInvoice = ClaseBD.SelectExitInvoice(exitInvoice);
+                //exitInvoice = DBExitInvoice.SelectExitInvoice(exitInvoice);
                 return exitInvoice;
             }
             catch (Exception)
@@ -27,7 +27,7 @@ namespace BusinessLibrary.Connection
         {
             try
             {
-                //ClaseBD.SelectAllExitInvoice();
+                //DBExitInvoice.SelectAllExitInvoice();
                 return null;
             }
             catch (Exception)
@@ -41,7 +41,7 @@ namespace BusinessLibrary.Connection
         {
             try
             {
-                //ClaseBD.InsertExitInvoice(exitInvoice);
+                //DBExitInvoice.InsertExitInvoice(exitInvoice);
                 return true;
             }
             catch (Exception)
@@ -55,7 +55,7 @@ namespace BusinessLibrary.Connection
         {
             try
             {
-                //ClaseBD.UpdateExitInvoice(exitInvoice);
+                //DBExitInvoice.UpdateExitInvoice(exitInvoice);
                 return true;
             }
             catch (Exception)
@@ -69,7 +69,7 @@ namespace BusinessLibrary.Connection
         {
             try
             {
-                //ClaseBD.DeleteExitInvoice(exitInvoice);
+                //DBExitInvoice.DeleteExitInvoice(exitInvoice);
                 return true;
             }
             catch (Exception)

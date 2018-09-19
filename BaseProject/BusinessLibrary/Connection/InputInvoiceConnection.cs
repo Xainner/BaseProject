@@ -13,7 +13,7 @@ namespace BusinessLibrary.Connection
         {
             try
             {
-                //inputInvoice = ClaseBD.SelectInputInvoice(inputInvoice);
+                //inputInvoice = DBInputInvoice.SelectInputInvoice(inputInvoice);
                 return inputInvoice;
             }
             catch (Exception)
@@ -27,7 +27,7 @@ namespace BusinessLibrary.Connection
         {
             try
             {
-                //ClaseBD.SelectAllInputInvoice();
+                //DBInputInvoice.SelectAllInputInvoice();
                 return null;
             }
             catch (Exception)
@@ -41,7 +41,7 @@ namespace BusinessLibrary.Connection
         {
             try
             {
-                //ClaseBD.InsertInputInvoice(inputInvoice);
+                //DBInputInvoice.InsertInputInvoice(inputInvoice);
                 return true;
             }
             catch (Exception)
@@ -55,7 +55,7 @@ namespace BusinessLibrary.Connection
         {
             try
             {
-                //ClaseBD.UpdateInputInvoice(inputInvoice);
+                //DBInputInvoice.UpdateInputInvoice(inputInvoice);
                 return true;
             }
             catch (Exception)
@@ -69,7 +69,7 @@ namespace BusinessLibrary.Connection
         {
             try
             {
-                //ClaseBD.DeleteInputInvoice(inputInvoice);
+                //DBInputInvoice.DeleteInputInvoice(inputInvoice);
                 return true;
             }
             catch (Exception)

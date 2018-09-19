@@ -1,4 +1,5 @@
 ﻿using BusinessLibrary.Models;
+using DataBaseLibrary;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -13,7 +14,7 @@ namespace BusinessLibrary.DataManagement
         {
             try
             {
-                //client = BDClient.SelectClient(client);
+                //client = DBClient.SelectClient(client);
                 return client;
             }
             catch (Exception)
@@ -27,7 +28,7 @@ namespace BusinessLibrary.DataManagement
         {
             try
             {
-                //BDClient.SelectAllClient();
+                //DBClient.SelectAllClient();
                 return null;
             }
             catch (Exception)
@@ -41,7 +42,7 @@ namespace BusinessLibrary.DataManagement
         {
             try
             {
-                //BDClient.InsertClient(client);
+                DBClient.InsertClient(client);
                 return true;
             }
             catch (Exception)
@@ -55,7 +56,7 @@ namespace BusinessLibrary.DataManagement
         {
             try
             {
-                //BDClient.UpdateClient(client);
+                DBClient.UpdateClient(client);
                 return true;
             }
             catch (Exception)
@@ -70,7 +71,7 @@ namespace BusinessLibrary.DataManagement
         {
             try
             {
-                //BDClient.DeleteClient(client);
+                DBClient.DeleteClient(client);
                 return true;
             }
             catch (Exception)

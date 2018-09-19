@@ -1,4 +1,5 @@
 ﻿using BusinessLibrary.Models;
+using DataBaseLibrary;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -13,7 +14,7 @@ namespace BusinessLibrary.Conection
         {
             try
             {
-                //employee = ClaseBD.SelectEmployee(employee);
+                //employee = DBEmployee.SelectEmployee(employee);
                 return employee;
             }
             catch (Exception)
@@ -27,7 +28,7 @@ namespace BusinessLibrary.Conection
         {
             try
             {
-                //ClaseBD.SelectAllEmployee();
+                //DBEmployee.SelectAllEmployee();
                 return null;
             }
             catch (Exception)
@@ -41,7 +42,7 @@ namespace BusinessLibrary.Conection
         {
             try
             {
-                //ClaseBD.InsertEmployee(brand);
+                DBEmployee.InsertEmployee(employee);
                 return true;
             }
             catch (Exception)
@@ -55,8 +56,7 @@ namespace BusinessLibrary.Conection
         {
             try
             {
-                //ClaseBD.UpdateEmployee(brand);
-                //ClaseBD.UpdateEmployee(brand);
+                DBEmployee.UpdateEmployee(employee);
                 return true;
             }
             catch (Exception)
@@ -70,7 +70,7 @@ namespace BusinessLibrary.Conection
         {
             try
             {
-                //ClaseBD.DeleteEmployee(brand);
+                DBEmployee.DeleteEmployee(employee);
                 return true;
             }
             catch (Exception)
