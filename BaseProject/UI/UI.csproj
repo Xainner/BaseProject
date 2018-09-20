@@ -135,6 +135,7 @@
     <Compile Include="UserControls\UcSellinvoice.Designer.cs">
       <DependentUpon>UcSellinvoice.cs</DependentUpon>
     </Compile>
+    <Compile Include="Utilities\ImageManagement.cs" />
     <EmbeddedResource Include="FrmMain.resx">
       <DependentUpon>FrmMain.cs</DependentUpon>
     </EmbeddedResource>

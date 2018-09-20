@@ -10,32 +10,23 @@ namespace LogicLibrary
 {
     public class CategoryManagement
     {
-        public static bool VerifyFields(string[] fields)
-        {
-            foreach (string field in fields)
-            {
-                if (string.IsNullOrEmpty(field))
-                {
-                    return false;
-                }
-            }
-            return false;
-        }
-
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="name"></param>
+        /// <returns></returns>
         public static bool InsertCategory(string name)
         {
             try
             {
-                //TEMP
                 string[] category = new string[] { name };
-                CategoryModel categoryModel = new CategoryModel()
+                if (DataManagement.VerifyFields(category))
                 {
-                    Name = name,
-                };
-                if (VerifyFields(category))
-                {
-                    CategoryConnection.InsertCategory(categoryModel);
-                    return true;
+                    CategoryModel categoryModel = new CategoryModel()
+                    {
+                        Name = name,
+                    };
+                    return CategoryConnection.InsertCategory(categoryModel);
                 }
                 else
                 {
@@ -44,26 +35,31 @@ namespace LogicLibrary
             }
             catch (Exception ex)
             {
-                return false;
                 //Log4Net
+                return false;
             }
         }
 
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="idCategory"></param>
+        /// <param name="name"></param>
+        /// <returns></returns>
         public static bool UpdateCategoryById(string idCategory, string name)
         {
             try
             {
                 //TEMP
                 string[] category = new string[] { idCategory, name };
-                CategoryModel categoryModel = new CategoryModel()
+                if (DataManagement.VerifyFields(category))
                 {
-                    Name = name,
-                    IdCategoy = int.Parse(idCategory)
-                };
-                if (VerifyFields(category))
-                {
-                    CategoryConnection.UpdateCategory(categoryModel);
-                    return true;
+                    CategoryModel categoryModel = new CategoryModel()
+                    {
+                        Name = name,
+                        IdCategoy = int.Parse(idCategory)
+                    };
+                    return CategoryConnection.UpdateCategory(categoryModel);
                 }
                 else
                 {
@@ -72,25 +68,28 @@ namespace LogicLibrary
             }
             catch (Exception ex)
             {
-                return false;
                 //Log4Net
+                return false;
             }
         }
 
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="idCategory"></param>
+        /// <returns></returns>
         public static bool DeleteCategoryById(string idCategory)
         {
             try
             {
-                //TEMP
                 string[] category = new string[] { idCategory };
-                CategoryModel categoryModel = new CategoryModel()
+                if (DataManagement.VerifyFields(category))
                 {
-                    IdCategoy = int.Parse(idCategory)
-                };
-                if (VerifyFields(category))
-                {
-                    CategoryConnection.DeleteCategory(categoryModel);
-                    return true;
+                    CategoryModel categoryModel = new CategoryModel()
+                    {
+                        IdCategoy = int.Parse(idCategory)
+                    };
+                    return CategoryConnection.DeleteCategory(categoryModel);
                 }
                 else
                 {
@@ -99,24 +98,27 @@ namespace LogicLibrary
             }
             catch (Exception ex)
             {
-                return false;
                 //Log4Net
+                return false;
             }
         }
 
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="idCategory"></param>
+        /// <returns></returns>
         public static CategoryModel SelectCategoryById(string idCategory)
         {
             try
             {
-                //TEMP
                 string[] category = new string[] { idCategory };
-                //TEMP
-                CategoryModel categoryModel = new CategoryModel()
+                if (DataManagement.VerifyFields(category))
                 {
-                    IdCategoy = int.Parse(idCategory)
-                };
-                if (VerifyFields(category))
-                {
+                    CategoryModel categoryModel = new CategoryModel()
+                    {
+                        IdCategoy = int.Parse(idCategory)
+                    };
                     return CategoryConnection.SelectCategory(categoryModel);
                 }
                 else
@@ -126,22 +128,25 @@ namespace LogicLibrary
             }
             catch (Exception ex)
             {
-                return null;
                 //Log4Net
+                return null;
             }
         }
 
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <returns></returns>
         public static List<CategoryModel> SelectAllCategories()
         {
             try
             {
                 return CategoryConnection.SelectAllCategory();
-                //METHOD
             }
             catch (Exception ex)
             {
+                //Log4Net
                 return null;
-                //*Log4Net
             }
         }
     }

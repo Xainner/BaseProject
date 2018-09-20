@@ -41,23 +41,24 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="BrandManagement.cs" />
-    <Compile Include="BusinessManagement.cs" />
-    <Compile Include="CategoryManagement.cs" />
-    <Compile Include="ClientManagement.cs" />
-    <Compile Include="CreditInvoiceManagement.cs" />
-    <Compile Include="DataManagement.cs" />
-    <Compile Include="EmployeeManagement.cs" />
-    <Compile Include="ExitInvoiceManagement.cs" />
-    <Compile Include="ExternalSellInvoiceManagement.cs" />
-    <Compile Include="InputInvoiceManagement.cs" />
-    <Compile Include="InternalSellInvoiceManagement.cs" />
-    <Compile Include="PositionManagement.cs" />
-    <Compile Include="ProductManagement.cs" />
+    <Compile Include="LogicManagement\BrandManagement.cs" />
+    <Compile Include="LogicManagement\BusinessManagement.cs" />
+    <Compile Include="LogicManagement\CategoryManagement.cs" />
+    <Compile Include="LogicManagement\ClientManagement.cs" />
+    <Compile Include="LogicManagement\CreditInvoiceManagement.cs" />
+    <Compile Include="Utilities\DataManagement.cs" />
+    <Compile Include="LogicManagement\EmployeeManagement.cs" />
+    <Compile Include="LogicManagement\ExitInvoiceManagement.cs" />
+    <Compile Include="LogicManagement\ExternalSellInvoiceManagement.cs" />
+    <Compile Include="LogicManagement\InputInvoiceManagement.cs" />
+    <Compile Include="LogicManagement\InternalSellInvoiceManagement.cs" />
+    <Compile Include="Utilities\PasswordManagement.cs" />
+    <Compile Include="LogicManagement\PositionManagement.cs" />
+    <Compile Include="LogicManagement\ProductManagement.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="SalaryManagement.cs" />
-    <Compile Include="SubCategoryManagement.cs" />
-    <Compile Include="UserManagement.cs" />
+    <Compile Include="LogicManagement\SalaryManagement.cs" />
+    <Compile Include="LogicManagement\SubCategoryManagement.cs" />
+    <Compile Include="LogicManagement\UserManagement.cs" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\BusinessLibrary\BusinessLibrary.csproj">

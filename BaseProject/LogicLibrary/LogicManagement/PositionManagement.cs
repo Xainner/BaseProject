@@ -10,32 +10,24 @@ namespace LogicLibrary
 {
     public class PositionManagement
     {
-        public static bool VerifyFields(string[] fields)
-        {
-            foreach (string field in fields)
-            {
-                if (string.IsNullOrEmpty(field))
-                {
-                    return false;
-                }
-            }
-            return false;
-        }
-
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="positionName"></param>
+        /// <param name="idSalary"></param>
+        /// <returns></returns>
         public static bool InsertPosition(string positionName, string idSalary)
         {
             try
             {
-                //TEMP
                 string[] position = new string[] { positionName, idSalary };
-                //TEMP
-                PositionModel positionModel = new PositionModel()
+                if (DataManagement.VerifyFields(position))
                 {
-                    IdSalary = int.Parse(idSalary),
-                    PositionName = positionName
-                };
-                if (VerifyFields(position))
-                {
+                    PositionModel positionModel = new PositionModel()
+                    {
+                        IdSalary = int.Parse(idSalary),
+                        PositionName = positionName
+                    };
                     return PositionConnection.InsertPosition(positionModel);
                 }
                 else
@@ -45,25 +37,31 @@ namespace LogicLibrary
             }
             catch (Exception ex)
             {
-                return false;
                 //Log4Net
+                return false;
             }
         }
 
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="idPosition"></param>
+        /// <param name="positionName"></param>
+        /// <param name="idSalary"></param>
+        /// <returns></returns>
         public static bool UpdatePositionById(string idPosition, string positionName, string idSalary)
         {
             try
             {
-                //TEMP
                 string[] position = new string[] { idPosition, positionName };
-                PositionModel positionModel = new PositionModel()
+                if (DataManagement.VerifyFields(position))
                 {
-                    IdSalary = int.Parse(idSalary),
-                    IdPosition = int.Parse(idPosition),
-                    PositionName = positionName
-                };
-                if (VerifyFields(position))
-                {
+                    PositionModel positionModel = new PositionModel()
+                    {
+                        IdSalary = int.Parse(idSalary),
+                        IdPosition = int.Parse(idPosition),
+                        PositionName = positionName
+                    };
                     return PositionConnection.UpdatePosition(positionModel);
                 }
                 else
@@ -73,23 +71,27 @@ namespace LogicLibrary
             }
             catch (Exception ex)
             {
-                return false;
                 //Log4Net
+                return false;
             }
         }
 
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="idPosition"></param>
+        /// <returns></returns>
         public static bool DeletePositionById(string idPosition)
         {
             try
             {
-                //TEMP
                 string[] position = new string[] { idPosition };
-                PositionModel positionModel = new PositionModel()
+                if (DataManagement.VerifyFields(position))
                 {
-                    IdPosition = int.Parse(idPosition)
-                };
-                if (VerifyFields(position))
-                {
+                    PositionModel positionModel = new PositionModel()
+                    {
+                        IdPosition = int.Parse(idPosition)
+                    };
                     return PositionConnection.UpdatePosition(positionModel);
                 }
                 else
@@ -99,23 +101,27 @@ namespace LogicLibrary
             }
             catch (Exception ex)
             {
-                return false;
                 //Log4Net
+                return false;
             }
         }
 
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="idPosition"></param>
+        /// <returns></returns>
         public static PositionModel SelectPositionById(string idPosition)
         {
             try
             {
-                //TEMP
                 string[] position = new string[] { idPosition };
-                PositionModel positionModel = new PositionModel()
+                if (DataManagement.VerifyFields(position))
                 {
-                    IdPosition = int.Parse(idPosition)
-                };
-                if (VerifyFields(position))
-                {
+                    PositionModel positionModel = new PositionModel()
+                    {
+                        IdPosition = int.Parse(idPosition)
+                    };
                     return PositionConnection.SelectPosition(positionModel);
                 }
                 else
@@ -125,22 +131,26 @@ namespace LogicLibrary
             }
             catch (Exception ex)
             {
-                return null;
                 //Log4Net
+                return null;
             }
         }
 
-        //public static PositionModel SelectAllPositions()
-        //{
-        //    try
-        //    {
-        //        //METHOD
-        //    }
-        //    catch (Exception ex)
-        //    {
-        //        return false;
-        //        Log4Net
-        //    }
-        //}
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <returns></returns>
+        public static List<PositionModel> SelectAllPositions()
+        {
+            try
+            {
+                return PositionConnection.SelectAllPosition();
+            }
+            catch (Exception ex)
+            {
+                //Log4Net
+                return null;
+            }
+        }
     }
 }

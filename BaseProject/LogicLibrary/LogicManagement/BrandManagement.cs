@@ -15,19 +15,18 @@ namespace LogicLibrary
         /// </summary>
         /// <param name="name"></param>
         /// <returns></returns>
-        public static bool InsertBrand(string name)
+        public static bool InsertBusiness(string name)
         {
             try
             {
                 string[] brand = new string[] { name };
-                BrandModel brandModel = new BrandModel()
-                {
-                    Name = name
-                };
                 if (DataManagement.VerifyFields(brand))
                 {
-                    BrandConnection.InsertBrand(brandModel);
-                    return true;
+                    BrandModel brandModel = new BrandModel()
+                    {
+                        Name = name,
+                    };
+                    return BrandConnection.InsertBrand(brandModel);
                 }
                 else
                 {
@@ -52,15 +51,13 @@ namespace LogicLibrary
             try
             {
                 string[] brand = new string[] { idBrand, name };
-                BrandModel brandModel = new BrandModel()
-                {
-                    IdBrand = int.Parse(idBrand),
-                    Name = name
-                };
                 if (DataManagement.VerifyFields(brand))
                 {
-                    BrandConnection.UpdateBrand(brandModel);
-                    return true;
+                    BrandModel brandModel = new BrandModel()
+                    {
+                        IdBrand = int.Parse(idBrand)
+                    };
+                    return BrandConnection.UpdateBrand(brandModel);
                 }
                 else
                 {
@@ -84,14 +81,13 @@ namespace LogicLibrary
             try
             {
                 string[] brand = new string[] { idBrand };
-                BrandModel brandModel = new BrandModel()
-                {
-                    IdBrand = int.Parse(idBrand)
-                };
                 if (DataManagement.VerifyFields(brand))
                 {
-                    BrandConnection.DeleteBrand(brandModel);
-                    return true;
+                    BrandModel brandModel = new BrandModel()
+                    {
+                        IdBrand = int.Parse(idBrand)
+                    };
+                    return BrandConnection.DeleteBrand(brandModel);
                 }
                 else
                 {
@@ -115,12 +111,12 @@ namespace LogicLibrary
             try
             {
                 string[] brand = new string[] { idBrand };
-                BrandModel brandModel = new BrandModel()
-                {
-                    IdBrand = int.Parse(idBrand)
-                };
                 if (DataManagement.VerifyFields(brand))
                 {
+                    BrandModel brandModel = new BrandModel()
+                    {
+                        IdBrand = int.Parse(idBrand)
+                    };
                     return BrandConnection.SelectBrand(brandModel);
                 }
                 else
@@ -139,7 +135,7 @@ namespace LogicLibrary
         /// 
         /// </summary>
         /// <returns></returns>
-        public static List<BrandModel> SelectAllBrands()
+        public static List<BrandModel> SelectAlBrands()
         {
             try
             {
