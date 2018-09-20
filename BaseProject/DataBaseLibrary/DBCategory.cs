@@ -30,7 +30,7 @@ namespace DataBaseLibrary
         /// Show all categories in the table category
         /// </summary>
         /// <returns>output</returns>
-        public List<CategoryModel> SelectCategoryAll()
+        public static List<CategoryModel> SelectCategoryAll()
         {
             using (IDbConnection cnn = new MySqlConnection(LoadConnectionString()))
             {
@@ -44,7 +44,7 @@ namespace DataBaseLibrary
         /// </summary>
         /// <param name="Category"></param>
         /// <returns>output</returns>
-        public List<CategoryModel> SelectCategoryName(CategoryModel Category)
+        public static List<CategoryModel> SelectCategoryName(CategoryModel Category)
         {
             using (IDbConnection cnn = new MySqlConnection(LoadConnectionString()))
             {

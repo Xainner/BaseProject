@@ -30,7 +30,7 @@ namespace DataBaseLibrary
         /// Show all salaries in the table salary
         /// </summary>
         /// <returns>output</returns>
-        public List<SalaryModel> SelectSalaryAll()
+        public static List<SalaryModel> SelectSalaryAll()
         {
             using (IDbConnection cnn = new MySqlConnection(LoadConnectionString()))
             {
@@ -44,7 +44,7 @@ namespace DataBaseLibrary
         /// </summary>
         /// <param name="Salary"></param>
         /// <returns>output</returns>
-        public List<SalaryModel> SelectidSalary(SalaryModel Salary)
+        public static List<SalaryModel> SelectidSalary(SalaryModel Salary)
         {
             using (IDbConnection cnn = new MySqlConnection(LoadConnectionString()))
             {
@@ -58,7 +58,7 @@ namespace DataBaseLibrary
         /// </summary>
         /// <param name="Salary"></param>
         /// <returns>output</returns>
-        public List<SalaryModel> SelectByDate(SalaryModel Salary)
+        public static List<SalaryModel> SelectByDate(SalaryModel Salary)
         {
             using (IDbConnection cnn = new MySqlConnection(LoadConnectionString()))
             {

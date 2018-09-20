@@ -30,7 +30,7 @@ namespace DataBaseLibrary
         /// Show all employee in the table employee
         /// </summary>
         /// <returns>output</returns>
-        public List<EmployeeModel> SelectEmployeeAll()
+        public static List<EmployeeModel> SelectEmployeeAll()
         {
             using (IDbConnection cnn = new MySqlConnection(LoadConnectionString()))
             {
@@ -44,7 +44,7 @@ namespace DataBaseLibrary
         /// </summary>
         /// <param name="Employee"></param>
         /// <returns>output</returns>
-        public List<EmployeeModel> SelectidEmployee(EmployeeModel Employee)
+        public static List<EmployeeModel> SelectidEmployee(EmployeeModel Employee)
         {
             using (IDbConnection cnn = new MySqlConnection(LoadConnectionString()))
             {
@@ -58,7 +58,7 @@ namespace DataBaseLibrary
         /// </summary>
         /// <param name="Employee"></param>
         /// <returns>output</returns>
-        public List<EmployeeModel> SelectIdentification(EmployeeModel Employee)
+        public static List<EmployeeModel> SelectIdentification(EmployeeModel Employee)
         {
             using (IDbConnection cnn = new MySqlConnection(LoadConnectionString()))
             {
@@ -72,7 +72,7 @@ namespace DataBaseLibrary
         /// </summary>
         /// <param name="Employee"></param>
         /// <returns>output</returns>
-        public List<EmployeeModel> SelectNameOrLastName(EmployeeModel Employee)
+        public static List<EmployeeModel> SelectNameOrLastName(EmployeeModel Employee)
         {
             using (IDbConnection cnn = new MySqlConnection(LoadConnectionString()))
             {

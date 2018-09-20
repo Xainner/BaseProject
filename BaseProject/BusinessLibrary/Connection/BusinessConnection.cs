@@ -14,8 +14,8 @@ namespace BusinessLibrary.Conection
         {
             try
             {
-                //business = DBBusiness.SelectBusiness(business);
-                return business;
+                //return DBBusiness.SelectBusinessId(business);
+                return null;
             }
             catch (Exception)
             {
@@ -28,8 +28,7 @@ namespace BusinessLibrary.Conection
         {
             try
             {
-                //DBBusiness.SelectAllBusiness();
-                return null;
+                return DBBusiness.SelectBusinessAll();
             }
             catch (Exception)
             {

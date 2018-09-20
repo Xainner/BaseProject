@@ -304,7 +304,8 @@ namespace LogicLibrary
                     {
                         Identification = id
                     };
-                    return EmployeeConnection.SelectEmployeeByIdentification(employeeModel);
+                    //return EmployeeConnection.SelectEmployeeByIdentification(employeeModel);
+                    return null;
                 }
                 else
                 {
@@ -335,7 +336,8 @@ namespace LogicLibrary
                         Name = toSearch,
                         LastName = toSearch
                     };
-                    return EmployeeConnection.SelectEmployeeByNameOrLastName(employeeModel);
+                    //return EmployeeConnection.SelectEmployeeByNameOrLastName(employeeModel);
+                    return null;
                 }
                 else
                 {

@@ -28,8 +28,7 @@ namespace BusinessLibrary.Conection
         {
             try
             {
-                //DBProduct.SelectAllProduct();
-                return null;
+                return DBProduct.SelectProductAll();
             }
             catch (Exception)
             {
@@ -56,8 +55,7 @@ namespace BusinessLibrary.Conection
         {
             try
             {
-                //Cambiar el nombre de UpdateClient a Update product
-                //DBProduct.UpdateProduct(product);
+                DBProduct.UpdateProduct(product);
                 return true;
             }
             catch (Exception)

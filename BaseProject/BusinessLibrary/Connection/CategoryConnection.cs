@@ -1,5 +1,6 @@
 ﻿using BusinessLibrary.Models;
 using DataBaseLibrary;
+//using DataBaseLibrary;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -14,8 +15,8 @@ namespace BusinessLibrary.Conection
         {
             try
             {
-                //category = DBCategory.SelectCategory(category);
-                return category;
+                //return DBCategory.SelectCategoryName(category);
+                return null;
             }
             catch (Exception)
             {
@@ -28,8 +29,7 @@ namespace BusinessLibrary.Conection
         {
             try
             {
-                //DBCategory.SelectAllCategory();
-                return null;
+                return DBCategory.SelectCategoryAll();
             }
             catch (Exception)
             {

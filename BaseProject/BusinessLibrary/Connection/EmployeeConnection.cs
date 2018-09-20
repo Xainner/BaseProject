@@ -28,8 +28,7 @@ namespace BusinessLibrary.Conection
         {
             try
             {
-                //DBEmployee.SelectAllEmployee();
-                return null;
+                return DBEmployee.SelectEmployeeAll();
             }
             catch (Exception)
             {

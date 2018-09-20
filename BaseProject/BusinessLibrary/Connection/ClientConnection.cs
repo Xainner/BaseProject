@@ -28,8 +28,7 @@ namespace BusinessLibrary.DataManagement
         {
             try
             {
-                //DBClient.SelectAllClient();
-                return null;
+                return DBClient.SelectClientAll();
             }
             catch (Exception)
             {

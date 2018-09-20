@@ -28,8 +28,7 @@ namespace BusinessLibrary.Conection
         {
             try
             {
-                //DBPosition.SelectAllPosition();
-                return null;
+                return DBPosition.SelectPositionAll();
             }
             catch (Exception)
             {
