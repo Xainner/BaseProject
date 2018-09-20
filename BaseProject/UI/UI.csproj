@@ -33,7 +33,7 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <ItemGroup>
-    <Reference Include="MetroFramework, Version=1.4.0.0, Culture=neutral, PublicKeyToken=5f91a84759bf584a, processorArchitecture=MSIL">
+    <Reference Include="MetroFramework">
       <HintPath>..\packages\MetroModernUI.1.4.0.0\lib\net\MetroFramework.dll</HintPath>
     </Reference>
     <Reference Include="MetroFramework.Design, Version=1.4.0.0, Culture=neutral, PublicKeyToken=5f91a84759bf584a, processorArchitecture=MSIL">
@@ -202,6 +202,10 @@
     <ProjectReference Include="..\BusinessLibrary\BusinessLibrary.csproj">
       <Project>{193fe192-0dc3-44cf-b2e1-b9e9aa513a39}</Project>
       <Name>BusinessLibrary</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\DataBaseLibrary\DataBaseLibrary.csproj">
+      <Project>{f9c8ab95-c6c0-4b7f-ada3-690953e7358c}</Project>
+      <Name>DataBaseLibrary</Name>
     </ProjectReference>
     <ProjectReference Include="..\LogicLibrary\LogicLibrary.csproj">
       <Project>{ab8caad2-d498-4f2f-8993-b4dd3688e33b}</Project>

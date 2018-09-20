@@ -28,8 +28,7 @@ namespace BusinessLibrary.Conection
         {
             try
             {
-                //DBSubCategory.SelectAllSubCategory();
-                return null;
+                return DBSubCategory.SelectSubCategoryAll();
             }
             catch (Exception)
             {

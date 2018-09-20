@@ -106,7 +106,7 @@ namespace LogicLibrary
         /// </summary>
         /// <param name="idBrand"></param>
         /// <returns></returns>
-        public static BrandModel SelectBrandById(string idBrand)
+        public static List<BrandModel> SelectBrandById(string idBrand)
         {
             try
             {
@@ -117,7 +117,7 @@ namespace LogicLibrary
                     {
                         IdBrand = int.Parse(idBrand)
                     };
-                    return BrandConnection.SelectBrand(brandModel);
+                    return BrandConnection.SelectBrandName(brandModel);
                 }
                 else
                 {

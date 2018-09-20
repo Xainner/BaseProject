@@ -30,7 +30,7 @@ namespace DataBaseLibrary
         /// Show all Business in the table business
         /// </summary>
         /// <returns></returns>
-        public List<BusinessModel> SelectBusinessAll()
+        public static List<BusinessModel> SelectBusinessAll()
         {
             using (IDbConnection cnn = new MySqlConnection(LoadConnectionString()))
             {
@@ -44,7 +44,7 @@ namespace DataBaseLibrary
         /// </summary>
         /// <param name="Business"></param>
         /// <returns>output</returns>
-        public List<BusinessModel> SelectBusinessId(BusinessModel Business)
+        public static List<BusinessModel> SelectBusinessId(BusinessModel Business)
         {
             using (IDbConnection cnn = new MySqlConnection(LoadConnectionString()))
             {

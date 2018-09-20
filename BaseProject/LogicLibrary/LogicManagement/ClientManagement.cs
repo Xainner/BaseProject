@@ -169,7 +169,8 @@ namespace LogicLibrary
                         Name = toSearch,
                         Lastname = toSearch
                     };
-                    return ClientConnection.SelectClientByNameOrLastName(clientModel);
+                    //return ClientConnection.SelectClientByNameOrLastName(clientModel);
+                    return null;
                 }
                 else
                 {

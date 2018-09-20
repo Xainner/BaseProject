@@ -30,7 +30,7 @@ namespace DataBaseLibrary
         /// Show all positions in the table position
         /// </summary>
         /// <returns>output</returns>
-        public List<PositionModel> SelectPositionAll()
+        public static List<PositionModel> SelectPositionAll()
         {
             using (IDbConnection cnn = new MySqlConnection(LoadConnectionString()))
             {
@@ -44,7 +44,7 @@ namespace DataBaseLibrary
         /// </summary>
         /// <param name="Position"></param>
         /// <returns>output</returns>
-        public List<PositionModel> SelectidPosition(PositionModel Position)
+        public static List<PositionModel> SelectidPosition(PositionModel Position)
         {
             using (IDbConnection cnn = new MySqlConnection(LoadConnectionString()))
             {

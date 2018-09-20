@@ -30,7 +30,7 @@ namespace DataBaseLibrary
         /// Show all clients in the table client
         /// </summary>
         /// <returns>output</returns>
-        public List<ClientModel> SelectClientAll()
+        public static List<ClientModel> SelectClientAll()
         {
             using (IDbConnection cnn = new MySqlConnection(LoadConnectionString()))
             {
@@ -44,7 +44,7 @@ namespace DataBaseLibrary
         /// </summary>
         /// <param name="Client"></param>
         /// <returns>output</returns>
-        public List<ClientModel> SelectidClient(ClientModel Client)
+        public static List<ClientModel> SelectidClient(ClientModel Client)
         {
             using (IDbConnection cnn = new MySqlConnection(LoadConnectionString()))
             {
@@ -58,7 +58,7 @@ namespace DataBaseLibrary
         /// </summary>
         /// <param name="Client"></param>
         /// <returns>output</returns>
-        public List<ClientModel> SelectNameOrLastName(ClientModel Client)
+        public static List<ClientModel> SelectNameOrLastName(ClientModel Client)
         {
             using (IDbConnection cnn = new MySqlConnection(LoadConnectionString()))
             {

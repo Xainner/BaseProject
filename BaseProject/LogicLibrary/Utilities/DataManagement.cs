@@ -22,7 +22,7 @@ namespace LogicLibrary
                     return false;
                 }
             }
-            return false;
+            return true;
         }
     }
 }

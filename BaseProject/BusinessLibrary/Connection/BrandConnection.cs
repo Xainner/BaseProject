@@ -10,12 +10,11 @@ namespace BusinessLibrary.Conection
 {
     public class BrandConnection
     {
-        public static BrandModel SelectBrand(BrandModel brand)
+        public static List<BrandModel> SelectBrandName(BrandModel brand)
         {
             try
             {
-                //brand = DBBrand.SelectBrand(brand);
-                return brand;
+                return DBBrand.SelectBrandName(brand);
             }
             catch (Exception)
             {
@@ -28,8 +27,7 @@ namespace BusinessLibrary.Conection
         {
             try
             {
-                //DBBrand.SelectAllBrand();
-                return null;
+                return DBBrand.SelectBrandAll();
             }
             catch (Exception)
             {

@@ -30,7 +30,7 @@ namespace DataBaseLibrary
         /// Show all users in the table user
         /// </summary>
         /// <returns>output</returns>
-        public List<UserModel> SelectUserAll()
+        public static List<UserModel> SelectUserAll()
         {
             using (IDbConnection cnn = new MySqlConnection(LoadConnectionString()))
             {
@@ -44,7 +44,7 @@ namespace DataBaseLibrary
         /// </summary>
         /// <param name="User"></param>
         /// <returns>output</returns>
-        public List<UserModel> SelectidUser(UserModel User)
+        public static List<UserModel> SelectidUser(UserModel User)
         {
             using (IDbConnection cnn = new MySqlConnection(LoadConnectionString()))
             {
@@ -58,7 +58,7 @@ namespace DataBaseLibrary
         /// </summary>
         /// <param name="User"></param>
         /// <returns>output</returns>
-        public List<UserModel> SelectUserName(UserModel User)
+        public static List<UserModel> SelectUserName(UserModel User)
         {
             using (IDbConnection cnn = new MySqlConnection(LoadConnectionString()))
             {

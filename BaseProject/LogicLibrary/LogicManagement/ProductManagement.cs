@@ -280,7 +280,8 @@ namespace LogicLibrary
                         Code = int.Parse(code),
 
                     };
-                    return ProductConnection.SelectProductByCode(productModel);
+                    //return ProductConnection.SelectProductByCode(productModel);
+                    return null;
                 }
                 else
                 {
@@ -311,7 +312,8 @@ namespace LogicLibrary
                         Style = style,
 
                     };
-                    return ProductConnection.SelectProductByStyle(productModel);
+                    //return ProductConnection.SelectProductByStyle(productModel);
+                    return null;
                 }
                 else
                 {
@@ -342,7 +344,8 @@ namespace LogicLibrary
                         IdBrand = int.Parse(idBrand),
 
                     };
-                    return ProductConnection.SelectProductByIdBrand(productModel);
+                    //return ProductConnection.SelectProductByIdBrand(productModel);
+                    return null;
                 }
                 else
                 {
@@ -372,7 +375,8 @@ namespace LogicLibrary
                     {
                         IdCategory = int.Parse(idCategory),
                     };
-                    return ProductConnection.SelectProductByIdCategory(productModel);
+                    //return ProductConnection.SelectProductByIdCategory(productModel);
+                    return null;
                 }
                 else
                 {
@@ -402,7 +406,8 @@ namespace LogicLibrary
                     {
                         Description = description,
                     };
-                    return ProductConnection.SelectProductByDescription(productModel);
+                    //return ProductConnection.SelectProductByDescription(productModel);
+                    return null;
                 }
                 else
                 {

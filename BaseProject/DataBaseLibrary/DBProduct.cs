@@ -30,7 +30,7 @@ namespace DataBaseLibrary
         /// Show all products in the table product
         /// </summary>
         /// <returns>output</returns>
-        public List<ProductModel> SelectProductAll()
+        public static List<ProductModel> SelectProductAll()
         {
             using (IDbConnection cnn = new MySqlConnection(LoadConnectionString()))
             {
@@ -44,7 +44,7 @@ namespace DataBaseLibrary
         /// </summary>
         /// <param name="Product"></param>
         /// <returns>output</returns>
-        public List<ProductModel> SelectidProduct(ProductModel Product)
+        public static List<ProductModel> SelectidProduct(ProductModel Product)
         {
             using (IDbConnection cnn = new MySqlConnection(LoadConnectionString()))
             {
@@ -58,7 +58,7 @@ namespace DataBaseLibrary
         /// </summary>
         /// <param name="Product"></param>
         /// <returns>output</returns>
-        public List<ProductModel> SelectCode(ProductModel Product)
+        public static List<ProductModel> SelectCode(ProductModel Product)
         {
             using (IDbConnection cnn = new MySqlConnection(LoadConnectionString()))
             {
@@ -72,7 +72,7 @@ namespace DataBaseLibrary
         /// </summary>
         /// <param name="Product"></param>
         /// <returns>output</returns>
-        public List<ProductModel> SelectStyle(ProductModel Product)
+        public static List<ProductModel> SelectStyle(ProductModel Product)
         {
             using (IDbConnection cnn = new MySqlConnection(LoadConnectionString()))
             {
@@ -86,7 +86,7 @@ namespace DataBaseLibrary
         /// </summary>
         /// <param name="Product"></param>
         /// <returns>output</returns>
-        public List<ProductModel> SelectidBrand(ProductModel Product)
+        public static List<ProductModel> SelectidBrand(ProductModel Product)
         {
             using (IDbConnection cnn = new MySqlConnection(LoadConnectionString()))
             {
@@ -100,7 +100,7 @@ namespace DataBaseLibrary
         /// </summary>
         /// <param name="Product"></param>
         /// <returns>output</returns>
-        public List<ProductModel> SelectidCategory(ProductModel Product)
+        public static List<ProductModel> SelectidCategory(ProductModel Product)
         {
             using (IDbConnection cnn = new MySqlConnection(LoadConnectionString()))
             {
@@ -114,7 +114,7 @@ namespace DataBaseLibrary
         /// </summary>
         /// <param name="Product"></param>
         /// <returns>output</returns>
-        public List<ProductModel> SelectDescription(ProductModel Product)
+        public static List<ProductModel> SelectDescription(ProductModel Product)
         {
             using (IDbConnection cnn = new MySqlConnection(LoadConnectionString()))
             {
@@ -159,11 +159,11 @@ namespace DataBaseLibrary
         /// Update a product from product
         /// </summary>
         /// <param name="Product"></param>
-        public static void UpdateClient(ProductModel Product)
+        public static void UpdateProduct(ProductModel Product)
         {
             using (IDbConnection cnn = new MySqlConnection(LoadConnectionString()))
             {
-                cnn.Execute("UPDATE client " +
+                cnn.Execute("UPDATE product " +
                     "SET Code = @Code, Style = @Style, idBrand = @idBrand, " +
                     "Description = @Description, idCategory = @idCategory, " +
                     "normalPrice = @normalPrice, lowerPrice = @lowerPrice, " +

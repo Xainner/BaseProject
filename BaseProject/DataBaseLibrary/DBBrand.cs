@@ -9,6 +9,7 @@ using Dapper;
 using MySql.Data.MySqlClient;
 
 using BusinessLibrary.Models;
+using System.Windows.Forms;
 
 namespace DataBaseLibrary
 {
@@ -19,7 +20,7 @@ namespace DataBaseLibrary
         /// </summary>
         /// <param name="id"></param>
         /// <returns></returns>
-        private static String LoadConnectionString(String id = "User")
+        private static String LoadConnectionString(String id = "default")
         {
             return ConfigurationManager.ConnectionStrings[id].ConnectionString;
         }
@@ -30,7 +31,7 @@ namespace DataBaseLibrary
         /// Show all brands in the table brand
         /// </summary>
         /// <returns></returns>
-        public List<BrandModel> SelectBrandAll()
+        public static List<BrandModel> SelectBrandAll()
         {
             using (IDbConnection cnn = new MySqlConnection(LoadConnectionString()))
             {
@@ -44,7 +45,7 @@ namespace DataBaseLibrary
         /// </summary>
         /// <param name="Brand"></param>
         /// <returns></returns>
-        public List<BrandModel> SelectBrandName(BrandModel Brand)
+        public static List<BrandModel> SelectBrandName(BrandModel Brand)
         {
             using (IDbConnection cnn = new MySqlConnection(LoadConnectionString()))
             {

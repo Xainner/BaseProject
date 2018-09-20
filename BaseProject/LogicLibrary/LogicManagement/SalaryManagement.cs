@@ -152,7 +152,8 @@ namespace LogicLibrary
                     {
                         RegistrationDate = registrationDate
                     };
-                    return SalaryConnection.SelectSalaryByDate(salaryModel);
+                    //return SalaryConnection.SelectSalaryByDate(salaryModel);
+                    return null;
                 }
                 else
                 {

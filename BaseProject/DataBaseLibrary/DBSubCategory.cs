@@ -31,7 +31,7 @@ namespace DataBaseLibrary
         /// Show all subcategories in the table subcategory
         /// </summary>
         /// <returns></returns>
-        public List<SubCategoryModel> SelectSubCategoryAll()
+        public static List<SubCategoryModel> SelectSubCategoryAll()
         {
             using (IDbConnection cnn = new MySqlConnection(LoadConnectionString()))
             {
@@ -45,7 +45,7 @@ namespace DataBaseLibrary
         /// </summary>
         /// <param name="SubCategory"></param>
         /// <returns></returns>
-        public List<SubCategoryModel> SelectSubCategoryName(SubCategoryModel SubCategory)
+        public static List<SubCategoryModel> SelectSubCategoryName(SubCategoryModel SubCategory)
         {
             using (IDbConnection cnn = new MySqlConnection(LoadConnectionString()))
             {
