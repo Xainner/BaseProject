@@ -55,7 +55,8 @@ namespace LogicLibrary
                 {
                     BrandModel brandModel = new BrandModel()
                     {
-                        IdBrand = int.Parse(idBrand)
+                        IdBrand = int.Parse(idBrand),
+                        name = name
                     };
                     return BrandConnection.UpdateBrand(brandModel);
                 }

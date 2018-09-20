@@ -19,13 +19,13 @@ namespace UI.UserControls
             InitializeComponent();
             
             FrmMain.Instance.ToolStripLabel.Text = "Estas en el área de tallas y marcas";
+            txtIDBrand.Text = "";
+            txtBrand.Text = "";
         }
 
-        List<BrandModel> brand = new List<BrandModel>();
         private void UcBrandSize_Load(object sender, EventArgs e)
         {
-            brand = BrandManagement.SelectAlBrands();
-            dgvBrand.DataSource = brand;
+            dgvBrand.DataSource = BrandManagement.SelectAlBrands();
         }
 
         private void btnAddBrand_Click(object sender, EventArgs e)
@@ -38,6 +38,7 @@ namespace UI.UserControls
                 if (BrandManagement.InsertBusiness(brand))
                 {
                     FrmMain.Instance.ToolStripLabel.Text = "Se agrego la marca correctamente";
+                    dgvBrand.DataSource = BrandManagement.SelectAlBrands();
                 }
                 else
                 {
@@ -49,6 +50,57 @@ namespace UI.UserControls
                 MessageBox.Show(ex.Message);
             }
 
+        }
+
+        private void btnUpdateBrand_Click(object sender, EventArgs e)
+        {
+            string id = txtIDBrand.Text; //dgvBrand.CurrentRow.Cells[0].Value.ToString();
+            string brand = txtBrand.Text;
+
+            try
+            {
+                BrandManagement.UpdateBrandById(id, brand);
+                dgvBrand.DataSource = BrandManagement.SelectAlBrands();
+                FrmMain.Instance.ToolStripLabel.Text = "Se modifico la marca correctamente";
+            }
+            catch (Exception)
+            {
+
+                throw;
+            }
+        }
+
+        private void txtSearchBrand_Click(object sender, EventArgs e)
+        {
+            //Hacer metodo para buscar por nombre
+            //BrandManagement.SelectBrandById()
+        }
+
+        private void btnDeleteBrand_Click(object sender, EventArgs e)
+        {
+            string id = txtIDBrand.Text;
+
+            try
+            {
+                BrandManagement.DeleteBrandById(id);
+                dgvBrand.DataSource = BrandManagement.SelectAlBrands();
+                FrmMain.Instance.ToolStripLabel.Text = "Se elimino la marca correctamente";
+            }
+            catch (Exception)
+            {
+
+                throw;
+            }
+
+            BrandManagement.DeleteBrandById(id);
+
+            dgvBrand.DataSource = BrandManagement.SelectAlBrands();
+        }
+
+        private void dgvBrand_SelectionChanged(object sender, EventArgs e)
+        {
+            txtIDBrand.Text = dgvBrand.CurrentRow.Cells[0].Value.ToString();
+            txtBrand.Text = dgvBrand.CurrentRow.Cells[1].Value.ToString();
         }
     }
 }
