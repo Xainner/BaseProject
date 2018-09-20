@@ -46,6 +46,7 @@
     <Compile Include="CategoryManagement.cs" />
     <Compile Include="ClientManagement.cs" />
     <Compile Include="CreditInvoiceManagement.cs" />
+    <Compile Include="DataManagement.cs" />
     <Compile Include="EmployeeManagement.cs" />
     <Compile Include="ExitInvoiceManagement.cs" />
     <Compile Include="ExternalSellInvoiceManagement.cs" />

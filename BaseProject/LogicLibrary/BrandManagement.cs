@@ -10,19 +10,11 @@ namespace LogicLibrary
 {
     public class BrandManagement
     {
-        public static bool VerifyFields(string[] fields)
-        {
-            foreach (string field in fields)
-            {
-                if (string.IsNullOrEmpty(field))
-                {
-                    return false;
-                }
-            }
-            return false;
-        }
-
-        //INSERT
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="name"></param>
+        /// <returns></returns>
         public static bool InsertBrand(string name)
         {
             try
@@ -32,7 +24,7 @@ namespace LogicLibrary
                 {
                     Name = name
                 };
-                if (VerifyFields(brand))
+                if (DataManagement.VerifyFields(brand))
                 {
                     BrandConnection.InsertBrand(brandModel);
                     return true;
@@ -44,11 +36,17 @@ namespace LogicLibrary
             }
             catch (Exception ex)
             {
-                return false;
                 //Log4Net
+                return false;
             }
         }
 
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="idBrand"></param>
+        /// <param name="name"></param>
+        /// <returns></returns>
         public static bool UpdateBrandById(string idBrand, string name)
         {
             try
@@ -59,7 +57,7 @@ namespace LogicLibrary
                     IdBrand = int.Parse(idBrand),
                     Name = name
                 };
-                if (VerifyFields(brand))
+                if (DataManagement.VerifyFields(brand))
                 {
                     BrandConnection.UpdateBrand(brandModel);
                     return true;
@@ -71,22 +69,26 @@ namespace LogicLibrary
             }
             catch (Exception ex)
             {
-                return false;
                 //Log4Net
+                return false;
             }
         }
 
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="idBrand"></param>
+        /// <returns></returns>
         public static bool DeleteBrandById(string idBrand)
         {
             try
             {
-                //TEMP
                 string[] brand = new string[] { idBrand };
                 BrandModel brandModel = new BrandModel()
                 {
                     IdBrand = int.Parse(idBrand)
                 };
-                if (VerifyFields(brand))
+                if (DataManagement.VerifyFields(brand))
                 {
                     BrandConnection.DeleteBrand(brandModel);
                     return true;
@@ -98,22 +100,26 @@ namespace LogicLibrary
             }
             catch (Exception ex)
             {
-                return false;
                 //Log4Net
+                return false;
             }
         }
 
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="idBrand"></param>
+        /// <returns></returns>
         public static BrandModel SelectBrandById(string idBrand)
         {
             try
             {
-                //TEMP
                 string[] brand = new string[] { idBrand };
                 BrandModel brandModel = new BrandModel()
                 {
                     IdBrand = int.Parse(idBrand)
                 };
-                if (VerifyFields(brand))
+                if (DataManagement.VerifyFields(brand))
                 {
                     return BrandConnection.SelectBrand(brandModel);
                 }
@@ -124,11 +130,15 @@ namespace LogicLibrary
             }
             catch (Exception ex)
             {
-                return null;
                 //Log4Net
+                return null;
             }
         }
 
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <returns></returns>
         public static List<BrandModel> SelectAllBrands()
         {
             try
