@@ -13,7 +13,7 @@ namespace BusinessLibrary.Connection
         {
             try
             {
-                //internalSellinvoice = ClaseBD.SelectInternalSellinvoice(internalSellinvoice);
+                //internalSellinvoice = DBInternalSellinvoice.SelectInternalSellinvoice(internalSellinvoice);
                 return internalSellinvoice;
             }
             catch (Exception)
@@ -27,7 +27,7 @@ namespace BusinessLibrary.Connection
         {
             try
             {
-                //ClaseBD.SelectAllInternalSellinvoice();
+                //DBInternalSellinvoice.SelectAllInternalSellinvoice();
                 return null;
             }
             catch (Exception)
@@ -41,7 +41,7 @@ namespace BusinessLibrary.Connection
         {
             try
             {
-                //ClaseBD.InsertInternalSellinvoice(internalSellinvoice);
+                //DBInternalSellinvoice.InsertInternalSellinvoice(internalSellinvoice);
                 return true;
             }
             catch (Exception)
@@ -55,7 +55,7 @@ namespace BusinessLibrary.Connection
         {
             try
             {
-                //ClaseBD.UpdateInternalSellinvoice(internalSellinvoice);
+                //DBInternalSellinvoice.UpdateInternalSellinvoice(internalSellinvoice);
                 return true;
             }
             catch (Exception)
@@ -69,7 +69,7 @@ namespace BusinessLibrary.Connection
         {
             try
             {
-                //ClaseBD.DeleteInternalSellinvoice(internalSellinvoice);
+                //DBInternalSellinvoice.DeleteInternalSellinvoice(internalSellinvoice);
                 return true;
             }
             catch (Exception)

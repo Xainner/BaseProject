@@ -1,4 +1,5 @@
 ﻿using BusinessLibrary.Models;
+using DataBaseLibrary;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -13,7 +14,7 @@ namespace BusinessLibrary.Conection
         {
             try
             {
-                //position = ClaseBD.SelectPosition(position);
+                //position = DBPosition.SelectPosition(position);
                 return position;
             }
             catch (Exception)
@@ -27,7 +28,7 @@ namespace BusinessLibrary.Conection
         {
             try
             {
-                //ClaseBD.SelectAllPosition();
+                //DBPosition.SelectAllPosition();
                 return null;
             }
             catch (Exception)
@@ -41,7 +42,7 @@ namespace BusinessLibrary.Conection
         {
             try
             {
-                //ClaseBD.InsertPosition(position);
+                DBPosition.InsertPosition(position);
                 return true;
             }
             catch (Exception)
@@ -55,7 +56,7 @@ namespace BusinessLibrary.Conection
         {
             try
             {
-                //ClaseBD.UpdatePosition(position);
+                DBPosition.UpdatePosition(position);
                 return true;
             }
             catch (Exception)
@@ -69,7 +70,7 @@ namespace BusinessLibrary.Conection
         {
             try
             {
-                //ClaseBD.DeletePosition(position);
+                DBPosition.DeletePosition(position);
                 return true;
             }
             catch (Exception)

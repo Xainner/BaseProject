@@ -1,4 +1,5 @@
 ﻿using BusinessLibrary.Models;
+using DataBaseLibrary;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -13,7 +14,7 @@ namespace BusinessLibrary.Conection
         {
             try
             {
-                //product = ClaseBD.SelectProduct(product);
+                //product = DBProduct.SelectProduct(product);
                 return product;
             }
             catch (Exception)
@@ -27,7 +28,7 @@ namespace BusinessLibrary.Conection
         {
             try
             {
-                //ClaseBD.SelectAllProduct();
+                //DBProduct.SelectAllProduct();
                 return null;
             }
             catch (Exception)
@@ -41,7 +42,7 @@ namespace BusinessLibrary.Conection
         {
             try
             {
-                //ClaseBD.InsertProduct(position);
+                DBProduct.InsertProduct(product);
                 return true;
             }
             catch (Exception)
@@ -55,7 +56,8 @@ namespace BusinessLibrary.Conection
         {
             try
             {
-                //ClaseBD.UpdateProduct(position);
+                //Cambiar el nombre de UpdateClient a Update product
+                //DBProduct.UpdateProduct(product);
                 return true;
             }
             catch (Exception)
@@ -69,7 +71,7 @@ namespace BusinessLibrary.Conection
         {
             try
             {
-                //ClaseBD.DeleteProduct(position);
+                DBProduct.DeleteProduct(product);
                 return true;
             }
             catch (Exception)

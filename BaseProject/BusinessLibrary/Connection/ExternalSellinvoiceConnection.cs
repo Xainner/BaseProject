@@ -13,7 +13,7 @@ namespace BusinessLibrary.Connection
         {
             try
             {
-                //externalSellinvoice = ClaseBD.SelectExternalSellinvoice(externalSellinvoice);
+                //externalSellinvoice = DBExternalSellInovice.SelectExternalSellinvoice(externalSellinvoice);
                 return externalSellinvoice;
             }
             catch (Exception)
@@ -27,7 +27,7 @@ namespace BusinessLibrary.Connection
         {
             try
             {
-                //ClaseBD.SelectAllExternalSellinvoice();
+                //DBExternalSellInovice.SelectAllExternalSellinvoice();
                 return null;
             }
             catch (Exception)
@@ -41,7 +41,7 @@ namespace BusinessLibrary.Connection
         {
             try
             {
-                //ClaseBD.InsertExternalSellinvoice(externalSellinvoice);
+                //DBExternalSellInovice.InsertExternalSellinvoice(externalSellinvoice);
                 return true;
             }
             catch (Exception)
@@ -55,7 +55,7 @@ namespace BusinessLibrary.Connection
         {
             try
             {
-                //ClaseBD.UpdateExternalSellinvoice(externalSellinvoice);
+                //DBExternalSellInovice.UpdateExternalSellinvoice(externalSellinvoice);
                 return true;
             }
             catch (Exception)
@@ -69,7 +69,7 @@ namespace BusinessLibrary.Connection
         {
             try
             {
-                //ClaseBD.DeleteExternalSellinvoice(internalSellinvoice);
+                //DBExternalSellInovice.DeleteExternalSellinvoice(internalSellinvoice);
                 return true;
             }
             catch (Exception)

@@ -1,4 +1,5 @@
 ﻿using BusinessLibrary.Models;
+using DataBaseLibrary;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -13,7 +14,7 @@ namespace BusinessLibrary.Conection
         {
             try
             {
-                //subcategory = ClaseBD.SelectSubcategory(subcategory);
+                //subcategory = DBSubCategory.SelectSubCategory(subcategory);
                 return subcategory;
             }
             catch (Exception)
@@ -27,7 +28,7 @@ namespace BusinessLibrary.Conection
         {
             try
             {
-                //ClaseBD.SelectAllSubcategory();
+                //DBSubCategory.SelectAllSubCategory();
                 return null;
             }
             catch (Exception)
@@ -41,7 +42,7 @@ namespace BusinessLibrary.Conection
         {
             try
             {
-                //ClaseBD.InsertSubcategory(subcategory);
+                DBSubCategory.InsertSubCategory(subcategory);
                 return true;
             }
             catch (Exception)
@@ -55,7 +56,7 @@ namespace BusinessLibrary.Conection
         {
             try
             {
-                //ClaseBD.UpdateSubcategory(subcategory);
+                DBSubCategory.UpdateSubCategory(subcategory);
                 return true;
             }
             catch (Exception)
@@ -69,7 +70,7 @@ namespace BusinessLibrary.Conection
         {
             try
             {
-                //ClaseBD.DeleteSubcategory(subcategory);
+                DBSubCategory.DeleteSubCategory(subcategory);
                 return true;
             }
             catch (Exception)

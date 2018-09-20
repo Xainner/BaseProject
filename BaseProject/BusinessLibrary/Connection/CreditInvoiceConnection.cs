@@ -13,7 +13,7 @@ namespace BusinessLibrary.Connection
         {
             try
             {
-                //creditInvoice = ClaseBD.SelectCreditInvoice(creditInvoice);
+                //creditInvoice = DBCreditInvoice.SelectCreditInvoice(creditInvoice);
                 return creditInvoice;
             }
             catch (Exception)
@@ -27,7 +27,7 @@ namespace BusinessLibrary.Connection
         {
             try
             {
-                //ClaseBD.SelectAllCreditInvoice();
+                //DBCreditInvoice.SelectAllCreditInvoice();
                 return null;
             }
             catch (Exception)
@@ -41,7 +41,7 @@ namespace BusinessLibrary.Connection
         {
             try
             {
-                //ClaseBD.InsertCreditInvoice(creditInvoice);
+                //DBCreditInvoice.InsertCreditInvoice(creditInvoice);
                 return true;
             }
             catch (Exception)
@@ -55,7 +55,7 @@ namespace BusinessLibrary.Connection
         {
             try
             {
-                //ClaseBD.UpdateCreditInvoice(creditInvoice);
+                //DBCreditInvoice.UpdateCreditInvoice(creditInvoice);
                 return true;
             }
             catch (Exception)
@@ -69,7 +69,7 @@ namespace BusinessLibrary.Connection
         {
             try
             {
-                //ClaseBD.DeleteCreditInvoice(creditInvoice);
+                //DBCreditInvoice.DeleteCreditInvoice(creditInvoice);
                 return true;
             }
             catch (Exception)
