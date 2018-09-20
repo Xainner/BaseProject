@@ -155,6 +155,37 @@ namespace LogicLibrary
         /// <summary>
         /// 
         /// </summary>
+        /// <param name="toSearch"></param>
+        /// <returns></returns>
+        public static ClientModel SelectClientByNameOrLastName(string toSearch)
+        {
+            try
+            {
+                string[] client = new string[] { toSearch };
+                if (DataManagement.VerifyFields(client))
+                {
+                    ClientModel clientModel = new ClientModel()
+                    {
+                        Name = toSearch,
+                        Lastname = toSearch
+                    };
+                    return ClientConnection.SelectClientByNameOrLastName(clientModel);
+                }
+                else
+                {
+                    return null;
+                }
+            }
+            catch (Exception ex)
+            {
+                //Log4Net
+                return null;
+            }
+        }
+
+        /// <summary>
+        /// 
+        /// </summary>
         /// <returns></returns>
         public static List<ClientModel> SelectAllClients()
         {

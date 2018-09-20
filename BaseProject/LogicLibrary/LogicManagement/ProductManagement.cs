@@ -237,7 +237,7 @@ namespace LogicLibrary
         /// </summary>
         /// <param name="idProduct"></param>
         /// <returns></returns>
-        public static bool SelectProductById(string idProduct)
+        public static ProductModel SelectProductById(string idProduct)
         {
             try
             {
@@ -249,17 +249,170 @@ namespace LogicLibrary
                         IdProduct = int.Parse(idProduct),
 
                     };
-                    return ProductConnection.UpdateProduct(productModel);
+                    return ProductConnection.SelectProduct(productModel);
                 }
                 else
                 {
-                    return false;
+                    return null;
                 }
             }
             catch (Exception ex)
             {
                 //Log4Net
-                return false;
+                return null;
+            }
+        }
+
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="code"></param>
+        /// <returns></returns>
+        public static ProductModel SelectProductByCode(string code)
+        {
+            try
+            {
+                string[] product = new string[] { code };
+                if (DataManagement.VerifyFields(product))
+                {
+                    ProductModel productModel = new ProductModel()
+                    {
+                        Code = int.Parse(code),
+
+                    };
+                    return ProductConnection.SelectProductByCode(productModel);
+                }
+                else
+                {
+                    return null;
+                }
+            }
+            catch (Exception ex)
+            {
+                //Log4Net
+                return null;
+            }
+        }
+
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="style"></param>
+        /// <returns></returns>
+        public static ProductModel SelectProductByStyle(string style)
+        {
+            try
+            {
+                string[] product = new string[] { style };
+                if (DataManagement.VerifyFields(product))
+                {
+                    ProductModel productModel = new ProductModel()
+                    {
+                        Style = style,
+
+                    };
+                    return ProductConnection.SelectProductByStyle(productModel);
+                }
+                else
+                {
+                    return null;
+                }
+            }
+            catch (Exception ex)
+            {
+                //Log4Net
+                return null;
+            }
+        }
+
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="idBrand"></param>
+        /// <returns></returns>
+        public static ProductModel SelectProductByIdBrand(string idBrand)
+        {
+            try
+            {
+                string[] product = new string[] { idBrand };
+                if (DataManagement.VerifyFields(product))
+                {
+                    ProductModel productModel = new ProductModel()
+                    {
+                        IdBrand = int.Parse(idBrand),
+
+                    };
+                    return ProductConnection.SelectProductByIdBrand(productModel);
+                }
+                else
+                {
+                    return null;
+                }
+            }
+            catch (Exception ex)
+            {
+                //Log4Net
+                return null;
+            }
+        }
+
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="idCategory"></param>
+        /// <returns></returns>
+        public static ProductModel SelectProductByIdCategory(string idCategory)
+        {
+            try
+            {
+                string[] product = new string[] { idCategory };
+                if (DataManagement.VerifyFields(product))
+                {
+                    ProductModel productModel = new ProductModel()
+                    {
+                        IdCategory = int.Parse(idCategory),
+                    };
+                    return ProductConnection.SelectProductByIdCategory(productModel);
+                }
+                else
+                {
+                    return null;
+                }
+            }
+            catch (Exception ex)
+            {
+                //Log4Net
+                return null;
+            }
+        }
+
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="description"></param>
+        /// <returns></returns>
+        public static ProductModel SelectProductByDescription(string description)
+        {
+            try
+            {
+                string[] product = new string[] { description };
+                if (DataManagement.VerifyFields(product))
+                {
+                    ProductModel productModel = new ProductModel()
+                    {
+                        Description = description,
+                    };
+                    return ProductConnection.SelectProductByDescription(productModel);
+                }
+                else
+                {
+                    return null;
+                }
+            }
+            catch (Exception ex)
+            {
+                //Log4Net
+                return null;
             }
         }
 

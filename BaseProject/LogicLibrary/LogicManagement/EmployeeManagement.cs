@@ -267,7 +267,7 @@ namespace LogicLibrary
         /// </summary>
         /// <param name="idEmployee"></param>
         /// <returns></returns>
-        public static bool SelectEmployeeById(string idEmployee)
+        public static EmployeeModel SelectEmployeeById(string idEmployee)
         {
             try
             {
@@ -278,17 +278,74 @@ namespace LogicLibrary
                     {
                         IdEmployee = int.Parse(idEmployee),
                     };
-                    return EmployeeConnection.UpdateEmployee(employeeModel);
+                    return EmployeeConnection.SelectEmployee(employeeModel);
                 }
                 else
                 {
-                    return false;
+                    return null;
                 }
             }
             catch (Exception ex)
             {
                 //Log4Net
-                return false;
+                return null;
+            }
+        }
+
+
+        public static EmployeeModel SelectEmployeeByIdentification(string id)
+        {
+            try
+            {
+                string[] employee = new string[] { id };
+                if (DataManagement.VerifyFields(employee))
+                {
+                    EmployeeModel employeeModel = new EmployeeModel()
+                    {
+                        Identification = id
+                    };
+                    return EmployeeConnection.SelectEmployeeByIdentification(employeeModel);
+                }
+                else
+                {
+                    return null;
+                }
+            }
+            catch (Exception ex)
+            {
+                //Log4Net
+                return null;
+            }
+        }
+
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="toSearch"></param>
+        /// <returns></returns>
+        public static EmployeeModel SelecEmployeeByNameOrLastName(string toSearch)
+        {
+            try
+            {
+                string[] client = new string[] { toSearch };
+                if (DataManagement.VerifyFields(client))
+                {
+                    EmployeeModel employeeModel = new EmployeeModel()
+                    {
+                        Name = toSearch,
+                        LastName = toSearch
+                    };
+                    return EmployeeConnection.SelectEmployeeByNameOrLastName(employeeModel);
+                }
+                else
+                {
+                    return null;
+                }
+            }
+            catch (Exception ex)
+            {
+                //Log4Net
+                return null;
             }
         }
 

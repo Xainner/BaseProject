@@ -94,6 +94,11 @@ namespace LogicLibrary
             }
         }
 
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="idUser"></param>
+        /// <returns></returns>
         public static bool DeleteUserById(string idUser)
         {
             try
@@ -119,6 +124,11 @@ namespace LogicLibrary
             }
         }
 
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="idUser"></param>
+        /// <returns></returns>
         public static UserModel SelectUserById(string idUser)
         {
             try
@@ -144,6 +154,40 @@ namespace LogicLibrary
             }
         }
 
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="userName"></param>
+        /// <returns></returns>
+        public static UserModel SelectUserByUserName(string userName)
+        {
+            try
+            {
+                string[] user = new string[] { userName };
+                if (DataManagement.VerifyFields(user))
+                {
+                    UserModel userModel = new UserModel()
+                    {
+                        UserName = userName
+                    };
+                    return UserConnection.SelectUser(userModel);
+                }
+                else
+                {
+                    return null;
+                }
+            }
+            catch (Exception ex)
+            {
+                //Log4Net
+                return null;
+            }
+        }
+
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <returns></returns>
         public static List<UserModel> SelectAllUsers()
         {
             try

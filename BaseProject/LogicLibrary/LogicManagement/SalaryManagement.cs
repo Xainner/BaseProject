@@ -139,6 +139,36 @@ namespace LogicLibrary
         /// <summary>
         /// 
         /// </summary>
+        /// <param name="registrationDate"></param>
+        /// <returns></returns>
+        public static SalaryModel SelectSalaryByRegistrationDate(string registrationDate)
+        {
+            try
+            {
+                string[] salary = new string[] { registrationDate };
+                if (DataManagement.VerifyFields(salary))
+                {
+                    SalaryModel salaryModel = new SalaryModel()
+                    {
+                        RegistrationDate = registrationDate
+                    };
+                    return SalaryConnection.SelectSalaryByDate(salaryModel);
+                }
+                else
+                {
+                    return null;
+                }
+            }
+            catch (Exception ex)
+            {
+                //Log4Net
+                return null;
+            }
+        }
+
+        /// <summary>
+        /// 
+        /// </summary>
         /// <returns></returns>
         public static List<SalaryModel> SelectAllSalaries()
         {
