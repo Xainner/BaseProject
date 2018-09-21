@@ -4,9 +4,9 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace BusinessLibrary.Models
+namespace ModelLibrary.Models
 {
-    public class InternalSellinvoiceModel
+    public class ExternalSellinvoiceModel
     {
         public int idSellinvoice;
         public string numInvoice;

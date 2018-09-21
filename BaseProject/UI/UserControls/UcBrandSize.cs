@@ -8,7 +8,6 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using LogicLibrary;
-using BusinessLibrary.Models;
 
 namespace UI.UserControls
 {
@@ -19,13 +18,11 @@ namespace UI.UserControls
             InitializeComponent();
             
             FrmMain.Instance.ToolStripLabel.Text = "Estas en el área de tallas y marcas";
-            txtIDBrand.Text = "";
-            txtBrand.Text = "";
         }
 
         private void UcBrandSize_Load(object sender, EventArgs e)
         {
-            dgvBrand.DataSource = BrandManagement.SelectAlBrands();
+            //dgvBrand.DataSource = BrandManagement.SelectAlBrands();
         }
 
         private void btnAddBrand_Click(object sender, EventArgs e)
@@ -38,7 +35,7 @@ namespace UI.UserControls
                 if (BrandManagement.InsertBusiness(brand))
                 {
                     FrmMain.Instance.ToolStripLabel.Text = "Se agrego la marca correctamente";
-                    dgvBrand.DataSource = BrandManagement.SelectAlBrands();
+                    //dgvBrand.DataSource = BrandManagement.SelectAlBrands();
                 }
                 else
                 {
@@ -60,7 +57,7 @@ namespace UI.UserControls
             try
             {
                 BrandManagement.UpdateBrandById(id, brand);
-                dgvBrand.DataSource = BrandManagement.SelectAlBrands();
+                //dgvBrand.DataSource = BrandManagement.SelectAlBrands();
                 FrmMain.Instance.ToolStripLabel.Text = "Se modifico la marca correctamente";
             }
             catch (Exception)
@@ -97,7 +94,8 @@ namespace UI.UserControls
             dgvBrand.DataSource = BrandManagement.SelectAlBrands();
         }
 
-        private void dgvBrand_SelectionChanged(object sender, EventArgs e)
+
+        private void dgvBrand_CellContentClick(object sender, DataGridViewCellEventArgs e)
         {
             txtIDBrand.Text = dgvBrand.CurrentRow.Cells[0].Value.ToString();
             txtBrand.Text = dgvBrand.CurrentRow.Cells[1].Value.ToString();

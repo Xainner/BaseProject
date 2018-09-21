@@ -8,7 +8,7 @@ using System.Threading.Tasks;
 using Dapper;
 using MySql.Data.MySqlClient;
 
-using BusinessLibrary.Models;
+using ModelLibrary.Models;
 using System.Windows.Forms;
 
 namespace DataBaseLibrary
@@ -45,12 +45,12 @@ namespace DataBaseLibrary
         /// </summary>
         /// <param name="Brand"></param>
         /// <returns></returns>
-        public static List<BrandModel> SelectBrandName(BrandModel Brand)
+        public static BrandModel SelectBrandName(BrandModel Brand)
         {
             using (IDbConnection cnn = new MySqlConnection(LoadConnectionString()))
             {
-                var output = cnn.Query<BrandModel>("SELECT * FROM brand WHERE idBrand = @idBrand", Brand);
-                return output.ToList();
+                var output = cnn.QuerySingle<BrandModel>("SELECT * FROM brand WHERE Name = @Name", Brand);
+                return output;
             }
         }
 

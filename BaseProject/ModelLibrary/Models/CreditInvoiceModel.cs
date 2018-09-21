@@ -4,9 +4,9 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace BusinessLibrary.Models
+namespace ModelLibrary.Models
 {
-    public class ExternalSellinvoiceModel
+    public class CreditInvoiceModel
     {
         public int idSellinvoice;
         public string numInvoice;
@@ -24,6 +24,12 @@ namespace BusinessLibrary.Models
         public decimal totalDiscount;
         public decimal subTotal;
         public decimal total;
+        public string range;
+        public string interests;
+        public decimal amountOfDues;
+        public decimal cashDeposit;
+        public decimal cardDeposit;
+        public decimal inflation;
 
         public int IdSellinvoice { get => idSellinvoice; set => idSellinvoice = value; }
         public string NumInvoice { get => numInvoice; set => numInvoice = value; }
@@ -41,5 +47,11 @@ namespace BusinessLibrary.Models
         public decimal TotalDiscount { get => totalDiscount; set => totalDiscount = value; }
         public decimal SubTotal { get => subTotal; set => subTotal = value; }
         public decimal Total { get => total; set => total = value; }
+        public string Range { get => range; set => range = value; }
+        public string Interests { get => interests; set => interests = value; }
+        public decimal AmountOfDues { get => amountOfDues; set => amountOfDues = value; }
+        public decimal CashDeposit { get => cashDeposit; set => cashDeposit = value; }
+        public decimal CardDeposit { get => cardDeposit; set => cardDeposit = value; }
+        public decimal Inflation { get => inflation; set => inflation = value; }
     }
 }

@@ -1,5 +1,5 @@
 ﻿using BusinessLibrary.Conection;
-using BusinessLibrary.Models;
+using ModelLibrary.Models;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -24,7 +24,7 @@ namespace LogicLibrary
                 {
                     BrandModel brandModel = new BrandModel()
                     {
-                        Name = name,
+                        Name = name
                     };
                     return BrandConnection.InsertBrand(brandModel);
                 }
@@ -107,7 +107,7 @@ namespace LogicLibrary
         /// </summary>
         /// <param name="idBrand"></param>
         /// <returns></returns>
-        public static List<BrandModel> SelectBrandById(string idBrand)
+        public static BrandModel SelectBrandById(string idBrand)
         {
             try
             {

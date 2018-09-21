@@ -20,7 +20,7 @@ namespace DataBaseLibrary
         /// </summary>
         /// <param name="id"></param>
         /// <returns>ConfigurationManager</returns>
-        private static String LoadConnectionString(String id = "User")
+        private static String LoadConnectionString(String id = "default")
         {
             return ConfigurationManager.ConnectionStrings[id].ConnectionString;
         }

@@ -4,7 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace BusinessLibrary.Models
+namespace ModelLibrary.Models
 {
     public class UserModel
     {
@@ -16,6 +16,6 @@ namespace BusinessLibrary.Models
         public int IdUser { get => idUser; set => idUser = value; }
         public string UserName { get => userName; set => userName = value; }
         public string Password { get => password; set => password = value; }
-        public int IdRole { get => idEmployee; set => idEmployee = value; }
+        public int IdEmployee { get => idEmployee; set => idEmployee = value; }
     }
 }

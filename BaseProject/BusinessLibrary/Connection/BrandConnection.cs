@@ -1,5 +1,6 @@
 ﻿using BusinessLibrary.Models;
 using DataBaseLibrary;
+using ModelLibrary.Models;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -10,7 +11,7 @@ namespace BusinessLibrary.Conection
 {
     public class BrandConnection
     {
-        public static List<BrandModel> SelectBrandName(BrandModel brand)
+        public static BrandModel SelectBrandName(BrandModel brand)
         {
             try
             {

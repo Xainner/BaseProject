@@ -4,7 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace BusinessLibrary.Models
+namespace ModelLibrary.Models
 {
     public class SalaryModel
     {

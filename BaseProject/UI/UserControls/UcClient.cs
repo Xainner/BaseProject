@@ -37,6 +37,7 @@ namespace UI.UserControls
 
         private void btnUpdateClient_Click(object sender, EventArgs e)
         {
+            string id = dgvClient.CurrentRow.Cells[0].Value.ToString();
             string name = txtNameClient.Text;
             string lastname = txtLastnameClient.Text;
             string idType = cmbIdentificationType.Text;
@@ -44,25 +45,38 @@ namespace UI.UserControls
             string bornDate = datepBornDate.Text;
             string email = txtEmailClient.Text;
 
-            //ClientManagement.UpdateClientById(id, name, lastname, identif, idType, email, bornDate);
+            ClientManagement.UpdateClientById(id, name, lastname, identif, idType, email, bornDate);
 
         }
 
         private void txtSearchClient_Click(object sender, EventArgs e)
         {
-            //ClientManagement.SelectClientByName(idClient);
+            string idClient = dgvClient.CurrentRow.Cells[0].Value.ToString();
+
+            //ClientManagement.SelectClientByNameOrLastName(idClient);
         }
 
         private void btnDeleteClient_Click(object sender, EventArgs e)
         {
-            //ClientManagement.DeleteClientById(idClient);
+            string idClient = dgvClient.CurrentRow.Cells[0].Value.ToString();
+
+            ClientManagement.DeleteClientById(idClient);
         }
 
         private void UcClient_Load(object sender, EventArgs e)
         {
-            //List<ClientModel> = ClientManagement.SelectAllClients();
+            dgvClient.DataSource = ClientManagement.SelectAllClients();
+        }
 
-            //dgvClient = 
+        private void dgvClient_CellContentClick(object sender, DataGridViewCellEventArgs e)
+        {
+            txtNameClient.Text = dgvClient.CurrentRow.Cells[1].Value.ToString();
+            txtLastnameClient.Text = dgvClient.CurrentRow.Cells[2].Value.ToString();
+            txtEmailClient.Text = dgvClient.CurrentRow.Cells[3].Value.ToString();
+            cmbIdentificationType.Text = dgvClient.CurrentRow.Cells[4].Value.ToString();
+            txtIdentification.Text = dgvClient.CurrentRow.Cells[5].Value.ToString();
+            datepBornDate.Text = dgvClient.CurrentRow.Cells[6].Value.ToString();
+
         }
     }
 }

@@ -75,9 +75,9 @@
     <None Include="packages.config" />
   </ItemGroup>
   <ItemGroup>
-    <ProjectReference Include="..\BusinessLibrary\BusinessLibrary.csproj">
-      <Project>{193fe192-0dc3-44cf-b2e1-b9e9aa513a39}</Project>
-      <Name>BusinessLibrary</Name>
+    <ProjectReference Include="..\ModelLibrary\ModelLibrary.csproj">
+      <Project>{138d613d-c8cc-4270-8d49-f365939a9807}</Project>
+      <Name>ModelLibrary</Name>
     </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
