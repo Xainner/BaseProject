@@ -62,9 +62,13 @@ namespace DataBaseLibrary
         {
             using (IDbConnection cnn = new MySqlConnection(LoadConnectionString()))
             {
+                string name = "%" + Client.Name + "%";
+                string lastname = "%"+ Client.Lastname + "%";
+                Client.Name = name;
+                Client.Lastname = lastname;
                 var output = cnn.Query<ClientModel>(
-                    "SELECT * FROM client WHERE (Name Like " + "%" + "@Name" + "%"+") or " +
-                    "(lastName Like " + "%" + "@lastName " + "%"+")", Client);
+                    "SELECT * FROM client WHERE (Name Like @Name) or " +
+                    "(lastName Like @lastName)", Client);
                 return output.ToList();
             }
         }
@@ -79,9 +83,9 @@ namespace DataBaseLibrary
             {
                 cnn.Execute("INSERT INTO client" +
                     "(Name, lastName, identificationType, Identification, Email, " +
-                    "bornDate, registrationDate) VALUES" +
+                    "bornDate) VALUES" +
                     "(@Name, @lastName, @identificationType, @Identification, @Email, " +
-                    "@bornDate, @registrationDate)", Client);
+                    "@bornDate)", Client);
             }
         }
 
@@ -109,7 +113,7 @@ namespace DataBaseLibrary
                     "SET Name = @Name, lastName = @lastName, " +
                     "identificationType = @identificationType, " +
                     "Identification = @Identification, Email = @Email, " +
-                    "bornDate = @bornDate, registrationDate = @registrationDate " +
+                    "bornDate = @bornDate " +
                     "WHERE idClient = @idClient", Client);
             }
         }

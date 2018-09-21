@@ -57,7 +57,7 @@ namespace LogicLibrary
                     CategoryModel categoryModel = new CategoryModel()
                     {
                         Name = name,
-                        IdCategoy = int.Parse(idCategory)
+                        IdCategory = int.Parse(idCategory)
                     };
                     return CategoryConnection.UpdateCategory(categoryModel);
                 }
@@ -87,7 +87,7 @@ namespace LogicLibrary
                 {
                     CategoryModel categoryModel = new CategoryModel()
                     {
-                        IdCategoy = int.Parse(idCategory)
+                        IdCategory = int.Parse(idCategory)
                     };
                     return CategoryConnection.DeleteCategory(categoryModel);
                 }
@@ -117,7 +117,7 @@ namespace LogicLibrary
                 {
                     CategoryModel categoryModel = new CategoryModel()
                     {
-                        IdCategoy = int.Parse(idCategory)
+                        IdCategory = int.Parse(idCategory)
                     };
                     return CategoryConnection.SelectCategory(categoryModel);
                 }

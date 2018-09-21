@@ -8,10 +8,10 @@ namespace ModelLibrary.Models
 {
     public class CategoryModel
     {
-        public int idCategoy;
+        public int idCategory;
         public string name;
 
-        public int IdCategoy { get => idCategoy; set => idCategoy = value; }
+        public int IdCategory { get => idCategory; set => idCategory = value; }
         public string Name { get => name; set => name = value; }
     }
 }

@@ -45,12 +45,23 @@ namespace DataBaseLibrary
         /// </summary>
         /// <param name="Brand"></param>
         /// <returns></returns>
-        public static BrandModel SelectBrandName(BrandModel Brand)
+        public static List<BrandModel> SelectBrandName(BrandModel Brand)
         {
-            using (IDbConnection cnn = new MySqlConnection(LoadConnectionString()))
+            try
             {
-                var output = cnn.QuerySingle<BrandModel>("SELECT * FROM brand WHERE Name = @Name", Brand);
-                return output;
+                using (IDbConnection cnn = new MySqlConnection(LoadConnectionString()))
+                {
+                    Brand.Name += "%";
+                    var output = cnn.Query<BrandModel>("SELECT * FROM brand WHERE Name like @Name", Brand);
+
+                    return output.ToList();
+                }
+            }
+            catch (Exception ex)
+            {
+                Brand.Name = ex.Message;
+                List<BrandModel> list = new List<BrandModel> { Brand };
+                return list;
             }
         }
 

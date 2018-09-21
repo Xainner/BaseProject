@@ -11,7 +11,7 @@ namespace BusinessLibrary.Conection
 {
     public class BrandConnection
     {
-        public static BrandModel SelectBrandName(BrandModel brand)
+        public static List<BrandModel> SelectBrandName(BrandModel brand)
         {
             try
             {

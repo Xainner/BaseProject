@@ -14,8 +14,8 @@ namespace ModelLibrary.Models
         public string identificationType;
         public string identification;
         public string email;
-        public string bornDate;
-        public string registrationDate;
+        public DateTime bornDate;
+        public DateTime registrationDate;
 
         public int IdClient { get => idClient; set => idClient = value; }
         public string Name { get => name; set => name = value; }
@@ -23,7 +23,7 @@ namespace ModelLibrary.Models
         public string IdentificationType { get => identificationType; set => identificationType = value; }
         public string Identification { get => identification; set => identification = value; }
         public string Email { get => email; set => email = value; }
-        public string BornDate { get => bornDate; set => bornDate = value; }
-        public string RegistrationDate { get => registrationDate; set => registrationDate = value; }
+        public DateTime BornDate { get => bornDate; set => bornDate = value; }
+        public DateTime RegistrationDate { get => registrationDate; set => registrationDate = value; }
     }
 }

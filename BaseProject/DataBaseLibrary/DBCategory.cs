@@ -35,7 +35,8 @@ namespace DataBaseLibrary
             using (IDbConnection cnn = new MySqlConnection(LoadConnectionString()))
             {
                 var output = cnn.Query<CategoryModel>("SELECT * FROM category");
-                return output.ToList();
+                List<CategoryModel> categoryModels = output.ToList();
+                return categoryModels;
             }
         }
 
@@ -61,8 +62,8 @@ namespace DataBaseLibrary
         {
             using (IDbConnection cnn = new MySqlConnection(LoadConnectionString()))
             {
-                cnn.Execute("INSERT INTO category(Name, idSubCategory) VALUES" +
-                    "(@Name, @idSubCategory)", Category);
+                cnn.Execute("INSERT INTO category(Name) VALUES" +
+                    "(@Name)", Category);
             }
         }
 
@@ -86,8 +87,8 @@ namespace DataBaseLibrary
         {
             using (IDbConnection cnn = new MySqlConnection(LoadConnectionString()))
             {
-                cnn.Execute("UPDATE category SET Name = @Name, " +
-                    "idSubCategory = @idSubCategory WHERE idCategory = @idCategory", Category);
+                cnn.Execute("UPDATE category SET Name = @Name " +
+                    " WHERE idCategory = @idCategory", Category);
             }
         }
     }

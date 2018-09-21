@@ -116,7 +116,7 @@
             this.btnBrandSize.Name = "btnBrandSize";
             this.btnBrandSize.Size = new System.Drawing.Size(140, 105);
             this.btnBrandSize.TabIndex = 1;
-            this.btnBrandSize.Text = "Marca y Talla";
+            this.btnBrandSize.Text = "Marcas";
             this.btnBrandSize.UseSelectable = true;
             this.btnBrandSize.Click += new System.EventHandler(this.btnBrandSize_Click);
             // 

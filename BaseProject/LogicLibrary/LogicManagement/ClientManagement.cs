@@ -34,7 +34,7 @@ namespace LogicLibrary
                         Identification = id,
                         IdentificationType = idType,
                         Email = email,
-                        BornDate = bornDate
+                        BornDate = DateTime.Parse(bornDate)
                     };
                     return ClientConnection.InsertClient(clientModel);
                 }
@@ -76,7 +76,7 @@ namespace LogicLibrary
                         Identification = id,
                         IdentificationType = idType,
                         Email = email,
-                        BornDate = bornDate
+                        BornDate = DateTime.Parse(bornDate)
                     };
                     return ClientConnection.UpdateClient(clientModel);
                 }
@@ -138,7 +138,8 @@ namespace LogicLibrary
                     {
                         IdClient = int.Parse(idClient)
                     };
-                    return ClientConnection.SelectClient(clientModel);
+                    //return ClientConnection.SelectClient(clientModel);}
+                    return null; 
                 }
                 else
                 {
@@ -157,7 +158,7 @@ namespace LogicLibrary
         /// </summary>
         /// <param name="toSearch"></param>
         /// <returns></returns>
-        public static ClientModel SelectClientByNameOrLastName(string toSearch)
+        public static List<ClientModel> SelectClientByNameOrLastName(string toSearch)
         {
             try
             {
@@ -169,8 +170,7 @@ namespace LogicLibrary
                         Name = toSearch,
                         Lastname = toSearch
                     };
-                    //return ClientConnection.SelectClientByNameOrLastName(clientModel);
-                    return null;
+                    return ClientConnection.SelectNameOrLastName(clientModel);
                 }
                 else
                 {

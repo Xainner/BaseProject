@@ -10,12 +10,11 @@ namespace BusinessLibrary.DataManagement
 {
     public class ClientConnection
     {
-        public static ClientModel SelectClient(ClientModel client)
+        public static List<ClientModel> SelectNameOrLastName(ClientModel client)
         {
             try
             {
-                //client = DBClient.SelectClient(client);
-                return client;
+                return DBClient.SelectNameOrLastName(client);
             }
             catch (Exception)
             {

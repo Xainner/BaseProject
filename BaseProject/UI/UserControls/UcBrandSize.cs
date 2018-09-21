@@ -22,7 +22,7 @@ namespace UI.UserControls
 
         private void UcBrandSize_Load(object sender, EventArgs e)
         {
-            //dgvBrand.DataSource = BrandManagement.SelectAlBrands();
+            dgvBrand.DataSource = BrandManagement.SelectAllBrands();
         }
 
         private void btnAddBrand_Click(object sender, EventArgs e)
@@ -35,7 +35,7 @@ namespace UI.UserControls
                 if (BrandManagement.InsertBusiness(brand))
                 {
                     FrmMain.Instance.ToolStripLabel.Text = "Se agrego la marca correctamente";
-                    //dgvBrand.DataSource = BrandManagement.SelectAlBrands();
+                    dgvBrand.DataSource = BrandManagement.SelectAllBrands();
                 }
                 else
                 {
@@ -57,7 +57,7 @@ namespace UI.UserControls
             try
             {
                 BrandManagement.UpdateBrandById(id, brand);
-                //dgvBrand.DataSource = BrandManagement.SelectAlBrands();
+                dgvBrand.DataSource = BrandManagement.SelectAllBrands();
                 FrmMain.Instance.ToolStripLabel.Text = "Se modifico la marca correctamente";
             }
             catch (Exception)
@@ -69,8 +69,9 @@ namespace UI.UserControls
 
         private void txtSearchBrand_Click(object sender, EventArgs e)
         {
-            //Hacer metodo para buscar por nombre
-            //BrandManagement.SelectBrandById()
+            string text = txtSearchBrand.Text;
+
+            BrandManagement.SelectBrandByName(text);
         }
 
         private void btnDeleteBrand_Click(object sender, EventArgs e)
@@ -93,12 +94,35 @@ namespace UI.UserControls
 
             dgvBrand.DataSource = BrandManagement.SelectAllBrands();
         }
+        
 
-
-        private void dgvBrand_CellContentClick(object sender, DataGridViewCellEventArgs e)
+        private void dgvBrand_MouseClick(object sender, MouseEventArgs e)
         {
             txtIDBrand.Text = dgvBrand.CurrentRow.Cells[0].Value.ToString();
             txtBrand.Text = dgvBrand.CurrentRow.Cells[1].Value.ToString();
+        }
+
+        private void txtSearchBrand_KeyPress(object sender, KeyPressEventArgs e)
+        {         
+            try
+            {
+                string text = txtSearchBrand.Text;
+
+                if (text != "")
+                {
+                    dgvBrand.DataSource = BrandManagement.SelectBrandByName(text);
+                }
+                
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message);
+            }
+        }
+
+        private void UcBrandSize_Leave(object sender, EventArgs e)
+        {
+            this.Dispose();
         }
     }
 }
