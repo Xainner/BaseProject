@@ -7,7 +7,7 @@ using System.Data;
 using Dapper;
 using MySql.Data.MySqlClient;
 
-using BusinessLibrary.Models;
+using ModelLibrary.Models;
 using System.Configuration;
 
 namespace DataBaseLibrary
@@ -44,12 +44,12 @@ namespace DataBaseLibrary
         /// </summary>
         /// <param name="Business"></param>
         /// <returns>output</returns>
-        public static List<BusinessModel> SelectBusinessId(BusinessModel Business)
+        public static BusinessModel SelectBusinessId(BusinessModel Business)
         {
             using (IDbConnection cnn = new MySqlConnection(LoadConnectionString()))
             {
-                var output = cnn.Query<BusinessModel>("SELECT * FROM business WHERE idBusiness = @idBusiness", Business);
-                return output.ToList();
+                var output = cnn.QuerySingle<BusinessModel>("SELECT * FROM business WHERE idBusiness = @idBusiness", Business);
+                return output;
             }
         }
 

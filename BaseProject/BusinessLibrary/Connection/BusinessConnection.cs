@@ -1,5 +1,5 @@
-﻿using BusinessLibrary.Models;
-//using DataBaseLibrary;
+﻿using DataBaseLibrary;
+using ModelLibrary.Models;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -28,8 +28,7 @@ namespace BusinessLibrary.Conection
         {
             try
             {
-                //return DBBusiness.SelectBusinessAll();
-                return null;
+                return DBBusiness.SelectBusinessAll();
             }
             catch (Exception)
             {
@@ -42,7 +41,7 @@ namespace BusinessLibrary.Conection
         {
             try
             {
-                //DBBusiness.InsertBusiness(business);
+                DBBusiness.InsertBusiness(business);
                 return true;
             }
             catch (Exception)
@@ -56,7 +55,7 @@ namespace BusinessLibrary.Conection
         {
             try
             {
-                //DBBusiness.UpdateBusiness(business);
+                DBBusiness.UpdateBusiness(business);
                 return true;
             }
             catch (Exception)
@@ -70,7 +69,7 @@ namespace BusinessLibrary.Conection
         {
             try
             {
-                //DBBusiness.DeleteBusiness(business);
+                DBBusiness.DeleteBusiness(business);
                 return true;
             }
             catch (Exception)

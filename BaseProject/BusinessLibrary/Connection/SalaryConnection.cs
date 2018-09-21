@@ -1,5 +1,5 @@
-﻿using BusinessLibrary.Models;
-//using DataBaseLibrary;
+﻿using DataBaseLibrary;
+using ModelLibrary.Models;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -28,8 +28,7 @@ namespace BusinessLibrary.Conection
         {
             try
             {
-                //return DBSalary.SelectSalaryAll();
-                return null;
+                return DBSalary.SelectSalaryAll();
             }
             catch (Exception)
             {
@@ -42,7 +41,7 @@ namespace BusinessLibrary.Conection
         {
             try
             {
-                //DBSalary.InsertSalary(salary);
+                DBSalary.InsertSalary(salary);
                 return true;
             }
             catch (Exception)
@@ -56,7 +55,7 @@ namespace BusinessLibrary.Conection
         {
             try
             {
-                //DBSalary.UpdateSalary(salary);
+                DBSalary.UpdateSalary(salary);
                 return true;
             }
             catch (Exception)
@@ -70,7 +69,7 @@ namespace BusinessLibrary.Conection
         {
             try
             {
-                //DBSalary.DeleteSalary(salary);
+                DBSalary.DeleteSalary(salary);
                 return true;
             }
             catch (Exception)

@@ -7,7 +7,7 @@ using System.Data;
 using Dapper;
 using MySql.Data.MySqlClient;
 
-using BusinessLibrary.Models;
+using ModelLibrary.Models;
 using System.Configuration;
 
 namespace DataBaseLibrary
@@ -44,12 +44,12 @@ namespace DataBaseLibrary
         /// </summary>
         /// <param name="Client"></param>
         /// <returns>output</returns>
-        public static List<ClientModel> SelectidClient(ClientModel Client)
+        public static ClientModel SelectidClient(ClientModel Client)
         {
             using (IDbConnection cnn = new MySqlConnection(LoadConnectionString()))
             {
-                var output = cnn.Query<ClientModel>("SELECT * FROM client WHERE idClient = @idClient", Client);
-                return output.ToList();
+                var output = cnn.QuerySingle<ClientModel>("SELECT * FROM client WHERE idClient = @idClient", Client);
+                return output;
             }
         }
 
@@ -63,8 +63,8 @@ namespace DataBaseLibrary
             using (IDbConnection cnn = new MySqlConnection(LoadConnectionString()))
             {
                 var output = cnn.Query<ClientModel>(
-                    "SELECT * FROM client WHERE (Name = @Name"+"%"+") or " +
-                    "(lastName = @lastName "+"%"+")", Client);
+                    "SELECT * FROM client WHERE (Name Like " + "%" + "@Name" + "%"+") or " +
+                    "(lastName Like " + "%" + "@lastName " + "%"+")", Client);
                 return output.ToList();
             }
         }

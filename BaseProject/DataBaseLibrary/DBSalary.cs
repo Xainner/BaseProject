@@ -7,7 +7,7 @@ using System.Data;
 using Dapper;
 using MySql.Data.MySqlClient;
 
-using BusinessLibrary.Models;
+using ModelLibrary.Models;
 using System.Configuration;
 
 namespace DataBaseLibrary

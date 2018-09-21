@@ -7,7 +7,7 @@ using System.Data;
 using Dapper;
 using MySql.Data.MySqlClient;
 
-using BusinessLibrary.Models;
+using ModelLibrary.Models;
 using System.Configuration;
 
 namespace DataBaseLibrary
@@ -44,12 +44,12 @@ namespace DataBaseLibrary
         /// </summary>
         /// <param name="Employee"></param>
         /// <returns>output</returns>
-        public static List<EmployeeModel> SelectidEmployee(EmployeeModel Employee)
+        public static EmployeeModel SelectidEmployee(EmployeeModel Employee)
         {
             using (IDbConnection cnn = new MySqlConnection(LoadConnectionString()))
             {
-                var output = cnn.Query<EmployeeModel>("SELECT * FROM employee WHERE idEmployee = @idEmployee", Employee);
-                return output.ToList();
+                var output = cnn.QuerySingle<EmployeeModel>("SELECT * FROM employee WHERE idEmployee = @idEmployee", Employee);
+                return output;
             }
         }
 
@@ -58,12 +58,12 @@ namespace DataBaseLibrary
         /// </summary>
         /// <param name="Employee"></param>
         /// <returns>output</returns>
-        public static List<EmployeeModel> SelectIdentification(EmployeeModel Employee)
+        public static EmployeeModel SelectIdentification(EmployeeModel Employee)
         {
             using (IDbConnection cnn = new MySqlConnection(LoadConnectionString()))
             {
-                var output = cnn.Query<EmployeeModel>("SELECT * FROM employee WHERE Identification = @Identification", Employee);
-                return output.ToList();
+                var output = cnn.QuerySingle<EmployeeModel>("SELECT * FROM employee WHERE Identification = @Identification", Employee);
+                return output;
             }
         }
 
@@ -77,8 +77,8 @@ namespace DataBaseLibrary
             using (IDbConnection cnn = new MySqlConnection(LoadConnectionString()))
             {
                 var output = cnn.Query<EmployeeModel>(
-                    "SELECT * FROM employee WHERE (Name = @Name" + "%" + ") or " +
-                    "(lastName = @lastName " + "%" + ")", Employee);
+                    "SELECT * FROM employee WHERE (Name LIKE " + "%" + "@Name" + "%" + ") or " +
+                    "(lastName LIKE " + "%" + "@lastName " + "%" + ")", Employee);
                 return output.ToList();
             }
         }
