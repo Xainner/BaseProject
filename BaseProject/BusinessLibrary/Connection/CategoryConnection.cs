@@ -69,7 +69,7 @@ namespace BusinessLibrary.Conection
         {
             try
             {
-                BCategory.DeleteCategory(category);
+                DBCategory.DeleteCategory(category);
                 return true;
             }
             catch (Exception)

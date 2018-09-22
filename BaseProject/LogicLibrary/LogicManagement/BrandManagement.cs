@@ -136,7 +136,7 @@ namespace LogicLibrary
         /// 
         /// </summary>
         /// <returns></returns>
-        public static List<BrandModel> SelectAlBrands()
+        public static List<BrandModel> SelectAllBrands()
         {
             try
             {

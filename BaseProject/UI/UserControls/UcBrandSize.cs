@@ -80,7 +80,7 @@ namespace UI.UserControls
             try
             {
                 BrandManagement.DeleteBrandById(id);
-                dgvBrand.DataSource = BrandManagement.SelectAlBrands();
+                dgvBrand.DataSource = BrandManagement.SelectAllBrands();
                 FrmMain.Instance.ToolStripLabel.Text = "Se elimino la marca correctamente";
             }
             catch (Exception)
@@ -91,7 +91,7 @@ namespace UI.UserControls
 
             BrandManagement.DeleteBrandById(id);
 
-            dgvBrand.DataSource = BrandManagement.SelectAlBrands();
+            dgvBrand.DataSource = BrandManagement.SelectAllBrands();
         }
 
 

@@ -1,5 +1,6 @@
 ﻿using BusinessLibrary.Conection;
-using BusinessLibrary.Models;
+
+using ModelLibrary.Models;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -16,62 +17,62 @@ namespace LogicLibrary
         /// <param name="name"></param>
         /// <param name="idCategory"></param>
         /// <returns></returns>
-        //public static bool InsertSubCategory(string name, string idCategory)
-        //{
-        //    try
-        //    {
-        //        string[] subCategory = new string[] { name, idCategory };
-        //        if (DataManagement.VerifyFields(subCategory))
-        //        {
-        //            SubCategoryModel subCategoryModel = new SubCategoryModel()
-        //            {
-        //                IdCategory = int.Parse(idCategory),
-        //                Name = name,
-        //            };
-        //            SubcategoryConnection.InsertSubcategory(subCategoryModel);
-        //            return true;
-        //        }
-        //        else
-        //        {
-        //            return false;
-        //        }
-        //    }
-        //    catch (Exception ex)
-        //    {
-        //        return false;
-        //        //Log4Net
-        //    }
-        //}
+        public static bool InsertSubCategory(string name, string idCategory)
+        {
+            try
+            {
+                string[] subCategory = new string[] { name, idCategory };
+                if (DataManagement.VerifyFields(subCategory))
+                {
+                    SubCategoryModel subCategoryModel = new SubCategoryModel()
+                    {
+                        IdCategory = int.Parse(idCategory),
+                        Name = name,
+                    };
+                    SubcategoryConnection.InsertSubcategory(subCategoryModel);
+                    return true;
+                }
+                else
+                {
+                    return false;
+                }
+            }
+            catch (Exception ex)
+            {
+                return false;
+                //Log4Net
+            }
+        }
 
-        //public static bool UpdateSubCategoryById(string idSubCategory, string idCategory, string name)
-        //{
-        //    try
-        //    {
-        //        string[] subCategory = new string[] { idSubCategory, name };
-        //        if (DataManagement.VerifyFields(subCategory))
-        //        {
-        //            SubCategoryModel subCategoryModel = new SubCategoryModel()
-        //            {
-        //                IdsubCategory = int.Parse(idSubCategory),
-        //                IdCategory = int.Parse(idCategory),
-        //                Name = name
-        //            };
-        //            SubcategoryConnection.UpdateSubcategory(subCategoryModel);
-        //            return true;
-        //        }
-        //        else
-        //        {
-        //            return false;
-        //        }
-        //    }
-        //    catch (Exception ex)
-        //    {
-        //        //Log4Net
-        //        return false;
-        //    }
-        //}
+        public static bool UpdateSubCategoryById(string idSubCategory, string idCategory, string name)
+        {
+            try
+            {
+                string[] subCategory = new string[] { idSubCategory, name };
+                if (DataManagement.VerifyFields(subCategory))
+                {
+                    SubCategoryModel subCategoryModel = new SubCategoryModel()
+                    {
+                        IdsubCategory = int.Parse(idSubCategory),
+                        IdCategory = int.Parse(idCategory),
+                        Name = name
+                    };
+                    SubcategoryConnection.UpdateSubcategory(subCategoryModel);
+                    return true;
+                }
+                else
+                {
+                    return false;
+                }
+            }
+            catch (Exception ex)
+            {
+                //Log4Net
+                return false;
+            }
+        }
 
-        
+
         public static bool DeleteSubCategoryById(string idSubCategory)
         {
             try

@@ -1,5 +1,6 @@
 ﻿using BusinessLibrary.Connection;
-using BusinessLibrary.Models;
+
+using ModelLibrary.Models;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -36,7 +37,6 @@ namespace LogicLibrary
             string idEmployee, 
             string idBusiness,
             string idUser, 
-            List<ProductModel> products,
             string coinType, 
             string paymentType, 
             string iviAmount, 
@@ -80,7 +80,6 @@ namespace LogicLibrary
                         NumInvoice = numInvoice,
                         PaymentCash = decimal.Parse(paymentCash),
                         PaymentType = paymentType,
-                        Products = products,
                         SubTotal = decimal.Parse(subTotal),
                         Total = decimal.Parse(total),
                         TotalDiscount = decimal.Parse(totalDiscount)

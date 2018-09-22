@@ -1,5 +1,6 @@
 ﻿using BusinessLibrary.Connection;
-using BusinessLibrary.Models;
+
+using ModelLibrary.Models;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -28,7 +29,6 @@ namespace LogicLibrary
                     {
                         Date = date,
                         Provider = provider,
-                        Products = products,
                     }; ;
                     return InputInvoiceConnection.InsertInputInvoice(inputInvoiceModel);
                 }
@@ -64,7 +64,6 @@ namespace LogicLibrary
                         IdInputInovice = int.Parse(idInputInvoice),
                         Date = date,
                         Provider = provider,
-                        Products = products,
                     };
                     return InputInvoiceConnection.UpdateInputInvoice(inputInvoiceModel);
                 }

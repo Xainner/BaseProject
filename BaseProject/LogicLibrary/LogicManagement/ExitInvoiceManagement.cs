@@ -1,5 +1,5 @@
 ﻿using BusinessLibrary.Connection;
-using BusinessLibrary.Models;
+using ModelLibrary.Models;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -29,7 +29,6 @@ namespace LogicLibrary
                     {
                         Date = date,
                         Destiny = destiny,
-                        Products = products,
                         IdBusiness = int.Parse(idBusiness)
                     };
                     return ExitInvoiceConnection.InsertExitInvoice(exitInvoiceModel);
@@ -64,10 +63,9 @@ namespace LogicLibrary
                 {
                     ExitInvoiceModel exitInvoiceModel = new ExitInvoiceModel()
                     {
-                        IdInputInovice = int.Parse(idExitInvoice),
+                        IdExitInvoice = int.Parse(idExitInvoice),
                         Date = date,
                         Destiny = destiny,
-                        Products = products,
                         IdBusiness = int.Parse(idBusiness)
                     };
                     return ExitInvoiceConnection.UpdateExitInvoice(exitInvoiceModel);
@@ -98,7 +96,7 @@ namespace LogicLibrary
                 {
                     ExitInvoiceModel exitInvoiceModel = new ExitInvoiceModel()
                     {
-                        IdInputInovice = int.Parse(idExitInvoice)
+                        IdExitInvoice = int.Parse(idExitInvoice)
                     };
                     return ExitInvoiceConnection.DeleteExitInvoice(exitInvoiceModel);
                 }
@@ -128,7 +126,7 @@ namespace LogicLibrary
                 {
                     ExitInvoiceModel exitInvoiceModel = new ExitInvoiceModel()
                     {
-                        IdInputInovice = int.Parse(idExitInvoice)
+                        IdExitInvoice = int.Parse(idExitInvoice)
                     };
                     return ExitInvoiceConnection.SelectExitInvoice(exitInvoiceModel);
                 }
