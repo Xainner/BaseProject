@@ -7,6 +7,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using LogicLibrary;
 
 namespace UI.UserControls
 {
@@ -17,6 +18,248 @@ namespace UI.UserControls
             InitializeComponent();
 
             FrmMain.Instance.ToolStripLabel.Text = "Estas en la pantalla de Salarios y Posiciones";
+        }
+
+        public void CleanAll()
+        {
+            txtID.Text = " ";
+            txtQuantity.Text = " ";
+            txtNamePosition.Text = " ";
+            cmbSalary.SelectedItem = " ";
+        }
+
+        private void UcPositionSalary_Load(object sender, EventArgs e)
+        {
+            dgvSalary.DataSource = SalaryManagement.SelectAllSalaries();
+            dgvPosition.DataSource = PositionManagement.SelectAllPositions();
+            cmbSalary.DataSource = SalaryManagement.SelectAllSalaries();
+        }
+
+        private void btnAddSalary_Click(object sender, EventArgs e)
+        {
+            string id = txtID.Text;
+            string salary = txtQuantity.Text;
+
+            try
+            {
+                //if (SalaryManagement.InsertSalary(salary))
+                //{
+                //    dgvSalary.DataSource = SalaryManagement.SelectAllSalaries();
+                //    FrmMain.Instance.ToolStripLabel.Text = "Se inserto el salario correctamente";
+                //}
+                //else
+                //{
+                //    FrmMain.Instance.ToolStripLabel.Text = "Error al insertar el salario";
+                //}
+            }
+            catch (Exception)
+            {
+
+                throw;
+            }
+        }
+
+        private void btnUpdateSalary_Click(object sender, EventArgs e)
+        {
+            string id = txtID.Text;
+            string salary = txtQuantity.Text;
+
+            try
+            {
+                //if (SalaryManagement.UpdateSalaryById(id, salary))
+                //{
+                //    dgvSalary.DataSource = SalaryManagement.SelectAllSalaries();
+                //    FrmMain.Instance.ToolStripLabel.Text = "Se modifico el salario correctamente";
+                //}
+                //else
+                //{
+                //    FrmMain.Instance.ToolStripLabel.Text = "Error al modificar el salario";
+                //}
+            }
+            catch (Exception)
+            {
+
+                throw;
+            }
+        }
+
+        private void txtSearchSalary_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            string text = txtSearchSalary.Text;
+
+            try
+            {
+                if (text != "")
+                {
+                    dgvSalary.DataSource = SalaryManagement.SelectSalaryByRegistrationDate(text);
+                }
+                else
+                {
+                    dgvSalary.DataSource = SalaryManagement.SelectAllSalaries();
+                }
+            }
+            catch (Exception)
+            {
+
+                throw;
+            }
+        }
+
+        private void btnDeleteSalary_Click(object sender, EventArgs e)
+        {
+            string id = dgvSalary.CurrentRow.Cells[0].Value.ToString();
+
+            try
+            {
+                if (SalaryManagement.DeleteSalaryById(id))
+                {
+                    dgvSalary.DataSource = SalaryManagement.SelectAllSalaries();
+                    FrmMain.Instance.ToolStripLabel.Text = "Se elimino el salario correctamente";
+                }
+                else
+                {
+                    FrmMain.Instance.ToolStripLabel.Text = "Error al eliminar el salario";
+                }
+            }
+            catch (Exception)
+            {
+
+                throw;
+            }
+        }
+
+        private void dgvSalary_MouseClick(object sender, MouseEventArgs e)
+        {
+            try
+            {
+                txtID.Text = dgvSalary.CurrentRow.Cells[0].Value.ToString();
+                txtQuantity.Text = dgvSalary.CurrentRow.Cells[1].Value.ToString();
+            }
+            catch (Exception)
+            {
+
+                throw;
+            }
+        }
+
+        //-------------------------SECCION DE POSICIONES--------------------------------
+
+        private void btnAddPosition_Click(object sender, EventArgs e)
+        {
+            string position = txtNamePosition.Text;
+            string salary = cmbSalary.Text;
+
+            try
+            {
+                if (PositionManagement.InsertPosition(position, salary))
+                {
+                    dgvPosition.DataSource = PositionManagement.SelectAllPositions();
+                    FrmMain.Instance.ToolStripLabel.Text = "Se inserto la posicion de trabajo correctamente";
+                }
+                else
+                {
+                    FrmMain.Instance.ToolStripLabel.Text = "Error al insertar la posicion de trabajo";
+                }
+            }
+            catch (Exception)
+            {
+
+                throw;
+            }
+        }
+
+        private void btnUpdatePosition_Click(object sender, EventArgs e)
+        {
+            string id = dgvPosition.CurrentRow.Cells[0].Value.ToString();
+            string position = txtNamePosition.Text;
+            string salary = cmbSalary.Text;
+
+            try
+            {
+                if (PositionManagement.UpdatePositionById(id, position, salary))
+                {
+                    dgvPosition.DataSource = PositionManagement.SelectAllPositions();
+                    FrmMain.Instance.ToolStripLabel.Text = "Se modifico la Posicion correctamente";
+                }
+                else
+                {
+                    FrmMain.Instance.ToolStripLabel.Text = "Error al modificar la Posicion";
+                }
+            }
+            catch (Exception)
+            {
+
+                throw;
+            }
+        }
+
+        private void txtSearchPosition_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            string text = txtSearchPosition.Text;
+
+            try
+            {
+                if (text != "")
+                {
+                    //dgvPosition.DataSource = PositionManagement.se;
+                }
+                else
+                {
+                    //dgvPosition.DataSource = PositionManagement.SelectAllPositions();
+                }
+            }
+            catch (Exception)
+            {
+
+                throw;
+            }
+        }
+
+        private void btnDeletePosition_Click(object sender, EventArgs e)
+        {
+            string id = dgvPosition.CurrentRow.Cells[0].Value.ToString();
+
+            try
+            {
+                if (PositionManagement.DeletePositionById(id))
+                {
+                    dgvPosition.DataSource = PositionManagement.SelectAllPositions();
+                    FrmMain.Instance.ToolStripLabel.Text = "Se elimino la Posicion correctamente";
+                }
+                else
+                {
+                    FrmMain.Instance.ToolStripLabel.Text = "Error al eliminar la Posicion";
+                }
+            }
+            catch (Exception)
+            {
+
+                throw;
+            }
+        }
+
+        private void dgvPosition_MouseClick(object sender, MouseEventArgs e)
+        {
+            try
+            {
+                txtNamePosition.Text = dgvPosition.CurrentRow.Cells[1].Value.ToString();
+                cmbSalary.SelectedItem = dgvPosition.CurrentRow.Cells[0].Value.ToString();
+            }
+            catch (Exception)
+            {
+
+                throw;
+            }
+        }
+
+        private void UcPositionSalary_Leave(object sender, EventArgs e)
+        {
+            this.Dispose();
+        }
+
+        private void btnCleanAll_Click(object sender, EventArgs e)
+        {
+            CleanAll();
         }
     }
 }

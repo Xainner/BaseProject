@@ -20,9 +20,22 @@ namespace UI.UserControls
             FrmMain.Instance.ToolStripLabel.Text = "Estas en la pantalla de Negocio";
         }
 
+        public void CleanBusiness()
+        {
+            txtFantasyName.Text = " ";
+            txtSocietyName.Text = " ";
+            txtlegalCertification.Text = " ";
+            mtxtTelephone.Text = " ";
+            txaMainAddress.Text = " ";
+            txaGeneralAddress.Text = " ";
+            txtEmail.Text = " ";
+            txtWebPage.Text = " ";
+            pbLogo.Image = null;
+        }
+
         private void UcBusiness_Load(object sender, EventArgs e)
         {
-            //Mostrar  dgvBusiness
+            dgvBusiness.DataSource = BusinessManagement.SelectAllBusiness();
         }
 
         private void btnAddBusiness_Click(object sender, EventArgs e)
@@ -35,24 +48,153 @@ namespace UI.UserControls
             string generalAddress = txaGeneralAddress.Text;
             string email = txtEmail.Text;
             string webPage = txtWebPage.Text;
-            //byte[] logo = pbLogo.Contains.;
+            //byte[] logo = pbLogo.;
 
-            //BusinessManagement.InsertBusiness()
+            try
+            {
+                //if (BusinessManagement.InsertBusiness(fantasyName, society, legalDoc, telephone, mainAddress, generalAddress,
+                //    email, webPage, logo))
+                //{
+                //    dgvBusiness.DataSource = BusinessManagement.SelectAllBusiness();
+                //    FrmMain.Instance.ToolStripLabel.Text = "Negocio agregado correctamente";
+                //}
+                //else
+                //{
+                //    FrmMain.Instance.ToolStripLabel.Text = "Error al agregar el negocio";
+                //}
+            }
+            catch (Exception)
+            {
+
+                throw;
+            }
         }
 
         private void btnUpdateBusiness_Click(object sender, EventArgs e)
         {
+            string id = dgvBusiness.CurrentRow.Cells[0].Value.ToString();
+            string fantasyName = txtFantasyName.Text;
+            string society = txtSocietyName.Text;
+            string legalDoc = txtlegalCertification.Text;
+            string telephone = mtxtTelephone.Text;
+            string mainAddress = txaMainAddress.Text;
+            string generalAddress = txaGeneralAddress.Text;
+            string email = txtEmail.Text;
+            string webPage = txtWebPage.Text;
+            //byte[] logo = pbLogo.;
+
+            try
+            {
+                //if (BusinessManagement.UpdateBusinessById(id, fantasyName, society, legalDoc, telephone, mainAddress, generalAddress,
+                //    email, webPage, logo))
+                //{
+                //    dgvBusiness.DataSource = BusinessManagement.SelectAllBusiness();
+                //    FrmMain.Instance.ToolStripLabel.Text = "Negocio modificado correctamente";
+                //}
+                //else
+                //{
+                //    FrmMain.Instance.ToolStripLabel.Text = "Error al modificar el negocio";
+                //}
+            }
+            catch (Exception)
+            {
+
+                throw;
+            }
+
             //BusinessManagement.UpdateBusinessById(idBusiness);
-        }
-
-        private void txtSearchBusiness_Click(object sender, EventArgs e)
-        {
-
         }
 
         private void btnDeleteBusiness_Click(object sender, EventArgs e)
         {
-            //BusinessManagement.DeleteBusinessById(idBusiness);
+            string id = dgvBusiness.CurrentRow.Cells[0].Value.ToString();
+
+            try
+            {
+                if (BusinessManagement.DeleteBusinessById(id))
+                {
+                    dgvBusiness.DataSource = BusinessManagement.SelectAllBusiness();
+                    FrmMain.Instance.ToolStripLabel.Text = "El negocio ha sido elimado correctamente";
+                }
+                else
+                {
+                    FrmMain.Instance.ToolStripLabel.Text = "Error al eliminar el negocio";
+                }
+            }
+            catch (Exception)
+            {
+
+                throw;
+            }
+        }
+
+        private void btnSelectImage_Click(object sender, EventArgs e)
+        {
+            try
+            {
+                this.openFileDialog1.ShowDialog();
+                if (this.openFileDialog1.FileName.Equals("") == false)
+                {
+                    pbLogo.Load(this.openFileDialog1.FileName);
+                }
+            }
+            catch (Exception ex)
+            {
+                FrmMain.Instance.ToolStripLabel.Text = "Error al cargar la imagen: " + ex.ToString();
+            }
+        }
+
+        private void txtSearchBusiness_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            string text = txtSearchBusiness.Text;
+
+            try
+            {
+                if (text != " ")
+                {
+                    //BusinessManagement.SelectBusinessById();
+                }
+                else
+                {
+                    dgvBusiness.DataSource = BusinessManagement.SelectAllBusiness();
+                }
+            }
+            catch (Exception)
+            {
+
+                throw;
+            }
+        }
+
+        private void btnClean_Click(object sender, EventArgs e)
+        {
+            CleanBusiness();
+        }
+
+        private void UcBusiness_Leave(object sender, EventArgs e)
+        {
+            this.Dispose();
+        }
+
+        private void dgvBusiness_MouseClick(object sender, MouseEventArgs e)
+        {
+            try
+            {
+                txtFantasyName.Text = dgvBusiness.CurrentRow.Cells[0].Value.ToString();
+                txtSocietyName.Text = dgvBusiness.CurrentRow.Cells[1].Value.ToString();
+                txtlegalCertification.Text = dgvBusiness.CurrentRow.Cells[2].Value.ToString();
+                mtxtTelephone.Text = dgvBusiness.CurrentRow.Cells[3].Value.ToString();
+                txaMainAddress.Text = dgvBusiness.CurrentRow.Cells[4].Value.ToString();
+                txaGeneralAddress.Text = dgvBusiness.CurrentRow.Cells[5].Value.ToString();
+                txtEmail.Text = dgvBusiness.CurrentRow.Cells[6].Value.ToString();
+                txtWebPage.Text = dgvBusiness.CurrentRow.Cells[7].Value.ToString();
+                //pbLogo.Image = dgvBusiness.CurrentRow.Cells[8].Value.ToString();
+            }
+            catch (Exception)
+            {
+
+                throw;
+            }
         }
     }
 }

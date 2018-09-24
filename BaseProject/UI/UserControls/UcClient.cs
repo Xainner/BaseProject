@@ -28,6 +28,8 @@ namespace UI.UserControls
             txtIdentification.Text = "";
             datepBornDate.Text = "";
             txtEmailClient.Text = "";
+
+            dgvClient.DataSource = ClientManagement.SelectAllClients();
         }
 
         private void btnAddClient_Click(object sender, EventArgs e)

@@ -28,13 +28,14 @@
         /// </summary>
         private void InitializeComponent()
         {
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle4 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle5 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle6 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle3 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle7 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle8 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle9 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle10 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle11 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle12 = new System.Windows.Forms.DataGridViewCellStyle();
             this.groupBox2 = new System.Windows.Forms.GroupBox();
+            this.dgvPosition = new MetroFramework.Controls.MetroGrid();
             this.txtSearchPosition = new MetroFramework.Controls.MetroTextBox();
             this.btnUpdatePosition = new MetroFramework.Controls.MetroTile();
             this.btnDeletePosition = new MetroFramework.Controls.MetroTile();
@@ -44,6 +45,7 @@
             this.metroLabel3 = new MetroFramework.Controls.MetroLabel();
             this.metroLabel4 = new MetroFramework.Controls.MetroLabel();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
+            this.dgvSalary = new MetroFramework.Controls.MetroGrid();
             this.txtSearchSalary = new MetroFramework.Controls.MetroTextBox();
             this.btnDeleteSalary = new MetroFramework.Controls.MetroTile();
             this.btnUpdateSalary = new MetroFramework.Controls.MetroTile();
@@ -52,12 +54,11 @@
             this.txtQuantity = new MetroFramework.Controls.MetroTextBox();
             this.metroLabel2 = new MetroFramework.Controls.MetroLabel();
             this.metroLabel1 = new MetroFramework.Controls.MetroLabel();
-            this.dgvSalary = new MetroFramework.Controls.MetroGrid();
-            this.dgvPosition = new MetroFramework.Controls.MetroGrid();
+            this.btnCleanAll = new MetroFramework.Controls.MetroTile();
             this.groupBox2.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.dgvPosition)).BeginInit();
             this.groupBox1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgvSalary)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.dgvPosition)).BeginInit();
             this.SuspendLayout();
             // 
             // groupBox2
@@ -73,10 +74,54 @@
             this.groupBox2.Controls.Add(this.metroLabel4);
             this.groupBox2.Location = new System.Drawing.Point(507, 30);
             this.groupBox2.Name = "groupBox2";
-            this.groupBox2.Size = new System.Drawing.Size(429, 476);
+            this.groupBox2.Size = new System.Drawing.Size(429, 449);
             this.groupBox2.TabIndex = 3;
             this.groupBox2.TabStop = false;
             this.groupBox2.Text = "Área de posición de trabajo";
+            // 
+            // dgvPosition
+            // 
+            this.dgvPosition.AllowUserToResizeRows = false;
+            this.dgvPosition.BackgroundColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(255)))), ((int)(((byte)(255)))));
+            this.dgvPosition.BorderStyle = System.Windows.Forms.BorderStyle.None;
+            this.dgvPosition.CellBorderStyle = System.Windows.Forms.DataGridViewCellBorderStyle.None;
+            this.dgvPosition.ColumnHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.None;
+            dataGridViewCellStyle7.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle7.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(174)))), ((int)(((byte)(219)))));
+            dataGridViewCellStyle7.Font = new System.Drawing.Font("Segoe UI", 11F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Pixel);
+            dataGridViewCellStyle7.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(255)))), ((int)(((byte)(255)))));
+            dataGridViewCellStyle7.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(198)))), ((int)(((byte)(247)))));
+            dataGridViewCellStyle7.SelectionForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(17)))), ((int)(((byte)(17)))), ((int)(((byte)(17)))));
+            dataGridViewCellStyle7.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.dgvPosition.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle7;
+            this.dgvPosition.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            dataGridViewCellStyle8.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle8.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(255)))), ((int)(((byte)(255)))));
+            dataGridViewCellStyle8.Font = new System.Drawing.Font("Segoe UI", 11F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Pixel);
+            dataGridViewCellStyle8.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(136)))), ((int)(((byte)(136)))), ((int)(((byte)(136)))));
+            dataGridViewCellStyle8.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(198)))), ((int)(((byte)(247)))));
+            dataGridViewCellStyle8.SelectionForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(17)))), ((int)(((byte)(17)))), ((int)(((byte)(17)))));
+            dataGridViewCellStyle8.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
+            this.dgvPosition.DefaultCellStyle = dataGridViewCellStyle8;
+            this.dgvPosition.EnableHeadersVisualStyles = false;
+            this.dgvPosition.Font = new System.Drawing.Font("Segoe UI", 11F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Pixel);
+            this.dgvPosition.GridColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(255)))), ((int)(((byte)(255)))));
+            this.dgvPosition.Location = new System.Drawing.Point(63, 219);
+            this.dgvPosition.Name = "dgvPosition";
+            this.dgvPosition.RowHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.None;
+            dataGridViewCellStyle9.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle9.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(174)))), ((int)(((byte)(219)))));
+            dataGridViewCellStyle9.Font = new System.Drawing.Font("Segoe UI", 11F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Pixel);
+            dataGridViewCellStyle9.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(255)))), ((int)(((byte)(255)))));
+            dataGridViewCellStyle9.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(198)))), ((int)(((byte)(247)))));
+            dataGridViewCellStyle9.SelectionForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(17)))), ((int)(((byte)(17)))), ((int)(((byte)(17)))));
+            dataGridViewCellStyle9.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.dgvPosition.RowHeadersDefaultCellStyle = dataGridViewCellStyle9;
+            this.dgvPosition.RowHeadersWidthSizeMode = System.Windows.Forms.DataGridViewRowHeadersWidthSizeMode.DisableResizing;
+            this.dgvPosition.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
+            this.dgvPosition.Size = new System.Drawing.Size(309, 168);
+            this.dgvPosition.TabIndex = 8;
+            this.dgvPosition.MouseClick += new System.Windows.Forms.MouseEventHandler(this.dgvPosition_MouseClick);
             // 
             // txtSearchPosition
             // 
@@ -92,7 +137,7 @@
             this.txtSearchPosition.CustomButton.Theme = MetroFramework.MetroThemeStyle.Light;
             this.txtSearchPosition.CustomButton.UseSelectable = true;
             this.txtSearchPosition.Lines = new string[0];
-            this.txtSearchPosition.Location = new System.Drawing.Point(218, 211);
+            this.txtSearchPosition.Location = new System.Drawing.Point(222, 190);
             this.txtSearchPosition.MaxLength = 32767;
             this.txtSearchPosition.Name = "txtSearchPosition";
             this.txtSearchPosition.PasswordChar = '\0';
@@ -109,6 +154,7 @@
             this.txtSearchPosition.WaterMark = "Ingrese texto a buscar";
             this.txtSearchPosition.WaterMarkColor = System.Drawing.Color.FromArgb(((int)(((byte)(109)))), ((int)(((byte)(109)))), ((int)(((byte)(109)))));
             this.txtSearchPosition.WaterMarkFont = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Pixel);
+            this.txtSearchPosition.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtSearchPosition_KeyPress);
             // 
             // btnUpdatePosition
             // 
@@ -119,16 +165,18 @@
             this.btnUpdatePosition.TabIndex = 4;
             this.btnUpdatePosition.Text = "Modificar";
             this.btnUpdatePosition.UseSelectable = true;
+            this.btnUpdatePosition.Click += new System.EventHandler(this.btnUpdatePosition_Click);
             // 
             // btnDeletePosition
             // 
             this.btnDeletePosition.ActiveControl = null;
-            this.btnDeletePosition.Location = new System.Drawing.Point(281, 414);
+            this.btnDeletePosition.Location = new System.Drawing.Point(285, 393);
             this.btnDeletePosition.Name = "btnDeletePosition";
             this.btnDeletePosition.Size = new System.Drawing.Size(87, 38);
             this.btnDeletePosition.TabIndex = 4;
             this.btnDeletePosition.Text = "Eliminar";
             this.btnDeletePosition.UseSelectable = true;
+            this.btnDeletePosition.Click += new System.EventHandler(this.btnDeletePosition_Click);
             // 
             // btnAddPosition
             // 
@@ -139,6 +187,7 @@
             this.btnAddPosition.TabIndex = 4;
             this.btnAddPosition.Text = "Agregar";
             this.btnAddPosition.UseSelectable = true;
+            this.btnAddPosition.Click += new System.EventHandler(this.btnAddPosition_Click);
             // 
             // txtNamePosition
             // 
@@ -211,10 +260,54 @@
             this.groupBox1.Controls.Add(this.metroLabel1);
             this.groupBox1.Location = new System.Drawing.Point(19, 30);
             this.groupBox1.Name = "groupBox1";
-            this.groupBox1.Size = new System.Drawing.Size(429, 476);
+            this.groupBox1.Size = new System.Drawing.Size(429, 449);
             this.groupBox1.TabIndex = 4;
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "Área de Salarios";
+            // 
+            // dgvSalary
+            // 
+            this.dgvSalary.AllowUserToResizeRows = false;
+            this.dgvSalary.BackgroundColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(255)))), ((int)(((byte)(255)))));
+            this.dgvSalary.BorderStyle = System.Windows.Forms.BorderStyle.None;
+            this.dgvSalary.CellBorderStyle = System.Windows.Forms.DataGridViewCellBorderStyle.None;
+            this.dgvSalary.ColumnHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.None;
+            dataGridViewCellStyle10.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle10.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(174)))), ((int)(((byte)(219)))));
+            dataGridViewCellStyle10.Font = new System.Drawing.Font("Segoe UI", 11F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Pixel);
+            dataGridViewCellStyle10.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(255)))), ((int)(((byte)(255)))));
+            dataGridViewCellStyle10.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(198)))), ((int)(((byte)(247)))));
+            dataGridViewCellStyle10.SelectionForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(17)))), ((int)(((byte)(17)))), ((int)(((byte)(17)))));
+            dataGridViewCellStyle10.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.dgvSalary.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle10;
+            this.dgvSalary.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            dataGridViewCellStyle11.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle11.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(255)))), ((int)(((byte)(255)))));
+            dataGridViewCellStyle11.Font = new System.Drawing.Font("Segoe UI", 11F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Pixel);
+            dataGridViewCellStyle11.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(136)))), ((int)(((byte)(136)))), ((int)(((byte)(136)))));
+            dataGridViewCellStyle11.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(198)))), ((int)(((byte)(247)))));
+            dataGridViewCellStyle11.SelectionForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(17)))), ((int)(((byte)(17)))), ((int)(((byte)(17)))));
+            dataGridViewCellStyle11.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
+            this.dgvSalary.DefaultCellStyle = dataGridViewCellStyle11;
+            this.dgvSalary.EnableHeadersVisualStyles = false;
+            this.dgvSalary.Font = new System.Drawing.Font("Segoe UI", 11F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Pixel);
+            this.dgvSalary.GridColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(255)))), ((int)(((byte)(255)))));
+            this.dgvSalary.Location = new System.Drawing.Point(62, 219);
+            this.dgvSalary.Name = "dgvSalary";
+            this.dgvSalary.RowHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.None;
+            dataGridViewCellStyle12.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle12.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(174)))), ((int)(((byte)(219)))));
+            dataGridViewCellStyle12.Font = new System.Drawing.Font("Segoe UI", 11F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Pixel);
+            dataGridViewCellStyle12.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(255)))), ((int)(((byte)(255)))));
+            dataGridViewCellStyle12.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(198)))), ((int)(((byte)(247)))));
+            dataGridViewCellStyle12.SelectionForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(17)))), ((int)(((byte)(17)))), ((int)(((byte)(17)))));
+            dataGridViewCellStyle12.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.dgvSalary.RowHeadersDefaultCellStyle = dataGridViewCellStyle12;
+            this.dgvSalary.RowHeadersWidthSizeMode = System.Windows.Forms.DataGridViewRowHeadersWidthSizeMode.DisableResizing;
+            this.dgvSalary.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
+            this.dgvSalary.Size = new System.Drawing.Size(309, 168);
+            this.dgvSalary.TabIndex = 8;
+            this.dgvSalary.MouseClick += new System.Windows.Forms.MouseEventHandler(this.dgvSalary_MouseClick);
             // 
             // txtSearchSalary
             // 
@@ -230,7 +323,7 @@
             this.txtSearchSalary.CustomButton.Theme = MetroFramework.MetroThemeStyle.Light;
             this.txtSearchSalary.CustomButton.UseSelectable = true;
             this.txtSearchSalary.Lines = new string[0];
-            this.txtSearchSalary.Location = new System.Drawing.Point(221, 211);
+            this.txtSearchSalary.Location = new System.Drawing.Point(221, 190);
             this.txtSearchSalary.MaxLength = 32767;
             this.txtSearchSalary.Name = "txtSearchSalary";
             this.txtSearchSalary.PasswordChar = '\0';
@@ -247,16 +340,18 @@
             this.txtSearchSalary.WaterMark = "Ingrese texto a buscar";
             this.txtSearchSalary.WaterMarkColor = System.Drawing.Color.FromArgb(((int)(((byte)(109)))), ((int)(((byte)(109)))), ((int)(((byte)(109)))));
             this.txtSearchSalary.WaterMarkFont = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Pixel);
+            this.txtSearchSalary.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtSearchSalary_KeyPress);
             // 
             // btnDeleteSalary
             // 
             this.btnDeleteSalary.ActiveControl = null;
-            this.btnDeleteSalary.Location = new System.Drawing.Point(284, 414);
+            this.btnDeleteSalary.Location = new System.Drawing.Point(284, 393);
             this.btnDeleteSalary.Name = "btnDeleteSalary";
             this.btnDeleteSalary.Size = new System.Drawing.Size(87, 38);
             this.btnDeleteSalary.TabIndex = 4;
             this.btnDeleteSalary.Text = "Eliminar";
             this.btnDeleteSalary.UseSelectable = true;
+            this.btnDeleteSalary.Click += new System.EventHandler(this.btnDeleteSalary_Click);
             // 
             // btnUpdateSalary
             // 
@@ -267,6 +362,7 @@
             this.btnUpdateSalary.TabIndex = 4;
             this.btnUpdateSalary.Text = "Modificar";
             this.btnUpdateSalary.UseSelectable = true;
+            this.btnUpdateSalary.Click += new System.EventHandler(this.btnUpdateSalary_Click);
             // 
             // btnAddSalary
             // 
@@ -277,6 +373,7 @@
             this.btnAddSalary.TabIndex = 4;
             this.btnAddSalary.Text = "Agregar";
             this.btnAddSalary.UseSelectable = true;
+            this.btnAddSalary.Click += new System.EventHandler(this.btnAddSalary_Click);
             // 
             // txtID
             // 
@@ -356,106 +453,34 @@
             this.metroLabel1.TabIndex = 0;
             this.metroLabel1.Text = "ID:";
             // 
-            // dgvSalary
+            // btnCleanAll
             // 
-            this.dgvSalary.AllowUserToResizeRows = false;
-            this.dgvSalary.BackgroundColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(255)))), ((int)(((byte)(255)))));
-            this.dgvSalary.BorderStyle = System.Windows.Forms.BorderStyle.None;
-            this.dgvSalary.CellBorderStyle = System.Windows.Forms.DataGridViewCellBorderStyle.None;
-            this.dgvSalary.ColumnHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.None;
-            dataGridViewCellStyle4.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle4.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(174)))), ((int)(((byte)(219)))));
-            dataGridViewCellStyle4.Font = new System.Drawing.Font("Segoe UI", 11F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Pixel);
-            dataGridViewCellStyle4.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(255)))), ((int)(((byte)(255)))));
-            dataGridViewCellStyle4.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(198)))), ((int)(((byte)(247)))));
-            dataGridViewCellStyle4.SelectionForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(17)))), ((int)(((byte)(17)))), ((int)(((byte)(17)))));
-            dataGridViewCellStyle4.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.dgvSalary.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle4;
-            this.dgvSalary.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            dataGridViewCellStyle5.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle5.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(255)))), ((int)(((byte)(255)))));
-            dataGridViewCellStyle5.Font = new System.Drawing.Font("Segoe UI", 11F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Pixel);
-            dataGridViewCellStyle5.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(136)))), ((int)(((byte)(136)))), ((int)(((byte)(136)))));
-            dataGridViewCellStyle5.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(198)))), ((int)(((byte)(247)))));
-            dataGridViewCellStyle5.SelectionForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(17)))), ((int)(((byte)(17)))), ((int)(((byte)(17)))));
-            dataGridViewCellStyle5.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
-            this.dgvSalary.DefaultCellStyle = dataGridViewCellStyle5;
-            this.dgvSalary.EnableHeadersVisualStyles = false;
-            this.dgvSalary.Font = new System.Drawing.Font("Segoe UI", 11F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Pixel);
-            this.dgvSalary.GridColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(255)))), ((int)(((byte)(255)))));
-            this.dgvSalary.Location = new System.Drawing.Point(62, 240);
-            this.dgvSalary.Name = "dgvSalary";
-            this.dgvSalary.RowHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.None;
-            dataGridViewCellStyle6.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle6.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(174)))), ((int)(((byte)(219)))));
-            dataGridViewCellStyle6.Font = new System.Drawing.Font("Segoe UI", 11F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Pixel);
-            dataGridViewCellStyle6.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(255)))), ((int)(((byte)(255)))));
-            dataGridViewCellStyle6.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(198)))), ((int)(((byte)(247)))));
-            dataGridViewCellStyle6.SelectionForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(17)))), ((int)(((byte)(17)))), ((int)(((byte)(17)))));
-            dataGridViewCellStyle6.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.dgvSalary.RowHeadersDefaultCellStyle = dataGridViewCellStyle6;
-            this.dgvSalary.RowHeadersWidthSizeMode = System.Windows.Forms.DataGridViewRowHeadersWidthSizeMode.DisableResizing;
-            this.dgvSalary.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.dgvSalary.Size = new System.Drawing.Size(309, 168);
-            this.dgvSalary.TabIndex = 8;
-            // 
-            // dgvPosition
-            // 
-            this.dgvPosition.AllowUserToResizeRows = false;
-            this.dgvPosition.BackgroundColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(255)))), ((int)(((byte)(255)))));
-            this.dgvPosition.BorderStyle = System.Windows.Forms.BorderStyle.None;
-            this.dgvPosition.CellBorderStyle = System.Windows.Forms.DataGridViewCellBorderStyle.None;
-            this.dgvPosition.ColumnHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.None;
-            dataGridViewCellStyle1.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(174)))), ((int)(((byte)(219)))));
-            dataGridViewCellStyle1.Font = new System.Drawing.Font("Segoe UI", 11F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Pixel);
-            dataGridViewCellStyle1.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(255)))), ((int)(((byte)(255)))));
-            dataGridViewCellStyle1.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(198)))), ((int)(((byte)(247)))));
-            dataGridViewCellStyle1.SelectionForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(17)))), ((int)(((byte)(17)))), ((int)(((byte)(17)))));
-            dataGridViewCellStyle1.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.dgvPosition.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle1;
-            this.dgvPosition.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            dataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle2.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(255)))), ((int)(((byte)(255)))));
-            dataGridViewCellStyle2.Font = new System.Drawing.Font("Segoe UI", 11F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Pixel);
-            dataGridViewCellStyle2.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(136)))), ((int)(((byte)(136)))), ((int)(((byte)(136)))));
-            dataGridViewCellStyle2.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(198)))), ((int)(((byte)(247)))));
-            dataGridViewCellStyle2.SelectionForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(17)))), ((int)(((byte)(17)))), ((int)(((byte)(17)))));
-            dataGridViewCellStyle2.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
-            this.dgvPosition.DefaultCellStyle = dataGridViewCellStyle2;
-            this.dgvPosition.EnableHeadersVisualStyles = false;
-            this.dgvPosition.Font = new System.Drawing.Font("Segoe UI", 11F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Pixel);
-            this.dgvPosition.GridColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(255)))), ((int)(((byte)(255)))));
-            this.dgvPosition.Location = new System.Drawing.Point(59, 240);
-            this.dgvPosition.Name = "dgvPosition";
-            this.dgvPosition.RowHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.None;
-            dataGridViewCellStyle3.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle3.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(174)))), ((int)(((byte)(219)))));
-            dataGridViewCellStyle3.Font = new System.Drawing.Font("Segoe UI", 11F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Pixel);
-            dataGridViewCellStyle3.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(255)))), ((int)(((byte)(255)))));
-            dataGridViewCellStyle3.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(198)))), ((int)(((byte)(247)))));
-            dataGridViewCellStyle3.SelectionForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(17)))), ((int)(((byte)(17)))), ((int)(((byte)(17)))));
-            dataGridViewCellStyle3.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.dgvPosition.RowHeadersDefaultCellStyle = dataGridViewCellStyle3;
-            this.dgvPosition.RowHeadersWidthSizeMode = System.Windows.Forms.DataGridViewRowHeadersWidthSizeMode.DisableResizing;
-            this.dgvPosition.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.dgvPosition.Size = new System.Drawing.Size(309, 168);
-            this.dgvPosition.TabIndex = 8;
+            this.btnCleanAll.ActiveControl = null;
+            this.btnCleanAll.Location = new System.Drawing.Point(810, 495);
+            this.btnCleanAll.Name = "btnCleanAll";
+            this.btnCleanAll.Size = new System.Drawing.Size(126, 38);
+            this.btnCleanAll.TabIndex = 10;
+            this.btnCleanAll.Text = "Limpiar Campos";
+            this.btnCleanAll.UseSelectable = true;
+            this.btnCleanAll.Click += new System.EventHandler(this.btnCleanAll_Click);
             // 
             // UcPositionSalary
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            this.Controls.Add(this.btnCleanAll);
             this.Controls.Add(this.groupBox2);
             this.Controls.Add(this.groupBox1);
             this.Name = "UcPositionSalary";
             this.Size = new System.Drawing.Size(955, 536);
+            this.Load += new System.EventHandler(this.UcPositionSalary_Load);
+            this.Leave += new System.EventHandler(this.UcPositionSalary_Leave);
             this.groupBox2.ResumeLayout(false);
             this.groupBox2.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.dgvPosition)).EndInit();
             this.groupBox1.ResumeLayout(false);
             this.groupBox1.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgvSalary)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.dgvPosition)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -482,5 +507,6 @@
         private MetroFramework.Controls.MetroTextBox txtID;
         private MetroFramework.Controls.MetroGrid dgvPosition;
         private MetroFramework.Controls.MetroGrid dgvSalary;
+        private MetroFramework.Controls.MetroTile btnCleanAll;
     }
 }

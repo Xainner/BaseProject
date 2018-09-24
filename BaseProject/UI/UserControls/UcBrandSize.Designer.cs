@@ -58,9 +58,9 @@
             this.groupBox1.Controls.Add(this.txtBrand);
             this.groupBox1.Controls.Add(this.metroLabel2);
             this.groupBox1.Controls.Add(this.metroLabel1);
-            this.groupBox1.Location = new System.Drawing.Point(14, 26);
+            this.groupBox1.Location = new System.Drawing.Point(180, 26);
             this.groupBox1.Name = "groupBox1";
-            this.groupBox1.Size = new System.Drawing.Size(885, 486);
+            this.groupBox1.Size = new System.Drawing.Size(592, 486);
             this.groupBox1.TabIndex = 8;
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "Área de marcas de ropa";
@@ -68,12 +68,13 @@
             // btnClear
             // 
             this.btnClear.ActiveControl = null;
-            this.btnClear.Location = new System.Drawing.Point(188, 412);
+            this.btnClear.Location = new System.Drawing.Point(39, 409);
             this.btnClear.Name = "btnClear";
             this.btnClear.Size = new System.Drawing.Size(87, 38);
             this.btnClear.TabIndex = 8;
             this.btnClear.Text = "Limpiar";
             this.btnClear.UseSelectable = true;
+            this.btnClear.Click += new System.EventHandler(this.btnClear_Click);
             // 
             // dgvBrand
             // 
@@ -103,7 +104,7 @@
             this.dgvBrand.EnableHeadersVisualStyles = false;
             this.dgvBrand.Font = new System.Drawing.Font("Segoe UI", 11F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Pixel);
             this.dgvBrand.GridColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(255)))), ((int)(((byte)(255)))));
-            this.dgvBrand.Location = new System.Drawing.Point(269, 240);
+            this.dgvBrand.Location = new System.Drawing.Point(120, 237);
             this.dgvBrand.MultiSelect = false;
             this.dgvBrand.Name = "dgvBrand";
             this.dgvBrand.ReadOnly = true;
@@ -137,7 +138,7 @@
             this.txtSearchBrand.CustomButton.Theme = MetroFramework.MetroThemeStyle.Light;
             this.txtSearchBrand.CustomButton.UseSelectable = true;
             this.txtSearchBrand.Lines = new string[0];
-            this.txtSearchBrand.Location = new System.Drawing.Point(459, 211);
+            this.txtSearchBrand.Location = new System.Drawing.Point(310, 208);
             this.txtSearchBrand.MaxLength = 32767;
             this.txtSearchBrand.Name = "txtSearchBrand";
             this.txtSearchBrand.PasswordChar = '\0';
@@ -160,7 +161,7 @@
             // btnDeleteBrand
             // 
             this.btnDeleteBrand.ActiveControl = null;
-            this.btnDeleteBrand.Location = new System.Drawing.Point(612, 412);
+            this.btnDeleteBrand.Location = new System.Drawing.Point(463, 409);
             this.btnDeleteBrand.Name = "btnDeleteBrand";
             this.btnDeleteBrand.Size = new System.Drawing.Size(87, 38);
             this.btnDeleteBrand.TabIndex = 4;
@@ -171,7 +172,7 @@
             // btnUpdateBrand
             // 
             this.btnUpdateBrand.ActiveControl = null;
-            this.btnUpdateBrand.Location = new System.Drawing.Point(612, 113);
+            this.btnUpdateBrand.Location = new System.Drawing.Point(463, 110);
             this.btnUpdateBrand.Name = "btnUpdateBrand";
             this.btnUpdateBrand.Size = new System.Drawing.Size(87, 38);
             this.btnUpdateBrand.TabIndex = 4;
@@ -182,7 +183,7 @@
             // btnAddBrand
             // 
             this.btnAddBrand.ActiveControl = null;
-            this.btnAddBrand.Location = new System.Drawing.Point(612, 35);
+            this.btnAddBrand.Location = new System.Drawing.Point(463, 32);
             this.btnAddBrand.Name = "btnAddBrand";
             this.btnAddBrand.Size = new System.Drawing.Size(87, 38);
             this.btnAddBrand.TabIndex = 4;
@@ -206,7 +207,7 @@
             this.txtIDBrand.CustomButton.Visible = false;
             this.txtIDBrand.Enabled = false;
             this.txtIDBrand.Lines = new string[0];
-            this.txtIDBrand.Location = new System.Drawing.Point(269, 35);
+            this.txtIDBrand.Location = new System.Drawing.Point(120, 32);
             this.txtIDBrand.MaxLength = 32767;
             this.txtIDBrand.Name = "txtIDBrand";
             this.txtIDBrand.PasswordChar = '\0';
@@ -236,7 +237,7 @@
             this.txtBrand.CustomButton.UseSelectable = true;
             this.txtBrand.CustomButton.Visible = false;
             this.txtBrand.Lines = new string[0];
-            this.txtBrand.Location = new System.Drawing.Point(269, 109);
+            this.txtBrand.Location = new System.Drawing.Point(120, 106);
             this.txtBrand.MaxLength = 32767;
             this.txtBrand.Name = "txtBrand";
             this.txtBrand.PasswordChar = '\0';
@@ -254,7 +255,7 @@
             // metroLabel2
             // 
             this.metroLabel2.AutoSize = true;
-            this.metroLabel2.Location = new System.Drawing.Point(188, 109);
+            this.metroLabel2.Location = new System.Drawing.Point(39, 106);
             this.metroLabel2.Name = "metroLabel2";
             this.metroLabel2.Size = new System.Drawing.Size(49, 19);
             this.metroLabel2.TabIndex = 1;
@@ -263,7 +264,7 @@
             // metroLabel1
             // 
             this.metroLabel1.AutoSize = true;
-            this.metroLabel1.Location = new System.Drawing.Point(188, 35);
+            this.metroLabel1.Location = new System.Drawing.Point(39, 32);
             this.metroLabel1.Name = "metroLabel1";
             this.metroLabel1.Size = new System.Drawing.Size(24, 19);
             this.metroLabel1.TabIndex = 0;
