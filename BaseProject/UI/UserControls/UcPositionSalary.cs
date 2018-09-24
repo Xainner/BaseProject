@@ -8,6 +8,7 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using LogicLibrary;
+using ModelLibrary.Models;
 
 namespace UI.UserControls
 {
@@ -28,11 +29,17 @@ namespace UI.UserControls
             cmbSalary.SelectedItem = " ";
         }
 
-        private void UcPositionSalary_Load(object sender, EventArgs e)
+        public void sortAll()
         {
             dgvSalary.DataSource = SalaryManagement.SelectAllSalaries();
             dgvPosition.DataSource = PositionManagement.SelectAllPositions();
             cmbSalary.DataSource = SalaryManagement.SelectAllSalaries();
+            cmbSalary.DisplayMember = "salaryAmount";
+        }
+
+        private void UcPositionSalary_Load(object sender, EventArgs e)
+        {
+            sortAll();
         }
 
         private void btnAddSalary_Click(object sender, EventArgs e)
@@ -42,15 +49,15 @@ namespace UI.UserControls
 
             try
             {
-                //if (SalaryManagement.InsertSalary(salary))
-                //{
-                //    dgvSalary.DataSource = SalaryManagement.SelectAllSalaries();
-                //    FrmMain.Instance.ToolStripLabel.Text = "Se inserto el salario correctamente";
-                //}
-                //else
-                //{
-                //    FrmMain.Instance.ToolStripLabel.Text = "Error al insertar el salario";
-                //}
+                if (SalaryManagement.InsertSalary(salary))
+                {
+                    sortAll();
+                    FrmMain.Instance.ToolStripLabel.Text = "Se inserto el salario correctamente";
+                }
+                else
+                {
+                    FrmMain.Instance.ToolStripLabel.Text = "Error al insertar el salario";
+                }
             }
             catch (Exception)
             {
@@ -66,15 +73,15 @@ namespace UI.UserControls
 
             try
             {
-                //if (SalaryManagement.UpdateSalaryById(id, salary))
-                //{
-                //    dgvSalary.DataSource = SalaryManagement.SelectAllSalaries();
-                //    FrmMain.Instance.ToolStripLabel.Text = "Se modifico el salario correctamente";
-                //}
-                //else
-                //{
-                //    FrmMain.Instance.ToolStripLabel.Text = "Error al modificar el salario";
-                //}
+                if (SalaryManagement.UpdateSalaryById(id, salary))
+                {
+                    sortAll();
+                    FrmMain.Instance.ToolStripLabel.Text = "Se modifico el salario correctamente";
+                }
+                else
+                {
+                    FrmMain.Instance.ToolStripLabel.Text = "Error al modificar el salario";
+                }
             }
             catch (Exception)
             {
@@ -92,6 +99,7 @@ namespace UI.UserControls
                 if (text != "")
                 {
                     dgvSalary.DataSource = SalaryManagement.SelectSalaryByRegistrationDate(text);
+                    //Buscar por cantidad
                 }
                 else
                 {
@@ -113,7 +121,7 @@ namespace UI.UserControls
             {
                 if (SalaryManagement.DeleteSalaryById(id))
                 {
-                    dgvSalary.DataSource = SalaryManagement.SelectAllSalaries();
+                    sortAll();
                     FrmMain.Instance.ToolStripLabel.Text = "Se elimino el salario correctamente";
                 }
                 else
@@ -147,11 +155,11 @@ namespace UI.UserControls
         private void btnAddPosition_Click(object sender, EventArgs e)
         {
             string position = txtNamePosition.Text;
-            string salary = cmbSalary.Text;
+            SalaryModel salary = (SalaryModel)cmbSalary.SelectedItem;
 
             try
             {
-                if (PositionManagement.InsertPosition(position, salary))
+                if (PositionManagement.InsertPosition(position, salary.IdSalary.ToString()))
                 {
                     dgvPosition.DataSource = PositionManagement.SelectAllPositions();
                     FrmMain.Instance.ToolStripLabel.Text = "Se inserto la posicion de trabajo correctamente";
@@ -172,11 +180,11 @@ namespace UI.UserControls
         {
             string id = dgvPosition.CurrentRow.Cells[0].Value.ToString();
             string position = txtNamePosition.Text;
-            string salary = cmbSalary.Text;
+            SalaryModel salary = (SalaryModel)cmbSalary.SelectedItem;
 
             try
             {
-                if (PositionManagement.UpdatePositionById(id, position, salary))
+                if (PositionManagement.UpdatePositionById(id, position, salary.IdSalary.ToString()))
                 {
                     dgvPosition.DataSource = PositionManagement.SelectAllPositions();
                     FrmMain.Instance.ToolStripLabel.Text = "Se modifico la Posicion correctamente";
@@ -201,7 +209,7 @@ namespace UI.UserControls
             {
                 if (text != "")
                 {
-                    //dgvPosition.DataSource = PositionManagement.se;
+                    //dgvPosition.DataSource = PositionManagement.se; Buscar por nombre de posicion
                 }
                 else
                 {
@@ -243,7 +251,16 @@ namespace UI.UserControls
             try
             {
                 txtNamePosition.Text = dgvPosition.CurrentRow.Cells[1].Value.ToString();
-                cmbSalary.SelectedItem = dgvPosition.CurrentRow.Cells[0].Value.ToString();
+
+                foreach (SalaryModel item in cmbSalary.Items)
+                {
+                    int idSalary = int.Parse(dgvPosition.CurrentRow.Cells[2].Value.ToString());
+                    if (item.IdSalary == idSalary)
+                    {
+                        cmbSalary.SelectedItem = item;
+                    }
+                }
+
             }
             catch (Exception)
             {

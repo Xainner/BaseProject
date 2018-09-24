@@ -8,6 +8,7 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using LogicLibrary;
+using UI.Utilities;
 
 namespace UI.UserControls
 {
@@ -82,7 +83,7 @@ namespace UI.UserControls
             string residence = txtResidence.Text;
             string civilStatus = cmbCivilState.Text;
             string childs = cmbChilds.Text;
-            //byte[] photo = picPhoto.Image; 
+            byte[] photo = ImageManagement.ImageToByte(picPhoto.Image); 
 
             string enterStore = cmbEnterStore.Text;
             string position = cmbPosition.Text;
@@ -95,16 +96,16 @@ namespace UI.UserControls
 
             try
             {
-                //if (EmployeeManagement.InsertEmployee(name, lastname, idType, identif, residence, bornDate, civilStatus, childs, telephone,
-                //    cellphone, enterStore, nationality, position, statusWorking, enterStore, endDate, observation, photo, emergencyName, emergencyPhone))
-                //{
-                //    dgvEmployee.DataSource = EmployeeManagement.SelectAllEmployees();
-                //    FrmMain.Instance.ToolStripLabel.Text = "Se agrego el trabajador correctamente";
-                //}
-                //else
-                //{
-                //    FrmMain.Instance.ToolStripLabel.Text = "No se pudo agregar el trabajador";
-                //}
+                if (EmployeeManagement.InsertEmployee(name, lastname, idType, identif, residence, bornDate, civilStatus, childs, telephone,
+                    cellphone, enterStore, nationality, position, statusWorking, enterStore, endDate, observation, photo, emergencyName, emergencyPhone))
+                {
+                    dgvEmployee.DataSource = EmployeeManagement.SelectAllEmployees();
+                    FrmMain.Instance.ToolStripLabel.Text = "Se agrego el trabajador correctamente";
+                }
+                else
+                {
+                    FrmMain.Instance.ToolStripLabel.Text = "No se pudo agregar el trabajador";
+                }
             }
             catch (Exception)
             {
@@ -128,7 +129,7 @@ namespace UI.UserControls
             string residence = txtResidence.Text;
             string civilStatus = cmbCivilState.Text;
             string childs = cmbChilds.Text;
-            //byte[] photo = picPhoto; 
+            byte[] photo = ImageManagement.ImageToByte(picPhoto.Image);
 
             string enterStore = cmbEnterStore.Text;
             string position = cmbPosition.Text;
@@ -141,16 +142,16 @@ namespace UI.UserControls
 
             try
             {
-                //if (EmployeeManagement.UpdateEmployeeById(id, name, lastname, idType, identif, residence, bornDate, civilStatus, childs, telephone,
-                //    cellphone, enterStore, nationality, position, statusWorking, enterStore, endDate, observation, photo, emergencyName, emergencyPhone))
-                //{
-                //    dgvEmployee.DataSource = EmployeeManagement.SelectAllEmployees();
-                //    FrmMain.Instance.ToolStripLabel.Text = "Se modifico el trabajador correctamente";
-                //}
-                //else
-                //{
-                //    FrmMain.Instance.ToolStripLabel.Text = "No se pudo modificar el trabajador";
-                //}
+                if (EmployeeManagement.UpdateEmployeeById(id, name, lastname, idType, identif, residence, bornDate, civilStatus, childs, telephone,
+                    cellphone, enterStore, nationality, position, statusWorking, enterStore, endDate, observation, photo, emergencyName, emergencyPhone))
+                {
+                    dgvEmployee.DataSource = EmployeeManagement.SelectAllEmployees();
+                    FrmMain.Instance.ToolStripLabel.Text = "Se modifico el trabajador correctamente";
+                }
+                else
+                {
+                    FrmMain.Instance.ToolStripLabel.Text = "No se pudo modificar el trabajador";
+                }
             }
             catch (Exception)
             {

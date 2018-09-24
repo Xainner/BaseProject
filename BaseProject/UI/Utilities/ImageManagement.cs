@@ -22,11 +22,19 @@ namespace UI.Utilities
 
         public static byte[] ImageToByte(Image image)
         {
-            Image img = image;
+            Bitmap bitmap = (Bitmap)image;
             using (var ms = new MemoryStream())
             {
-                img.Save(ms, System.Drawing.Imaging.ImageFormat.Jpeg);
+                bitmap.Save(ms, System.Drawing.Imaging.ImageFormat.Jpeg);
                 return ms.ToArray();
+            }
+        }
+
+        public static Image ByteToImage(byte[] image)
+        {
+            using (var ms = new MemoryStream(image, false))
+            {
+                return Image.FromStream(ms);
             }
         }
     }

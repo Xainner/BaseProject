@@ -8,6 +8,7 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using LogicLibrary;
+using UI.Utilities;
 
 namespace UI.UserControls
 {
@@ -48,20 +49,20 @@ namespace UI.UserControls
             string generalAddress = txaGeneralAddress.Text;
             string email = txtEmail.Text;
             string webPage = txtWebPage.Text;
-            //byte[] logo = pbLogo.;
+            byte[] logo = ImageManagement.ImageToByte(pbLogo.Image);
 
             try
             {
-                //if (BusinessManagement.InsertBusiness(fantasyName, society, legalDoc, telephone, mainAddress, generalAddress,
-                //    email, webPage, logo))
-                //{
-                //    dgvBusiness.DataSource = BusinessManagement.SelectAllBusiness();
-                //    FrmMain.Instance.ToolStripLabel.Text = "Negocio agregado correctamente";
-                //}
-                //else
-                //{
-                //    FrmMain.Instance.ToolStripLabel.Text = "Error al agregar el negocio";
-                //}
+                if (BusinessManagement.InsertBusiness(fantasyName, society, legalDoc, telephone, mainAddress, generalAddress,
+                    email, webPage, logo))
+                {
+                    dgvBusiness.DataSource = BusinessManagement.SelectAllBusiness();
+                    FrmMain.Instance.ToolStripLabel.Text = "Negocio agregado correctamente";
+                }
+                else
+                {
+                    FrmMain.Instance.ToolStripLabel.Text = "Error al agregar el negocio";
+                }
             }
             catch (Exception)
             {
@@ -81,20 +82,20 @@ namespace UI.UserControls
             string generalAddress = txaGeneralAddress.Text;
             string email = txtEmail.Text;
             string webPage = txtWebPage.Text;
-            //byte[] logo = pbLogo.;
+            byte[] logo = ImageManagement.ImageToByte(pbLogo.Image);
 
             try
             {
-                //if (BusinessManagement.UpdateBusinessById(id, fantasyName, society, legalDoc, telephone, mainAddress, generalAddress,
-                //    email, webPage, logo))
-                //{
-                //    dgvBusiness.DataSource = BusinessManagement.SelectAllBusiness();
-                //    FrmMain.Instance.ToolStripLabel.Text = "Negocio modificado correctamente";
-                //}
-                //else
-                //{
-                //    FrmMain.Instance.ToolStripLabel.Text = "Error al modificar el negocio";
-                //}
+                if (BusinessManagement.UpdateBusinessById(id, fantasyName, society, legalDoc, telephone, mainAddress, generalAddress,
+                    email, webPage, logo))
+                {
+                    dgvBusiness.DataSource = BusinessManagement.SelectAllBusiness();
+                    FrmMain.Instance.ToolStripLabel.Text = "Negocio modificado correctamente";
+                }
+                else
+                {
+                    FrmMain.Instance.ToolStripLabel.Text = "Error al modificar el negocio";
+                }
             }
             catch (Exception)
             {
@@ -152,7 +153,7 @@ namespace UI.UserControls
             {
                 if (text != " ")
                 {
-                    //BusinessManagement.SelectBusinessById();
+                    //BusinessManagement.SelectBusinessById(); falta buscar por nombre de negocio
                 }
                 else
                 {
@@ -180,15 +181,15 @@ namespace UI.UserControls
         {
             try
             {
-                txtFantasyName.Text = dgvBusiness.CurrentRow.Cells[0].Value.ToString();
-                txtSocietyName.Text = dgvBusiness.CurrentRow.Cells[1].Value.ToString();
-                txtlegalCertification.Text = dgvBusiness.CurrentRow.Cells[2].Value.ToString();
-                mtxtTelephone.Text = dgvBusiness.CurrentRow.Cells[3].Value.ToString();
-                txaMainAddress.Text = dgvBusiness.CurrentRow.Cells[4].Value.ToString();
-                txaGeneralAddress.Text = dgvBusiness.CurrentRow.Cells[5].Value.ToString();
-                txtEmail.Text = dgvBusiness.CurrentRow.Cells[6].Value.ToString();
-                txtWebPage.Text = dgvBusiness.CurrentRow.Cells[7].Value.ToString();
-                //pbLogo.Image = dgvBusiness.CurrentRow.Cells[8].Value.ToString();
+                txtFantasyName.Text = dgvBusiness.CurrentRow.Cells[1].Value.ToString();
+                txtSocietyName.Text = dgvBusiness.CurrentRow.Cells[2].Value.ToString();
+                txtlegalCertification.Text = dgvBusiness.CurrentRow.Cells[3].Value.ToString();
+                mtxtTelephone.Text = dgvBusiness.CurrentRow.Cells[4].Value.ToString();
+                txaMainAddress.Text = dgvBusiness.CurrentRow.Cells[5].Value.ToString();
+                txaGeneralAddress.Text = dgvBusiness.CurrentRow.Cells[6].Value.ToString();
+                txtEmail.Text = dgvBusiness.CurrentRow.Cells[7].Value.ToString();
+                txtWebPage.Text = dgvBusiness.CurrentRow.Cells[8].Value.ToString();
+                pbLogo.Image = ImageManagement.ByteToImage((byte[])dgvBusiness.CurrentRow.Cells[9].Value);
             }
             catch (Exception)
             {

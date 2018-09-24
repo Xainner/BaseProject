@@ -77,8 +77,8 @@ namespace DataBaseLibrary
             using (IDbConnection cnn = new MySqlConnection(LoadConnectionString()))
             {
                 cnn.Execute("INSERT INTO salary" +
-                    "(salaryAmount, registrationDate) VALUES" +
-                    "(@salaryAmount, @registrationDate)", Salary);
+                    "(salaryAmount) VALUES" +
+                    "(@salaryAmount)", Salary);
             }
         }
 
@@ -103,7 +103,7 @@ namespace DataBaseLibrary
             using (IDbConnection cnn = new MySqlConnection(LoadConnectionString()))
             {
                 cnn.Execute("UPDATE salary " +
-                    "SET salaryAmount = @salaryAmount" +
+                    "SET salaryAmount = @salaryAmount " +
                     "WHERE idSalary = @idSalary", Salary);
             }
         }

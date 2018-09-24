@@ -8,6 +8,7 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using LogicLibrary;
+using ModelLibrary.Models;
 
 namespace UI.UserControls
 {
@@ -29,11 +30,17 @@ namespace UI.UserControls
             dgvSubCategory.DataSource = SubCategoryManagement.SelectAllSubCategories();
         }
 
-        private void UcCategory_Load(object sender, EventArgs e)
+        public void SortAll()
         {
             dgvCategory.DataSource = CategoryManagement.SelectAllCategories();
             dgvSubCategory.DataSource = SubCategoryManagement.SelectAllSubCategories();
             cmbCategory.DataSource = CategoryManagement.SelectAllCategories();
+            cmbCategory.DisplayMember = "Name";
+        }
+
+        private void UcCategory_Load(object sender, EventArgs e)
+        {
+            SortAll();
         }
 
         private void btnAddCategory_Click(object sender, EventArgs e)
@@ -45,8 +52,8 @@ namespace UI.UserControls
             {
                 if (CategoryManagement.InsertCategory(category))
                 {
-                    dgvCategory.DataSource = CategoryManagement.SelectAllCategories();
                     FrmMain.Instance.ToolStripLabel.Text = "Se inserto la categoria correctamente";
+                    SortAll(); CleanAll();
                 }
                 else
                 {
@@ -69,8 +76,8 @@ namespace UI.UserControls
             {
                 if (CategoryManagement.UpdateCategoryById(id, category))
                 {
-                    dgvCategory.DataSource = CategoryManagement.SelectAllCategories();
                     FrmMain.Instance.ToolStripLabel.Text = "Se modifico la categoria correctamente";
+                    SortAll(); CleanAll();
                 }
                 else
                 {
@@ -92,8 +99,8 @@ namespace UI.UserControls
             {
                 if (CategoryManagement.DeleteCategoryById(id))
                 {
-                    dgvCategory.DataSource = CategoryManagement.SelectAllCategories();
                     FrmMain.Instance.ToolStripLabel.Text = "Se elimino la categoria correctamente";
+                    SortAll(); CleanAll();
                 }
                 else
                 {
@@ -129,7 +136,7 @@ namespace UI.UserControls
             {
                 if (text != "")
                 {
-                    //dgvCategory.DataSource = CategoryManagement.Select;
+                    //dgvCategory.DataSource = CategoryManagement.Select; buscar por categoria
                 }
                 else
                 {
@@ -147,15 +154,15 @@ namespace UI.UserControls
 
         private void btnAddSub_Click(object sender, EventArgs e)
         {
-            string category = cmbCategory.Text;
+            CategoryModel categoryModel = (CategoryModel)cmbCategory.SelectedItem;
             string subcategory = txtNameSub.Text;
 
             try
             {
-                if (SubCategoryManagement.InsertSubCategory(subcategory, category))
+                if (SubCategoryManagement.InsertSubCategory(subcategory, categoryModel.IdCategory.ToString()))
                 {
-                    dgvSubCategory.DataSource = SubCategoryManagement.SelectAllSubCategories();
                     FrmMain.Instance.ToolStripLabel.Text = "Se agrego la Subcategoria correctamente";
+                    SortAll(); CleanAll();
                 }
                 else
                 {
@@ -179,8 +186,8 @@ namespace UI.UserControls
             {
                 if (SubCategoryManagement.UpdateSubCategoryById(id, category, subcategory))
                 {
-                    dgvSubCategory.DataSource = SubCategoryManagement.SelectAllSubCategories();
                     FrmMain.Instance.ToolStripLabel.Text = "Se agrego la Subcategoria correctamente";
+                    SortAll(); CleanAll();
                 }
                 else
                 {
@@ -202,7 +209,7 @@ namespace UI.UserControls
             {
                 if (text != "")
                 {
-                    //dgvSubCategory.DataSource = SubCategoryManagement.se;
+                    //dgvSubCategory.DataSource = SubCategoryManagement.se; buscar por subcategoria 
                 }
                 else
                 {
@@ -224,8 +231,8 @@ namespace UI.UserControls
             {
                 if (SubCategoryManagement.DeleteSubCategoryById(id))
                 {
-                    dgvSubCategory.DataSource = SubCategoryManagement.SelectAllSubCategories();
                     FrmMain.Instance.ToolStripLabel.Text = "Se elimino la Subcategoria correctamente";
+                    SortAll(); CleanAll();
                 }
                 else
                 {
@@ -243,8 +250,16 @@ namespace UI.UserControls
         {
             try
             {
-                cmbCategory.SelectedItem = dgvCategory.CurrentRow.Cells[0].Value.ToString();
-                txtNameSub.Text = dgvCategory.CurrentRow.Cells[1].Value.ToString();
+                foreach (CategoryModel item in cmbCategory.Items)
+                {
+                    int idCategory = int.Parse(dgvSubCategory.CurrentRow.Cells[2].Value.ToString());
+                    if (item.IdCategory == idCategory)
+                    {
+                        cmbCategory.SelectedItem = item;
+                    }
+                }
+
+                txtNameSub.Text = dgvSubCategory.CurrentRow.Cells[1].Value.ToString();
             }
             catch (Exception)
             {

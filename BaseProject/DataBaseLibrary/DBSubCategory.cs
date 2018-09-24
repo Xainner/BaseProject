@@ -62,7 +62,7 @@ namespace DataBaseLibrary
         {
             using (IDbConnection cnn = new MySqlConnection(LoadConnectionString()))
             {
-                cnn.Execute("INSERT INTO subcategory(Name) VALUES(@Name)", SubCategory);
+                cnn.Execute("INSERT INTO subcategory(Name, idCategory) VALUES(@Name, @idCategory)", SubCategory);
             }
         }
 

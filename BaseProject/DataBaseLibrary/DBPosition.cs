@@ -61,8 +61,7 @@ namespace DataBaseLibrary
         {
             using (IDbConnection cnn = new MySqlConnection(LoadConnectionString()))
             {
-                cnn.Execute("INSERT INTO position" +
-                    "(positionName, idSalary) VALUES" +
+                cnn.Execute("INSERT INTO position (positionName, idSalary) VALUES" +
                     "(@positionName, @idSalary)", Position);
             }
         }

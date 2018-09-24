@@ -57,7 +57,8 @@ namespace LogicLibrary
                         MainAddress = mainAddress,
                         GeneralAddress = generalAddress,
                         Email = email,
-                        WebPage = webPage
+                        WebPage = webPage,
+                        Logo = logo
                     };
                     return BusinessConnection.InsertBusiness(businessModel);
                 }
@@ -98,6 +99,51 @@ namespace LogicLibrary
             string email, 
             string webPage,
             byte[] logo
+        )
+        {
+            try
+            {
+                string[] business = new string[] {
+                    idBusiness,
+                    fantasyName,
+                    societyName,
+                    legalCertification,
+                    telephone,
+                    mainAddress,
+                    generalAddress,
+                    email,
+                    webPage
+                };
+                if (DataManagement.VerifyFields(business))
+                {
+                    BusinessModel businessModel = new BusinessModel()
+                    {
+                        IdBusiness = int.Parse(idBusiness)
+                    };
+                    return BusinessConnection.UpdateBusiness(businessModel);
+                }
+                else
+                {
+                    return false;
+                }
+            }
+            catch (Exception ex)
+            {
+                return false;
+                //Log4Net
+            }
+        }
+
+        public static bool UpdateBusinessById(
+            string idBusiness,
+            string fantasyName,
+            string societyName,
+            string legalCertification,
+            string telephone,
+            string mainAddress,
+            string generalAddress,
+            string email,
+            string webPage
         )
         {
             try

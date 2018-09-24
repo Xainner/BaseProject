@@ -92,7 +92,7 @@ namespace LogicLibrary
                     {
                         IdPosition = int.Parse(idPosition)
                     };
-                    return PositionConnection.UpdatePosition(positionModel);
+                    return PositionConnection.DeletePosition(positionModel);
                 }
                 else
                 {

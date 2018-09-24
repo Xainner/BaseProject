@@ -17,17 +17,16 @@ namespace LogicLibrary
         /// <param name="salaryAmount"></param>
         /// <param name="registrationDate"></param>
         /// <returns></returns>
-        public static bool InsertSalary(string salaryAmount, string registrationDate)
+        public static bool InsertSalary(string salaryAmount)
         {
             try
             {
-                string[] salary = new string[] { salaryAmount, registrationDate };
+                string[] salary = new string[] { salaryAmount };
                 if (DataManagement.VerifyFields(salary))
                 {
                     SalaryModel salaryModel = new SalaryModel()
                     {
-                        RegistrationDate = registrationDate,
-                        SalaryAmount = decimal.Parse(salaryAmount)
+                        SalaryAmount = decimal.Parse(salaryAmount),
                     };
                     return SalaryConnection.InsertSalary(salaryModel);
                 }
@@ -50,20 +49,19 @@ namespace LogicLibrary
         /// <param name="salaryAmount"></param>
         /// <param name="registrationDate"></param>
         /// <returns></returns>
-        public static bool UpdateSalaryById(string idSalary, string salaryAmount, string registrationDate)
+        public static bool UpdateSalaryById(string idSalary, string salaryAmount)
         {
             try
             {
-                string[] salary = new string[] { idSalary, salaryAmount, registrationDate };
+                string[] salary = new string[] { idSalary, salaryAmount };
                 if (DataManagement.VerifyFields(salary))
                 {
                     SalaryModel salaryModel = new SalaryModel()
                     {
                         IdSalary = int.Parse(idSalary),
-                        RegistrationDate = registrationDate,
                         SalaryAmount = decimal.Parse(salaryAmount)
                     };
-                    return SalaryConnection.InsertSalary(salaryModel);
+                    return SalaryConnection.UpdateSalary(salaryModel);
                 }
                 else
                 {
@@ -93,7 +91,7 @@ namespace LogicLibrary
                     {
                         IdSalary = int.Parse(idSalary)
                     };
-                    return SalaryConnection.InsertSalary(salaryModel);
+                    return SalaryConnection.DeleteSalary(salaryModel);
                 }
                 else
                 {

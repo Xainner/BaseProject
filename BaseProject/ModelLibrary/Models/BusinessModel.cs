@@ -17,7 +17,7 @@ namespace ModelLibrary.Models
         public string generalAddress;
         public string email;
         public string webPage;
-        public string logo;
+        public byte[] logo;
 
         public int IdBusiness { get => idBusiness; set => idBusiness = value; }
         public string FantasyName { get => fantasyName; set => fantasyName = value; }
@@ -28,6 +28,6 @@ namespace ModelLibrary.Models
         public string GeneralAddress { get => generalAddress; set => generalAddress = value; }
         public string Email { get => email; set => email = value; }
         public string WebPage { get => webPage; set => webPage = value; }
-        public string Logo { get => logo; set => logo = value; }
+        public byte[] Logo { get => logo; set => logo = value; }
     }
 }
