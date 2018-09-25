@@ -134,10 +134,10 @@ namespace DataBaseLibrary
             using (IDbConnection cnn = new MySqlConnection(LoadConnectionString()))
             {
                 cnn.Execute("INSERT INTO product" +
-                    "(Code, Style, idBrand, Description, idCategory, " +
+                    "(Code, Style, idBrand, Description, " +
                     "normalPrice, lowerPrice, estableQuantity, variableQuantity, " +
                     "Image, Ivi, existingInvoice) VALUES" +
-                    "(@Code, @Style, @idBrand, @Description, @idCategory, " +
+                    "(@Code, @Style, @idBrand, @Description, " +
                     "@normalPrice, @lowerPrice, @estableQuantity, @variableQuantity, " +
                     "@Image, @Ivi, @existingInvoice)", Product);
             }

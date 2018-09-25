@@ -8,6 +8,8 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using LogicLibrary;
+using UI.Utilities;
+using ModelLibrary.Models;
 
 namespace UI.UserControls
 {
@@ -29,7 +31,7 @@ namespace UI.UserControls
             txaDescription.Text = "";
             cmbCategory.Text = "";
             cmbSubcategory.Text = "";
-            cmbNonExistent.Text = "";
+            rbNonexistenPermit.Select();
             txtEnterQuantity.Text = "";
             txtEstableQuantity.Text = "";
             txtNormalPrice.Text = "";
@@ -40,6 +42,13 @@ namespace UI.UserControls
         private void UcProduct_Load(object sender, EventArgs e)
         {
             dgvProduct.DataSource = ProductManagement.SelectAllProducts();
+            cmbBrand.DataSource = BrandManagement.SelectAllBrands();
+            cmbBrand.DisplayMember = "Name";
+            cmbCategory.DataSource = CategoryManagement.SelectAllCategories();
+            cmbCategory.DisplayMember = "Name";
+            cmbSubcategory.DataSource = SubCategoryManagement.SelectAllSubCategories();
+            cmbSubcategory.DisplayMember = "Name";
+
         }
 
         private void btnSelectImage_Click(object sender, EventArgs e)
@@ -62,34 +71,32 @@ namespace UI.UserControls
         {
             string code = txtCode.Text;
             string style = txtStyle.Text;
-            string brand = cmbBrand.Text;
+            BrandModel brand = (BrandModel)cmbBrand.SelectedItem;
             bool ivi = true;
             string description = txaDescription.Text;
-            string category = cmbCategory.Text;
-            string subcategory = cmbSubcategory.Text;
-            string nonExistingInvoice = cmbNonExistent.Text;
+            SubCategoryModel subcategory = (SubCategoryModel)cmbSubcategory.SelectedItem;
+            bool nonExistingInvoice = true;
             string enterQuantity = txtEnterQuantity.Text;
             string estableQuantity = txtEstableQuantity.Text;
             string unityPrice = txtNormalPrice.Text;
             string lowerPrice = txtLowerPrice.Text;
 
-            if (rbIviRecorder.Checked)
+            byte[] foto = ImageManagement.ImageToByte(pbProduct.Image);
+
+            if (rbIviExcent.Checked)
             {
-                ivi = true;
-            }
-            else
-            {
-                if (rbIviExcent.Checked)
-                {
-                    ivi = false;
-                }
+                ivi = false;
             }
 
-            //todavia tiene talla
+            if (rbNonexistingNoPermit.Checked)
+            {
+                nonExistingInvoice = false;
+            }
+
             try
             {
-                if (ProductManagement.InsertProduct(code, style, brand, description, category, subcategory, unityPrice, lowerPrice,
-                    estableQuantity, enterQuantity, foto, ivi, nonExistingInvoice)
+                if (ProductManagement.InsertProduct(code, style, brand.IdBrand.ToString(), description, subcategory.idsubCategory.ToString(), unityPrice, lowerPrice,
+                    estableQuantity, enterQuantity, foto, ivi, nonExistingInvoice))
                 {
                     dgvProduct.DataSource = ProductManagement.SelectAllProducts();
                     FrmMain.Instance.ToolStripLabel.Text = "Se agrego el producto correctamente";
@@ -116,7 +123,7 @@ namespace UI.UserControls
             string description = txaDescription.Text;
             string category = cmbCategory.Text;
             string subcategory = cmbSubcategory.Text;
-            string nonExistingInvoice = cmbNonExistent.Text;
+            //string nonExistingInvoice = cmbNonExistent.Text;
             string enterQuantity = txtEnterQuantity.Text;
             string estableQuantity = txtEstableQuantity.Text;
             string unityPrice = txtNormalPrice.Text;
@@ -203,7 +210,7 @@ namespace UI.UserControls
                 txaDescription.Text = dgvProduct.CurrentRow.Cells[4].Value.ToString();
                 cmbCategory.Text = dgvProduct.CurrentRow.Cells[5].Value.ToString();
                 cmbSubcategory.Text = dgvProduct.CurrentRow.Cells[6].Value.ToString();
-                cmbNonExistent.Text = dgvProduct.CurrentRow.Cells[7].Value.ToString();
+                //cmbNonExistent.Text = dgvProduct.CurrentRow.Cells[7].Value.ToString();
                 txtEnterQuantity.Text = dgvProduct.CurrentRow.Cells[8].Value.ToString();
                 txtEstableQuantity.Text = dgvProduct.CurrentRow.Cells[9].Value.ToString();
                 txtNormalPrice.Text = dgvProduct.CurrentRow.Cells[10].Value.ToString();

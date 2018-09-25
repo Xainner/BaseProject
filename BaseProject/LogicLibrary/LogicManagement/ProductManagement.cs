@@ -34,16 +34,14 @@ namespace LogicLibrary
             string style,
             string idBrand,
             string description,
-            string idCategory,
             string idSubCategory,
             string normalPrice,
             string lowerPrice,
             string estableQuantity,
             string variableQuantity,
             byte[] image,
-            string ivi,
-            string existingInvoice,
-            string size
+            bool ivi,
+            bool existingInvoice
         )
         {
             try
@@ -53,42 +51,27 @@ namespace LogicLibrary
                     style,
                     idBrand,
                     description,
-                    idCategory,
                     idSubCategory,
                     normalPrice,
                     lowerPrice,
                     estableQuantity,
-                    variableQuantity,
-                    ivi,
-                    existingInvoice,
-                    size
+                    variableQuantity
                 };
                 if (ValidateData.VerifyFields(Product))
                 {
-                    bool newIvi = true;
-                    if (ivi == "0")
-                    {
-                        newIvi = false;
-                    }
-                    bool newExistingInvoice = true;
-                    if (existingInvoice == "0")
-                    {
-                        newExistingInvoice = false;
-                    }
                     ProductModel productModel = new ProductModel()
                     {
                         Code = int.Parse(code),
                         Style = style,
                         IdBrand = int.Parse(idBrand),
                         Description = description,
-                        IdCategory = int.Parse(idCategory),
                         IdSubCategory = int.Parse(idSubCategory),
                         NormalPrice = decimal.Parse(normalPrice),
                         LowerPrice = decimal.Parse(lowerPrice),
                         EstableQuantity = int.Parse(estableQuantity),
                         VariableQuantity = int.Parse(variableQuantity),
-                        Ivi = newIvi,
-                        ExistingInvoice = newExistingInvoice,
+                        Ivi = ivi,
+                        ExistingInvoice = existingInvoice,
                         Image = image
 
                     };
@@ -137,9 +120,8 @@ namespace LogicLibrary
             string estableQuantity,
             string variableQuantity,
             byte[] image,
-            string ivi,
-            string existingInvoice,
-            string size
+            bool ivi,
+            bool existingInvoice
         )
         {
             try
@@ -154,23 +136,10 @@ namespace LogicLibrary
                     normalPrice,
                     lowerPrice,
                     estableQuantity,
-                    variableQuantity,
-                    ivi,
-                    existingInvoice,
-                    size
+                    variableQuantity
                 };
                 if (ValidateData.VerifyFields(product))
                 {
-                    bool newIvi = true;
-                    if (ivi == "0")
-                    {
-                        newIvi = false;
-                    }
-                    bool newExistingInvoice = true;
-                    if (existingInvoice == "0")
-                    {
-                        newExistingInvoice = false;
-                    }
                     ProductModel productModel = new ProductModel()
                     {
                         IdProduct = int.Parse(idProduct),
@@ -184,8 +153,8 @@ namespace LogicLibrary
                         LowerPrice = decimal.Parse(lowerPrice),
                         EstableQuantity = int.Parse(estableQuantity),
                         VariableQuantity = int.Parse(variableQuantity),
-                        Ivi = newIvi,
-                        ExistingInvoice = newExistingInvoice,
+                        Ivi = ivi,
+                        ExistingInvoice = existingInvoice,
                         Image = image
 
                     };
