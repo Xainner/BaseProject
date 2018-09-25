@@ -91,7 +91,7 @@ namespace DataBaseLibrary
             {
                 cnn.Execute("UPDATE business " +
                     "SET fantasyName = @fantasyName, Telephone = @Telephone, " +
-                    "mainAddress = @mainAddress, generalAddress = @generalAdderess, " +
+                    "mainAddress = @mainAddress, generalAddress = @generalAddress, " +
                     "Email = @Email, webPage = @webPage, Logo = @Logo " +
                     "WHERE idBusiness = @idBusiness", Business);
             }
