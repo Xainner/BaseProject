@@ -34,7 +34,7 @@
             this.btnClient = new MetroFramework.Controls.MetroTile();
             this.btnCategory = new MetroFramework.Controls.MetroTile();
             this.btnSalary = new MetroFramework.Controls.MetroTile();
-            this.btnBrandSize = new MetroFramework.Controls.MetroTile();
+            this.brandTile = new MetroFramework.Controls.MetroTile();
             this.btnInputInvoice = new MetroFramework.Controls.MetroTile();
             this.btnSellinvoice = new MetroFramework.Controls.MetroTile();
             this.btnApartInvoice = new MetroFramework.Controls.MetroTile();
@@ -109,16 +109,17 @@
             this.btnSalary.UseSelectable = true;
             this.btnSalary.Click += new System.EventHandler(this.btnSalary_Click);
             // 
-            // btnBrandSize
+            // brandTile
             // 
-            this.btnBrandSize.ActiveControl = null;
-            this.btnBrandSize.Location = new System.Drawing.Point(415, 211);
-            this.btnBrandSize.Name = "btnBrandSize";
-            this.btnBrandSize.Size = new System.Drawing.Size(140, 105);
-            this.btnBrandSize.TabIndex = 1;
-            this.btnBrandSize.Text = "Marcas";
-            this.btnBrandSize.UseSelectable = true;
-            this.btnBrandSize.Click += new System.EventHandler(this.btnBrandSize_Click);
+            this.brandTile.ActiveControl = null;
+            this.brandTile.Location = new System.Drawing.Point(415, 189);
+            this.brandTile.Name = "brandTile";
+            this.brandTile.Size = new System.Drawing.Size(140, 127);
+            this.brandTile.TabIndex = 1;
+            this.brandTile.Text = "Marcas";
+            this.brandTile.TextAlign = System.Drawing.ContentAlignment.BottomCenter;
+            this.brandTile.UseSelectable = true;
+            this.brandTile.Click += new System.EventHandler(this.btnBrandSize_Click);
             // 
             // btnInputInvoice
             // 
@@ -194,7 +195,7 @@
             this.Controls.Add(this.btnCreditInvoice);
             this.Controls.Add(this.btnExitInvoice);
             this.Controls.Add(this.btnInputInvoice);
-            this.Controls.Add(this.btnBrandSize);
+            this.Controls.Add(this.brandTile);
             this.Controls.Add(this.btnClient);
             this.Controls.Add(this.btnEmployee);
             this.Controls.Add(this.btnSalary);
@@ -215,7 +216,7 @@
         private MetroFramework.Controls.MetroTile btnClient;
         private MetroFramework.Controls.MetroTile btnCategory;
         private MetroFramework.Controls.MetroTile btnSalary;
-        private MetroFramework.Controls.MetroTile btnBrandSize;
+        private MetroFramework.Controls.MetroTile brandTile;
         private MetroFramework.Controls.MetroTile btnInputInvoice;
         private MetroFramework.Controls.MetroTile btnSellinvoice;
         private MetroFramework.Controls.MetroTile btnApartInvoice;
