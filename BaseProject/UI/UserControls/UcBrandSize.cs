@@ -20,10 +20,10 @@ namespace UI.UserControls
             FrmMain.Instance.ToolStripLabel.Text = "Estas en el área de tallas y marcas";
         }
 
-        public void CleanBrand()
+        public void Clear()
         {
-            txtIDBrand.Text = " ";
-            txtBrand.Text = " ";
+            idBrandTextBox.Text = " ";
+            brandNameTextBox.Text = " ";
 
             dgvBrand.DataSource = BrandManagement.SelectAllBrands();
         }
@@ -33,96 +33,24 @@ namespace UI.UserControls
             dgvBrand.DataSource = BrandManagement.SelectAllBrands();
         }
 
-        private void btnAddBrand_Click(object sender, EventArgs e)
-        {
-            string id = txtIDBrand.Text;
-            string brand = txtBrand.Text;
-
-            try
-            {
-                if (BrandManagement.InsertBusiness(brand))
-                {
-                    FrmMain.Instance.ToolStripLabel.Text = "Se agrego la marca correctamente";
-                    dgvBrand.DataSource = BrandManagement.SelectAllBrands();
-                }
-                else
-                {
-                    FrmMain.Instance.ToolStripLabel.Text = "No se agrego la marca";
-                }
-            }
-            catch (Exception ex)
-            {
-                MessageBox.Show(ex.Message);
-            }
-
-        }
-
-        private void btnUpdateBrand_Click(object sender, EventArgs e)
-        {
-            string id = txtIDBrand.Text; //dgvBrand.CurrentRow.Cells[0].Value.ToString();
-            string brand = txtBrand.Text;
-
-            try
-            {
-                if (BrandManagement.UpdateBrandById(id, brand))
-                {
-                    dgvBrand.DataSource = BrandManagement.SelectAllBrands();
-                    FrmMain.Instance.ToolStripLabel.Text = "Se modifico la marca correctamente";
-                }
-                else
-                {
-                    FrmMain.Instance.ToolStripLabel.Text = "Error al modificar la marca";
-                }
-            }
-            catch (Exception)
-            {
-
-                throw;
-            }
-        }
-
         private void txtSearchBrand_Click(object sender, EventArgs e)
         {
-            string text = txtSearchBrand.Text;
+            string text = brandNameSearchTextBox.Text;
 
             BrandManagement.SelectBrandByName(text);
         }
 
-        private void btnDeleteBrand_Click(object sender, EventArgs e)
-        {
-            string id = txtIDBrand.Text;
-
-            try
-            {
-                if (BrandManagement.DeleteBrandById(id))
-                {
-                    dgvBrand.DataSource = BrandManagement.SelectAllBrands();
-                    FrmMain.Instance.ToolStripLabel.Text = "Se elimino la marca correctamente";
-                }
-                else
-                {
-                    FrmMain.Instance.ToolStripLabel.Text = "Error al eliminar la marca";
-                }
-            }
-            catch (Exception)
-            {
-
-                throw;
-            }
-        }
-        
-
         private void dgvBrand_MouseClick(object sender, MouseEventArgs e)
         {
-            txtIDBrand.Text = dgvBrand.CurrentRow.Cells[0].Value.ToString();
-            txtBrand.Text = dgvBrand.CurrentRow.Cells[1].Value.ToString();
+            idBrandTextBox.Text = dgvBrand.CurrentRow.Cells[0].Value.ToString();
+            brandNameTextBox.Text = dgvBrand.CurrentRow.Cells[1].Value.ToString();
         }
 
         private void txtSearchBrand_KeyPress(object sender, KeyPressEventArgs e)
         {         
             try
             {
-                string text = txtSearchBrand.Text;
+                string text = brandNameSearchTextBox.Text;
 
                 if (text != "")
                 {
@@ -145,9 +73,83 @@ namespace UI.UserControls
             this.Dispose();
         }
 
-        private void btnClear_Click(object sender, EventArgs e)
+        private void clearButton_Click(object sender, EventArgs e)
         {
-            CleanBrand();
+            Clear();
         }
+
+        //--------------CRUD--------------//
+
+        private void createButton_Click(object sender, EventArgs e)
+        {
+            string id = idBrandTextBox.Text;
+            string brand = brandNameTextBox.Text;
+
+            try
+            {
+                if (BrandManagement.InsertBusiness(brand))
+                {
+                    FrmMain.Instance.ToolStripLabel.Text = "Se agrego la marca correctamente";
+                    dgvBrand.DataSource = BrandManagement.SelectAllBrands();
+                }
+                else
+                {
+                    FrmMain.Instance.ToolStripLabel.Text = "No se agrego la marca";
+                }
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message);
+            }
+        }
+
+        private void updateButton_Click(object sender, EventArgs e)
+        {
+            string id = idBrandTextBox.Text; //dgvBrand.CurrentRow.Cells[0].Value.ToString();
+            string brand = brandNameTextBox.Text;
+
+            try
+            {
+                if (BrandManagement.UpdateBrandById(id, brand))
+                {
+                    dgvBrand.DataSource = BrandManagement.SelectAllBrands();
+                    FrmMain.Instance.ToolStripLabel.Text = "Se modifico la marca correctamente";
+                }
+                else
+                {
+                    FrmMain.Instance.ToolStripLabel.Text = "Error al modificar la marca";
+                }
+            }
+            catch (Exception)
+            {
+
+                throw;
+            }
+        }
+
+        private void deleteButton_Click(object sender, EventArgs e)
+        {
+            string id = idBrandTextBox.Text;
+
+            try
+            {
+                if (BrandManagement.DeleteBrandById(id))
+                {
+                    dgvBrand.DataSource = BrandManagement.SelectAllBrands();
+                    FrmMain.Instance.ToolStripLabel.Text = "Se elimino la marca correctamente";
+                }
+                else
+                {
+                    FrmMain.Instance.ToolStripLabel.Text = "Error al eliminar la marca";
+                }
+            }
+            catch (Exception)
+            {
+
+                throw;
+            }
+        }
+
+        
     }
 }

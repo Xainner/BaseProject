@@ -7,6 +7,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using UI.Frames;
 
 namespace UI.UserControls
 {
@@ -74,13 +75,16 @@ namespace UI.UserControls
 
         private void btnBrandSize_Click(object sender, EventArgs e)
         {
-            UcBrandSize ucBrandSize = new UcBrandSize
-            {
-                Dock = DockStyle.Fill
-            };
-            FrmMain.Instance.MetroContainer.Controls.Add(ucBrandSize);
-            FrmMain.Instance.MetroContainer.Controls["ucBrandSize"].BringToFront();
-            FrmMain.Instance.MetroBack.Visible = true;
+            FrmBrand frmBrand = new FrmBrand();
+            frmBrand.Show();
+            FrmMain.Instance.ToolStripLabel.Text = "Estas en el área de tallas y marcas";
+            //UcBrandSize ucBrandSize = new UcBrandSize
+            //{
+            //    Dock = DockStyle.Fill
+            //};
+            //FrmMain.Instance.MetroContainer.Controls.Add(ucBrandSize);
+            //FrmMain.Instance.MetroContainer.Controls["ucBrandSize"].BringToFront();
+            //FrmMain.Instance.MetroBack.Visible = true;
         }
 
         private void btnEmployee_Click(object sender, EventArgs e)

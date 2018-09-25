@@ -88,7 +88,7 @@
             this.Controls.Add(this.statusStrip1);
             this.Controls.Add(this.mainPanel);
             this.Name = "FrmMain";
-            this.Style = MetroFramework.MetroColorStyle.Green;
+            this.Style = MetroFramework.MetroColorStyle.Default;
             this.Text = "Nombre de la tienda";
             this.Load += new System.EventHandler(this.FrmMain_Load);
             this.statusStrip1.ResumeLayout(false);

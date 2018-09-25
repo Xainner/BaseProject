@@ -55,10 +55,16 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="FrmMain.cs">
+    <Compile Include="Frames\FrmBrand.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="FrmMain.Designer.cs">
+    <Compile Include="Frames\FrmBrand.Designer.cs">
+      <DependentUpon>FrmBrand.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Frames\FrmMain.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Frames\FrmMain.Designer.cs">
       <DependentUpon>FrmMain.cs</DependentUpon>
     </Compile>
     <Compile Include="Program.cs" />
@@ -136,7 +142,10 @@
       <DependentUpon>UcSellinvoice.cs</DependentUpon>
     </Compile>
     <Compile Include="Utilities\ImageManagement.cs" />
-    <EmbeddedResource Include="FrmMain.resx">
+    <EmbeddedResource Include="Frames\FrmBrand.resx">
+      <DependentUpon>FrmBrand.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Frames\FrmMain.resx">
       <DependentUpon>FrmMain.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">
