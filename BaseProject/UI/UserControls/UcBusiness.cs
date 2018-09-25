@@ -82,7 +82,7 @@ namespace UI.UserControls
             string generalAddress = txaGeneralAddress.Text;
             string email = txtEmail.Text;
             string webPage = txtWebPage.Text;
-            byte[] logo = ImageManagement.ImageToByte(pbLogo.Image);
+            logo = ImageManagement.ImageToByte(pbLogo.Image);
 
             try
             {
@@ -177,6 +177,7 @@ namespace UI.UserControls
             this.Dispose();
         }
 
+        byte[] logo;
         private void dgvBusiness_MouseClick(object sender, MouseEventArgs e)
         {
             try
@@ -189,6 +190,7 @@ namespace UI.UserControls
                 txaGeneralAddress.Text = dgvBusiness.CurrentRow.Cells[6].Value.ToString();
                 txtEmail.Text = dgvBusiness.CurrentRow.Cells[7].Value.ToString();
                 txtWebPage.Text = dgvBusiness.CurrentRow.Cells[8].Value.ToString();
+                logo = (byte[])dgvBusiness.CurrentRow.Cells[9].Value;
                 pbLogo.Image = ImageManagement.ByteToImage((byte[])dgvBusiness.CurrentRow.Cells[9].Value);
             }
             catch (Exception)
