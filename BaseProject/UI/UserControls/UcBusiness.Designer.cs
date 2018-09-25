@@ -28,6 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+            this.components = new System.ComponentModel.Container();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle3 = new System.Windows.Forms.DataGridViewCellStyle();
@@ -49,7 +50,6 @@
             this.metroLabel9 = new MetroFramework.Controls.MetroLabel();
             this.metroLabel7 = new MetroFramework.Controls.MetroLabel();
             this.metroLabel8 = new MetroFramework.Controls.MetroLabel();
-            this.metroLabel6 = new MetroFramework.Controls.MetroLabel();
             this.metroLabel5 = new MetroFramework.Controls.MetroLabel();
             this.metroLabel4 = new MetroFramework.Controls.MetroLabel();
             this.metroLabel3 = new MetroFramework.Controls.MetroLabel();
@@ -57,9 +57,15 @@
             this.metroLabel1 = new MetroFramework.Controls.MetroLabel();
             this.dgvBusiness = new MetroFramework.Controls.MetroGrid();
             this.deleteButton = new MetroFramework.Controls.MetroButton();
+            this.metroContextMenu1 = new MetroFramework.Controls.MetroContextMenu(this.components);
+            this.toolStripMenuItem1 = new System.Windows.Forms.ToolStripMenuItem();
+            this.toolStripMenuItem2 = new System.Windows.Forms.ToolStripMenuItem();
+            this.toolStripMenuItem3 = new System.Windows.Forms.ToolStripMenuItem();
+            this.toolStripSeparator1 = new System.Windows.Forms.ToolStripSeparator();
             this.groupBox1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pbLogo)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.dgvBusiness)).BeginInit();
+            this.metroContextMenu1.SuspendLayout();
             this.SuspendLayout();
             // 
             // txtSearchBusiness
@@ -113,7 +119,6 @@
             this.groupBox1.Controls.Add(this.metroLabel9);
             this.groupBox1.Controls.Add(this.metroLabel7);
             this.groupBox1.Controls.Add(this.metroLabel8);
-            this.groupBox1.Controls.Add(this.metroLabel6);
             this.groupBox1.Controls.Add(this.metroLabel5);
             this.groupBox1.Controls.Add(this.metroLabel4);
             this.groupBox1.Controls.Add(this.metroLabel3);
@@ -387,6 +392,8 @@
             // 
             // pbLogo
             // 
+            this.pbLogo.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.pbLogo.ContextMenuStrip = this.metroContextMenu1;
             this.pbLogo.Location = new System.Drawing.Point(681, 38);
             this.pbLogo.Name = "pbLogo";
             this.pbLogo.Size = new System.Drawing.Size(196, 180);
@@ -420,15 +427,6 @@
             this.metroLabel8.Size = new System.Drawing.Size(76, 19);
             this.metroLabel8.TabIndex = 3;
             this.metroLabel8.Text = "Página web";
-            // 
-            // metroLabel6
-            // 
-            this.metroLabel6.AutoSize = true;
-            this.metroLabel6.Location = new System.Drawing.Point(761, 16);
-            this.metroLabel6.Name = "metroLabel6";
-            this.metroLabel6.Size = new System.Drawing.Size(39, 19);
-            this.metroLabel6.TabIndex = 3;
-            this.metroLabel6.Text = "Logo";
             // 
             // metroLabel5
             // 
@@ -531,6 +529,39 @@
             this.deleteButton.UseSelectable = true;
             this.deleteButton.Click += new System.EventHandler(this.deleteButton_Click);
             // 
+            // metroContextMenu1
+            // 
+            this.metroContextMenu1.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.toolStripMenuItem1,
+            this.toolStripMenuItem2,
+            this.toolStripSeparator1,
+            this.toolStripMenuItem3});
+            this.metroContextMenu1.Name = "metroContextMenu1";
+            this.metroContextMenu1.Size = new System.Drawing.Size(169, 76);
+            // 
+            // toolStripMenuItem1
+            // 
+            this.toolStripMenuItem1.Name = "toolStripMenuItem1";
+            this.toolStripMenuItem1.Size = new System.Drawing.Size(168, 22);
+            this.toolStripMenuItem1.Text = "Agregar imágen";
+            // 
+            // toolStripMenuItem2
+            // 
+            this.toolStripMenuItem2.Name = "toolStripMenuItem2";
+            this.toolStripMenuItem2.Size = new System.Drawing.Size(168, 22);
+            this.toolStripMenuItem2.Text = "Modificar imágen";
+            // 
+            // toolStripMenuItem3
+            // 
+            this.toolStripMenuItem3.Name = "toolStripMenuItem3";
+            this.toolStripMenuItem3.Size = new System.Drawing.Size(168, 22);
+            this.toolStripMenuItem3.Text = "Quitar imágen";
+            // 
+            // toolStripSeparator1
+            // 
+            this.toolStripSeparator1.Name = "toolStripSeparator1";
+            this.toolStripSeparator1.Size = new System.Drawing.Size(165, 6);
+            // 
             // UcBusiness
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -548,6 +579,7 @@
             this.groupBox1.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pbLogo)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.dgvBusiness)).EndInit();
+            this.metroContextMenu1.ResumeLayout(false);
             this.ResumeLayout(false);
 
         }
@@ -568,7 +600,6 @@
         private MetroFramework.Controls.MetroLabel metroLabel9;
         private MetroFramework.Controls.MetroLabel metroLabel7;
         private MetroFramework.Controls.MetroLabel metroLabel8;
-        private MetroFramework.Controls.MetroLabel metroLabel6;
         private MetroFramework.Controls.MetroLabel metroLabel5;
         private MetroFramework.Controls.MetroLabel metroLabel4;
         private MetroFramework.Controls.MetroLabel metroLabel3;
@@ -580,5 +611,10 @@
         private MetroFramework.Controls.MetroButton createButton;
         private MetroFramework.Controls.MetroButton clearButton;
         private MetroFramework.Controls.MetroButton deleteButton;
+        private MetroFramework.Controls.MetroContextMenu metroContextMenu1;
+        private System.Windows.Forms.ToolStripMenuItem toolStripMenuItem1;
+        private System.Windows.Forms.ToolStripMenuItem toolStripMenuItem2;
+        private System.Windows.Forms.ToolStripSeparator toolStripSeparator1;
+        private System.Windows.Forms.ToolStripMenuItem toolStripMenuItem3;
     }
 }
