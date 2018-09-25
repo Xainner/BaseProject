@@ -42,6 +42,8 @@ namespace UI.UserControls
         private void UcBusiness_Load(object sender, EventArgs e)
         {
             dgvBusiness.DataSource = BusinessManagement.SelectAllBusiness();
+            dgvBusiness.Columns["idBusiness"].DisplayIndex = 0;
+            dgvBusiness.Columns["idBusiness"].HeaderText = "Id";
         }
 
         private void btnAddBusiness_Click(object sender, EventArgs e)
