@@ -16,6 +16,7 @@ namespace UI.Frames
     public partial class FrmBrand : MetroForm
     {
         //---------GLOBALS---------//
+
         List<BrandModel> brandModels;
 
         public FrmBrand()
@@ -37,6 +38,7 @@ namespace UI.Frames
                 {
                     brandModels = BrandManagement.SelectAllBrands();
                     WireUpBrandsGridView();
+                    toolStripStatusLabel1.Text = "Área de marcas.";
                 } else
                 {
                     toolStripStatusLabel1.Text = "No se encontraron registros en la base de datos.";
@@ -56,6 +58,10 @@ namespace UI.Frames
         }
 
         //---------CUSTOM METHODS---------//
+
+        /// <summary>
+        /// 
+        /// </summary>
         private void Clear()
         {
             brandNameSearchTextBox.Text = "";
@@ -63,6 +69,9 @@ namespace UI.Frames
             idBrandTextBox.Text = "";
         }
 
+        /// <summary>
+        /// 
+        /// </summary>
         private void WireUpBrandsGridView()
         {
             Clear();
@@ -82,7 +91,7 @@ namespace UI.Frames
         {
             try
             {
-                if (brandsGridView.SelectedRows != null)
+                if (brandsGridView.SelectedRows.Count != 0)
                 {
                     idBrandTextBox.Text = brandsGridView.CurrentRow.Cells[0].Value.ToString();
                     brandNameTextBox.Text = brandsGridView.CurrentRow.Cells[1].Value.ToString();
@@ -106,12 +115,12 @@ namespace UI.Frames
             {
                 if (BrandManagement.InsertBusiness(brand))
                 {
-                    FrmMain.Instance.ToolStripLabel.Text = "Se agregó la marca de manera correcta.";
+                    toolStripStatusLabel1.Text = "Se agregó la marca de manera correcta.";
                     brandsGridView.DataSource = BrandManagement.SelectAllBrands();
                 }
                 else
                 {
-                    FrmMain.Instance.ToolStripLabel.Text = "Ha ocurrido un error al agregar la marca, inténtelo nuevamente.";
+                    toolStripStatusLabel1.Text = "Ha ocurrido un error al agregar la marca, inténtelo nuevamente.";
                 }
             }
             catch (Exception ex)
@@ -130,11 +139,11 @@ namespace UI.Frames
                 if (BrandManagement.UpdateBrandById(id, brand))
                 {
                     brandsGridView.DataSource = BrandManagement.SelectAllBrands();
-                    FrmMain.Instance.ToolStripLabel.Text = "Se modificó la marca de manera correcta.";
+                    toolStripStatusLabel1.Text = "Se modificó la marca de manera correcta.";
                 }
                 else
                 {
-                    FrmMain.Instance.ToolStripLabel.Text = "Ha ocurrido un error al modificar la marca, inténtelo nuevamente.";
+                    toolStripStatusLabel1.Text = "Ha ocurrido un error al modificar la marca, inténtelo nuevamente.";
                 }
             }
             catch (Exception ex)
@@ -153,11 +162,11 @@ namespace UI.Frames
                 if (BrandManagement.DeleteBrandById(id))
                 {
                     brandsGridView.DataSource = BrandManagement.SelectAllBrands();
-                    FrmMain.Instance.ToolStripLabel.Text = "Se eliminó la marca de manera correcta";
+                    toolStripStatusLabel1.Text = "Se eliminó la marca de manera correcta";
                 }
                 else
                 {
-                    FrmMain.Instance.ToolStripLabel.Text = "Ha ocurrido un error al eliminar la marca, inténtelo nuevamente.";
+                    toolStripStatusLabel1.Text = "Ha ocurrido un error al eliminar la marca, inténtelo nuevamente.";
                 }
             }
             catch (Exception ex)
