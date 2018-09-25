@@ -9,6 +9,7 @@ using System.Threading.Tasks;
 using System.Windows.Forms;
 using LogicLibrary;
 using UI.Utilities;
+using ModelLibrary.Models;
 
 namespace UI.UserControls
 {
@@ -51,6 +52,8 @@ namespace UI.UserControls
         private void UcEmployee_Load(object sender, EventArgs e)
         {
             dgvEmployee.DataSource = EmployeeManagement.SelectAllEmployees();
+            cmbPosition.DataSource = PositionManagement.SelectAllPositions();
+            cmbPosition.DisplayMember = "positionName";
         }
 
         private void btnSelectPhoto_Click(object sender, EventArgs e)
@@ -86,7 +89,9 @@ namespace UI.UserControls
             byte[] photo = ImageManagement.ImageToByte(picPhoto.Image); 
 
             string enterStore = cmbEnterStore.Text;
-            string position = cmbPosition.Text;
+
+            PositionModel position = (PositionModel)cmbPosition.SelectedItem;
+
             string statusWorking = txtWorkStatus.Text;
             string endDate = datepEndDate.Text;
             string observation = txaObservation.Text;
@@ -97,7 +102,7 @@ namespace UI.UserControls
             try
             {
                 if (EmployeeManagement.InsertEmployee(name, lastname, idType, identif, residence, bornDate, civilStatus, childs, telephone,
-                    cellphone, enterStore, nationality, position, statusWorking, enterStore, endDate, observation, photo, emergencyName, emergencyPhone))
+                    cellphone, enterStore, nationality, position.idPosition.ToString(), statusWorking, enterStore, endDate, observation, photo, emergencyName, emergencyPhone))
                 {
                     dgvEmployee.DataSource = EmployeeManagement.SelectAllEmployees();
                     FrmMain.Instance.ToolStripLabel.Text = "Se agrego el trabajador correctamente";
