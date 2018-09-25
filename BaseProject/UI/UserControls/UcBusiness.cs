@@ -15,6 +15,7 @@ namespace UI.UserControls
     public partial class UcBusiness : UserControl
     {
         byte[] logo;
+        string file;
 
         public UcBusiness()
         {
@@ -34,6 +35,7 @@ namespace UI.UserControls
             txtEmail.Text = " ";
             txtWebPage.Text = " ";
             pbLogo.Image = null;
+            file = string.Empty;
         }
 
         private void UcBusiness_Load(object sender, EventArgs e)
@@ -84,7 +86,11 @@ namespace UI.UserControls
             string generalAddress = txaGeneralAddress.Text;
             string email = txtEmail.Text;
             string webPage = txtWebPage.Text;
-            
+
+            if (!string.IsNullOrEmpty(file))
+            {
+                logo = ImageManagement.ImageToByte(file);
+            }
 
             try
             {
@@ -137,6 +143,7 @@ namespace UI.UserControls
                 this.openFileDialog1.ShowDialog();
                 if (this.openFileDialog1.FileName.Equals("") == false)
                 {
+                    file = openFileDialog1.FileName;
                     pbLogo.Load(this.openFileDialog1.FileName);
                 }
             }
