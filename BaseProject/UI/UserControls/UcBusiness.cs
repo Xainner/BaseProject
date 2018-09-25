@@ -84,7 +84,7 @@ namespace UI.UserControls
             string generalAddress = txaGeneralAddress.Text;
             string email = txtEmail.Text;
             string webPage = txtWebPage.Text;
-            logo = ImageManagement.ImageToByte(pbLogo.Image);
+            
 
             try
             {
@@ -104,8 +104,7 @@ namespace UI.UserControls
 
                 throw;
             }
-
-            //BusinessManagement.UpdateBusinessById(idBusiness);
+            
         }
 
         private void btnDeleteBusiness_Click(object sender, EventArgs e)
