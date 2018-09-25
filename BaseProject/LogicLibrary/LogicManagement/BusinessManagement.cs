@@ -118,7 +118,16 @@ namespace LogicLibrary
                 {
                     BusinessModel businessModel = new BusinessModel()
                     {
-                        IdBusiness = int.Parse(idBusiness)
+                        IdBusiness = int.Parse(idBusiness),
+                        FantasyName = fantasyName,
+                        SocietyName = societyName,
+                        LegalCertification = legalCertification,
+                        Telephone = telephone,
+                        MainAddress = mainAddress,
+                        GeneralAddress = generalAddress,
+                        Email = email,
+                        WebPage = webPage,
+                        Logo = logo
                     };
                     return BusinessConnection.UpdateBusiness(businessModel);
                 }
