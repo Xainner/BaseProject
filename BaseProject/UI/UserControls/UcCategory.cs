@@ -12,7 +12,7 @@ using ModelLibrary.Models;
 
 namespace UI.UserControls
 {
-    public partial class UcCategory : UserControl
+    public partial class UcCategory : MetroFramework.Controls.MetroUserControl
     {
         public UcCategory()
         {
@@ -45,73 +45,17 @@ namespace UI.UserControls
 
         private void btnAddCategory_Click(object sender, EventArgs e)
         {
-            string id = txtIDCategory.Text;
-            string category = txtNameCategory.Text;
-
-            try
-            {
-                if (CategoryManagement.InsertCategory(category))
-                {
-                    FrmMain.Instance.ToolStripLabel.Text = "Se inserto la categoria correctamente";
-                    SortAll(); CleanAll();
-                }
-                else
-                {
-                    FrmMain.Instance.ToolStripLabel.Text = "Error al insertar la categoria";
-                }
-            }
-            catch (Exception)
-            {
-
-                throw;
-            }
+            
         }
 
         private void btnUpdateCategory_Click(object sender, EventArgs e)
         {
-            string id = txtIDCategory.Text;
-            string category = txtNameCategory.Text;
-
-            try
-            {
-                if (CategoryManagement.UpdateCategoryById(id, category))
-                {
-                    FrmMain.Instance.ToolStripLabel.Text = "Se modifico la categoria correctamente";
-                    SortAll(); CleanAll();
-                }
-                else
-                {
-                    FrmMain.Instance.ToolStripLabel.Text = "Error al modificar la categoria";
-                }
-            }
-            catch (Exception)
-            {
-
-                throw;
-            }
+            
         }
 
         private void btnDeleteCategory_Click(object sender, EventArgs e)
         {
-            string id = txtIDCategory.Text;
-
-            try
-            {
-                if (CategoryManagement.DeleteCategoryById(id))
-                {
-                    FrmMain.Instance.ToolStripLabel.Text = "Se elimino la categoria correctamente";
-                    SortAll(); CleanAll();
-                }
-                else
-                {
-                    FrmMain.Instance.ToolStripLabel.Text = "Error al eliminar la categoria";
-                }
-            }
-            catch (Exception)
-            {
-
-                throw;
-            }
+            
         }
 
         private void dgvCategory_Click(object sender, EventArgs e)
@@ -154,51 +98,12 @@ namespace UI.UserControls
 
         private void btnAddSub_Click(object sender, EventArgs e)
         {
-            CategoryModel categoryModel = (CategoryModel)cmbCategory.SelectedItem;
-            string subcategory = txtNameSub.Text;
-
-            try
-            {
-                if (SubCategoryManagement.InsertSubCategory(subcategory, categoryModel.IdCategory.ToString()))
-                {
-                    FrmMain.Instance.ToolStripLabel.Text = "Se agrego la Subcategoria correctamente";
-                    SortAll(); CleanAll();
-                }
-                else
-                {
-                    FrmMain.Instance.ToolStripLabel.Text = "Error al agregar la Subcategoria";
-                }
-            }
-            catch (Exception)
-            {
-
-                throw;
-            }
+            
         }
 
         private void btnUpdateSub_Click(object sender, EventArgs e)
         {
-            string id = dgvSubCategory.CurrentRow.Cells[0].Value.ToString();
-            string category = cmbCategory.Text;
-            string subcategory = txtNameSub.Text;
-
-            try
-            {
-                if (SubCategoryManagement.UpdateSubCategoryById(id, category, subcategory))
-                {
-                    FrmMain.Instance.ToolStripLabel.Text = "Se agrego la Subcategoria correctamente";
-                    SortAll(); CleanAll();
-                }
-                else
-                {
-                    FrmMain.Instance.ToolStripLabel.Text = "Error al agregar la Subcategoria";
-                }
-            }
-            catch (Exception)
-            {
-
-                throw;
-            }
+            
         }
 
         private void txtSearchSub_KeyPress(object sender, KeyPressEventArgs e)
@@ -225,25 +130,7 @@ namespace UI.UserControls
 
         private void btnDeleteSub_Click(object sender, EventArgs e)
         {
-            string id = dgvSubCategory.CurrentRow.Cells[0].Value.ToString();
-
-            try
-            {
-                if (SubCategoryManagement.DeleteSubCategoryById(id))
-                {
-                    FrmMain.Instance.ToolStripLabel.Text = "Se elimino la Subcategoria correctamente";
-                    SortAll(); CleanAll();
-                }
-                else
-                {
-                    FrmMain.Instance.ToolStripLabel.Text = "Error al eliminar la Subcategoria";
-                }
-            }
-            catch (Exception)
-            {
-
-                throw;
-            }
+            
         }
 
         private void dgvSubCategory_MouseClick(object sender, MouseEventArgs e)
@@ -275,7 +162,162 @@ namespace UI.UserControls
 
         private void btnCleanAll_Click(object sender, EventArgs e)
         {
+            
+        }
+
+        private void clearButton_Click(object sender, EventArgs e)
+        {
             CleanAll();
+        }
+
+        //----- CRUD---
+
+        //SUBCATEGORY
+
+        private void deleteSubCategoryButton_Click(object sender, EventArgs e)
+        {
+            string id = dgvSubCategory.CurrentRow.Cells[0].Value.ToString();
+
+            try
+            {
+                if (SubCategoryManagement.DeleteSubCategoryById(id))
+                {
+                    FrmMain.Instance.ToolStripLabel.Text = "Se elimino la Subcategoria correctamente";
+                    SortAll(); CleanAll();
+                }
+                else
+                {
+                    FrmMain.Instance.ToolStripLabel.Text = "Error al eliminar la Subcategoria";
+                }
+            }
+            catch (Exception)
+            {
+
+                throw;
+            }
+        }
+
+        private void createSubCategoryButton_Click(object sender, EventArgs e)
+        {
+            CategoryModel categoryModel = (CategoryModel)cmbCategory.SelectedItem;
+            string subcategory = txtNameSub.Text;
+
+            try
+            {
+                if (SubCategoryManagement.InsertSubCategory(subcategory, categoryModel.IdCategory.ToString()))
+                {
+                    FrmMain.Instance.ToolStripLabel.Text = "Se agrego la Subcategoria correctamente";
+                    SortAll(); CleanAll();
+                }
+                else
+                {
+                    FrmMain.Instance.ToolStripLabel.Text = "Error al agregar la Subcategoria";
+                }
+            }
+            catch (Exception)
+            {
+
+                throw;
+            }
+        }
+
+        private void updateSubCategoryButton_Click(object sender, EventArgs e)
+        {
+            string id = dgvSubCategory.CurrentRow.Cells[0].Value.ToString();
+            string category = cmbCategory.Text;
+            string subcategory = txtNameSub.Text;
+
+            try
+            {
+                if (SubCategoryManagement.UpdateSubCategoryById(id, category, subcategory))
+                {
+                    FrmMain.Instance.ToolStripLabel.Text = "Se agrego la Subcategoria correctamente";
+                    SortAll(); CleanAll();
+                }
+                else
+                {
+                    FrmMain.Instance.ToolStripLabel.Text = "Error al agregar la Subcategoria";
+                }
+            }
+            catch (Exception)
+            {
+
+                throw;
+            }
+        }
+
+
+        //----------CATEGORY//
+
+        private void createCategoryButton_Click(object sender, EventArgs e)
+        {
+            string id = txtIDCategory.Text;
+            string category = txtNameCategory.Text;
+
+            try
+            {
+                if (CategoryManagement.InsertCategory(category))
+                {
+                    FrmMain.Instance.ToolStripLabel.Text = "Se inserto la categoria correctamente";
+                    SortAll(); CleanAll();
+                }
+                else
+                {
+                    FrmMain.Instance.ToolStripLabel.Text = "Error al insertar la categoria";
+                }
+            }
+            catch (Exception)
+            {
+
+                throw;
+            }
+        }
+
+        private void updateCategoryButton_Click(object sender, EventArgs e)
+        {
+            string id = txtIDCategory.Text;
+            string category = txtNameCategory.Text;
+
+            try
+            {
+                if (CategoryManagement.UpdateCategoryById(id, category))
+                {
+                    FrmMain.Instance.ToolStripLabel.Text = "Se modifico la categoria correctamente";
+                    SortAll(); CleanAll();
+                }
+                else
+                {
+                    FrmMain.Instance.ToolStripLabel.Text = "Error al modificar la categoria";
+                }
+            }
+            catch (Exception)
+            {
+
+                throw;
+            }
+        }
+
+        private void deleteCategoryButton_Click(object sender, EventArgs e)
+        {
+            string id = txtIDCategory.Text;
+
+            try
+            {
+                if (CategoryManagement.DeleteCategoryById(id))
+                {
+                    FrmMain.Instance.ToolStripLabel.Text = "Se elimino la categoria correctamente";
+                    SortAll(); CleanAll();
+                }
+                else
+                {
+                    FrmMain.Instance.ToolStripLabel.Text = "Error al eliminar la categoria";
+                }
+            }
+            catch (Exception)
+            {
+
+                throw;
+            }
         }
     }
 }

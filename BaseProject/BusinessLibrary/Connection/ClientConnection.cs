@@ -6,7 +6,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace BusinessLibrary.DataManagement
+namespace BusinessLibrary.Connection
 {
     public class ClientConnection
     {

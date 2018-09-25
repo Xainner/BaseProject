@@ -22,7 +22,7 @@ namespace LogicLibrary
             try
             {
                 string[] salary = new string[] { salaryAmount };
-                if (DataManagement.VerifyFields(salary))
+                if (ValidateData.VerifyFields(salary))
                 {
                     SalaryModel salaryModel = new SalaryModel()
                     {
@@ -54,7 +54,7 @@ namespace LogicLibrary
             try
             {
                 string[] salary = new string[] { idSalary, salaryAmount };
-                if (DataManagement.VerifyFields(salary))
+                if (ValidateData.VerifyFields(salary))
                 {
                     SalaryModel salaryModel = new SalaryModel()
                     {
@@ -85,7 +85,7 @@ namespace LogicLibrary
             try
             {
                 string[] salary = new string[] { idSalary };
-                if (DataManagement.VerifyFields(salary))
+                if (ValidateData.VerifyFields(salary))
                 {
                     SalaryModel salaryModel = new SalaryModel()
                     {
@@ -115,7 +115,7 @@ namespace LogicLibrary
             try
             {
                 string[] salary = new string[] { idSalary };
-                if (DataManagement.VerifyFields(salary))
+                if (ValidateData.VerifyFields(salary))
                 {
                     SalaryModel salaryModel = new SalaryModel()
                     {
@@ -145,7 +145,7 @@ namespace LogicLibrary
             try
             {
                 string[] salary = new string[] { registrationDate };
-                if (DataManagement.VerifyFields(salary))
+                if (ValidateData.VerifyFields(salary))
                 {
                     SalaryModel salaryModel = new SalaryModel()
                     {

@@ -44,7 +44,7 @@ namespace UI.Frames
                     toolStripStatusLabel1.Text = "No se encontraron registros en la base de datos.";
                 }
             }
-            catch (Exception)
+            catch (Exception ex)
             {
 
                 throw;
@@ -70,13 +70,6 @@ namespace UI.Frames
         {
             Clear();
             brandsGridView.DataSource = brandModels;
-        }
-
-        //---------BUTTONS---------//
-
-        private void clearButton_Click(object sender, EventArgs e)
-        {
-            Clear();
         }
 
         //---------EVENTS---------//
@@ -118,6 +111,13 @@ namespace UI.Frames
             }
         }
 
+        //---------BUTTONS---------//
+
+        private void clearButton_Click(object sender, EventArgs e)
+        {
+            Clear();
+        }
+
         //---------CRUD---------//
 
         private void createButton_Click(object sender, EventArgs e)
@@ -127,7 +127,7 @@ namespace UI.Frames
 
             try
             {
-                if (BrandManagement.InsertBusiness(brand))
+                if (BrandManagement.InsertBrand(brand))
                 {
                     toolStripStatusLabel1.Text = "Se agregó la marca de manera correcta.";
                     brandsGridView.DataSource = BrandManagement.SelectAllBrands();
@@ -189,5 +189,6 @@ namespace UI.Frames
                 throw;
             }
         }
+
     }
 }

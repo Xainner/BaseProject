@@ -28,18 +28,15 @@
         /// </summary>
         private void InitializeComponent()
         {
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle3 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle4 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle5 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle6 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle19 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle20 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle21 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle22 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle23 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle24 = new System.Windows.Forms.DataGridViewCellStyle();
             this.groupBox2 = new System.Windows.Forms.GroupBox();
             this.dgvPosition = new MetroFramework.Controls.MetroGrid();
             this.txtSearchPosition = new MetroFramework.Controls.MetroTextBox();
-            this.btnUpdatePosition = new MetroFramework.Controls.MetroTile();
-            this.btnDeletePosition = new MetroFramework.Controls.MetroTile();
-            this.btnAddPosition = new MetroFramework.Controls.MetroTile();
             this.txtNamePosition = new MetroFramework.Controls.MetroTextBox();
             this.cmbSalary = new MetroFramework.Controls.MetroComboBox();
             this.metroLabel3 = new MetroFramework.Controls.MetroLabel();
@@ -47,14 +44,17 @@
             this.groupBox1 = new System.Windows.Forms.GroupBox();
             this.dgvSalary = new MetroFramework.Controls.MetroGrid();
             this.txtSearchSalary = new MetroFramework.Controls.MetroTextBox();
-            this.btnDeleteSalary = new MetroFramework.Controls.MetroTile();
-            this.btnUpdateSalary = new MetroFramework.Controls.MetroTile();
-            this.btnAddSalary = new MetroFramework.Controls.MetroTile();
             this.txtID = new MetroFramework.Controls.MetroTextBox();
             this.txtQuantity = new MetroFramework.Controls.MetroTextBox();
             this.metroLabel2 = new MetroFramework.Controls.MetroLabel();
             this.metroLabel1 = new MetroFramework.Controls.MetroLabel();
-            this.btnCleanAll = new MetroFramework.Controls.MetroTile();
+            this.deleteSalaryButton = new MetroFramework.Controls.MetroButton();
+            this.createSalaryButton = new MetroFramework.Controls.MetroButton();
+            this.updateSalaryButton = new MetroFramework.Controls.MetroButton();
+            this.createPositionButton = new MetroFramework.Controls.MetroButton();
+            this.updatePositionButton = new MetroFramework.Controls.MetroButton();
+            this.deletePositionButton = new MetroFramework.Controls.MetroButton();
+            this.clearButton = new MetroFramework.Controls.MetroButton();
             this.groupBox2.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgvPosition)).BeginInit();
             this.groupBox1.SuspendLayout();
@@ -63,18 +63,18 @@
             // 
             // groupBox2
             // 
+            this.groupBox2.Controls.Add(this.deletePositionButton);
+            this.groupBox2.Controls.Add(this.updatePositionButton);
+            this.groupBox2.Controls.Add(this.createPositionButton);
             this.groupBox2.Controls.Add(this.dgvPosition);
             this.groupBox2.Controls.Add(this.txtSearchPosition);
-            this.groupBox2.Controls.Add(this.btnUpdatePosition);
-            this.groupBox2.Controls.Add(this.btnDeletePosition);
-            this.groupBox2.Controls.Add(this.btnAddPosition);
             this.groupBox2.Controls.Add(this.txtNamePosition);
             this.groupBox2.Controls.Add(this.cmbSalary);
             this.groupBox2.Controls.Add(this.metroLabel3);
             this.groupBox2.Controls.Add(this.metroLabel4);
-            this.groupBox2.Location = new System.Drawing.Point(507, 30);
+            this.groupBox2.Location = new System.Drawing.Point(505, 20);
             this.groupBox2.Name = "groupBox2";
-            this.groupBox2.Size = new System.Drawing.Size(429, 449);
+            this.groupBox2.Size = new System.Drawing.Size(429, 477);
             this.groupBox2.TabIndex = 3;
             this.groupBox2.TabStop = false;
             this.groupBox2.Text = "Área de posición de trabajo";
@@ -86,41 +86,41 @@
             this.dgvPosition.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.dgvPosition.CellBorderStyle = System.Windows.Forms.DataGridViewCellBorderStyle.None;
             this.dgvPosition.ColumnHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.None;
-            dataGridViewCellStyle1.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(174)))), ((int)(((byte)(219)))));
-            dataGridViewCellStyle1.Font = new System.Drawing.Font("Segoe UI", 11F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Pixel);
-            dataGridViewCellStyle1.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(255)))), ((int)(((byte)(255)))));
-            dataGridViewCellStyle1.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(198)))), ((int)(((byte)(247)))));
-            dataGridViewCellStyle1.SelectionForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(17)))), ((int)(((byte)(17)))), ((int)(((byte)(17)))));
-            dataGridViewCellStyle1.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.dgvPosition.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle1;
+            dataGridViewCellStyle19.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle19.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(174)))), ((int)(((byte)(219)))));
+            dataGridViewCellStyle19.Font = new System.Drawing.Font("Segoe UI", 11F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Pixel);
+            dataGridViewCellStyle19.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(255)))), ((int)(((byte)(255)))));
+            dataGridViewCellStyle19.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(198)))), ((int)(((byte)(247)))));
+            dataGridViewCellStyle19.SelectionForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(17)))), ((int)(((byte)(17)))), ((int)(((byte)(17)))));
+            dataGridViewCellStyle19.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.dgvPosition.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle19;
             this.dgvPosition.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            dataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle2.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(255)))), ((int)(((byte)(255)))));
-            dataGridViewCellStyle2.Font = new System.Drawing.Font("Segoe UI", 11F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Pixel);
-            dataGridViewCellStyle2.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(136)))), ((int)(((byte)(136)))), ((int)(((byte)(136)))));
-            dataGridViewCellStyle2.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(198)))), ((int)(((byte)(247)))));
-            dataGridViewCellStyle2.SelectionForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(17)))), ((int)(((byte)(17)))), ((int)(((byte)(17)))));
-            dataGridViewCellStyle2.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
-            this.dgvPosition.DefaultCellStyle = dataGridViewCellStyle2;
+            dataGridViewCellStyle20.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle20.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(255)))), ((int)(((byte)(255)))));
+            dataGridViewCellStyle20.Font = new System.Drawing.Font("Segoe UI", 11F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Pixel);
+            dataGridViewCellStyle20.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(136)))), ((int)(((byte)(136)))), ((int)(((byte)(136)))));
+            dataGridViewCellStyle20.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(198)))), ((int)(((byte)(247)))));
+            dataGridViewCellStyle20.SelectionForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(17)))), ((int)(((byte)(17)))), ((int)(((byte)(17)))));
+            dataGridViewCellStyle20.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
+            this.dgvPosition.DefaultCellStyle = dataGridViewCellStyle20;
             this.dgvPosition.EnableHeadersVisualStyles = false;
             this.dgvPosition.Font = new System.Drawing.Font("Segoe UI", 11F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Pixel);
             this.dgvPosition.GridColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(255)))), ((int)(((byte)(255)))));
-            this.dgvPosition.Location = new System.Drawing.Point(63, 219);
+            this.dgvPosition.Location = new System.Drawing.Point(6, 153);
             this.dgvPosition.Name = "dgvPosition";
             this.dgvPosition.ReadOnly = true;
             this.dgvPosition.RowHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.None;
-            dataGridViewCellStyle3.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle3.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(174)))), ((int)(((byte)(219)))));
-            dataGridViewCellStyle3.Font = new System.Drawing.Font("Segoe UI", 11F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Pixel);
-            dataGridViewCellStyle3.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(255)))), ((int)(((byte)(255)))));
-            dataGridViewCellStyle3.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(198)))), ((int)(((byte)(247)))));
-            dataGridViewCellStyle3.SelectionForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(17)))), ((int)(((byte)(17)))), ((int)(((byte)(17)))));
-            dataGridViewCellStyle3.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.dgvPosition.RowHeadersDefaultCellStyle = dataGridViewCellStyle3;
+            dataGridViewCellStyle21.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle21.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(174)))), ((int)(((byte)(219)))));
+            dataGridViewCellStyle21.Font = new System.Drawing.Font("Segoe UI", 11F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Pixel);
+            dataGridViewCellStyle21.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(255)))), ((int)(((byte)(255)))));
+            dataGridViewCellStyle21.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(198)))), ((int)(((byte)(247)))));
+            dataGridViewCellStyle21.SelectionForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(17)))), ((int)(((byte)(17)))), ((int)(((byte)(17)))));
+            dataGridViewCellStyle21.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.dgvPosition.RowHeadersDefaultCellStyle = dataGridViewCellStyle21;
             this.dgvPosition.RowHeadersWidthSizeMode = System.Windows.Forms.DataGridViewRowHeadersWidthSizeMode.DisableResizing;
             this.dgvPosition.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.dgvPosition.Size = new System.Drawing.Size(309, 168);
+            this.dgvPosition.Size = new System.Drawing.Size(417, 289);
             this.dgvPosition.TabIndex = 8;
             this.dgvPosition.MouseClick += new System.Windows.Forms.MouseEventHandler(this.dgvPosition_MouseClick);
             // 
@@ -130,15 +130,16 @@
             // 
             // 
             this.txtSearchPosition.CustomButton.Image = null;
-            this.txtSearchPosition.CustomButton.Location = new System.Drawing.Point(125, 1);
+            this.txtSearchPosition.CustomButton.Location = new System.Drawing.Point(165, 1);
             this.txtSearchPosition.CustomButton.Name = "";
             this.txtSearchPosition.CustomButton.Size = new System.Drawing.Size(21, 21);
             this.txtSearchPosition.CustomButton.Style = MetroFramework.MetroColorStyle.Blue;
             this.txtSearchPosition.CustomButton.TabIndex = 1;
             this.txtSearchPosition.CustomButton.Theme = MetroFramework.MetroThemeStyle.Light;
             this.txtSearchPosition.CustomButton.UseSelectable = true;
+            this.txtSearchPosition.CustomButton.Visible = false;
             this.txtSearchPosition.Lines = new string[0];
-            this.txtSearchPosition.Location = new System.Drawing.Point(222, 190);
+            this.txtSearchPosition.Location = new System.Drawing.Point(236, 124);
             this.txtSearchPosition.MaxLength = 32767;
             this.txtSearchPosition.Name = "txtSearchPosition";
             this.txtSearchPosition.PasswordChar = '\0';
@@ -148,8 +149,7 @@
             this.txtSearchPosition.SelectionLength = 0;
             this.txtSearchPosition.SelectionStart = 0;
             this.txtSearchPosition.ShortcutsEnabled = true;
-            this.txtSearchPosition.ShowButton = true;
-            this.txtSearchPosition.Size = new System.Drawing.Size(147, 23);
+            this.txtSearchPosition.Size = new System.Drawing.Size(187, 23);
             this.txtSearchPosition.TabIndex = 6;
             this.txtSearchPosition.UseSelectable = true;
             this.txtSearchPosition.WaterMark = "Ingrese texto a buscar";
@@ -157,46 +157,13 @@
             this.txtSearchPosition.WaterMarkFont = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Pixel);
             this.txtSearchPosition.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtSearchPosition_KeyPress);
             // 
-            // btnUpdatePosition
-            // 
-            this.btnUpdatePosition.ActiveControl = null;
-            this.btnUpdatePosition.Location = new System.Drawing.Point(315, 124);
-            this.btnUpdatePosition.Name = "btnUpdatePosition";
-            this.btnUpdatePosition.Size = new System.Drawing.Size(87, 38);
-            this.btnUpdatePosition.TabIndex = 4;
-            this.btnUpdatePosition.Text = "Modificar";
-            this.btnUpdatePosition.UseSelectable = true;
-            this.btnUpdatePosition.Click += new System.EventHandler(this.btnUpdatePosition_Click);
-            // 
-            // btnDeletePosition
-            // 
-            this.btnDeletePosition.ActiveControl = null;
-            this.btnDeletePosition.Location = new System.Drawing.Point(285, 393);
-            this.btnDeletePosition.Name = "btnDeletePosition";
-            this.btnDeletePosition.Size = new System.Drawing.Size(87, 38);
-            this.btnDeletePosition.TabIndex = 4;
-            this.btnDeletePosition.Text = "Eliminar";
-            this.btnDeletePosition.UseSelectable = true;
-            this.btnDeletePosition.Click += new System.EventHandler(this.btnDeletePosition_Click);
-            // 
-            // btnAddPosition
-            // 
-            this.btnAddPosition.ActiveControl = null;
-            this.btnAddPosition.Location = new System.Drawing.Point(315, 46);
-            this.btnAddPosition.Name = "btnAddPosition";
-            this.btnAddPosition.Size = new System.Drawing.Size(87, 38);
-            this.btnAddPosition.TabIndex = 4;
-            this.btnAddPosition.Text = "Agregar";
-            this.btnAddPosition.UseSelectable = true;
-            this.btnAddPosition.Click += new System.EventHandler(this.btnAddPosition_Click);
-            // 
             // txtNamePosition
             // 
             // 
             // 
             // 
             this.txtNamePosition.CustomButton.Image = null;
-            this.txtNamePosition.CustomButton.Location = new System.Drawing.Point(112, 1);
+            this.txtNamePosition.CustomButton.Location = new System.Drawing.Point(293, 1);
             this.txtNamePosition.CustomButton.Name = "";
             this.txtNamePosition.CustomButton.Size = new System.Drawing.Size(21, 21);
             this.txtNamePosition.CustomButton.Style = MetroFramework.MetroColorStyle.Blue;
@@ -205,7 +172,7 @@
             this.txtNamePosition.CustomButton.UseSelectable = true;
             this.txtNamePosition.CustomButton.Visible = false;
             this.txtNamePosition.Lines = new string[0];
-            this.txtNamePosition.Location = new System.Drawing.Point(126, 50);
+            this.txtNamePosition.Location = new System.Drawing.Point(108, 31);
             this.txtNamePosition.MaxLength = 32767;
             this.txtNamePosition.Name = "txtNamePosition";
             this.txtNamePosition.PasswordChar = '\0';
@@ -214,7 +181,7 @@
             this.txtNamePosition.SelectionLength = 0;
             this.txtNamePosition.SelectionStart = 0;
             this.txtNamePosition.ShortcutsEnabled = true;
-            this.txtNamePosition.Size = new System.Drawing.Size(134, 23);
+            this.txtNamePosition.Size = new System.Drawing.Size(315, 23);
             this.txtNamePosition.TabIndex = 3;
             this.txtNamePosition.UseSelectable = true;
             this.txtNamePosition.WaterMarkColor = System.Drawing.Color.FromArgb(((int)(((byte)(109)))), ((int)(((byte)(109)))), ((int)(((byte)(109)))));
@@ -224,44 +191,44 @@
             // 
             this.cmbSalary.FormattingEnabled = true;
             this.cmbSalary.ItemHeight = 23;
-            this.cmbSalary.Location = new System.Drawing.Point(126, 118);
+            this.cmbSalary.Location = new System.Drawing.Point(108, 80);
             this.cmbSalary.Name = "cmbSalary";
-            this.cmbSalary.Size = new System.Drawing.Size(134, 29);
+            this.cmbSalary.Size = new System.Drawing.Size(315, 29);
             this.cmbSalary.TabIndex = 2;
             this.cmbSalary.UseSelectable = true;
             // 
             // metroLabel3
             // 
             this.metroLabel3.AutoSize = true;
-            this.metroLabel3.Location = new System.Drawing.Point(31, 50);
+            this.metroLabel3.Location = new System.Drawing.Point(6, 31);
             this.metroLabel3.Name = "metroLabel3";
-            this.metroLabel3.Size = new System.Drawing.Size(59, 19);
+            this.metroLabel3.Size = new System.Drawing.Size(56, 19);
             this.metroLabel3.TabIndex = 1;
-            this.metroLabel3.Text = "Posición:";
+            this.metroLabel3.Text = "Posición";
             // 
             // metroLabel4
             // 
             this.metroLabel4.AutoSize = true;
-            this.metroLabel4.Location = new System.Drawing.Point(31, 124);
+            this.metroLabel4.Location = new System.Drawing.Point(6, 80);
             this.metroLabel4.Name = "metroLabel4";
-            this.metroLabel4.Size = new System.Drawing.Size(52, 19);
+            this.metroLabel4.Size = new System.Drawing.Size(49, 19);
             this.metroLabel4.TabIndex = 0;
-            this.metroLabel4.Text = "Salario:";
+            this.metroLabel4.Text = "Salario";
             // 
             // groupBox1
             // 
+            this.groupBox1.Controls.Add(this.updateSalaryButton);
+            this.groupBox1.Controls.Add(this.createSalaryButton);
+            this.groupBox1.Controls.Add(this.deleteSalaryButton);
             this.groupBox1.Controls.Add(this.dgvSalary);
             this.groupBox1.Controls.Add(this.txtSearchSalary);
-            this.groupBox1.Controls.Add(this.btnDeleteSalary);
-            this.groupBox1.Controls.Add(this.btnUpdateSalary);
-            this.groupBox1.Controls.Add(this.btnAddSalary);
             this.groupBox1.Controls.Add(this.txtID);
             this.groupBox1.Controls.Add(this.txtQuantity);
             this.groupBox1.Controls.Add(this.metroLabel2);
             this.groupBox1.Controls.Add(this.metroLabel1);
-            this.groupBox1.Location = new System.Drawing.Point(19, 30);
+            this.groupBox1.Location = new System.Drawing.Point(17, 20);
             this.groupBox1.Name = "groupBox1";
-            this.groupBox1.Size = new System.Drawing.Size(429, 449);
+            this.groupBox1.Size = new System.Drawing.Size(442, 477);
             this.groupBox1.TabIndex = 4;
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "Área de Salarios";
@@ -273,41 +240,41 @@
             this.dgvSalary.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.dgvSalary.CellBorderStyle = System.Windows.Forms.DataGridViewCellBorderStyle.None;
             this.dgvSalary.ColumnHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.None;
-            dataGridViewCellStyle4.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle4.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(174)))), ((int)(((byte)(219)))));
-            dataGridViewCellStyle4.Font = new System.Drawing.Font("Segoe UI", 11F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Pixel);
-            dataGridViewCellStyle4.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(255)))), ((int)(((byte)(255)))));
-            dataGridViewCellStyle4.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(198)))), ((int)(((byte)(247)))));
-            dataGridViewCellStyle4.SelectionForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(17)))), ((int)(((byte)(17)))), ((int)(((byte)(17)))));
-            dataGridViewCellStyle4.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.dgvSalary.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle4;
+            dataGridViewCellStyle22.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle22.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(174)))), ((int)(((byte)(219)))));
+            dataGridViewCellStyle22.Font = new System.Drawing.Font("Segoe UI", 11F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Pixel);
+            dataGridViewCellStyle22.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(255)))), ((int)(((byte)(255)))));
+            dataGridViewCellStyle22.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(198)))), ((int)(((byte)(247)))));
+            dataGridViewCellStyle22.SelectionForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(17)))), ((int)(((byte)(17)))), ((int)(((byte)(17)))));
+            dataGridViewCellStyle22.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.dgvSalary.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle22;
             this.dgvSalary.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            dataGridViewCellStyle5.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle5.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(255)))), ((int)(((byte)(255)))));
-            dataGridViewCellStyle5.Font = new System.Drawing.Font("Segoe UI", 11F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Pixel);
-            dataGridViewCellStyle5.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(136)))), ((int)(((byte)(136)))), ((int)(((byte)(136)))));
-            dataGridViewCellStyle5.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(198)))), ((int)(((byte)(247)))));
-            dataGridViewCellStyle5.SelectionForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(17)))), ((int)(((byte)(17)))), ((int)(((byte)(17)))));
-            dataGridViewCellStyle5.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
-            this.dgvSalary.DefaultCellStyle = dataGridViewCellStyle5;
+            dataGridViewCellStyle23.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle23.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(255)))), ((int)(((byte)(255)))));
+            dataGridViewCellStyle23.Font = new System.Drawing.Font("Segoe UI", 11F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Pixel);
+            dataGridViewCellStyle23.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(136)))), ((int)(((byte)(136)))), ((int)(((byte)(136)))));
+            dataGridViewCellStyle23.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(198)))), ((int)(((byte)(247)))));
+            dataGridViewCellStyle23.SelectionForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(17)))), ((int)(((byte)(17)))), ((int)(((byte)(17)))));
+            dataGridViewCellStyle23.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
+            this.dgvSalary.DefaultCellStyle = dataGridViewCellStyle23;
             this.dgvSalary.EnableHeadersVisualStyles = false;
             this.dgvSalary.Font = new System.Drawing.Font("Segoe UI", 11F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Pixel);
             this.dgvSalary.GridColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(255)))), ((int)(((byte)(255)))));
-            this.dgvSalary.Location = new System.Drawing.Point(62, 219);
+            this.dgvSalary.Location = new System.Drawing.Point(6, 153);
             this.dgvSalary.Name = "dgvSalary";
             this.dgvSalary.ReadOnly = true;
             this.dgvSalary.RowHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.None;
-            dataGridViewCellStyle6.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle6.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(174)))), ((int)(((byte)(219)))));
-            dataGridViewCellStyle6.Font = new System.Drawing.Font("Segoe UI", 11F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Pixel);
-            dataGridViewCellStyle6.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(255)))), ((int)(((byte)(255)))));
-            dataGridViewCellStyle6.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(198)))), ((int)(((byte)(247)))));
-            dataGridViewCellStyle6.SelectionForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(17)))), ((int)(((byte)(17)))), ((int)(((byte)(17)))));
-            dataGridViewCellStyle6.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.dgvSalary.RowHeadersDefaultCellStyle = dataGridViewCellStyle6;
+            dataGridViewCellStyle24.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle24.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(174)))), ((int)(((byte)(219)))));
+            dataGridViewCellStyle24.Font = new System.Drawing.Font("Segoe UI", 11F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Pixel);
+            dataGridViewCellStyle24.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(255)))), ((int)(((byte)(255)))));
+            dataGridViewCellStyle24.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(198)))), ((int)(((byte)(247)))));
+            dataGridViewCellStyle24.SelectionForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(17)))), ((int)(((byte)(17)))), ((int)(((byte)(17)))));
+            dataGridViewCellStyle24.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.dgvSalary.RowHeadersDefaultCellStyle = dataGridViewCellStyle24;
             this.dgvSalary.RowHeadersWidthSizeMode = System.Windows.Forms.DataGridViewRowHeadersWidthSizeMode.DisableResizing;
             this.dgvSalary.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.dgvSalary.Size = new System.Drawing.Size(309, 168);
+            this.dgvSalary.Size = new System.Drawing.Size(430, 289);
             this.dgvSalary.TabIndex = 8;
             this.dgvSalary.MouseClick += new System.Windows.Forms.MouseEventHandler(this.dgvSalary_MouseClick);
             // 
@@ -317,15 +284,16 @@
             // 
             // 
             this.txtSearchSalary.CustomButton.Image = null;
-            this.txtSearchSalary.CustomButton.Location = new System.Drawing.Point(125, 1);
+            this.txtSearchSalary.CustomButton.Location = new System.Drawing.Point(165, 1);
             this.txtSearchSalary.CustomButton.Name = "";
             this.txtSearchSalary.CustomButton.Size = new System.Drawing.Size(21, 21);
             this.txtSearchSalary.CustomButton.Style = MetroFramework.MetroColorStyle.Blue;
             this.txtSearchSalary.CustomButton.TabIndex = 1;
             this.txtSearchSalary.CustomButton.Theme = MetroFramework.MetroThemeStyle.Light;
             this.txtSearchSalary.CustomButton.UseSelectable = true;
+            this.txtSearchSalary.CustomButton.Visible = false;
             this.txtSearchSalary.Lines = new string[0];
-            this.txtSearchSalary.Location = new System.Drawing.Point(221, 190);
+            this.txtSearchSalary.Location = new System.Drawing.Point(249, 124);
             this.txtSearchSalary.MaxLength = 32767;
             this.txtSearchSalary.Name = "txtSearchSalary";
             this.txtSearchSalary.PasswordChar = '\0';
@@ -335,8 +303,7 @@
             this.txtSearchSalary.SelectionLength = 0;
             this.txtSearchSalary.SelectionStart = 0;
             this.txtSearchSalary.ShortcutsEnabled = true;
-            this.txtSearchSalary.ShowButton = true;
-            this.txtSearchSalary.Size = new System.Drawing.Size(147, 23);
+            this.txtSearchSalary.Size = new System.Drawing.Size(187, 23);
             this.txtSearchSalary.TabIndex = 6;
             this.txtSearchSalary.UseSelectable = true;
             this.txtSearchSalary.WaterMark = "Ingrese texto a buscar";
@@ -344,46 +311,13 @@
             this.txtSearchSalary.WaterMarkFont = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Pixel);
             this.txtSearchSalary.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtSearchSalary_KeyPress);
             // 
-            // btnDeleteSalary
-            // 
-            this.btnDeleteSalary.ActiveControl = null;
-            this.btnDeleteSalary.Location = new System.Drawing.Point(284, 393);
-            this.btnDeleteSalary.Name = "btnDeleteSalary";
-            this.btnDeleteSalary.Size = new System.Drawing.Size(87, 38);
-            this.btnDeleteSalary.TabIndex = 4;
-            this.btnDeleteSalary.Text = "Eliminar";
-            this.btnDeleteSalary.UseSelectable = true;
-            this.btnDeleteSalary.Click += new System.EventHandler(this.btnDeleteSalary_Click);
-            // 
-            // btnUpdateSalary
-            // 
-            this.btnUpdateSalary.ActiveControl = null;
-            this.btnUpdateSalary.Location = new System.Drawing.Point(315, 124);
-            this.btnUpdateSalary.Name = "btnUpdateSalary";
-            this.btnUpdateSalary.Size = new System.Drawing.Size(87, 38);
-            this.btnUpdateSalary.TabIndex = 4;
-            this.btnUpdateSalary.Text = "Modificar";
-            this.btnUpdateSalary.UseSelectable = true;
-            this.btnUpdateSalary.Click += new System.EventHandler(this.btnUpdateSalary_Click);
-            // 
-            // btnAddSalary
-            // 
-            this.btnAddSalary.ActiveControl = null;
-            this.btnAddSalary.Location = new System.Drawing.Point(315, 46);
-            this.btnAddSalary.Name = "btnAddSalary";
-            this.btnAddSalary.Size = new System.Drawing.Size(87, 38);
-            this.btnAddSalary.TabIndex = 4;
-            this.btnAddSalary.Text = "Agregar";
-            this.btnAddSalary.UseSelectable = true;
-            this.btnAddSalary.Click += new System.EventHandler(this.btnAddSalary_Click);
-            // 
             // txtID
             // 
             // 
             // 
             // 
             this.txtID.CustomButton.Image = null;
-            this.txtID.CustomButton.Location = new System.Drawing.Point(112, 1);
+            this.txtID.CustomButton.Location = new System.Drawing.Point(28, 1);
             this.txtID.CustomButton.Name = "";
             this.txtID.CustomButton.Size = new System.Drawing.Size(21, 21);
             this.txtID.CustomButton.Style = MetroFramework.MetroColorStyle.Blue;
@@ -392,7 +326,7 @@
             this.txtID.CustomButton.UseSelectable = true;
             this.txtID.CustomButton.Visible = false;
             this.txtID.Lines = new string[0];
-            this.txtID.Location = new System.Drawing.Point(112, 50);
+            this.txtID.Location = new System.Drawing.Point(112, 31);
             this.txtID.MaxLength = 32767;
             this.txtID.Name = "txtID";
             this.txtID.PasswordChar = '\0';
@@ -401,7 +335,7 @@
             this.txtID.SelectionLength = 0;
             this.txtID.SelectionStart = 0;
             this.txtID.ShortcutsEnabled = true;
-            this.txtID.Size = new System.Drawing.Size(134, 23);
+            this.txtID.Size = new System.Drawing.Size(50, 23);
             this.txtID.TabIndex = 3;
             this.txtID.UseSelectable = true;
             this.txtID.WaterMarkColor = System.Drawing.Color.FromArgb(((int)(((byte)(109)))), ((int)(((byte)(109)))), ((int)(((byte)(109)))));
@@ -413,7 +347,7 @@
             // 
             // 
             this.txtQuantity.CustomButton.Image = null;
-            this.txtQuantity.CustomButton.Location = new System.Drawing.Point(112, 1);
+            this.txtQuantity.CustomButton.Location = new System.Drawing.Point(302, 1);
             this.txtQuantity.CustomButton.Name = "";
             this.txtQuantity.CustomButton.Size = new System.Drawing.Size(21, 21);
             this.txtQuantity.CustomButton.Style = MetroFramework.MetroColorStyle.Blue;
@@ -422,7 +356,7 @@
             this.txtQuantity.CustomButton.UseSelectable = true;
             this.txtQuantity.CustomButton.Visible = false;
             this.txtQuantity.Lines = new string[0];
-            this.txtQuantity.Location = new System.Drawing.Point(112, 124);
+            this.txtQuantity.Location = new System.Drawing.Point(112, 80);
             this.txtQuantity.MaxLength = 32767;
             this.txtQuantity.Name = "txtQuantity";
             this.txtQuantity.PasswordChar = '\0';
@@ -431,7 +365,7 @@
             this.txtQuantity.SelectionLength = 0;
             this.txtQuantity.SelectionStart = 0;
             this.txtQuantity.ShortcutsEnabled = true;
-            this.txtQuantity.Size = new System.Drawing.Size(134, 23);
+            this.txtQuantity.Size = new System.Drawing.Size(324, 23);
             this.txtQuantity.TabIndex = 3;
             this.txtQuantity.UseSelectable = true;
             this.txtQuantity.WaterMarkColor = System.Drawing.Color.FromArgb(((int)(((byte)(109)))), ((int)(((byte)(109)))), ((int)(((byte)(109)))));
@@ -440,37 +374,96 @@
             // metroLabel2
             // 
             this.metroLabel2.AutoSize = true;
-            this.metroLabel2.Location = new System.Drawing.Point(31, 124);
+            this.metroLabel2.Location = new System.Drawing.Point(6, 80);
             this.metroLabel2.Name = "metroLabel2";
-            this.metroLabel2.Size = new System.Drawing.Size(65, 19);
+            this.metroLabel2.Size = new System.Drawing.Size(62, 19);
             this.metroLabel2.TabIndex = 1;
-            this.metroLabel2.Text = "Cantidad:";
+            this.metroLabel2.Text = "Cantidad";
             // 
             // metroLabel1
             // 
             this.metroLabel1.AutoSize = true;
-            this.metroLabel1.Location = new System.Drawing.Point(31, 50);
+            this.metroLabel1.Location = new System.Drawing.Point(6, 31);
             this.metroLabel1.Name = "metroLabel1";
-            this.metroLabel1.Size = new System.Drawing.Size(24, 19);
+            this.metroLabel1.Size = new System.Drawing.Size(20, 19);
             this.metroLabel1.TabIndex = 0;
-            this.metroLabel1.Text = "ID:";
+            this.metroLabel1.Text = "Id";
             // 
-            // btnCleanAll
+            // deleteSalaryButton
             // 
-            this.btnCleanAll.ActiveControl = null;
-            this.btnCleanAll.Location = new System.Drawing.Point(810, 495);
-            this.btnCleanAll.Name = "btnCleanAll";
-            this.btnCleanAll.Size = new System.Drawing.Size(126, 38);
-            this.btnCleanAll.TabIndex = 10;
-            this.btnCleanAll.Text = "Limpiar Campos";
-            this.btnCleanAll.UseSelectable = true;
-            this.btnCleanAll.Click += new System.EventHandler(this.btnCleanAll_Click);
+            this.deleteSalaryButton.Location = new System.Drawing.Point(361, 448);
+            this.deleteSalaryButton.Name = "deleteSalaryButton";
+            this.deleteSalaryButton.Size = new System.Drawing.Size(75, 23);
+            this.deleteSalaryButton.TabIndex = 9;
+            this.deleteSalaryButton.Text = "Eliminar";
+            this.deleteSalaryButton.UseSelectable = true;
+            this.deleteSalaryButton.Click += new System.EventHandler(this.deleteSalaryButton_Click);
+            // 
+            // createSalaryButton
+            // 
+            this.createSalaryButton.Location = new System.Drawing.Point(6, 124);
+            this.createSalaryButton.Name = "createSalaryButton";
+            this.createSalaryButton.Size = new System.Drawing.Size(75, 23);
+            this.createSalaryButton.TabIndex = 10;
+            this.createSalaryButton.Text = "Agregar";
+            this.createSalaryButton.UseSelectable = true;
+            this.createSalaryButton.Click += new System.EventHandler(this.createSalaryButton_Click);
+            // 
+            // updateSalaryButton
+            // 
+            this.updateSalaryButton.Location = new System.Drawing.Point(87, 124);
+            this.updateSalaryButton.Name = "updateSalaryButton";
+            this.updateSalaryButton.Size = new System.Drawing.Size(75, 23);
+            this.updateSalaryButton.TabIndex = 11;
+            this.updateSalaryButton.Text = "Modificar";
+            this.updateSalaryButton.UseSelectable = true;
+            this.updateSalaryButton.Click += new System.EventHandler(this.updateSalaryButton_Click);
+            // 
+            // createPositionButton
+            // 
+            this.createPositionButton.Location = new System.Drawing.Point(6, 124);
+            this.createPositionButton.Name = "createPositionButton";
+            this.createPositionButton.Size = new System.Drawing.Size(75, 23);
+            this.createPositionButton.TabIndex = 9;
+            this.createPositionButton.Text = "Agregar";
+            this.createPositionButton.UseSelectable = true;
+            this.createPositionButton.Click += new System.EventHandler(this.createPositionButton_Click);
+            // 
+            // updatePositionButton
+            // 
+            this.updatePositionButton.Location = new System.Drawing.Point(87, 124);
+            this.updatePositionButton.Name = "updatePositionButton";
+            this.updatePositionButton.Size = new System.Drawing.Size(75, 23);
+            this.updatePositionButton.TabIndex = 9;
+            this.updatePositionButton.Text = "Modificar";
+            this.updatePositionButton.UseSelectable = true;
+            this.updatePositionButton.Click += new System.EventHandler(this.updatePositionButton_Click);
+            // 
+            // deletePositionButton
+            // 
+            this.deletePositionButton.Location = new System.Drawing.Point(348, 448);
+            this.deletePositionButton.Name = "deletePositionButton";
+            this.deletePositionButton.Size = new System.Drawing.Size(75, 23);
+            this.deletePositionButton.TabIndex = 9;
+            this.deletePositionButton.Text = "Eliminar";
+            this.deletePositionButton.UseSelectable = true;
+            this.deletePositionButton.Click += new System.EventHandler(this.deletePositionButton_Click);
+            // 
+            // clearButton
+            // 
+            this.clearButton.Location = new System.Drawing.Point(859, 503);
+            this.clearButton.Name = "clearButton";
+            this.clearButton.Size = new System.Drawing.Size(75, 23);
+            this.clearButton.TabIndex = 9;
+            this.clearButton.Text = "Limpiar";
+            this.clearButton.UseSelectable = true;
+            this.clearButton.Click += new System.EventHandler(this.clearButton_Click);
             // 
             // UcPositionSalary
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.Controls.Add(this.btnCleanAll);
+            this.Controls.Add(this.clearButton);
             this.Controls.Add(this.groupBox2);
             this.Controls.Add(this.groupBox1);
             this.Name = "UcPositionSalary";
@@ -491,24 +484,24 @@
 
         private System.Windows.Forms.GroupBox groupBox2;
         private MetroFramework.Controls.MetroTextBox txtSearchPosition;
-        private MetroFramework.Controls.MetroTile btnUpdatePosition;
-        private MetroFramework.Controls.MetroTile btnDeletePosition;
-        private MetroFramework.Controls.MetroTile btnAddPosition;
         private MetroFramework.Controls.MetroTextBox txtNamePosition;
         private MetroFramework.Controls.MetroComboBox cmbSalary;
         private MetroFramework.Controls.MetroLabel metroLabel3;
         private MetroFramework.Controls.MetroLabel metroLabel4;
         private System.Windows.Forms.GroupBox groupBox1;
         private MetroFramework.Controls.MetroTextBox txtSearchSalary;
-        private MetroFramework.Controls.MetroTile btnDeleteSalary;
-        private MetroFramework.Controls.MetroTile btnUpdateSalary;
-        private MetroFramework.Controls.MetroTile btnAddSalary;
         private MetroFramework.Controls.MetroTextBox txtQuantity;
         private MetroFramework.Controls.MetroLabel metroLabel2;
         private MetroFramework.Controls.MetroLabel metroLabel1;
         private MetroFramework.Controls.MetroTextBox txtID;
         private MetroFramework.Controls.MetroGrid dgvPosition;
         private MetroFramework.Controls.MetroGrid dgvSalary;
-        private MetroFramework.Controls.MetroTile btnCleanAll;
+        private MetroFramework.Controls.MetroButton updateSalaryButton;
+        private MetroFramework.Controls.MetroButton createSalaryButton;
+        private MetroFramework.Controls.MetroButton deleteSalaryButton;
+        private MetroFramework.Controls.MetroButton clearButton;
+        private MetroFramework.Controls.MetroButton deletePositionButton;
+        private MetroFramework.Controls.MetroButton updatePositionButton;
+        private MetroFramework.Controls.MetroButton createPositionButton;
     }
 }

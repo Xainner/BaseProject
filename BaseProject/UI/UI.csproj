@@ -45,6 +45,7 @@
     </Reference>
     <Reference Include="System" />
     <Reference Include="System.Core" />
+    <Reference Include="System.Windows.Forms.DataVisualization" />
     <Reference Include="System.Xml.Linq" />
     <Reference Include="System.Data.DataSetExtensions" />
     <Reference Include="Microsoft.CSharp" />
@@ -70,12 +71,6 @@
     </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="UserControls\UcBrandSize.cs">
-      <SubType>UserControl</SubType>
-    </Compile>
-    <Compile Include="UserControls\UcBrandSize.Designer.cs">
-      <DependentUpon>UcBrandSize.cs</DependentUpon>
-    </Compile>
     <Compile Include="UserControls\UcBusiness.cs">
       <SubType>UserControl</SubType>
     </Compile>
@@ -158,9 +153,6 @@
       <AutoGen>True</AutoGen>
       <DependentUpon>Resources.resx</DependentUpon>
     </Compile>
-    <EmbeddedResource Include="UserControls\UcBrandSize.resx">
-      <DependentUpon>UcBrandSize.cs</DependentUpon>
-    </EmbeddedResource>
     <EmbeddedResource Include="UserControls\UcBusiness.resx">
       <DependentUpon>UcBusiness.cs</DependentUpon>
     </EmbeddedResource>
