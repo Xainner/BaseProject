@@ -36,6 +36,7 @@ namespace UI.UserControls
             txtWebPage.Text = " ";
             pbLogo.Image = null;
             file = string.Empty;
+            logo = null;
         }
 
         private void UcBusiness_Load(object sender, EventArgs e)
@@ -190,6 +191,7 @@ namespace UI.UserControls
         {
             try
             {
+                CleanBusiness();
                 txtFantasyName.Text = dgvBusiness.CurrentRow.Cells[1].Value.ToString();
                 txtSocietyName.Text = dgvBusiness.CurrentRow.Cells[2].Value.ToString();
                 txtlegalCertification.Text = dgvBusiness.CurrentRow.Cells[3].Value.ToString();
