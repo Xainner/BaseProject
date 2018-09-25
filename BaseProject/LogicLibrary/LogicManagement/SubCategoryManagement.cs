@@ -22,7 +22,7 @@ namespace LogicLibrary
             try
             {
                 string[] subCategory = new string[] { name, idCategory };
-                if (DataManagement.VerifyFields(subCategory))
+                if (ValidateData.VerifyFields(subCategory))
                 {
                     SubCategoryModel subCategoryModel = new SubCategoryModel()
                     {
@@ -49,7 +49,7 @@ namespace LogicLibrary
             try
             {
                 string[] subCategory = new string[] { idSubCategory, name };
-                if (DataManagement.VerifyFields(subCategory))
+                if (ValidateData.VerifyFields(subCategory))
                 {
                     SubCategoryModel subCategoryModel = new SubCategoryModel()
                     {
@@ -78,7 +78,7 @@ namespace LogicLibrary
             try
             {
                 string[] subCategory = new string[] { idSubCategory };
-                if (DataManagement.VerifyFields(subCategory))
+                if (ValidateData.VerifyFields(subCategory))
                 {
                     SubCategoryModel subCategoryModel = new SubCategoryModel()
                     {
@@ -108,7 +108,7 @@ namespace LogicLibrary
             try
             {
                 string[] subCategory = new string[] { idSubCategory };
-                if (DataManagement.VerifyFields(subCategory))
+                if (ValidateData.VerifyFields(subCategory))
                 {
                     SubCategoryModel subCategoryModel = new SubCategoryModel()
                     {

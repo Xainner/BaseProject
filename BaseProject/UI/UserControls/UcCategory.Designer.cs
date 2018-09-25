@@ -35,26 +35,26 @@
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle5 = new System.Windows.Forms.DataGridViewCellStyle();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle6 = new System.Windows.Forms.DataGridViewCellStyle();
             this.groupBox2 = new System.Windows.Forms.GroupBox();
+            this.deleteSubCategoryButton = new MetroFramework.Controls.MetroButton();
+            this.updateSubCategoryButton = new MetroFramework.Controls.MetroButton();
+            this.createSubCategoryButton = new MetroFramework.Controls.MetroButton();
             this.dgvSubCategory = new MetroFramework.Controls.MetroGrid();
             this.txtSearchSub = new MetroFramework.Controls.MetroTextBox();
-            this.btnUpdateSub = new MetroFramework.Controls.MetroTile();
-            this.btnDeleteSub = new MetroFramework.Controls.MetroTile();
-            this.btnAddSub = new MetroFramework.Controls.MetroTile();
             this.txtNameSub = new MetroFramework.Controls.MetroTextBox();
             this.cmbCategory = new MetroFramework.Controls.MetroComboBox();
             this.metroLabel3 = new MetroFramework.Controls.MetroLabel();
             this.metroLabel4 = new MetroFramework.Controls.MetroLabel();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
+            this.updateCategoryButton = new MetroFramework.Controls.MetroButton();
+            this.createCategoryButton = new MetroFramework.Controls.MetroButton();
+            this.deleteCategoryButton = new MetroFramework.Controls.MetroButton();
             this.dgvCategory = new MetroFramework.Controls.MetroGrid();
             this.txtSearchCategory = new MetroFramework.Controls.MetroTextBox();
-            this.btnDeleteCategory = new MetroFramework.Controls.MetroTile();
-            this.btnUpdateCategory = new MetroFramework.Controls.MetroTile();
-            this.btnAddCategory = new MetroFramework.Controls.MetroTile();
             this.txtIDCategory = new MetroFramework.Controls.MetroTextBox();
             this.txtNameCategory = new MetroFramework.Controls.MetroTextBox();
             this.metroLabel2 = new MetroFramework.Controls.MetroLabel();
             this.metroLabel1 = new MetroFramework.Controls.MetroLabel();
-            this.btnCleanAll = new MetroFramework.Controls.MetroTile();
+            this.clearButton = new MetroFramework.Controls.MetroButton();
             this.groupBox2.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgvSubCategory)).BeginInit();
             this.groupBox1.SuspendLayout();
@@ -63,21 +63,51 @@
             // 
             // groupBox2
             // 
+            this.groupBox2.Controls.Add(this.deleteSubCategoryButton);
+            this.groupBox2.Controls.Add(this.updateSubCategoryButton);
+            this.groupBox2.Controls.Add(this.createSubCategoryButton);
             this.groupBox2.Controls.Add(this.dgvSubCategory);
             this.groupBox2.Controls.Add(this.txtSearchSub);
-            this.groupBox2.Controls.Add(this.btnUpdateSub);
-            this.groupBox2.Controls.Add(this.btnDeleteSub);
-            this.groupBox2.Controls.Add(this.btnAddSub);
             this.groupBox2.Controls.Add(this.txtNameSub);
             this.groupBox2.Controls.Add(this.cmbCategory);
             this.groupBox2.Controls.Add(this.metroLabel3);
             this.groupBox2.Controls.Add(this.metroLabel4);
             this.groupBox2.Location = new System.Drawing.Point(505, 20);
             this.groupBox2.Name = "groupBox2";
-            this.groupBox2.Size = new System.Drawing.Size(429, 449);
+            this.groupBox2.Size = new System.Drawing.Size(429, 477);
             this.groupBox2.TabIndex = 1;
             this.groupBox2.TabStop = false;
-            this.groupBox2.Text = "Área de subcategorias";
+            this.groupBox2.Text = "Área de subcategorías";
+            // 
+            // deleteSubCategoryButton
+            // 
+            this.deleteSubCategoryButton.Location = new System.Drawing.Point(348, 448);
+            this.deleteSubCategoryButton.Name = "deleteSubCategoryButton";
+            this.deleteSubCategoryButton.Size = new System.Drawing.Size(75, 23);
+            this.deleteSubCategoryButton.TabIndex = 11;
+            this.deleteSubCategoryButton.Text = "Eliminar";
+            this.deleteSubCategoryButton.UseSelectable = true;
+            this.deleteSubCategoryButton.Click += new System.EventHandler(this.deleteSubCategoryButton_Click);
+            // 
+            // updateSubCategoryButton
+            // 
+            this.updateSubCategoryButton.Location = new System.Drawing.Point(87, 124);
+            this.updateSubCategoryButton.Name = "updateSubCategoryButton";
+            this.updateSubCategoryButton.Size = new System.Drawing.Size(75, 23);
+            this.updateSubCategoryButton.TabIndex = 10;
+            this.updateSubCategoryButton.Text = "Modificar";
+            this.updateSubCategoryButton.UseSelectable = true;
+            this.updateSubCategoryButton.Click += new System.EventHandler(this.updateSubCategoryButton_Click);
+            // 
+            // createSubCategoryButton
+            // 
+            this.createSubCategoryButton.Location = new System.Drawing.Point(6, 124);
+            this.createSubCategoryButton.Name = "createSubCategoryButton";
+            this.createSubCategoryButton.Size = new System.Drawing.Size(75, 23);
+            this.createSubCategoryButton.TabIndex = 9;
+            this.createSubCategoryButton.Text = "Agregar";
+            this.createSubCategoryButton.UseSelectable = true;
+            this.createSubCategoryButton.Click += new System.EventHandler(this.createSubCategoryButton_Click);
             // 
             // dgvSubCategory
             // 
@@ -106,7 +136,7 @@
             this.dgvSubCategory.EnableHeadersVisualStyles = false;
             this.dgvSubCategory.Font = new System.Drawing.Font("Segoe UI", 11F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Pixel);
             this.dgvSubCategory.GridColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(255)))), ((int)(((byte)(255)))));
-            this.dgvSubCategory.Location = new System.Drawing.Point(28, 228);
+            this.dgvSubCategory.Location = new System.Drawing.Point(6, 153);
             this.dgvSubCategory.Name = "dgvSubCategory";
             this.dgvSubCategory.RowHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.None;
             dataGridViewCellStyle3.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
@@ -119,7 +149,7 @@
             this.dgvSubCategory.RowHeadersDefaultCellStyle = dataGridViewCellStyle3;
             this.dgvSubCategory.RowHeadersWidthSizeMode = System.Windows.Forms.DataGridViewRowHeadersWidthSizeMode.DisableResizing;
             this.dgvSubCategory.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.dgvSubCategory.Size = new System.Drawing.Size(337, 150);
+            this.dgvSubCategory.Size = new System.Drawing.Size(417, 289);
             this.dgvSubCategory.TabIndex = 8;
             this.dgvSubCategory.MouseClick += new System.Windows.Forms.MouseEventHandler(this.dgvSubCategory_MouseClick);
             // 
@@ -129,15 +159,16 @@
             // 
             // 
             this.txtSearchSub.CustomButton.Image = null;
-            this.txtSearchSub.CustomButton.Location = new System.Drawing.Point(125, 1);
+            this.txtSearchSub.CustomButton.Location = new System.Drawing.Point(165, 1);
             this.txtSearchSub.CustomButton.Name = "";
             this.txtSearchSub.CustomButton.Size = new System.Drawing.Size(21, 21);
             this.txtSearchSub.CustomButton.Style = MetroFramework.MetroColorStyle.Blue;
             this.txtSearchSub.CustomButton.TabIndex = 1;
             this.txtSearchSub.CustomButton.Theme = MetroFramework.MetroThemeStyle.Light;
             this.txtSearchSub.CustomButton.UseSelectable = true;
+            this.txtSearchSub.CustomButton.Visible = false;
             this.txtSearchSub.Lines = new string[0];
-            this.txtSearchSub.Location = new System.Drawing.Point(218, 191);
+            this.txtSearchSub.Location = new System.Drawing.Point(236, 124);
             this.txtSearchSub.MaxLength = 32767;
             this.txtSearchSub.Name = "txtSearchSub";
             this.txtSearchSub.PasswordChar = '\0';
@@ -147,8 +178,7 @@
             this.txtSearchSub.SelectionLength = 0;
             this.txtSearchSub.SelectionStart = 0;
             this.txtSearchSub.ShortcutsEnabled = true;
-            this.txtSearchSub.ShowButton = true;
-            this.txtSearchSub.Size = new System.Drawing.Size(147, 23);
+            this.txtSearchSub.Size = new System.Drawing.Size(187, 23);
             this.txtSearchSub.TabIndex = 6;
             this.txtSearchSub.UseSelectable = true;
             this.txtSearchSub.WaterMark = "Ingrese texto a buscar";
@@ -156,46 +186,13 @@
             this.txtSearchSub.WaterMarkFont = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Pixel);
             this.txtSearchSub.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtSearchSub_KeyPress);
             // 
-            // btnUpdateSub
-            // 
-            this.btnUpdateSub.ActiveControl = null;
-            this.btnUpdateSub.Location = new System.Drawing.Point(315, 124);
-            this.btnUpdateSub.Name = "btnUpdateSub";
-            this.btnUpdateSub.Size = new System.Drawing.Size(87, 38);
-            this.btnUpdateSub.TabIndex = 4;
-            this.btnUpdateSub.Text = "Modificar";
-            this.btnUpdateSub.UseSelectable = true;
-            this.btnUpdateSub.Click += new System.EventHandler(this.btnUpdateSub_Click);
-            // 
-            // btnDeleteSub
-            // 
-            this.btnDeleteSub.ActiveControl = null;
-            this.btnDeleteSub.Location = new System.Drawing.Point(281, 394);
-            this.btnDeleteSub.Name = "btnDeleteSub";
-            this.btnDeleteSub.Size = new System.Drawing.Size(87, 38);
-            this.btnDeleteSub.TabIndex = 4;
-            this.btnDeleteSub.Text = "Eliminar";
-            this.btnDeleteSub.UseSelectable = true;
-            this.btnDeleteSub.Click += new System.EventHandler(this.btnDeleteSub_Click);
-            // 
-            // btnAddSub
-            // 
-            this.btnAddSub.ActiveControl = null;
-            this.btnAddSub.Location = new System.Drawing.Point(315, 46);
-            this.btnAddSub.Name = "btnAddSub";
-            this.btnAddSub.Size = new System.Drawing.Size(87, 38);
-            this.btnAddSub.TabIndex = 4;
-            this.btnAddSub.Text = "Agregar";
-            this.btnAddSub.UseSelectable = true;
-            this.btnAddSub.Click += new System.EventHandler(this.btnAddSub_Click);
-            // 
             // txtNameSub
             // 
             // 
             // 
             // 
             this.txtNameSub.CustomButton.Image = null;
-            this.txtNameSub.CustomButton.Location = new System.Drawing.Point(112, 1);
+            this.txtNameSub.CustomButton.Location = new System.Drawing.Point(293, 1);
             this.txtNameSub.CustomButton.Name = "";
             this.txtNameSub.CustomButton.Size = new System.Drawing.Size(21, 21);
             this.txtNameSub.CustomButton.Style = MetroFramework.MetroColorStyle.Blue;
@@ -204,7 +201,7 @@
             this.txtNameSub.CustomButton.UseSelectable = true;
             this.txtNameSub.CustomButton.Visible = false;
             this.txtNameSub.Lines = new string[0];
-            this.txtNameSub.Location = new System.Drawing.Point(126, 124);
+            this.txtNameSub.Location = new System.Drawing.Point(108, 84);
             this.txtNameSub.MaxLength = 32767;
             this.txtNameSub.Name = "txtNameSub";
             this.txtNameSub.PasswordChar = '\0';
@@ -213,7 +210,7 @@
             this.txtNameSub.SelectionLength = 0;
             this.txtNameSub.SelectionStart = 0;
             this.txtNameSub.ShortcutsEnabled = true;
-            this.txtNameSub.Size = new System.Drawing.Size(134, 23);
+            this.txtNameSub.Size = new System.Drawing.Size(315, 23);
             this.txtNameSub.TabIndex = 3;
             this.txtNameSub.UseSelectable = true;
             this.txtNameSub.WaterMarkColor = System.Drawing.Color.FromArgb(((int)(((byte)(109)))), ((int)(((byte)(109)))), ((int)(((byte)(109)))));
@@ -223,47 +220,77 @@
             // 
             this.cmbCategory.FormattingEnabled = true;
             this.cmbCategory.ItemHeight = 23;
-            this.cmbCategory.Location = new System.Drawing.Point(126, 46);
+            this.cmbCategory.Location = new System.Drawing.Point(108, 31);
             this.cmbCategory.Name = "cmbCategory";
-            this.cmbCategory.Size = new System.Drawing.Size(134, 29);
+            this.cmbCategory.Size = new System.Drawing.Size(315, 29);
             this.cmbCategory.TabIndex = 2;
             this.cmbCategory.UseSelectable = true;
             // 
             // metroLabel3
             // 
             this.metroLabel3.AutoSize = true;
-            this.metroLabel3.Location = new System.Drawing.Point(31, 124);
+            this.metroLabel3.Location = new System.Drawing.Point(6, 84);
             this.metroLabel3.Name = "metroLabel3";
-            this.metroLabel3.Size = new System.Drawing.Size(89, 19);
+            this.metroLabel3.Size = new System.Drawing.Size(86, 19);
             this.metroLabel3.TabIndex = 1;
-            this.metroLabel3.Text = "Subcategoria:";
+            this.metroLabel3.Text = "Subcategoría";
             // 
             // metroLabel4
             // 
             this.metroLabel4.AutoSize = true;
-            this.metroLabel4.Location = new System.Drawing.Point(31, 50);
+            this.metroLabel4.Location = new System.Drawing.Point(6, 31);
             this.metroLabel4.Name = "metroLabel4";
-            this.metroLabel4.Size = new System.Drawing.Size(70, 19);
+            this.metroLabel4.Size = new System.Drawing.Size(67, 19);
             this.metroLabel4.TabIndex = 0;
-            this.metroLabel4.Text = "Categoria:";
+            this.metroLabel4.Text = "Categoría";
             // 
             // groupBox1
             // 
+            this.groupBox1.Controls.Add(this.updateCategoryButton);
+            this.groupBox1.Controls.Add(this.createCategoryButton);
+            this.groupBox1.Controls.Add(this.deleteCategoryButton);
             this.groupBox1.Controls.Add(this.dgvCategory);
             this.groupBox1.Controls.Add(this.txtSearchCategory);
-            this.groupBox1.Controls.Add(this.btnDeleteCategory);
-            this.groupBox1.Controls.Add(this.btnUpdateCategory);
-            this.groupBox1.Controls.Add(this.btnAddCategory);
             this.groupBox1.Controls.Add(this.txtIDCategory);
             this.groupBox1.Controls.Add(this.txtNameCategory);
             this.groupBox1.Controls.Add(this.metroLabel2);
             this.groupBox1.Controls.Add(this.metroLabel1);
             this.groupBox1.Location = new System.Drawing.Point(17, 20);
             this.groupBox1.Name = "groupBox1";
-            this.groupBox1.Size = new System.Drawing.Size(429, 443);
+            this.groupBox1.Size = new System.Drawing.Size(442, 477);
             this.groupBox1.TabIndex = 2;
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "Área de categorias";
+            // 
+            // updateCategoryButton
+            // 
+            this.updateCategoryButton.Location = new System.Drawing.Point(87, 124);
+            this.updateCategoryButton.Name = "updateCategoryButton";
+            this.updateCategoryButton.Size = new System.Drawing.Size(75, 23);
+            this.updateCategoryButton.TabIndex = 11;
+            this.updateCategoryButton.Text = "Modificar";
+            this.updateCategoryButton.UseSelectable = true;
+            this.updateCategoryButton.Click += new System.EventHandler(this.updateCategoryButton_Click);
+            // 
+            // createCategoryButton
+            // 
+            this.createCategoryButton.Location = new System.Drawing.Point(6, 124);
+            this.createCategoryButton.Name = "createCategoryButton";
+            this.createCategoryButton.Size = new System.Drawing.Size(75, 23);
+            this.createCategoryButton.TabIndex = 10;
+            this.createCategoryButton.Text = "Agregar";
+            this.createCategoryButton.UseSelectable = true;
+            this.createCategoryButton.Click += new System.EventHandler(this.createCategoryButton_Click);
+            // 
+            // deleteCategoryButton
+            // 
+            this.deleteCategoryButton.Location = new System.Drawing.Point(361, 448);
+            this.deleteCategoryButton.Name = "deleteCategoryButton";
+            this.deleteCategoryButton.Size = new System.Drawing.Size(75, 23);
+            this.deleteCategoryButton.TabIndex = 9;
+            this.deleteCategoryButton.Text = "Eliminar";
+            this.deleteCategoryButton.UseSelectable = true;
+            this.deleteCategoryButton.Click += new System.EventHandler(this.deleteCategoryButton_Click);
             // 
             // dgvCategory
             // 
@@ -292,7 +319,7 @@
             this.dgvCategory.EnableHeadersVisualStyles = false;
             this.dgvCategory.Font = new System.Drawing.Font("Segoe UI", 11F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Pixel);
             this.dgvCategory.GridColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(255)))), ((int)(((byte)(255)))));
-            this.dgvCategory.Location = new System.Drawing.Point(35, 228);
+            this.dgvCategory.Location = new System.Drawing.Point(6, 153);
             this.dgvCategory.Name = "dgvCategory";
             this.dgvCategory.RowHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.None;
             dataGridViewCellStyle6.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
@@ -305,7 +332,7 @@
             this.dgvCategory.RowHeadersDefaultCellStyle = dataGridViewCellStyle6;
             this.dgvCategory.RowHeadersWidthSizeMode = System.Windows.Forms.DataGridViewRowHeadersWidthSizeMode.DisableResizing;
             this.dgvCategory.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.dgvCategory.Size = new System.Drawing.Size(337, 150);
+            this.dgvCategory.Size = new System.Drawing.Size(430, 289);
             this.dgvCategory.TabIndex = 8;
             this.dgvCategory.Click += new System.EventHandler(this.dgvCategory_Click);
             // 
@@ -315,15 +342,16 @@
             // 
             // 
             this.txtSearchCategory.CustomButton.Image = null;
-            this.txtSearchCategory.CustomButton.Location = new System.Drawing.Point(125, 1);
+            this.txtSearchCategory.CustomButton.Location = new System.Drawing.Point(165, 1);
             this.txtSearchCategory.CustomButton.Name = "";
             this.txtSearchCategory.CustomButton.Size = new System.Drawing.Size(21, 21);
             this.txtSearchCategory.CustomButton.Style = MetroFramework.MetroColorStyle.Blue;
             this.txtSearchCategory.CustomButton.TabIndex = 1;
             this.txtSearchCategory.CustomButton.Theme = MetroFramework.MetroThemeStyle.Light;
             this.txtSearchCategory.CustomButton.UseSelectable = true;
+            this.txtSearchCategory.CustomButton.Visible = false;
             this.txtSearchCategory.Lines = new string[0];
-            this.txtSearchCategory.Location = new System.Drawing.Point(222, 191);
+            this.txtSearchCategory.Location = new System.Drawing.Point(249, 124);
             this.txtSearchCategory.MaxLength = 32767;
             this.txtSearchCategory.Name = "txtSearchCategory";
             this.txtSearchCategory.PasswordChar = '\0';
@@ -333,8 +361,7 @@
             this.txtSearchCategory.SelectionLength = 0;
             this.txtSearchCategory.SelectionStart = 0;
             this.txtSearchCategory.ShortcutsEnabled = true;
-            this.txtSearchCategory.ShowButton = true;
-            this.txtSearchCategory.Size = new System.Drawing.Size(147, 23);
+            this.txtSearchCategory.Size = new System.Drawing.Size(187, 23);
             this.txtSearchCategory.TabIndex = 6;
             this.txtSearchCategory.UseSelectable = true;
             this.txtSearchCategory.WaterMark = "Ingrese texto a buscar";
@@ -342,46 +369,13 @@
             this.txtSearchCategory.WaterMarkFont = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Pixel);
             this.txtSearchCategory.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtSearchCategory_KeyPress);
             // 
-            // btnDeleteCategory
-            // 
-            this.btnDeleteCategory.ActiveControl = null;
-            this.btnDeleteCategory.Location = new System.Drawing.Point(285, 394);
-            this.btnDeleteCategory.Name = "btnDeleteCategory";
-            this.btnDeleteCategory.Size = new System.Drawing.Size(87, 38);
-            this.btnDeleteCategory.TabIndex = 4;
-            this.btnDeleteCategory.Text = "Eliminar";
-            this.btnDeleteCategory.UseSelectable = true;
-            this.btnDeleteCategory.Click += new System.EventHandler(this.btnDeleteCategory_Click);
-            // 
-            // btnUpdateCategory
-            // 
-            this.btnUpdateCategory.ActiveControl = null;
-            this.btnUpdateCategory.Location = new System.Drawing.Point(315, 124);
-            this.btnUpdateCategory.Name = "btnUpdateCategory";
-            this.btnUpdateCategory.Size = new System.Drawing.Size(87, 38);
-            this.btnUpdateCategory.TabIndex = 4;
-            this.btnUpdateCategory.Text = "Modificar";
-            this.btnUpdateCategory.UseSelectable = true;
-            this.btnUpdateCategory.Click += new System.EventHandler(this.btnUpdateCategory_Click);
-            // 
-            // btnAddCategory
-            // 
-            this.btnAddCategory.ActiveControl = null;
-            this.btnAddCategory.Location = new System.Drawing.Point(315, 46);
-            this.btnAddCategory.Name = "btnAddCategory";
-            this.btnAddCategory.Size = new System.Drawing.Size(87, 38);
-            this.btnAddCategory.TabIndex = 4;
-            this.btnAddCategory.Text = "Agregar";
-            this.btnAddCategory.UseSelectable = true;
-            this.btnAddCategory.Click += new System.EventHandler(this.btnAddCategory_Click);
-            // 
             // txtIDCategory
             // 
             // 
             // 
             // 
             this.txtIDCategory.CustomButton.Image = null;
-            this.txtIDCategory.CustomButton.Location = new System.Drawing.Point(112, 1);
+            this.txtIDCategory.CustomButton.Location = new System.Drawing.Point(28, 1);
             this.txtIDCategory.CustomButton.Name = "";
             this.txtIDCategory.CustomButton.Size = new System.Drawing.Size(21, 21);
             this.txtIDCategory.CustomButton.Style = MetroFramework.MetroColorStyle.Blue;
@@ -391,7 +385,7 @@
             this.txtIDCategory.CustomButton.Visible = false;
             this.txtIDCategory.Enabled = false;
             this.txtIDCategory.Lines = new string[0];
-            this.txtIDCategory.Location = new System.Drawing.Point(112, 46);
+            this.txtIDCategory.Location = new System.Drawing.Point(112, 31);
             this.txtIDCategory.MaxLength = 32767;
             this.txtIDCategory.Name = "txtIDCategory";
             this.txtIDCategory.PasswordChar = '\0';
@@ -400,7 +394,7 @@
             this.txtIDCategory.SelectionLength = 0;
             this.txtIDCategory.SelectionStart = 0;
             this.txtIDCategory.ShortcutsEnabled = true;
-            this.txtIDCategory.Size = new System.Drawing.Size(134, 23);
+            this.txtIDCategory.Size = new System.Drawing.Size(50, 23);
             this.txtIDCategory.TabIndex = 3;
             this.txtIDCategory.UseSelectable = true;
             this.txtIDCategory.WaterMarkColor = System.Drawing.Color.FromArgb(((int)(((byte)(109)))), ((int)(((byte)(109)))), ((int)(((byte)(109)))));
@@ -412,7 +406,7 @@
             // 
             // 
             this.txtNameCategory.CustomButton.Image = null;
-            this.txtNameCategory.CustomButton.Location = new System.Drawing.Point(112, 1);
+            this.txtNameCategory.CustomButton.Location = new System.Drawing.Point(302, 1);
             this.txtNameCategory.CustomButton.Name = "";
             this.txtNameCategory.CustomButton.Size = new System.Drawing.Size(21, 21);
             this.txtNameCategory.CustomButton.Style = MetroFramework.MetroColorStyle.Blue;
@@ -421,7 +415,7 @@
             this.txtNameCategory.CustomButton.UseSelectable = true;
             this.txtNameCategory.CustomButton.Visible = false;
             this.txtNameCategory.Lines = new string[0];
-            this.txtNameCategory.Location = new System.Drawing.Point(112, 124);
+            this.txtNameCategory.Location = new System.Drawing.Point(112, 80);
             this.txtNameCategory.MaxLength = 32767;
             this.txtNameCategory.Name = "txtNameCategory";
             this.txtNameCategory.PasswordChar = '\0';
@@ -430,7 +424,7 @@
             this.txtNameCategory.SelectionLength = 0;
             this.txtNameCategory.SelectionStart = 0;
             this.txtNameCategory.ShortcutsEnabled = true;
-            this.txtNameCategory.Size = new System.Drawing.Size(134, 23);
+            this.txtNameCategory.Size = new System.Drawing.Size(324, 23);
             this.txtNameCategory.TabIndex = 3;
             this.txtNameCategory.UseSelectable = true;
             this.txtNameCategory.WaterMarkColor = System.Drawing.Color.FromArgb(((int)(((byte)(109)))), ((int)(((byte)(109)))), ((int)(((byte)(109)))));
@@ -439,37 +433,36 @@
             // metroLabel2
             // 
             this.metroLabel2.AutoSize = true;
-            this.metroLabel2.Location = new System.Drawing.Point(31, 124);
+            this.metroLabel2.Location = new System.Drawing.Point(6, 88);
             this.metroLabel2.Name = "metroLabel2";
-            this.metroLabel2.Size = new System.Drawing.Size(70, 19);
+            this.metroLabel2.Size = new System.Drawing.Size(67, 19);
             this.metroLabel2.TabIndex = 1;
-            this.metroLabel2.Text = "Categoria:";
+            this.metroLabel2.Text = "Categoría";
             // 
             // metroLabel1
             // 
             this.metroLabel1.AutoSize = true;
-            this.metroLabel1.Location = new System.Drawing.Point(31, 50);
+            this.metroLabel1.Location = new System.Drawing.Point(6, 31);
             this.metroLabel1.Name = "metroLabel1";
-            this.metroLabel1.Size = new System.Drawing.Size(24, 19);
+            this.metroLabel1.Size = new System.Drawing.Size(20, 19);
             this.metroLabel1.TabIndex = 0;
-            this.metroLabel1.Text = "ID:";
+            this.metroLabel1.Text = "Id";
             // 
-            // btnCleanAll
+            // clearButton
             // 
-            this.btnCleanAll.ActiveControl = null;
-            this.btnCleanAll.Location = new System.Drawing.Point(808, 495);
-            this.btnCleanAll.Name = "btnCleanAll";
-            this.btnCleanAll.Size = new System.Drawing.Size(126, 38);
-            this.btnCleanAll.TabIndex = 9;
-            this.btnCleanAll.Text = "Limpiar Campos";
-            this.btnCleanAll.UseSelectable = true;
-            this.btnCleanAll.Click += new System.EventHandler(this.btnCleanAll_Click);
+            this.clearButton.Location = new System.Drawing.Point(859, 503);
+            this.clearButton.Name = "clearButton";
+            this.clearButton.Size = new System.Drawing.Size(75, 23);
+            this.clearButton.TabIndex = 10;
+            this.clearButton.Text = "Limpiar";
+            this.clearButton.UseSelectable = true;
+            this.clearButton.Click += new System.EventHandler(this.clearButton_Click);
             // 
             // UcCategory
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.Controls.Add(this.btnCleanAll);
+            this.Controls.Add(this.clearButton);
             this.Controls.Add(this.groupBox2);
             this.Controls.Add(this.groupBox1);
             this.Name = "UcCategory";
@@ -490,24 +483,24 @@
 
         private System.Windows.Forms.GroupBox groupBox2;
         private MetroFramework.Controls.MetroTextBox txtSearchSub;
-        private MetroFramework.Controls.MetroTile btnUpdateSub;
-        private MetroFramework.Controls.MetroTile btnDeleteSub;
-        private MetroFramework.Controls.MetroTile btnAddSub;
         private MetroFramework.Controls.MetroTextBox txtNameSub;
         private MetroFramework.Controls.MetroComboBox cmbCategory;
         private MetroFramework.Controls.MetroLabel metroLabel3;
         private MetroFramework.Controls.MetroLabel metroLabel4;
         private System.Windows.Forms.GroupBox groupBox1;
         private MetroFramework.Controls.MetroTextBox txtSearchCategory;
-        private MetroFramework.Controls.MetroTile btnDeleteCategory;
-        private MetroFramework.Controls.MetroTile btnUpdateCategory;
-        private MetroFramework.Controls.MetroTile btnAddCategory;
         private MetroFramework.Controls.MetroTextBox txtNameCategory;
         private MetroFramework.Controls.MetroLabel metroLabel2;
         private MetroFramework.Controls.MetroLabel metroLabel1;
         private MetroFramework.Controls.MetroGrid dgvSubCategory;
         private MetroFramework.Controls.MetroGrid dgvCategory;
         private MetroFramework.Controls.MetroTextBox txtIDCategory;
-        private MetroFramework.Controls.MetroTile btnCleanAll;
+        private MetroFramework.Controls.MetroButton deleteSubCategoryButton;
+        private MetroFramework.Controls.MetroButton updateSubCategoryButton;
+        private MetroFramework.Controls.MetroButton createSubCategoryButton;
+        private MetroFramework.Controls.MetroButton updateCategoryButton;
+        private MetroFramework.Controls.MetroButton createCategoryButton;
+        private MetroFramework.Controls.MetroButton deleteCategoryButton;
+        private MetroFramework.Controls.MetroButton clearButton;
     }
 }

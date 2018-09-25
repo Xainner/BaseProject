@@ -65,7 +65,7 @@ namespace LogicLibrary
                     subTotal,
                     total
                 };
-                if (DataManagement.VerifyFields(internalSell))
+                if (ValidateData.VerifyFields(internalSell))
                 {
                     InternalSellinvoiceModel internalSellinvoiceModel = new InternalSellinvoiceModel()
                     {
@@ -156,7 +156,7 @@ namespace LogicLibrary
                     subTotal,
                     total
                 };
-                if (DataManagement.VerifyFields(internalSell))
+                if (ValidateData.VerifyFields(internalSell))
                 {
                     InternalSellinvoiceModel internalSellinvoiceModel = new InternalSellinvoiceModel()
                     {
@@ -200,7 +200,7 @@ namespace LogicLibrary
             try
             {
                 string[] internalSell = new string[] { idInternalSellinvoice };
-                if (DataManagement.VerifyFields(internalSell))
+                if (ValidateData.VerifyFields(internalSell))
                 {
                     InternalSellinvoiceModel internalSellinvoiceModel = new InternalSellinvoiceModel()
                     {
@@ -234,7 +234,7 @@ namespace LogicLibrary
                 {
                     IdSellinvoice = int.Parse(idInternalSellinvoice)
                 };
-                if (DataManagement.VerifyFields(internalSell))
+                if (ValidateData.VerifyFields(internalSell))
                 {
                     return InternalSellinvoiceConnection.SelectInternalSellinvoice(internalSellinvoiceModel);
                 }

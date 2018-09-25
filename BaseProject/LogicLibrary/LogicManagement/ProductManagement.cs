@@ -30,19 +30,20 @@ namespace LogicLibrary
         /// <param name="size"></param>
         /// <returns></returns>
         public static bool InsertProduct(
-            string code, 
-            string style, 
-            string idBrand, 
-            string description, 
-            string idCategory, 
+            string code,
+            string style,
+            string idBrand,
+            string description,
+            string idCategory,
             string idSubCategory,
             string normalPrice,
-            string lowerPrice, 
-            string estableQuantity, 
-            string variableQuantity, 
+            string lowerPrice,
+            string estableQuantity,
+            string variableQuantity,
             byte[] image,
             string ivi,
-            string existingInvoice
+            string existingInvoice,
+            string size
         )
         {
             try
@@ -59,9 +60,10 @@ namespace LogicLibrary
                     estableQuantity,
                     variableQuantity,
                     ivi,
-                    existingInvoice
+                    existingInvoice,
+                    size
                 };
-                if (DataManagement.VerifyFields(Product))
+                if (ValidateData.VerifyFields(Product))
                 {
                     bool newIvi = true;
                     if (ivi == "0")
@@ -124,19 +126,20 @@ namespace LogicLibrary
         /// <param name="size"></param>
         /// <returns></returns>
         public static bool UpdateProductById(
-            string idProduct, 
-            string code, string style, 
-            string idBrand, 
+            string idProduct,
+            string code, string style,
+            string idBrand,
             string description,
-            string idCategory, 
+            string idCategory,
             string idSubCategory,
-            string normalPrice, 
-            string lowerPrice, 
+            string normalPrice,
+            string lowerPrice,
             string estableQuantity,
-            string variableQuantity, 
+            string variableQuantity,
             byte[] image,
-            string ivi, 
-            string existingInvoice 
+            string ivi,
+            string existingInvoice,
+            string size
         )
         {
             try
@@ -153,9 +156,10 @@ namespace LogicLibrary
                     estableQuantity,
                     variableQuantity,
                     ivi,
-                    existingInvoice
+                    existingInvoice,
+                    size
                 };
-                if (DataManagement.VerifyFields(product))
+                if (ValidateData.VerifyFields(product))
                 {
                     bool newIvi = true;
                     if (ivi == "0")
@@ -209,7 +213,7 @@ namespace LogicLibrary
             try
             {
                 string[] product = new string[] { idProduct };
-                if (DataManagement.VerifyFields(product))
+                if (ValidateData.VerifyFields(product))
                 {
                     ProductModel productModel = new ProductModel()
                     {
@@ -239,7 +243,7 @@ namespace LogicLibrary
             try
             {
                 string[] product = new string[] { idProduct };
-                if (DataManagement.VerifyFields(product))
+                if (ValidateData.VerifyFields(product))
                 {
                     ProductModel productModel = new ProductModel()
                     {
@@ -270,7 +274,7 @@ namespace LogicLibrary
             try
             {
                 string[] product = new string[] { code };
-                if (DataManagement.VerifyFields(product))
+                if (ValidateData.VerifyFields(product))
                 {
                     ProductModel productModel = new ProductModel()
                     {
@@ -302,7 +306,7 @@ namespace LogicLibrary
             try
             {
                 string[] product = new string[] { style };
-                if (DataManagement.VerifyFields(product))
+                if (ValidateData.VerifyFields(product))
                 {
                     ProductModel productModel = new ProductModel()
                     {
@@ -334,7 +338,7 @@ namespace LogicLibrary
             try
             {
                 string[] product = new string[] { idBrand };
-                if (DataManagement.VerifyFields(product))
+                if (ValidateData.VerifyFields(product))
                 {
                     ProductModel productModel = new ProductModel()
                     {
@@ -366,7 +370,7 @@ namespace LogicLibrary
             try
             {
                 string[] product = new string[] { idCategory };
-                if (DataManagement.VerifyFields(product))
+                if (ValidateData.VerifyFields(product))
                 {
                     ProductModel productModel = new ProductModel()
                     {
@@ -397,7 +401,7 @@ namespace LogicLibrary
             try
             {
                 string[] product = new string[] { description };
-                if (DataManagement.VerifyFields(product))
+                if (ValidateData.VerifyFields(product))
                 {
                     ProductModel productModel = new ProductModel()
                     {

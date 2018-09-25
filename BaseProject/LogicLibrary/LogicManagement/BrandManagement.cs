@@ -15,12 +15,12 @@ namespace LogicLibrary
         /// </summary>
         /// <param name="name"></param>
         /// <returns></returns>
-        public static bool InsertBusiness(string name)
+        public static bool InsertBrand(string name)
         {
             try
             {
                 string[] brand = new string[] { name };
-                if (DataManagement.VerifyFields(brand))
+                if (ValidateData.VerifyFields(brand))
                 {
                     BrandModel brandModel = new BrandModel()
                     {
@@ -51,7 +51,7 @@ namespace LogicLibrary
             try
             {
                 string[] brand = new string[] { idBrand, name };
-                if (DataManagement.VerifyFields(brand))
+                if (ValidateData.VerifyFields(brand))
                 {
                     BrandModel brandModel = new BrandModel()
                     {
@@ -82,7 +82,7 @@ namespace LogicLibrary
             try
             {
                 string[] brand = new string[] { idBrand };
-                if (DataManagement.VerifyFields(brand))
+                if (ValidateData.VerifyFields(brand))
                 {
                     BrandModel brandModel = new BrandModel()
                     {
@@ -112,7 +112,7 @@ namespace LogicLibrary
             try
             {
                 string[] brand = new string[] { idBrand };
-                if (DataManagement.VerifyFields(brand))
+                if (ValidateData.VerifyFields(brand))
                 {
                     BrandModel brandModel = new BrandModel()
                     {
@@ -137,7 +137,7 @@ namespace LogicLibrary
             try
             {
                 string[] brand = new string[] { name };
-                if (DataManagement.VerifyFields(brand))
+                if (ValidateData.VerifyFields(brand))
                 {
                     BrandModel brandModel = new BrandModel()
                     {

@@ -50,14 +50,22 @@
             this.txtSearchClient = new MetroFramework.Controls.MetroTextBox();
             this.dgvClient = new MetroFramework.Controls.MetroGrid();
             this.btnClean = new MetroFramework.Controls.MetroTile();
+            this.metroButton1 = new MetroFramework.Controls.MetroButton();
+            this.metroButton2 = new MetroFramework.Controls.MetroButton();
+            this.metroButton3 = new MetroFramework.Controls.MetroButton();
+            this.metroButton4 = new MetroFramework.Controls.MetroButton();
             this.groupBox1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgvClient)).BeginInit();
             this.SuspendLayout();
             // 
             // groupBox1
             // 
+            this.groupBox1.Controls.Add(this.btnClean);
             this.groupBox1.Controls.Add(this.txtEmailClient);
+            this.groupBox1.Controls.Add(this.btnDeleteClient);
             this.groupBox1.Controls.Add(this.metroLabel2);
+            this.groupBox1.Controls.Add(this.btnAddClient);
+            this.groupBox1.Controls.Add(this.btnUpdateClient);
             this.groupBox1.Controls.Add(this.metroLabel3);
             this.groupBox1.Controls.Add(this.metroLabel6);
             this.groupBox1.Controls.Add(this.txtNameClient);
@@ -68,9 +76,9 @@
             this.groupBox1.Controls.Add(this.cmbIdentificationType);
             this.groupBox1.Controls.Add(this.metroLabel5);
             this.groupBox1.Controls.Add(this.metroLabel7);
-            this.groupBox1.Location = new System.Drawing.Point(43, 17);
+            this.groupBox1.Location = new System.Drawing.Point(17, 17);
             this.groupBox1.Name = "groupBox1";
-            this.groupBox1.Size = new System.Drawing.Size(709, 189);
+            this.groupBox1.Size = new System.Drawing.Size(918, 189);
             this.groupBox1.TabIndex = 29;
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "Información del Cliente";
@@ -110,27 +118,27 @@
             this.metroLabel2.AutoSize = true;
             this.metroLabel2.Location = new System.Drawing.Point(23, 27);
             this.metroLabel2.Name = "metroLabel2";
-            this.metroLabel2.Size = new System.Drawing.Size(48, 19);
+            this.metroLabel2.Size = new System.Drawing.Size(59, 19);
             this.metroLabel2.TabIndex = 1;
-            this.metroLabel2.Text = "Name:";
+            this.metroLabel2.Text = "Nombre";
             // 
             // metroLabel3
             // 
             this.metroLabel3.AutoSize = true;
             this.metroLabel3.Location = new System.Drawing.Point(23, 76);
             this.metroLabel3.Name = "metroLabel3";
-            this.metroLabel3.Size = new System.Drawing.Size(61, 19);
+            this.metroLabel3.Size = new System.Drawing.Size(63, 19);
             this.metroLabel3.TabIndex = 2;
-            this.metroLabel3.Text = "Apellido:";
+            this.metroLabel3.Text = "Apellidos";
             // 
             // metroLabel6
             // 
             this.metroLabel6.AutoSize = true;
             this.metroLabel6.Location = new System.Drawing.Point(23, 120);
             this.metroLabel6.Name = "metroLabel6";
-            this.metroLabel6.Size = new System.Drawing.Size(50, 19);
+            this.metroLabel6.Size = new System.Drawing.Size(47, 19);
             this.metroLabel6.TabIndex = 5;
-            this.metroLabel6.Text = "E-mail:";
+            this.metroLabel6.Text = "E-mail";
             // 
             // txtNameClient
             // 
@@ -236,9 +244,9 @@
             this.metroLabel4.AutoSize = true;
             this.metroLabel4.Location = new System.Drawing.Point(302, 31);
             this.metroLabel4.Name = "metroLabel4";
-            this.metroLabel4.Size = new System.Drawing.Size(118, 19);
+            this.metroLabel4.Size = new System.Drawing.Size(134, 19);
             this.metroLabel4.TabIndex = 3;
-            this.metroLabel4.Text = "Tipo Identificación:";
+            this.metroLabel4.Text = "Tipo de identificación";
             // 
             // cmbIdentificationType
             // 
@@ -261,9 +269,9 @@
             this.metroLabel5.AutoSize = true;
             this.metroLabel5.Location = new System.Drawing.Point(302, 80);
             this.metroLabel5.Name = "metroLabel5";
-            this.metroLabel5.Size = new System.Drawing.Size(88, 19);
+            this.metroLabel5.Size = new System.Drawing.Size(85, 19);
             this.metroLabel5.TabIndex = 4;
-            this.metroLabel5.Text = "Identificación:";
+            this.metroLabel5.Text = "Identificación";
             // 
             // metroLabel7
             // 
@@ -277,7 +285,7 @@
             // btnDeleteClient
             // 
             this.btnDeleteClient.ActiveControl = null;
-            this.btnDeleteClient.Location = new System.Drawing.Point(643, 481);
+            this.btnDeleteClient.Location = new System.Drawing.Point(333, 102);
             this.btnDeleteClient.Name = "btnDeleteClient";
             this.btnDeleteClient.Size = new System.Drawing.Size(83, 42);
             this.btnDeleteClient.TabIndex = 27;
@@ -288,7 +296,7 @@
             // btnUpdateClient
             // 
             this.btnUpdateClient.ActiveControl = null;
-            this.btnUpdateClient.Location = new System.Drawing.Point(816, 97);
+            this.btnUpdateClient.Location = new System.Drawing.Point(571, 96);
             this.btnUpdateClient.Name = "btnUpdateClient";
             this.btnUpdateClient.Size = new System.Drawing.Size(83, 43);
             this.btnUpdateClient.TabIndex = 26;
@@ -299,7 +307,7 @@
             // btnAddClient
             // 
             this.btnAddClient.ActiveControl = null;
-            this.btnAddClient.Location = new System.Drawing.Point(816, 35);
+            this.btnAddClient.Location = new System.Drawing.Point(253, 53);
             this.btnAddClient.Name = "btnAddClient";
             this.btnAddClient.Size = new System.Drawing.Size(83, 42);
             this.btnAddClient.TabIndex = 25;
@@ -313,15 +321,16 @@
             // 
             // 
             this.txtSearchClient.CustomButton.Image = null;
-            this.txtSearchClient.CustomButton.Location = new System.Drawing.Point(143, 1);
+            this.txtSearchClient.CustomButton.Location = new System.Drawing.Point(165, 1);
             this.txtSearchClient.CustomButton.Name = "";
             this.txtSearchClient.CustomButton.Size = new System.Drawing.Size(21, 21);
             this.txtSearchClient.CustomButton.Style = MetroFramework.MetroColorStyle.Blue;
             this.txtSearchClient.CustomButton.TabIndex = 1;
             this.txtSearchClient.CustomButton.Theme = MetroFramework.MetroThemeStyle.Light;
             this.txtSearchClient.CustomButton.UseSelectable = true;
+            this.txtSearchClient.CustomButton.Visible = false;
             this.txtSearchClient.Lines = new string[0];
-            this.txtSearchClient.Location = new System.Drawing.Point(561, 223);
+            this.txtSearchClient.Location = new System.Drawing.Point(748, 212);
             this.txtSearchClient.MaxLength = 32767;
             this.txtSearchClient.Name = "txtSearchClient";
             this.txtSearchClient.PasswordChar = '\0';
@@ -331,8 +340,7 @@
             this.txtSearchClient.SelectionLength = 0;
             this.txtSearchClient.SelectionStart = 0;
             this.txtSearchClient.ShortcutsEnabled = true;
-            this.txtSearchClient.ShowButton = true;
-            this.txtSearchClient.Size = new System.Drawing.Size(165, 23);
+            this.txtSearchClient.Size = new System.Drawing.Size(187, 23);
             this.txtSearchClient.TabIndex = 23;
             this.txtSearchClient.UseSelectable = true;
             this.txtSearchClient.WaterMark = "Ingrese texto a buscar";
@@ -368,7 +376,7 @@
             this.dgvClient.EnableHeadersVisualStyles = false;
             this.dgvClient.Font = new System.Drawing.Font("Segoe UI", 11F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Pixel);
             this.dgvClient.GridColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(255)))), ((int)(((byte)(255)))));
-            this.dgvClient.Location = new System.Drawing.Point(117, 252);
+            this.dgvClient.Location = new System.Drawing.Point(17, 241);
             this.dgvClient.Name = "dgvClient";
             this.dgvClient.ReadOnly = true;
             this.dgvClient.RowHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.None;
@@ -382,14 +390,14 @@
             this.dgvClient.RowHeadersDefaultCellStyle = dataGridViewCellStyle3;
             this.dgvClient.RowHeadersWidthSizeMode = System.Windows.Forms.DataGridViewRowHeadersWidthSizeMode.DisableResizing;
             this.dgvClient.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.dgvClient.Size = new System.Drawing.Size(609, 223);
+            this.dgvClient.Size = new System.Drawing.Size(918, 280);
             this.dgvClient.TabIndex = 30;
             this.dgvClient.MouseClick += new System.Windows.Forms.MouseEventHandler(this.dgvClient_MouseClick);
             // 
             // btnClean
             // 
             this.btnClean.ActiveControl = null;
-            this.btnClean.Location = new System.Drawing.Point(816, 164);
+            this.btnClean.Location = new System.Drawing.Point(484, 147);
             this.btnClean.Name = "btnClean";
             this.btnClean.Size = new System.Drawing.Size(83, 42);
             this.btnClean.TabIndex = 31;
@@ -397,16 +405,52 @@
             this.btnClean.UseSelectable = true;
             this.btnClean.Click += new System.EventHandler(this.btnClean_Click);
             // 
+            // metroButton1
+            // 
+            this.metroButton1.Location = new System.Drawing.Point(26, 212);
+            this.metroButton1.Name = "metroButton1";
+            this.metroButton1.Size = new System.Drawing.Size(75, 23);
+            this.metroButton1.TabIndex = 31;
+            this.metroButton1.Text = "Agregar";
+            this.metroButton1.UseSelectable = true;
+            // 
+            // metroButton2
+            // 
+            this.metroButton2.Location = new System.Drawing.Point(110, 212);
+            this.metroButton2.Name = "metroButton2";
+            this.metroButton2.Size = new System.Drawing.Size(75, 23);
+            this.metroButton2.TabIndex = 31;
+            this.metroButton2.Text = "Modificar";
+            this.metroButton2.UseSelectable = true;
+            // 
+            // metroButton3
+            // 
+            this.metroButton3.Location = new System.Drawing.Point(278, 212);
+            this.metroButton3.Name = "metroButton3";
+            this.metroButton3.Size = new System.Drawing.Size(75, 23);
+            this.metroButton3.TabIndex = 31;
+            this.metroButton3.Text = "Eliminar";
+            this.metroButton3.UseSelectable = true;
+            // 
+            // metroButton4
+            // 
+            this.metroButton4.Location = new System.Drawing.Point(362, 212);
+            this.metroButton4.Name = "metroButton4";
+            this.metroButton4.Size = new System.Drawing.Size(75, 23);
+            this.metroButton4.TabIndex = 31;
+            this.metroButton4.Text = "Limpiar";
+            this.metroButton4.UseSelectable = true;
+            // 
             // UcClient
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.Controls.Add(this.btnClean);
+            this.Controls.Add(this.metroButton4);
+            this.Controls.Add(this.metroButton2);
+            this.Controls.Add(this.metroButton3);
+            this.Controls.Add(this.metroButton1);
             this.Controls.Add(this.dgvClient);
             this.Controls.Add(this.groupBox1);
-            this.Controls.Add(this.btnDeleteClient);
-            this.Controls.Add(this.btnUpdateClient);
-            this.Controls.Add(this.btnAddClient);
             this.Controls.Add(this.txtSearchClient);
             this.Name = "UcClient";
             this.Size = new System.Drawing.Size(955, 536);
@@ -440,5 +484,9 @@
         private MetroFramework.Controls.MetroTextBox txtSearchClient;
         private MetroFramework.Controls.MetroGrid dgvClient;
         private MetroFramework.Controls.MetroTile btnClean;
+        private MetroFramework.Controls.MetroButton metroButton1;
+        private MetroFramework.Controls.MetroButton metroButton2;
+        private MetroFramework.Controls.MetroButton metroButton3;
+        private MetroFramework.Controls.MetroButton metroButton4;
     }
 }

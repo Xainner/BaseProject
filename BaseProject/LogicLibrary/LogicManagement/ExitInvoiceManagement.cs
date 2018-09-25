@@ -23,7 +23,7 @@ namespace LogicLibrary
             try
             {
                 string[] exitInvoice = new string[] { idBusiness, date, destiny };
-                if (DataManagement.VerifyFields(exitInvoice))
+                if (ValidateData.VerifyFields(exitInvoice))
                 {
                     ExitInvoiceModel exitInvoiceModel = new ExitInvoiceModel()
                     {
@@ -59,7 +59,7 @@ namespace LogicLibrary
             try
             {
                 string[] exitInvoice = new string[] { idExitInvoice, idBusiness, date, destiny };
-                if (DataManagement.VerifyFields(exitInvoice))
+                if (ValidateData.VerifyFields(exitInvoice))
                 {
                     ExitInvoiceModel exitInvoiceModel = new ExitInvoiceModel()
                     {
@@ -92,7 +92,7 @@ namespace LogicLibrary
             try
             {
                 string[] exitInvoice = new string[] { idExitInvoice };
-                if (DataManagement.VerifyFields(exitInvoice))
+                if (ValidateData.VerifyFields(exitInvoice))
                 {
                     ExitInvoiceModel exitInvoiceModel = new ExitInvoiceModel()
                     {
@@ -122,7 +122,7 @@ namespace LogicLibrary
             try
             {
                 string[] exitInvoice = new string[] { idExitInvoice };
-                if (DataManagement.VerifyFields(exitInvoice))
+                if (ValidateData.VerifyFields(exitInvoice))
                 {
                     ExitInvoiceModel exitInvoiceModel = new ExitInvoiceModel()
                     {

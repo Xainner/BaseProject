@@ -21,7 +21,7 @@ namespace LogicLibrary
             try
             {
                 string[] position = new string[] { positionName, idSalary };
-                if (DataManagement.VerifyFields(position))
+                if (ValidateData.VerifyFields(position))
                 {
                     PositionModel positionModel = new PositionModel()
                     {
@@ -54,7 +54,7 @@ namespace LogicLibrary
             try
             {
                 string[] position = new string[] { idPosition, positionName };
-                if (DataManagement.VerifyFields(position))
+                if (ValidateData.VerifyFields(position))
                 {
                     PositionModel positionModel = new PositionModel()
                     {
@@ -86,7 +86,7 @@ namespace LogicLibrary
             try
             {
                 string[] position = new string[] { idPosition };
-                if (DataManagement.VerifyFields(position))
+                if (ValidateData.VerifyFields(position))
                 {
                     PositionModel positionModel = new PositionModel()
                     {
@@ -116,7 +116,7 @@ namespace LogicLibrary
             try
             {
                 string[] position = new string[] { idPosition };
-                if (DataManagement.VerifyFields(position))
+                if (ValidateData.VerifyFields(position))
                 {
                     PositionModel positionModel = new PositionModel()
                     {

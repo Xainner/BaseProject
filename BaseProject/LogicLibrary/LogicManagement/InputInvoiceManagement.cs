@@ -23,7 +23,7 @@ namespace LogicLibrary
             try
             {
                 string[] inputInvoice = new string[] { date, provider };
-                if (DataManagement.VerifyFields(inputInvoice))
+                if (ValidateData.VerifyFields(inputInvoice))
                 {
                     InputInvoiceModel inputInvoiceModel = new InputInvoiceModel()
                     {
@@ -57,7 +57,7 @@ namespace LogicLibrary
             try
             {
                 string[] inputInvoice = new string[] { idInputInvoice, date, provider };
-                if (DataManagement.VerifyFields(inputInvoice))
+                if (ValidateData.VerifyFields(inputInvoice))
                 {
                     InputInvoiceModel inputInvoiceModel = new InputInvoiceModel()
                     {
@@ -89,7 +89,7 @@ namespace LogicLibrary
             try
             {
                 string[] inputInvoice = new string[] { idInputInvoice };
-                if (DataManagement.VerifyFields(inputInvoice))
+                if (ValidateData.VerifyFields(inputInvoice))
                 {
                     InputInvoiceModel inputInvoiceModel = new InputInvoiceModel()
                     {
@@ -120,7 +120,7 @@ namespace LogicLibrary
             try
             {
                 string[] inputInvoice = new string[] { idInputInvoice };
-                if (DataManagement.VerifyFields(inputInvoice))
+                if (ValidateData.VerifyFields(inputInvoice))
                 {
                     InputInvoiceModel inputInvoiceModel = new InputInvoiceModel()
                     {

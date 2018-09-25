@@ -1,10 +1,8 @@
-﻿using BusinessLibrary.DataManagement;
+﻿
+using BusinessLibrary.Connection;
 using ModelLibrary.Models;
 using System;
 using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace LogicLibrary
 {
@@ -24,8 +22,8 @@ namespace LogicLibrary
         {
             try
             {
-                string[] client = new string[] { name, lastName, id, idType, email, bornDate };
-                if (DataManagement.VerifyFields(client))
+                string[] client = new string[] { name, lastName, id, idType };
+                if (ValidateData.VerifyFields(client))
                 {
                     ClientModel clientModel = new ClientModel()
                     {
@@ -66,7 +64,7 @@ namespace LogicLibrary
             try
             {
                 string[] client = new string[] { idClient, name, lastName, id, idType, email, bornDate };
-                if (DataManagement.VerifyFields(client))
+                if (ValidateData.VerifyFields(client))
                 {
                     ClientModel clientModel = new ClientModel()
                     {
@@ -102,7 +100,7 @@ namespace LogicLibrary
             try
             {
                 string[] client = new string[] { idClient };
-                if (DataManagement.VerifyFields(client))
+                if (ValidateData.VerifyFields(client))
                 {
                     ClientModel clientModel = new ClientModel()
                     {
@@ -132,14 +130,14 @@ namespace LogicLibrary
             try
             {
                 string[] client = new string[] { idClient };
-                if (DataManagement.VerifyFields(client))
+                if (ValidateData.VerifyFields(client))
                 {
                     ClientModel clientModel = new ClientModel()
                     {
                         IdClient = int.Parse(idClient)
                     };
                     //return ClientConnection.SelectClient(clientModel);}
-                    return null; 
+                    return null;
                 }
                 else
                 {
@@ -163,7 +161,7 @@ namespace LogicLibrary
             try
             {
                 string[] client = new string[] { toSearch };
-                if (DataManagement.VerifyFields(client))
+                if (ValidateData.VerifyFields(client))
                 {
                     ClientModel clientModel = new ClientModel()
                     {

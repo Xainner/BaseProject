@@ -9,6 +9,7 @@ using System.Threading.Tasks;
 using System.Windows.Forms;
 using LogicLibrary;
 using UI.Utilities;
+using ModelLibrary.Models;
 
 namespace UI.UserControls
 {
@@ -17,6 +18,10 @@ namespace UI.UserControls
         byte[] logo;
         string file;
 
+        //---------GLOBALS---------//
+
+        List<BusinessModel> businessModels;
+
         public UcBusiness()
         {
             InitializeComponent();
@@ -24,7 +29,7 @@ namespace UI.UserControls
             FrmMain.Instance.ToolStripLabel.Text = "Estas en la pantalla de Negocio";
         }
 
-        public void CleanBusiness()
+        public void Clear()
         {
             txtFantasyName.Text = " ";
             txtSocietyName.Text = " ";
@@ -41,12 +46,45 @@ namespace UI.UserControls
 
         private void UcBusiness_Load(object sender, EventArgs e)
         {
-            dgvBusiness.DataSource = BusinessManagement.SelectAllBusiness();
             //dgvBusiness.Columns["idBusiness"].DisplayIndex = 0;
             //dgvBusiness.Columns["idBusiness"].HeaderText = "Id";
+            try
+            {
+                if (BusinessManagement.SelectAllBusiness() != null)
+                {
+                    businessModels = BusinessManagement.SelectAllBusiness();
+                    WireUpBusinessGridView();
+                }
+            }
+            catch (Exception)
+            {
+                FrmMain.Instance.ToolStripLabel.Text = "No se encontraron registros en la base de datos.";
+                throw;
+            }
         }
 
-        private void btnAddBusiness_Click(object sender, EventArgs e)
+        private void WireUpBusinessGridView()
+        {
+            dgvBusiness.DataSource = businessModels;
+
+        }
+
+        private void UcBusiness_Leave(object sender, EventArgs e)
+        {
+            this.Dispose();
+        }
+
+
+        //---------BUTTONS---------//
+
+        private void clearButton_Click(object sender, EventArgs e)
+        {
+            Clear();
+        }
+
+        //---------CRUD---------//
+
+        private void createButton_Click(object sender, EventArgs e)
         {
             string fantasyName = txtFantasyName.Text;
             string society = txtSocietyName.Text;
@@ -56,7 +94,7 @@ namespace UI.UserControls
             string generalAddress = txaGeneralAddress.Text;
             string email = txtEmail.Text;
             string webPage = txtWebPage.Text;
-            logo = ImageManagement.ImageToByte(pbLogo.Image);
+            byte[] logo = ImageManagement.ImageToByte(pbLogo.Image);
 
             try
             {
@@ -78,7 +116,7 @@ namespace UI.UserControls
             }
         }
 
-        private void btnUpdateBusiness_Click(object sender, EventArgs e)
+        private void updateButton_Click(object sender, EventArgs e)
         {
             string id = dgvBusiness.CurrentRow.Cells[0].Value.ToString();
             string fantasyName = txtFantasyName.Text;
@@ -113,15 +151,15 @@ namespace UI.UserControls
 
                 throw;
             }
-            
+
         }
 
-        private void btnDeleteBusiness_Click(object sender, EventArgs e)
+        private void deleteButton_Click(object sender, EventArgs e)
         {
-            string id = dgvBusiness.CurrentRow.Cells[0].Value.ToString();
-
             try
             {
+                string id = dgvBusiness.CurrentRow.Cells[0].Value.ToString();
+
                 if (BusinessManagement.DeleteBusinessById(id))
                 {
                     dgvBusiness.DataSource = BusinessManagement.SelectAllBusiness();
@@ -139,79 +177,55 @@ namespace UI.UserControls
             }
         }
 
-        private void btnSelectImage_Click(object sender, EventArgs e)
+        private void dgvBusiness_Click(object sender, EventArgs e)
         {
             try
             {
-                this.openFileDialog1.ShowDialog();
-                if (this.openFileDialog1.FileName.Equals("") == false)
+                if (dgvBusiness.SelectedRows.Count != 0)
                 {
-                    file = openFileDialog1.FileName;
-                    pbLogo.Load(this.openFileDialog1.FileName);
+                    Clear();
+                    txtFantasyName.Text = dgvBusiness.CurrentRow.Cells[1].Value.ToString();
+                    txtSocietyName.Text = dgvBusiness.CurrentRow.Cells[2].Value.ToString();
+                    txtlegalCertification.Text = dgvBusiness.CurrentRow.Cells[3].Value.ToString();
+                    mtxtTelephone.Text = dgvBusiness.CurrentRow.Cells[4].Value.ToString();
+                    txaMainAddress.Text = dgvBusiness.CurrentRow.Cells[5].Value.ToString();
+                    txaGeneralAddress.Text = dgvBusiness.CurrentRow.Cells[6].Value.ToString();
+                    txtEmail.Text = dgvBusiness.CurrentRow.Cells[7].Value.ToString();
+                    txtWebPage.Text = dgvBusiness.CurrentRow.Cells[8].Value.ToString();
+                    logo = (byte[])dgvBusiness.CurrentRow.Cells[9].Value;
+                    pbLogo.Image = ImageManagement.ByteToImage((byte[])dgvBusiness.CurrentRow.Cells[9].Value);
                 }
             }
             catch (Exception ex)
             {
-                FrmMain.Instance.ToolStripLabel.Text = "Error al cargar la imagen: " + ex.ToString();
+
+                throw;
             }
         }
 
-        private void txtSearchBusiness_KeyPress(object sender, KeyPressEventArgs e)
+        private void txtSearchBusiness_KeyUp(object sender, KeyEventArgs e)
         {
-            string text = txtSearchBusiness.Text;
-
             try
             {
-                if (text != " ")
+                if (!string.IsNullOrEmpty(txtSearchBusiness.Text))
                 {
-                    //BusinessManagement.SelectBusinessById(); falta buscar por nombre de negocio
+                    dgvBusiness.DataSource = BusinessManagement.SelectBusinessByName(txtSearchBusiness.Text);
                 }
                 else
                 {
-                    dgvBusiness.DataSource = BusinessManagement.SelectAllBusiness();
+                    WireUpBusinessGridView();
                 }
             }
-            catch (Exception)
+            catch (Exception ex)
             {
 
                 throw;
             }
         }
 
-        private void btnClean_Click(object sender, EventArgs e)
+        private void selectImageButton_Click(object sender, EventArgs e)
         {
-            CleanBusiness();
-        }
 
-        private void UcBusiness_Leave(object sender, EventArgs e)
-        {
-            this.Dispose();
-        }
-
-        
-        private void dgvBusiness_MouseClick(object sender, MouseEventArgs e)
-        {
-            try
-            {
-                CleanBusiness();
-                txtFantasyName.Text = dgvBusiness.CurrentRow.Cells[1].Value.ToString();
-                txtSocietyName.Text = dgvBusiness.CurrentRow.Cells[2].Value.ToString();
-                txtlegalCertification.Text = dgvBusiness.CurrentRow.Cells[3].Value.ToString();
-                mtxtTelephone.Text = dgvBusiness.CurrentRow.Cells[4].Value.ToString();
-                txaMainAddress.Text = dgvBusiness.CurrentRow.Cells[5].Value.ToString();
-                txaGeneralAddress.Text = dgvBusiness.CurrentRow.Cells[6].Value.ToString();
-                txtEmail.Text = dgvBusiness.CurrentRow.Cells[7].Value.ToString();
-                txtWebPage.Text = dgvBusiness.CurrentRow.Cells[8].Value.ToString();
-                logo = (byte[])dgvBusiness.CurrentRow.Cells[9].Value;
-                pbLogo.Image = ImageManagement.ByteToImage((byte[])dgvBusiness.CurrentRow.Cells[9].Value);
-
-                MessageBox.Show(pbLogo.ImageLocation);
-            }
-            catch (Exception)
-            {
-
-                throw;
-            }
         }
     }
 }
