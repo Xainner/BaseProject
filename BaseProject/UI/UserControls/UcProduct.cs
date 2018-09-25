@@ -25,7 +25,7 @@ namespace UI.UserControls
             txtCode.Text = "";
             txtStyle.Text = "";
             cmbBrand.Text = "";
-            cmbIvi.Text = "";
+            rbIviRecorder.Select();
             txaDescription.Text = "";
             cmbCategory.Text = "";
             cmbSubcategory.Text = "";
@@ -63,7 +63,7 @@ namespace UI.UserControls
             string code = txtCode.Text;
             string style = txtStyle.Text;
             string brand = cmbBrand.Text;
-            string ivi = cmbIvi.Text;
+            bool ivi = true;
             string description = txaDescription.Text;
             string category = cmbCategory.Text;
             string subcategory = cmbSubcategory.Text;
@@ -73,19 +73,31 @@ namespace UI.UserControls
             string unityPrice = txtNormalPrice.Text;
             string lowerPrice = txtLowerPrice.Text;
 
+            if (rbIviRecorder.Checked)
+            {
+                ivi = true;
+            }
+            else
+            {
+                if (rbIviExcent.Checked)
+                {
+                    ivi = false;
+                }
+            }
+
             //todavia tiene talla
             try
             {
-                //if (ProductManagement.InsertProduct(code, style, brand, description, category, subcategory, unityPrice, lowerPrice, 
-                //    estableQuantity, enterQuantity, foto, ivi, nonExistingInvoice)
-                //{
-                //    dgvProduct.DataSource = ProductManagement.SelectAllProducts();
-                //    FrmMain.Instance.ToolStripLabel.Text = "Se agrego el producto correctamente";
-                //}
-                //else
-                //{
-                //    FrmMain.Instance.ToolStripLabel.Text = "Error, no se pudo agregar el producto";
-                //}
+                if (ProductManagement.InsertProduct(code, style, brand, description, category, subcategory, unityPrice, lowerPrice,
+                    estableQuantity, enterQuantity, foto, ivi, nonExistingInvoice)
+                {
+                    dgvProduct.DataSource = ProductManagement.SelectAllProducts();
+                    FrmMain.Instance.ToolStripLabel.Text = "Se agrego el producto correctamente";
+                }
+                else
+                {
+                    FrmMain.Instance.ToolStripLabel.Text = "Error, no se pudo agregar el producto";
+                }
             }
             catch (Exception)
             {
@@ -100,7 +112,7 @@ namespace UI.UserControls
             string code = txtCode.Text;
             string style = txtStyle.Text;
             string brand = cmbBrand.Text;
-            string ivi = cmbIvi.Text;
+            bool ivi = true;
             string description = txaDescription.Text;
             string category = cmbCategory.Text;
             string subcategory = cmbSubcategory.Text;
@@ -187,7 +199,7 @@ namespace UI.UserControls
                 txtCode.Text = dgvProduct.CurrentRow.Cells[0].Value.ToString();
                 txtStyle.Text = dgvProduct.CurrentRow.Cells[1].Value.ToString();
                 cmbBrand.Text = dgvProduct.CurrentRow.Cells[2].Value.ToString();
-                cmbIvi.Text = dgvProduct.CurrentRow.Cells[3].Value.ToString();
+                //cmbIvi.Text = dgvProduct.CurrentRow.Cells[3].Value.ToString();
                 txaDescription.Text = dgvProduct.CurrentRow.Cells[4].Value.ToString();
                 cmbCategory.Text = dgvProduct.CurrentRow.Cells[5].Value.ToString();
                 cmbSubcategory.Text = dgvProduct.CurrentRow.Cells[6].Value.ToString();

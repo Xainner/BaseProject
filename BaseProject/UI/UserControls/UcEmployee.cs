@@ -70,6 +70,7 @@ namespace UI.UserControls
                 this.openFileDialog1.ShowDialog();
                 if (this.openFileDialog1.FileName.Equals("") == false)
                 {
+                    photo = ImageManagement.ImageToByte(openFileDialog1.FileName);
                     picPhoto.Load(this.openFileDialog1.FileName);
                 }
             }
@@ -147,6 +148,7 @@ namespace UI.UserControls
             PositionModel position = (PositionModel)cmbPosition.SelectedItem;
 
             string statusWorking = workingStateComboBox.Text;
+            string startDate = startDateDateTime.Text;
             string endDate = startDateDateTime.Text;
             string observation = txaObservation.Text;
 
@@ -161,7 +163,7 @@ namespace UI.UserControls
             try
             {
                 if (EmployeeManagement.UpdateEmployeeById(id, name, lastname, idType, identif, residence, bornDate, civilStatus, childs, telephone,
-                    cellphone, enterStore, nationality, position.idPosition.ToString(), statusWorking, enterStore, endDate, observation, photo, emergencyName, emergencyPhone))
+                    cellphone, enterStore, nationality, position.idPosition.ToString(), statusWorking, startDate, endDate, observation, photo, emergencyName, emergencyPhone))
                 {
                     dgvEmployee.DataSource = EmployeeManagement.SelectAllEmployees();
                     FrmMain.Instance.ToolStripLabel.Text = "Se modifico el trabajador correctamente";

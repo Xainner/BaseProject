@@ -42,8 +42,7 @@ namespace LogicLibrary
             string variableQuantity, 
             byte[] image,
             string ivi,
-            string existingInvoice,
-            string size
+            string existingInvoice
         )
         {
             try
@@ -60,8 +59,7 @@ namespace LogicLibrary
                     estableQuantity,
                     variableQuantity,
                     ivi,
-                    existingInvoice,
-                    size
+                    existingInvoice
                 };
                 if (DataManagement.VerifyFields(Product))
                 {
@@ -138,8 +136,7 @@ namespace LogicLibrary
             string variableQuantity, 
             byte[] image,
             string ivi, 
-            string existingInvoice, 
-            string size
+            string existingInvoice 
         )
         {
             try
@@ -156,8 +153,7 @@ namespace LogicLibrary
                     estableQuantity,
                     variableQuantity,
                     ivi,
-                    existingInvoice,
-                    size
+                    existingInvoice
                 };
                 if (DataManagement.VerifyFields(product))
                 {
