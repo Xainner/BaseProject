@@ -14,6 +14,8 @@ namespace UI.UserControls
 {
     public partial class UcBusiness : UserControl
     {
+        byte[] logo;
+
         public UcBusiness()
         {
             InitializeComponent();
@@ -177,7 +179,7 @@ namespace UI.UserControls
             this.Dispose();
         }
 
-        byte[] logo;
+        
         private void dgvBusiness_MouseClick(object sender, MouseEventArgs e)
         {
             try
