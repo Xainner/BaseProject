@@ -29,14 +29,14 @@ namespace DataBaseLibrary
         /// </summary>
         /// <param name="Detail"></param>
         /// <returns></returns>
-        public static List<DetailInvoiceInput> SelectidDetailInvoiceInput(DetailInvoiceInput Detail)
-        {
-            using (IDbConnection cnn = new MySqlConnection(LoadConnectionString()))
-            {
-                var output = cnn.Query<DetailInvoiceInput>("SELECT * FROM detailinvoiceinput WHERE idDetailInvoiceInput = @idDetailInvoiceInput", Detail);
-                return output.ToList();
-            }
-        }
+        //public static List<DetailInvoiceInput> SelectidDetailInvoiceInput(DetailInvoiceInput Detail)
+        //{
+        //    using (IDbConnection cnn = new MySqlConnection(LoadConnectionString()))
+        //    {
+        //        var output = cnn.Query<DetailInvoiceInput>("SELECT * FROM detailinvoiceinput WHERE idDetailInvoiceInput = @idDetailInvoiceInput", Detail);
+        //        return output.ToList();
+        //    }
+        //}
 
 
     }

@@ -42,8 +42,8 @@ namespace UI.UserControls
         private void UcBusiness_Load(object sender, EventArgs e)
         {
             dgvBusiness.DataSource = BusinessManagement.SelectAllBusiness();
-            dgvBusiness.Columns["idBusiness"].DisplayIndex = 0;
-            dgvBusiness.Columns["idBusiness"].HeaderText = "Id";
+            //dgvBusiness.Columns["idBusiness"].DisplayIndex = 0;
+            //dgvBusiness.Columns["idBusiness"].HeaderText = "Id";
         }
 
         private void btnAddBusiness_Click(object sender, EventArgs e)
@@ -56,7 +56,7 @@ namespace UI.UserControls
             string generalAddress = txaGeneralAddress.Text;
             string email = txtEmail.Text;
             string webPage = txtWebPage.Text;
-            byte[] logo = ImageManagement.ImageToByte(pbLogo.Image);
+            logo = ImageManagement.ImageToByte(pbLogo.Image);
 
             try
             {
@@ -204,6 +204,8 @@ namespace UI.UserControls
                 txtWebPage.Text = dgvBusiness.CurrentRow.Cells[8].Value.ToString();
                 logo = (byte[])dgvBusiness.CurrentRow.Cells[9].Value;
                 pbLogo.Image = ImageManagement.ByteToImage((byte[])dgvBusiness.CurrentRow.Cells[9].Value);
+
+                MessageBox.Show(pbLogo.ImageLocation);
             }
             catch (Exception)
             {

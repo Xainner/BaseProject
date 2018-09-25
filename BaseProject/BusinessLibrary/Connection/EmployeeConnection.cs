@@ -72,7 +72,7 @@ namespace BusinessLibrary.Conection
                 DBEmployee.DeleteEmployee(employee);
                 return true;
             }
-            catch (Exception)
+            catch (Exception ex)
             {
 
                 throw;
