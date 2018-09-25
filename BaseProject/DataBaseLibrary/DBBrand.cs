@@ -66,6 +66,29 @@ namespace DataBaseLibrary
         }
 
         /// <summary>
+        /// Return all brands for a combobox
+        /// </summary>
+        /// <param name="Brand"></param>
+        /// <returns></returns>
+        public static List<BrandModel> SelectAllBrandName(BrandModel Brand)
+        {
+            try
+            {
+                using (IDbConnection cnn = new MySqlConnection(LoadConnectionString()))
+                {
+                    var output = cnn.Query<BrandModel>("SELECT Name FROM brand WHERE Name = @Name", Brand);
+                    return output.ToList();
+                }
+            }
+            catch (Exception ex)
+            {
+                Brand.Name = ex.Message;
+                List<BrandModel> list = new List<BrandModel> { Brand };
+                return list;
+            }
+        }
+
+        /// <summary>
         /// Insert a brand en the table brand
         /// </summary>
         /// <param name="Brand"></param>

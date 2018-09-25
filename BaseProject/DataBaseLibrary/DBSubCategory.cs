@@ -45,11 +45,26 @@ namespace DataBaseLibrary
         /// </summary>
         /// <param name="SubCategory"></param>
         /// <returns></returns>
-        public static List<SubCategoryModel> SelectSubCategoryName(SubCategoryModel SubCategory)
+        public static SubCategoryModel SelectSubCategoryName(SubCategoryModel SubCategory)
         {
             using (IDbConnection cnn = new MySqlConnection(LoadConnectionString()))
             {
-                var output = cnn.Query<SubCategoryModel>("SELECT * FROM subcategory WHERE idSubCategory = @idSubCategory", SubCategory);
+                var output = cnn.QuerySingle<SubCategoryModel>("SELECT * FROM subcategory WHERE Name = @Name", SubCategory);
+                return output;
+            }
+        }
+
+        /// <summary>
+        /// return all the names of the subcategories with like by name
+        /// </summary>
+        /// <param name="SubCategory"></param>
+        /// <returns></returns>
+        public static List<SubCategoryModel> SelectSubCategoryNameLike(SubCategoryModel SubCategory)
+        {
+            using (IDbConnection cnn = new MySqlConnection(LoadConnectionString()))
+            {
+                SubCategory.Name += "%";
+                var output = cnn.Query<SubCategoryModel>("SELECT * FROM subcategory WHERE Name LIKE @Name", SubCategory);
                 return output.ToList();
             }
         }

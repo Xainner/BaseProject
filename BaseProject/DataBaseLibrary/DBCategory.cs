@@ -41,7 +41,7 @@ namespace DataBaseLibrary
         }
 
         /// <summary>
-        /// Show a specific category
+        /// Show a specific category by name
         /// </summary>
         /// <param name="Category"></param>
         /// <returns>output</returns>
@@ -51,6 +51,21 @@ namespace DataBaseLibrary
             {
                 var output = cnn.QuerySingle<CategoryModel>("SELECT * FROM category WHERE Name = @Name", Category);
                 return output;
+            }
+        }
+
+        /// <summary>
+        /// return all categories by like name
+        /// </summary>
+        /// <param name="Category"></param>
+        /// <returns></returns>
+        public static List<CategoryModel> SelectCategoryNameLike(CategoryModel Category)
+        {
+            using (IDbConnection cnn = new MySqlConnection(LoadConnectionString()))
+            {
+                Category.Name += "%";
+                var output = cnn.Query<CategoryModel>("SELECT * FROM category WHERE Name LIKE @Name", Category);
+                return output.ToList();
             }
         }
 
