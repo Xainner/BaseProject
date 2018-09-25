@@ -59,9 +59,6 @@ namespace UI.Frames
 
         //---------CUSTOM METHODS---------//
 
-        /// <summary>
-        /// 
-        /// </summary>
         private void Clear()
         {
             brandNameSearchTextBox.Text = "";
@@ -69,9 +66,6 @@ namespace UI.Frames
             idBrandTextBox.Text = "";
         }
 
-        /// <summary>
-        /// 
-        /// </summary>
         private void WireUpBrandsGridView()
         {
             Clear();
@@ -85,7 +79,7 @@ namespace UI.Frames
             Clear();
         }
 
-        //---------OTHER METHODS---------//
+        //---------EVENTS---------//
 
         private void brandsGridView_Click(object sender, EventArgs e)
         {
@@ -95,6 +89,26 @@ namespace UI.Frames
                 {
                     idBrandTextBox.Text = brandsGridView.CurrentRow.Cells[0].Value.ToString();
                     brandNameTextBox.Text = brandsGridView.CurrentRow.Cells[1].Value.ToString();
+                }
+            }
+            catch (Exception ex)
+            {
+
+                throw;
+            }
+        }
+
+        private void brandNameSearchTextBox_KeyUp(object sender, KeyEventArgs e)
+        {
+            try
+            {
+                if (!string.IsNullOrEmpty(brandNameSearchTextBox.Text))
+                {
+                    brandsGridView.DataSource = BrandManagement.SelectBrandByName(brandNameSearchTextBox.Text);
+                }
+                else
+                {
+                    WireUpBrandsGridView();
                 }
             }
             catch (Exception ex)
