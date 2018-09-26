@@ -10,7 +10,7 @@ using System.Windows.Forms;
 
 namespace UI.UserControls
 {
-    public partial class UcSellinvoice : UserControl
+    public partial class UcSellinvoice : MetroFramework.Controls.MetroUserControl
     {
         public UcSellinvoice()
         {

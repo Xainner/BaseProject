@@ -12,7 +12,7 @@ using ModelLibrary.Models;
 
 namespace UI.UserControls
 {
-    public partial class UcExitInvoice : UserControl
+    public partial class UcExitInvoice : MetroFramework.Controls.MetroUserControl
     {
         public UcExitInvoice()
         {

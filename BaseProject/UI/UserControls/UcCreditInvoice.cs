@@ -10,7 +10,7 @@ using System.Windows.Forms;
 
 namespace UI.UserControls
 {
-    public partial class UcCreditInvoice : UserControl
+    public partial class UcCreditInvoice : MetroFramework.Controls.MetroUserControl
     {
         public UcCreditInvoice()
         {

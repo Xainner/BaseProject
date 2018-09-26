@@ -11,7 +11,7 @@ using UI.Frames;
 
 namespace UI.UserControls
 {
-    public partial class UcDashboard : UserControl
+    public partial class UcDashboard : MetroFramework.Controls.MetroUserControl
     {
         public UcDashboard()
         {

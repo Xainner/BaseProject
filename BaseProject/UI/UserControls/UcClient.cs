@@ -11,7 +11,7 @@ using LogicLibrary;
 
 namespace UI.UserControls
 {
-    public partial class UcClient : UserControl
+    public partial class UcClient : MetroFramework.Controls.MetroUserControl
     {
         public UcClient()
         {

@@ -13,7 +13,7 @@ using ModelLibrary.Models;
 
 namespace UI.UserControls
 {
-    public partial class UcBusiness : UserControl
+    public partial class UcBusiness : MetroFramework.Controls.MetroUserControl
     {
         byte[] logo;
         string file;

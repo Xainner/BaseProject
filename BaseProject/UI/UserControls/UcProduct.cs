@@ -13,7 +13,7 @@ using ModelLibrary.Models;
 
 namespace UI.UserControls
 {
-    public partial class UcProduct : UserControl
+    public partial class UcProduct : MetroFramework.Controls.MetroUserControl
     {
         public UcProduct()
         {

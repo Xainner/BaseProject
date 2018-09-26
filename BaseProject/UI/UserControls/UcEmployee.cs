@@ -13,7 +13,7 @@ using ModelLibrary.Models;
 
 namespace UI.UserControls
 {
-    public partial class UcEmployee : UserControl
+    public partial class UcEmployee : MetroFramework.Controls.MetroUserControl
     {
         byte[] photo;
         string file;
