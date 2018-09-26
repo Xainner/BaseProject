@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace LogicLibrary
 {
-    public class DataManagement
+    public class ValidateData
     {
         /// <summary>
         /// 
@@ -23,6 +23,21 @@ namespace LogicLibrary
                 }
             }
             return true;
+        }
+
+        public static bool VerifyEmail(string email)
+        {
+            return email.Contains("@");
+        }
+
+        public static bool VerifyInts(int number)
+        {
+            return int.TryParse("123", out number);
+        }
+
+        public static bool VerifyDates(DateTime date)
+        {
+            return date == null;
         }
     }
 }

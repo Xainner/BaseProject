@@ -13,7 +13,7 @@ namespace UI
 
         public MetroLink MetroBack { get => goBackLink; set => goBackLink = value; }
 
-        public ToolStripLabel ToolStripLabel { get => toolStripStatusLabel; set => toolStripStatusLabel.Text = ""; }
+        public ToolStripLabel ToolStripLabel { get => toolStripStatusLabel1; set => toolStripStatusLabel1.Text = ""; }
 
         public FrmMain()
         {
@@ -42,14 +42,14 @@ namespace UI
                 Dock = DockStyle.Fill
             };
             mainPanel.Controls.Add(dashboard);
-            toolStripStatusLabel.Text = "Estás en el dashboard";
+            toolStripStatusLabel1.Text = "Estás en el dashboard";
         }
 
         private void goBackLink_Click(object sender, EventArgs e)
         {
             mainPanel.Controls["UcDashboard"].BringToFront();
             goBackLink.Visible = false;
-            toolStripStatusLabel.Text = "Estás en el dashboard";
+            toolStripStatusLabel1.Text = "Estás en el dashboard";
         }
     }
 }

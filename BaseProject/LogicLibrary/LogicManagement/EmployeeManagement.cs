@@ -36,23 +36,23 @@ namespace LogicLibrary
         /// <returns></returns>
         public static bool InsertEmployee(
             string name,
-            string lastName, 
-            string idType, 
-            string id, 
+            string lastName,
+            string idType,
+            string id,
             string residence,
             string bornDate,
-            string civilState, 
+            string civilState,
             string childs,
-            string telephone, 
-            string cellphone, 
+            string telephone,
+            string cellphone,
             string enterStore,
-            string nationality, 
-            string idPosition, 
+            string nationality,
+            string idPosition,
             string workingState,
             string enterDate,
             string obervation,
-            byte[] photo, 
-            string nameEmergency, 
+            byte[] photo,
+            string nameEmergency,
             string cellphoneEmergency
         )
         {
@@ -78,7 +78,7 @@ namespace LogicLibrary
                     nameEmergency,
                     cellphoneEmergency
                 };
-                if (DataManagement.VerifyFields(employee))
+                if (ValidateData.VerifyFields(employee))
                 {
                     EmployeeModel employeeModel = new EmployeeModel()
                     {
@@ -189,7 +189,7 @@ namespace LogicLibrary
                     nameEmergency,
                     cellphoneEmergency
                 };
-                if (DataManagement.VerifyFields(employee))
+                if (ValidateData.VerifyFields(employee))
                 {
                     EmployeeModel employeeModel = new EmployeeModel()
                     {
@@ -239,7 +239,7 @@ namespace LogicLibrary
             try
             {
                 string[] employee = new string[] { idEmployee };
-                if (DataManagement.VerifyFields(employee))
+                if (ValidateData.VerifyFields(employee))
                 {
                     EmployeeModel employeeModel = new EmployeeModel()
                     {
@@ -269,7 +269,7 @@ namespace LogicLibrary
             try
             {
                 string[] employee = new string[] { idEmployee };
-                if (DataManagement.VerifyFields(employee))
+                if (ValidateData.VerifyFields(employee))
                 {
                     EmployeeModel employeeModel = new EmployeeModel()
                     {
@@ -295,7 +295,7 @@ namespace LogicLibrary
             try
             {
                 string[] employee = new string[] { id };
-                if (DataManagement.VerifyFields(employee))
+                if (ValidateData.VerifyFields(employee))
                 {
                     EmployeeModel employeeModel = new EmployeeModel()
                     {
@@ -326,7 +326,7 @@ namespace LogicLibrary
             try
             {
                 string[] client = new string[] { toSearch };
-                if (DataManagement.VerifyFields(client))
+                if (ValidateData.VerifyFields(client))
                 {
                     EmployeeModel employeeModel = new EmployeeModel()
                     {

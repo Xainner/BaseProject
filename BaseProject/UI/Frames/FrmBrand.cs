@@ -127,7 +127,7 @@ namespace UI.Frames
 
             try
             {
-                if (BrandManagement.InsertBusiness(brand))
+                if (BrandManagement.InsertBrand(brand))
                 {
                     toolStripStatusLabel1.Text = "Se agregó la marca de manera correcta.";
                     brandsGridView.DataSource = BrandManagement.SelectAllBrands();

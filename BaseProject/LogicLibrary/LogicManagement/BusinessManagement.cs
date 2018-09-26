@@ -46,7 +46,7 @@ namespace LogicLibrary
                     email,
                     webPage
                 };
-                if (DataManagement.VerifyFields(business))
+                if (ValidateData.VerifyFields(business))
                 {
                     BusinessModel businessModel = new BusinessModel()
                     {
@@ -96,7 +96,7 @@ namespace LogicLibrary
             string telephone,
             string mainAddress,
             string generalAddress,
-            string email, 
+            string email,
             string webPage,
             byte[] logo
         )
@@ -114,7 +114,7 @@ namespace LogicLibrary
                     email,
                     webPage
                 };
-                if (DataManagement.VerifyFields(business))
+                if (ValidateData.VerifyFields(business))
                 {
                     BusinessModel businessModel = new BusinessModel()
                     {
@@ -168,7 +168,7 @@ namespace LogicLibrary
                     email,
                     webPage
                 };
-                if (DataManagement.VerifyFields(business))
+                if (ValidateData.VerifyFields(business))
                 {
                     BusinessModel businessModel = new BusinessModel()
                     {
@@ -198,7 +198,7 @@ namespace LogicLibrary
             try
             {
                 string[] business = new string[] { idBusiness };
-                if (DataManagement.VerifyFields(business))
+                if (ValidateData.VerifyFields(business))
                 {
                     BusinessModel businessModel = new BusinessModel()
                     {
@@ -229,7 +229,7 @@ namespace LogicLibrary
             {
                 //TEMP
                 string[] business = new string[] { idBusiness };
-                if (DataManagement.VerifyFields(business))
+                if (ValidateData.VerifyFields(business))
                 {
                     BusinessModel businessModel = new BusinessModel()
                     {
@@ -254,7 +254,7 @@ namespace LogicLibrary
             try
             {
                 string[] business = new string[] { name };
-                if (DataManagement.VerifyFields(business))
+                if (ValidateData.VerifyFields(business))
                 {
                     BusinessModel businessModel = new BusinessModel()
                     {

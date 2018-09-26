@@ -23,7 +23,7 @@ namespace LogicLibrary
         //            Password = password,
         //            IdRole = 0
         //        };
-        //        if (DataManagement.VerifyFields(user))
+        //        if (ValidateData.VerifyFields(user))
         //        {
         //            return UserConnection.InsertUser(userModel);
         //        }
@@ -45,8 +45,8 @@ namespace LogicLibrary
         //    try
         //    {
         //        string[] user = new string[] { idUser, userName, name, lastName };
-                
-        //        if (DataManagement.VerifyFields(user))
+
+        //        if (ValidateData.VerifyFields(user))
         //        {
         //            UserConnection.UpdateUser();
         //            return true;
@@ -74,7 +74,7 @@ namespace LogicLibrary
             try
             {
                 string[] user = new string[] { idUser, password };
-                if (DataManagement.VerifyFields(user))
+                if (ValidateData.VerifyFields(user))
                 {
                     UserModel userModel = new UserModel()
                     {
@@ -105,7 +105,7 @@ namespace LogicLibrary
             try
             {
                 string[] user = new string[] { idUser };
-                if (DataManagement.VerifyFields(user))
+                if (ValidateData.VerifyFields(user))
                 {
                     UserModel userModel = new UserModel()
                     {
@@ -135,7 +135,7 @@ namespace LogicLibrary
             try
             {
                 string[] user = new string[] { idUser };
-                if (DataManagement.VerifyFields(user))
+                if (ValidateData.VerifyFields(user))
                 {
                     UserModel userModel = new UserModel()
                     {
@@ -165,7 +165,7 @@ namespace LogicLibrary
             try
             {
                 string[] user = new string[] { userName };
-                if (DataManagement.VerifyFields(user))
+                if (ValidateData.VerifyFields(user))
                 {
                     UserModel userModel = new UserModel()
                     {

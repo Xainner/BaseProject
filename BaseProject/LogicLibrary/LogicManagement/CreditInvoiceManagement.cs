@@ -36,14 +36,14 @@ namespace LogicLibrary
         /// <param name="inflation"></param>
         /// <returns></returns>
         public static bool InsertCreditInvoice(
-            string numInvoice, 
-            string date, 
+            string numInvoice,
+            string date,
             string idClient,
             string idEmployee,
             string idBusiness,
-            string idUser, 
-            List<ProductModel> products, 
-            string coinType, 
+            string idUser,
+            List<ProductModel> products,
+            string coinType,
             string paymentType,
             string iviAmount,
             string currencyType,
@@ -83,7 +83,7 @@ namespace LogicLibrary
                     cardDeposit,
                     inflation
                 };
-                if (DataManagement.VerifyFields(creditInvoice))
+                if (ValidateData.VerifyFields(creditInvoice))
                 {
                     CreditInvoiceModel creditInvoiceModel = new CreditInvoiceModel()
                     {
@@ -200,7 +200,7 @@ namespace LogicLibrary
                     inflation
                 };
 
-                if (DataManagement.VerifyFields(creditInvoice))
+                if (ValidateData.VerifyFields(creditInvoice))
                 {
                     CreditInvoiceModel creditInvoiceModel = new CreditInvoiceModel()
                     {
@@ -251,7 +251,7 @@ namespace LogicLibrary
             try
             {
                 string[] creditInvoice = new string[] { idSellinvoice };
-                if (DataManagement.VerifyFields(creditInvoice))
+                if (ValidateData.VerifyFields(creditInvoice))
                 {
                     CreditInvoiceModel creditInvoiceModel = new CreditInvoiceModel()
                     {
@@ -281,7 +281,7 @@ namespace LogicLibrary
             try
             {
                 string[] creditInvoice = new string[] { idSellinvoice };
-                if (DataManagement.VerifyFields(creditInvoice))
+                if (ValidateData.VerifyFields(creditInvoice))
                 {
                     CreditInvoiceModel creditInvoiceModel = new CreditInvoiceModel()
                     {

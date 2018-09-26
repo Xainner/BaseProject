@@ -20,7 +20,7 @@ namespace LogicLibrary
             try
             {
                 string[] category = new string[] { name };
-                if (DataManagement.VerifyFields(category))
+                if (ValidateData.VerifyFields(category))
                 {
                     CategoryModel categoryModel = new CategoryModel()
                     {
@@ -52,7 +52,7 @@ namespace LogicLibrary
             {
                 //TEMP
                 string[] category = new string[] { idCategory, name };
-                if (DataManagement.VerifyFields(category))
+                if (ValidateData.VerifyFields(category))
                 {
                     CategoryModel categoryModel = new CategoryModel()
                     {
@@ -83,7 +83,7 @@ namespace LogicLibrary
             try
             {
                 string[] category = new string[] { idCategory };
-                if (DataManagement.VerifyFields(category))
+                if (ValidateData.VerifyFields(category))
                 {
                     CategoryModel categoryModel = new CategoryModel()
                     {
@@ -113,7 +113,7 @@ namespace LogicLibrary
             try
             {
                 string[] category = new string[] { idCategory };
-                if (DataManagement.VerifyFields(category))
+                if (ValidateData.VerifyFields(category))
                 {
                     CategoryModel categoryModel = new CategoryModel()
                     {

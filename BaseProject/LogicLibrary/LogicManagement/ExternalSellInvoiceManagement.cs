@@ -31,19 +31,19 @@ namespace LogicLibrary
         /// <param name="total"></param>
         /// <returns></returns>
         public static bool InsertExternalSellinvoice(
-            string numInvoice, 
-            string date, 
-            string idClient, 
-            string idEmployee, 
+            string numInvoice,
+            string date,
+            string idClient,
+            string idEmployee,
             string idBusiness,
-            string idUser, 
-            string coinType, 
-            string paymentType, 
-            string iviAmount, 
+            string idUser,
+            string coinType,
+            string paymentType,
+            string iviAmount,
             string currencyType,
             string paymentCash,
             string totalDiscount,
-            string subTotal, 
+            string subTotal,
             string total
         )
         {
@@ -65,7 +65,7 @@ namespace LogicLibrary
                     subTotal,
                     total
                 };
-                if (DataManagement.VerifyFields(externalSellinvoice))
+                if (ValidateData.VerifyFields(externalSellinvoice))
                 {
                     ExternalSellinvoiceModel internalSellinvoiceModel = new ExternalSellinvoiceModel()
                     {
@@ -156,7 +156,7 @@ namespace LogicLibrary
                     subTotal,
                     total
                 };
-                if (DataManagement.VerifyFields(externalSellinvoice))
+                if (ValidateData.VerifyFields(externalSellinvoice))
                 {
                     ExternalSellinvoiceModel internalSellinvoiceModel = new ExternalSellinvoiceModel()
                     {
@@ -201,7 +201,7 @@ namespace LogicLibrary
             try
             {
                 string[] externalSellinvoice = new string[] { idExternalSellinvoice };
-                if (DataManagement.VerifyFields(externalSellinvoice))
+                if (ValidateData.VerifyFields(externalSellinvoice))
                 {
                     ExternalSellinvoiceModel internalSellinvoiceModel = new ExternalSellinvoiceModel()
                     {
@@ -231,7 +231,7 @@ namespace LogicLibrary
             try
             {
                 string[] externalSellinvoice = new string[] { idExternalSellinvoice };
-                if (DataManagement.VerifyFields(externalSellinvoice))
+                if (ValidateData.VerifyFields(externalSellinvoice))
                 {
                     ExternalSellinvoiceModel internalSellinvoiceModel = new ExternalSellinvoiceModel()
                     {
