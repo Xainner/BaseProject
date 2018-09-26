@@ -97,20 +97,6 @@ namespace DataBaseLibrary
         }
 
         /// <summary>
-        /// Show a specific product by idCategory
-        /// </summary>
-        /// <param name="Product"></param>
-        /// <returns>output</returns>
-        public static List<ProductModel> SelectidCategory(ProductModel Product)
-        {
-            using (IDbConnection cnn = new MySqlConnection(LoadConnectionString()))
-            {
-                var output = cnn.Query<ProductModel>("SELECT * FROM product WHERE idCategory = @idCategory", Product);
-                return output.ToList();
-            }
-        }
-
-        /// <summary>
         /// Show a specific product by Description
         /// </summary>
         /// <param name="Product"></param>
@@ -137,10 +123,10 @@ namespace DataBaseLibrary
                 using (IDbConnection cnn = new MySqlConnection(LoadConnectionString()))
                 {
                     cnn.Execute("INSERT INTO product" +
-                        "(Code, Style, idBrand, idsubCategory, Description, idCategory, " +
+                        "(Code, Style, idBrand, idsubCategory, Description, " +
                         "normalPrice, lowerPrice, estableQuantity, variableQuantity, " +
                         "Image, Ivi, existingInvoice) VALUES" +
-                        "(@Code, @Style, @idBrand, @idsubCategory, @Description, @idCategory, " +
+                        "(@Code, @Style, @idBrand, @idsubCategory, @Description, " +
                         "@normalPrice, @lowerPrice, @estableQuantity, @variableQuantity, " +
                         "@Image, @Ivi, @existingInvoice)", Product);
                 }
@@ -187,7 +173,7 @@ namespace DataBaseLibrary
                     cnn.Execute("UPDATE product " +
                         "SET Code = @Code, Style = @Style, idBrand = @idBrand, " +
                         "idsubCategory = @idsubCategory, " +
-                        "Description = @Description, idCategory = @idCategory, " +
+                        "Description = @Description, " +
                         "normalPrice = @normalPrice, lowerPrice = @lowerPrice, " +
                         "estableQuantity = @estableQuantity, " +
                         "variableQuantity = @variableQuantity, Image = @Image, " +

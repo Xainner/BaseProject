@@ -114,7 +114,6 @@ namespace LogicLibrary
             string code, string style,
             string idBrand,
             string description,
-            string idCategory,
             string idSubCategory,
             string normalPrice,
             string lowerPrice,
@@ -132,7 +131,6 @@ namespace LogicLibrary
                     code,  style,
                     idBrand,
                     description,
-                    idCategory,
                     idSubCategory,
                     normalPrice,
                     lowerPrice,
@@ -148,7 +146,6 @@ namespace LogicLibrary
                         Style = style,
                         IdBrand = int.Parse(idBrand),
                         Description = description,
-                        IdCategory = int.Parse(idCategory),
                         IdSubCategory = int.Parse(idSubCategory),
                         NormalPrice = decimal.Parse(normalPrice),
                         LowerPrice = decimal.Parse(lowerPrice),
@@ -189,7 +186,7 @@ namespace LogicLibrary
                     {
                         IdProduct = int.Parse(idProduct),
                     };
-                    return DBProduct.UpdateProduct(productModel);
+                    return DBProduct.DeleteProduct(productModel);
                 }
                 else
                 {
@@ -316,37 +313,6 @@ namespace LogicLibrary
 
                     };
                     //return ProductConnection.SelectProductByIdBrand(productModel);
-                    return null;
-                }
-                else
-                {
-                    return null;
-                }
-            }
-            catch (Exception ex)
-            {
-                //Log4Net
-                return null;
-            }
-        }
-
-        /// <summary>
-        /// 
-        /// </summary>
-        /// <param name="idCategory"></param>
-        /// <returns></returns>
-        public static ProductModel SelectProductByIdCategory(string idCategory)
-        {
-            try
-            {
-                string[] product = new string[] { idCategory };
-                if (ValidateData.VerifyFields(product))
-                {
-                    ProductModel productModel = new ProductModel()
-                    {
-                        IdCategory = int.Parse(idCategory),
-                    };
-                    //return ProductConnection.SelectProductByIdCategory(productModel);
                     return null;
                 }
                 else

@@ -16,6 +16,9 @@ namespace UI.UserControls
 {
     public partial class UcProduct : MetroFramework.Controls.MetroUserControl
     {
+        byte[] photo;
+        string file;
+
         public UcProduct()
         {
             InitializeComponent();
@@ -38,6 +41,9 @@ namespace UI.UserControls
             txtNormalPrice.Text = "";
             txtLowerPrice.Text = "";
             pbProduct.Image = null;
+
+            file = string.Empty;
+            photo = null;
         }
 
         private void UcProduct_Load(object sender, EventArgs e)
@@ -59,6 +65,7 @@ namespace UI.UserControls
                 this.openFileDialog1.ShowDialog();
                 if (this.openFileDialog1.FileName.Equals("") == false)
                 {
+                    file = openFileDialog1.FileName;
                     pbProduct.Load(this.openFileDialog1.FileName);
                 }
             }
@@ -119,30 +126,43 @@ namespace UI.UserControls
             string id = dgvProduct.CurrentRow.Cells[0].Value.ToString();
             string code = txtCode.Text;
             string style = txtStyle.Text;
-            string brand = cmbBrand.Text;
+            BrandModel brand = (BrandModel)cmbBrand.SelectedItem;
             bool ivi = true;
             string description = txaDescription.Text;
-            string category = cmbCategory.Text;
-            string subcategory = cmbSubcategory.Text;
-            //string nonExistingInvoice = cmbNonExistent.Text;
+            SubCategoryModel subcategory = (SubCategoryModel)cmbSubcategory.SelectedItem;
+            bool nonExistingInvoice = true;
             string enterQuantity = txtEnterQuantity.Text;
             string estableQuantity = txtEstableQuantity.Text;
             string unityPrice = txtNormalPrice.Text;
             string lowerPrice = txtLowerPrice.Text;
-            //foto
-            //todavia tiene talla
+
+            if (rbIviExcent.Checked)
+            {
+                ivi = false;
+            }
+
+            if (rbNonexistingNoPermit.Checked)
+            {
+                nonExistingInvoice = false;
+            }
+
+            if (!string.IsNullOrEmpty(file))
+            {
+                photo = ImageManagement.ImageToByte(file);
+            }
+
             try
             {
-                //if (ProductManagement.UpdateProductById(id, code, style, brand, description, category, subcategory, unityPrice, lowerPrice,
-                //    estableQuantity, enterQuantity, foto, ivi, nonExistingInvoice)
-                //{
-                //    dgvProduct.DataSource = ProductManagement.SelectAllProducts();
-                //    FrmMain.Instance.ToolStripLabel.Text = "Se modifico el producto correctamente";
-                //}
-                //else
-                //{
-                //    FrmMain.Instance.ToolStripLabel.Text = "Error, no se pudo modificar el producto";
-                //}
+                if (ProductManagement.UpdateProductById(id, code, style, brand.IdBrand.ToString(), description, subcategory.idsubCategory.ToString(), unityPrice, lowerPrice,
+                    estableQuantity, enterQuantity, photo, ivi, nonExistingInvoice))
+                {
+                    dgvProduct.DataSource = ProductManagement.SelectAllProducts();
+                    FrmMain.Instance.ToolStripLabel.Text = "Se modifico el producto correctamente";
+                }
+                else
+                {
+                    FrmMain.Instance.ToolStripLabel.Text = "Error, no se pudo modificar el producto";
+                }
             }
             catch (Exception)
             {
@@ -162,7 +182,6 @@ namespace UI.UserControls
                     ProductManagement.SelectProductByCode(text);
                     ProductManagement.SelectProductByDescription(text);
                     ProductManagement.SelectProductByIdBrand(text);
-                    ProductManagement.SelectProductByIdCategory(text);
                     ProductManagement.SelectProductByStyle(text);
                 }
                 else
@@ -204,19 +223,63 @@ namespace UI.UserControls
         {
             try
             {
-                txtCode.Text = dgvProduct.CurrentRow.Cells[0].Value.ToString();
-                txtStyle.Text = dgvProduct.CurrentRow.Cells[1].Value.ToString();
-                cmbBrand.Text = dgvProduct.CurrentRow.Cells[2].Value.ToString();
-                //cmbIvi.Text = dgvProduct.CurrentRow.Cells[3].Value.ToString();
+                txtCode.Text = dgvProduct.CurrentRow.Cells[1].Value.ToString();
+                txtStyle.Text = dgvProduct.CurrentRow.Cells[2].Value.ToString();
+                //cmbBrand.SelectedItem = dgvProduct.CurrentRow.Cells[3].Value.ToString();
                 txaDescription.Text = dgvProduct.CurrentRow.Cells[4].Value.ToString();
-                cmbCategory.Text = dgvProduct.CurrentRow.Cells[5].Value.ToString();
-                cmbSubcategory.Text = dgvProduct.CurrentRow.Cells[6].Value.ToString();
-                //cmbNonExistent.Text = dgvProduct.CurrentRow.Cells[7].Value.ToString();
-                txtEnterQuantity.Text = dgvProduct.CurrentRow.Cells[8].Value.ToString();
-                txtEstableQuantity.Text = dgvProduct.CurrentRow.Cells[9].Value.ToString();
-                txtNormalPrice.Text = dgvProduct.CurrentRow.Cells[10].Value.ToString();
-                txtLowerPrice.Text = dgvProduct.CurrentRow.Cells[11].Value.ToString();
-                //pbProduct.Image = dgvProduct.CurrentRow.Cells[12].Value.ToString();
+                //cmbSubcategory.SelectedItem = dgvProduct.CurrentRow.Cells[5].Value.ToString();
+                txtNormalPrice.Text = dgvProduct.CurrentRow.Cells[6].Value.ToString();
+                txtLowerPrice.Text = dgvProduct.CurrentRow.Cells[7].Value.ToString();
+                txtEstableQuantity.Text = dgvProduct.CurrentRow.Cells[8].Value.ToString();
+                txtEnterQuantity.Text = dgvProduct.CurrentRow.Cells[9].Value.ToString();
+
+                foreach (BrandModel item in cmbBrand.Items)
+                {
+                    int idBrand = int.Parse(dgvProduct.CurrentRow.Cells[3].Value.ToString());
+                    if (item.idBrand == idBrand)
+                    {
+                        cmbBrand.SelectedItem = item;
+                    }
+                }
+
+                foreach (SubCategoryModel item in cmbSubcategory.Items)
+                {
+                    int idSubCat = int.Parse(dgvProduct.CurrentRow.Cells[5].Value.ToString());
+
+                    if (item.idsubCategory == idSubCat)
+                    {
+                        cmbSubcategory.SelectedItem = item;
+
+                        foreach (CategoryModel item2 in cmbCategory.Items)
+                        {
+                            if (item2.idCategory == item.idCategory)
+                            {
+                                cmbCategory.SelectedItem = item2;
+                            }
+                        }
+                    }
+                }
+
+                photo = (byte[])dgvProduct.CurrentRow.Cells[10].Value;
+                pbProduct.Image = ImageManagement.ByteToImage((byte[])dgvProduct.CurrentRow.Cells[10].Value);
+
+                if (dgvProduct.CurrentRow.Cells[11].Value.Equals(true))
+                {
+                    rbIviRecorder.Select();
+                }
+                else
+                {
+                    rbIviExcent.Select();
+                }
+
+                if (dgvProduct.CurrentRow.Cells[12].Value.Equals(true))
+                {
+                    rbNonexistenPermit.Select();
+                }
+                else
+                {
+                    rbNonexistingNoPermit.Select();
+                }
             }
             catch (Exception)
             {
