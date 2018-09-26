@@ -24,7 +24,7 @@ namespace LogicLibrary
         {
             try
             {
-                string[] client = new string[] { name, lastName, id, idType, email, bornDate };
+                string[] client = new string[] { name, lastName, id, idType };
                 if (DataManagement.VerifyFields(client))
                 {
                     ClientModel clientModel = new ClientModel()

@@ -249,6 +249,31 @@ namespace LogicLibrary
             }
         }
 
+        public static BusinessModel SelectBusinessByName(string name)
+        {
+            try
+            {
+                string[] business = new string[] { name };
+                if (DataManagement.VerifyFields(business))
+                {
+                    BusinessModel businessModel = new BusinessModel()
+                    {
+                        fantasyName = name
+                    };
+                    return BusinessConnection.SelectBusiness(businessModel);
+                }
+                else
+                {
+                    return null;
+                }
+            }
+            catch (Exception ex)
+            {
+                return null;
+                //Log4Net
+            }
+        }
+
         /// <summary>
         /// 
         /// </summary>
