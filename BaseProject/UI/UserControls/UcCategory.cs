@@ -12,7 +12,7 @@ using ModelLibrary.Models;
 
 namespace UI.UserControls
 {
-    public partial class UcCategory : UserControl
+    public partial class UcCategory : MetroFramework.Controls.MetroUserControl
     {
         public UcCategory()
         {

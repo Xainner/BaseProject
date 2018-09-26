@@ -34,84 +34,17 @@ namespace UI.UserControls
 
         private void btnAddClient_Click(object sender, EventArgs e)
         {
-            string name = txtNameClient.Text;
-            string lastname = txtLastnameClient.Text;
-            string idType = cmbIdentificationType.Text;
-            string identif = txtIdentification.Text;
-            string bornDate = datepBornDate.Text;
-            string email = txtEmailClient.Text;
-
-            try
-            {
-                if(ClientManagement.InsertClient(name, lastname, identif, idType, email, bornDate))
-                {
-                    dgvClient.DataSource = ClientManagement.SelectAllClients();
-                    FrmMain.Instance.ToolStripLabel.Text = "Se agrego el cliente correctamente";
-                }
-                else
-                {
-                    FrmMain.Instance.ToolStripLabel.Text = "No se pudo agregar el cliente";
-                }
-            }
-            catch (Exception)
-            {
-
-                throw;
-            }
+            
         }
 
         private void btnUpdateClient_Click(object sender, EventArgs e)
         {
-            string id = dgvClient.CurrentRow.Cells[0].Value.ToString();
-            string name = txtNameClient.Text;
-            string lastname = txtLastnameClient.Text;
-            string idType = cmbIdentificationType.Text;
-            string identif = txtIdentification.Text;
-            string bornDate = datepBornDate.Text;
-            string email = txtEmailClient.Text;
-
-            try
-            {
-                if (ClientManagement.UpdateClientById(id, name, lastname, identif, idType, email, bornDate))
-                {
-                    dgvClient.DataSource = ClientManagement.SelectAllClients();
-                    FrmMain.Instance.ToolStripLabel.Text = "Se modifico el cliente correctamente";
-                    Limpiar();
-                }
-                else
-                {
-                    FrmMain.Instance.ToolStripLabel.Text = "Error al modificar";
-                }
-            }
-            catch (Exception)
-            {
-
-                throw;
-            }
+            
         }
 
         private void btnDeleteClient_Click(object sender, EventArgs e)
         {
-            string idClient = dgvClient.CurrentRow.Cells[0].Value.ToString();
-
-            try
-            {
-                if (ClientManagement.DeleteClientById(idClient))
-                {
-                    dgvClient.DataSource = ClientManagement.SelectAllClients();
-                    FrmMain.Instance.ToolStripLabel.Text = "Se elimino el cliente";
-                    Limpiar();
-                }
-                else
-                {
-                    FrmMain.Instance.ToolStripLabel.Text = "Error al eliminar el cliente";
-                }
-            }
-            catch (Exception)
-            {
-
-                throw;
-            }
+            
         }
 
         private void UcClient_Load(object sender, EventArgs e)
@@ -161,12 +94,101 @@ namespace UI.UserControls
 
         private void btnClean_Click(object sender, EventArgs e)
         {
-            Limpiar();
+            
         }
 
         private void UcClient_Leave(object sender, EventArgs e)
         {
             this.Dispose();
+        }
+
+        //CRUD
+
+        private void createButton_Click(object sender, EventArgs e)
+        {
+            string name = txtNameClient.Text;
+            string lastname = txtLastnameClient.Text;
+            string idType = cmbIdentificationType.Text;
+            string identif = txtIdentification.Text;
+            string bornDate = datepBornDate.Text;
+            string email = txtEmailClient.Text;
+
+            try
+            {
+                if (ClientManagement.InsertClient(name, lastname, identif, idType, email, bornDate))
+                {
+                    dgvClient.DataSource = ClientManagement.SelectAllClients();
+                    FrmMain.Instance.ToolStripLabel.Text = "Se agrego el cliente correctamente";
+                }
+                else
+                {
+                    FrmMain.Instance.ToolStripLabel.Text = "No se pudo agregar el cliente";
+                }
+            }
+            catch (Exception)
+            {
+
+                throw;
+            }
+        }
+
+        private void updateButton_Click(object sender, EventArgs e)
+        {
+            string id = dgvClient.CurrentRow.Cells[0].Value.ToString();
+            string name = txtNameClient.Text;
+            string lastname = txtLastnameClient.Text;
+            string idType = cmbIdentificationType.Text;
+            string identif = txtIdentification.Text;
+            string bornDate = datepBornDate.Text;
+            string email = txtEmailClient.Text;
+
+            try
+            {
+                if (ClientManagement.UpdateClientById(id, name, lastname, identif, idType, email, bornDate))
+                {
+                    dgvClient.DataSource = ClientManagement.SelectAllClients();
+                    FrmMain.Instance.ToolStripLabel.Text = "Se modifico el cliente correctamente";
+                    Limpiar();
+                }
+                else
+                {
+                    FrmMain.Instance.ToolStripLabel.Text = "Error al modificar";
+                }
+            }
+            catch (Exception)
+            {
+
+                throw;
+            }
+        }
+
+        private void deleteButton_Click(object sender, EventArgs e)
+        {
+            string idClient = dgvClient.CurrentRow.Cells[0].Value.ToString();
+
+            try
+            {
+                if (ClientManagement.DeleteClientById(idClient))
+                {
+                    dgvClient.DataSource = ClientManagement.SelectAllClients();
+                    FrmMain.Instance.ToolStripLabel.Text = "Se elimino el cliente";
+                    Limpiar();
+                }
+                else
+                {
+                    FrmMain.Instance.ToolStripLabel.Text = "Error al eliminar el cliente";
+                }
+            }
+            catch (Exception)
+            {
+
+                throw;
+            }
+        }
+
+        private void clearButton_Click(object sender, EventArgs e)
+        {
+            Limpiar();
         }
     }
 }

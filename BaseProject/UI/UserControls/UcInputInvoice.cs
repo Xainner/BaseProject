@@ -6,7 +6,7 @@ using LogicLibrary;
 
 namespace UI.UserControls
 {
-    public partial class UcInputInvoice : UserControl
+    public partial class UcInputInvoice : MetroFramework.Controls.MetroUserControl
     {
         public UcInputInvoice()
         {
@@ -34,12 +34,25 @@ namespace UI.UserControls
 
         private void addInputInvoiceTitle_Click(object sender, EventArgs e)
         {
+            
+        }
+
+        private void clearTitle_Click(object sender, EventArgs e)
+        {
+            
+        }
+
+        //CRUD
+
+        private void createButton_Click(object sender, EventArgs e)
+        {
             try
             {
                 if (InputInvoiceManagement.InsertinputInvoice(null, dateDateTime.Text, providerTextBox.Text))
                 {
                     FrmMain.Instance.ToolStripLabel.Text = "Agregado correctamente";
-                } else
+                }
+                else
                 {
                     FrmMain.Instance.ToolStripLabel.Text = "Error al agregar";
                 }
@@ -50,10 +63,10 @@ namespace UI.UserControls
             }
         }
 
-        private void clearTitle_Click(object sender, EventArgs e)
+        private void clearButton_Click(object sender, EventArgs e)
         {
-            providerTextBox.Text = "";
-            totalPaymentTextBox.Text = "";
+            providerTextBox.Text = string.Empty;
+            totalPaymentTextBox.Text = string.Empty;
         }
     }
 }
