@@ -1,4 +1,4 @@
-﻿using BusinessLibrary.Connection;
+﻿using BusinessLibrary.Models;
 using ModelLibrary.Models;
 using System;
 using System.Collections.Generic;
@@ -31,7 +31,7 @@ namespace LogicLibrary
                         Destiny = destiny,
                         IdBusiness = int.Parse(idBusiness)
                     };
-                    return ExitInvoiceConnection.InsertExitInvoice(exitInvoiceModel);
+                    return true;
                 }
                 else
                 {
@@ -68,7 +68,7 @@ namespace LogicLibrary
                         Destiny = destiny,
                         IdBusiness = int.Parse(idBusiness)
                     };
-                    return ExitInvoiceConnection.UpdateExitInvoice(exitInvoiceModel);
+                    return true;
                 }
                 else
                 {
@@ -98,7 +98,7 @@ namespace LogicLibrary
                     {
                         IdExitInvoice = int.Parse(idExitInvoice)
                     };
-                    return ExitInvoiceConnection.DeleteExitInvoice(exitInvoiceModel);
+                    return true;
                 }
                 else
                 {
@@ -128,7 +128,7 @@ namespace LogicLibrary
                     {
                         IdExitInvoice = int.Parse(idExitInvoice)
                     };
-                    return ExitInvoiceConnection.SelectExitInvoice(exitInvoiceModel);
+                    return null;
                 }
                 else
                 {
@@ -150,7 +150,7 @@ namespace LogicLibrary
         {
             try
             {
-                return ExitInvoiceConnection.SelectAllExitInvoice();
+                return null;
             }
             catch (Exception ex)
             {

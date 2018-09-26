@@ -1,4 +1,5 @@
-﻿using BusinessLibrary.Conection;
+﻿using BusinessLibrary.Models;
+using DataBaseLibrary;
 using ModelLibrary.Models;
 using System;
 using System.Collections.Generic;
@@ -28,7 +29,7 @@ namespace LogicLibrary
                         IdSalary = int.Parse(idSalary),
                         PositionName = positionName
                     };
-                    return PositionConnection.InsertPosition(positionModel);
+                    return DBPosition.InsertPosition(positionModel);
                 }
                 else
                 {
@@ -62,7 +63,7 @@ namespace LogicLibrary
                         IdPosition = int.Parse(idPosition),
                         PositionName = positionName
                     };
-                    return PositionConnection.UpdatePosition(positionModel);
+                    return DBPosition.UpdatePosition(positionModel);
                 }
                 else
                 {
@@ -92,7 +93,7 @@ namespace LogicLibrary
                     {
                         IdPosition = int.Parse(idPosition)
                     };
-                    return PositionConnection.DeletePosition(positionModel);
+                    return DBPosition.DeletePosition(positionModel);
                 }
                 else
                 {
@@ -111,7 +112,7 @@ namespace LogicLibrary
         /// </summary>
         /// <param name="idPosition"></param>
         /// <returns></returns>
-        public static PositionModel SelectPositionById(string idPosition)
+        public static List<PositionModel> SelectPositionById(string idPosition)
         {
             try
             {
@@ -122,7 +123,7 @@ namespace LogicLibrary
                     {
                         IdPosition = int.Parse(idPosition)
                     };
-                    return PositionConnection.SelectPosition(positionModel);
+                    return DBPosition.SelectidPosition(positionModel);
                 }
                 else
                 {
@@ -144,7 +145,7 @@ namespace LogicLibrary
         {
             try
             {
-                return PositionConnection.SelectAllPosition();
+                return DBPosition.SelectPositionAll();
             }
             catch (Exception ex)
             {

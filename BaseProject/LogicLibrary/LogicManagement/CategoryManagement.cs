@@ -1,10 +1,7 @@
-﻿using BusinessLibrary.Conection;
-using ModelLibrary.Models;
+﻿using BusinessLibrary.Models;
+using DataBaseLibrary;
 using System;
 using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace LogicLibrary
 {
@@ -26,7 +23,7 @@ namespace LogicLibrary
                     {
                         Name = name,
                     };
-                    return CategoryConnection.InsertCategory(categoryModel);
+                    return DBCategory.InsertCategory(categoryModel);
                 }
                 else
                 {
@@ -59,7 +56,7 @@ namespace LogicLibrary
                         Name = name,
                         IdCategory = int.Parse(idCategory)
                     };
-                    return CategoryConnection.UpdateCategory(categoryModel);
+                    return DBCategory.UpdateCategory(categoryModel);
                 }
                 else
                 {
@@ -89,7 +86,7 @@ namespace LogicLibrary
                     {
                         IdCategory = int.Parse(idCategory)
                     };
-                    return CategoryConnection.DeleteCategory(categoryModel);
+                    return DBCategory.DeleteCategory(categoryModel);
                 }
                 else
                 {
@@ -108,18 +105,43 @@ namespace LogicLibrary
         /// </summary>
         /// <param name="idCategory"></param>
         /// <returns></returns>
-        public static CategoryModel SelectCategoryById(string idCategory)
+        //public static CategoryModel SelectCategoryById(string idCategory)
+        //{
+        //    try
+        //    {
+        //        string[] category = new string[] { idCategory };
+        //        if (ValidateData.VerifyFields(category))
+        //        {
+        //            CategoryModel categoryModel = new CategoryModel()
+        //            {
+        //                IdCategory = int.Parse(idCategory)
+        //            };
+        //            return DBCategory.S(categoryModel);
+        //        }
+        //        else
+        //        {
+        //            return null;
+        //        }
+        //    }
+        //    catch (Exception ex)
+        //    {
+        //        //Log4Net
+        //        return null;
+        //    }
+        //}
+
+        public static CategoryModel SelectCategoryByName(string name)
         {
             try
             {
-                string[] category = new string[] { idCategory };
+                string[] category = new string[] { name };
                 if (ValidateData.VerifyFields(category))
                 {
                     CategoryModel categoryModel = new CategoryModel()
                     {
-                        IdCategory = int.Parse(idCategory)
+                        Name = name
                     };
-                    return CategoryConnection.SelectCategory(categoryModel);
+                    return DBCategory.SelectCategoryName(categoryModel);
                 }
                 else
                 {
@@ -141,7 +163,7 @@ namespace LogicLibrary
         {
             try
             {
-                return CategoryConnection.SelectAllCategory();
+                return DBCategory.SelectCategoryAll();
             }
             catch (Exception ex)
             {

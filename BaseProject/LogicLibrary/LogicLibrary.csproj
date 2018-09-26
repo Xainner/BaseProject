@@ -65,9 +65,9 @@
       <Project>{193fe192-0dc3-44cf-b2e1-b9e9aa513a39}</Project>
       <Name>BusinessLibrary</Name>
     </ProjectReference>
-    <ProjectReference Include="..\ModelLibrary\ModelLibrary.csproj">
-      <Project>{138d613d-c8cc-4270-8d49-f365939a9807}</Project>
-      <Name>ModelLibrary</Name>
+    <ProjectReference Include="..\DataBaseLibrary\DataBaseLibrary.csproj">
+      <Project>{F9C8AB95-C6C0-4B7F-ADA3-690953E7358C}</Project>
+      <Name>DataBaseLibrary</Name>
     </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

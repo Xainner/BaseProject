@@ -8,19 +8,61 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using LogicLibrary;
+using ModelLibrary.Models;
+using BusinessLibrary.Models;
 
 namespace UI.UserControls
 {
     public partial class UcClient : MetroFramework.Controls.MetroUserControl
     {
+        //---------GLOBALS---------//
+
+        List<ClientModel> clientModels;
+
+        //---------FORM METHODS---------//
+
         public UcClient()
         {
             InitializeComponent();
 
-            FrmMain.Instance.ToolStripLabel.Text = "Estas en la pantalla de clientes";
+            FrmMain.Instance.ToolStripLabel.Text = "Área de clientes.";
         }
 
-        public void Limpiar()
+        private void UcClient_Load(object sender, EventArgs e)
+        {
+            try
+            {
+                if (ClientManagement.SelectAllClients() != null)
+                {
+                    clientModels = ClientManagement.SelectAllClients();
+                    WireUpClientsGridView();
+                    FrmMain.Instance.ToolStripLabel.Text = "Los registros de la base de datos fueron cargados.";
+                }
+                else
+                {
+                    FrmMain.Instance.ToolStripLabel.Text = "No se encontraron registros en la base de datos.";
+                }
+            }
+            catch (Exception ex)
+            {
+
+                throw;
+            }
+        }
+
+        private void UcClient_Leave(object sender, EventArgs e)
+        {
+            Dispose();
+        }
+
+        //---------CUSTOM METHODS---------//
+
+        private void WireUpClientsGridView()
+        {
+            clientsGridView.DataSource = clientModels;
+        }
+
+        public void Clear()
         {
             txtNameClient.Text = "";
             txtLastnameClient.Text = "";
@@ -28,47 +70,9 @@ namespace UI.UserControls
             txtIdentification.Text = "";
             datepBornDate.Text = "";
             txtEmailClient.Text = "";
-
-            dgvClient.DataSource = ClientManagement.SelectAllClients();
         }
 
-        private void btnAddClient_Click(object sender, EventArgs e)
-        {
-            
-        }
-
-        private void btnUpdateClient_Click(object sender, EventArgs e)
-        {
-            
-        }
-
-        private void btnDeleteClient_Click(object sender, EventArgs e)
-        {
-            
-        }
-
-        private void UcClient_Load(object sender, EventArgs e)
-        {
-            dgvClient.DataSource = ClientManagement.SelectAllClients();
-        }
-
-        private void dgvClient_MouseClick(object sender, MouseEventArgs e)
-        {
-            try
-            {
-                txtNameClient.Text = dgvClient.CurrentRow.Cells[1].Value.ToString();
-                txtLastnameClient.Text = dgvClient.CurrentRow.Cells[2].Value.ToString();
-                txtEmailClient.Text = dgvClient.CurrentRow.Cells[5].Value.ToString();
-                cmbIdentificationType.SelectedItem = dgvClient.CurrentRow.Cells[3].Value.ToString();
-                txtIdentification.Text = dgvClient.CurrentRow.Cells[4].Value.ToString();
-                datepBornDate.Text = dgvClient.CurrentRow.Cells[6].Value.ToString();
-            }
-            catch (Exception)
-            {
-
-                throw;
-            }
-        }
+        //---------EVENTS---------//
 
         private void txtSearchClient_KeyPress(object sender, KeyPressEventArgs e)
         {
@@ -78,11 +82,11 @@ namespace UI.UserControls
             {
                 if (text != "")
                 {
-                    dgvClient.DataSource = ClientManagement.SelectClientByNameOrLastName(text);
+                    clientsGridView.DataSource = ClientManagement.SelectClientByNameOrLastName(text);
                 }
                 else
                 {
-                    dgvClient.DataSource = ClientManagement.SelectAllClients();
+                    clientsGridView.DataSource = ClientManagement.SelectAllClients();
                 }
             }
             catch (Exception)
@@ -92,17 +96,33 @@ namespace UI.UserControls
             }
         }
 
-        private void btnClean_Click(object sender, EventArgs e)
+        private void clientsGridView_Click(object sender, EventArgs e)
         {
-            
+            try
+            {
+                txtNameClient.Text = clientsGridView.CurrentRow.Cells[1].Value.ToString();
+                txtLastnameClient.Text = clientsGridView.CurrentRow.Cells[2].Value.ToString();
+                txtEmailClient.Text = clientsGridView.CurrentRow.Cells[5].Value.ToString();
+                cmbIdentificationType.SelectedItem = clientsGridView.CurrentRow.Cells[3].Value.ToString();
+                txtIdentification.Text = clientsGridView.CurrentRow.Cells[4].Value.ToString();
+                datepBornDate.Text = clientsGridView.CurrentRow.Cells[6].Value.ToString();
+            }
+            catch (Exception)
+            {
+
+                throw;
+            }
         }
 
-        private void UcClient_Leave(object sender, EventArgs e)
+        //---------BUTTONS---------//
+
+        private void clearButton_Click(object sender, EventArgs e)
         {
-            this.Dispose();
+            Clear();
+            WireUpClientsGridView();
         }
 
-        //CRUD
+        //---------CRUD---------//
 
         private void createButton_Click(object sender, EventArgs e)
         {
@@ -117,12 +137,13 @@ namespace UI.UserControls
             {
                 if (ClientManagement.InsertClient(name, lastname, identif, idType, email, bornDate))
                 {
-                    dgvClient.DataSource = ClientManagement.SelectAllClients();
-                    FrmMain.Instance.ToolStripLabel.Text = "Se agrego el cliente correctamente";
+                    Clear();
+                    WireUpClientsGridView();
+                    FrmMain.Instance.ToolStripLabel.Text = "Se agregó el cliente de manera correcta.";
                 }
                 else
                 {
-                    FrmMain.Instance.ToolStripLabel.Text = "No se pudo agregar el cliente";
+                    FrmMain.Instance.ToolStripLabel.Text = "Ha ocurrido un error al agregar el cliente, inténtelo nuevamente.";
                 }
             }
             catch (Exception)
@@ -134,7 +155,7 @@ namespace UI.UserControls
 
         private void updateButton_Click(object sender, EventArgs e)
         {
-            string id = dgvClient.CurrentRow.Cells[0].Value.ToString();
+            string id = clientsGridView.CurrentRow.Cells[0].Value.ToString();
             string name = txtNameClient.Text;
             string lastname = txtLastnameClient.Text;
             string idType = cmbIdentificationType.Text;
@@ -146,13 +167,13 @@ namespace UI.UserControls
             {
                 if (ClientManagement.UpdateClientById(id, name, lastname, identif, idType, email, bornDate))
                 {
-                    dgvClient.DataSource = ClientManagement.SelectAllClients();
-                    FrmMain.Instance.ToolStripLabel.Text = "Se modifico el cliente correctamente";
-                    Limpiar();
+                    Clear();
+                    WireUpClientsGridView();
+                    FrmMain.Instance.ToolStripLabel.Text = "Se modificó el cliente de manera correcta.";
                 }
                 else
                 {
-                    FrmMain.Instance.ToolStripLabel.Text = "Error al modificar";
+                    FrmMain.Instance.ToolStripLabel.Text = "Ha ocurrido un error al modificar el cliente, inténtelo nuevamente.";
                 }
             }
             catch (Exception)
@@ -164,19 +185,19 @@ namespace UI.UserControls
 
         private void deleteButton_Click(object sender, EventArgs e)
         {
-            string idClient = dgvClient.CurrentRow.Cells[0].Value.ToString();
+            string idClient = clientsGridView.CurrentRow.Cells[0].Value.ToString();
 
             try
             {
                 if (ClientManagement.DeleteClientById(idClient))
                 {
-                    dgvClient.DataSource = ClientManagement.SelectAllClients();
-                    FrmMain.Instance.ToolStripLabel.Text = "Se elimino el cliente";
-                    Limpiar();
+                    Clear();
+                    WireUpClientsGridView();
+                    FrmMain.Instance.ToolStripLabel.Text = "Se eliminó el cliente de manera correcta.";
                 }
                 else
                 {
-                    FrmMain.Instance.ToolStripLabel.Text = "Error al eliminar el cliente";
+                    FrmMain.Instance.ToolStripLabel.Text = "Ha ocurrido un error al eliminar el cliente, inténtelo nuevamente.";
                 }
             }
             catch (Exception)
@@ -184,11 +205,6 @@ namespace UI.UserControls
 
                 throw;
             }
-        }
-
-        private void clearButton_Click(object sender, EventArgs e)
-        {
-            Limpiar();
         }
     }
 }

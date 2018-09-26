@@ -152,6 +152,7 @@
     <Compile Include="Properties\Resources.Designer.cs">
       <AutoGen>True</AutoGen>
       <DependentUpon>Resources.resx</DependentUpon>
+      <DesignTime>True</DesignTime>
     </Compile>
     <EmbeddedResource Include="UserControls\UcBusiness.resx">
       <DependentUpon>UcBusiness.cs</DependentUpon>
@@ -201,14 +202,17 @@
     <None Include="App.config" />
   </ItemGroup>
   <ItemGroup>
+    <ProjectReference Include="..\BusinessLibrary\BusinessLibrary.csproj">
+      <Project>{193FE192-0DC3-44CF-B2E1-B9E9AA513A39}</Project>
+      <Name>BusinessLibrary</Name>
+    </ProjectReference>
     <ProjectReference Include="..\LogicLibrary\LogicLibrary.csproj">
       <Project>{ab8caad2-d498-4f2f-8993-b4dd3688e33b}</Project>
       <Name>LogicLibrary</Name>
     </ProjectReference>
-    <ProjectReference Include="..\ModelLibrary\ModelLibrary.csproj">
-      <Project>{138D613D-C8CC-4270-8D49-F365939A9807}</Project>
-      <Name>ModelLibrary</Name>
-    </ProjectReference>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Empty.jpg" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

@@ -7,7 +7,7 @@ using System.Data;
 using Dapper;
 using MySql.Data.MySqlClient;
 
-using ModelLibrary.Models;
+using BusinessLibrary.Models;
 using System.Configuration;
 
 namespace DataBaseLibrary
@@ -57,12 +57,21 @@ namespace DataBaseLibrary
         /// Insert a position from position
         /// </summary>
         /// <param name="Position"></param>
-        public static void InsertPosition(PositionModel Position)
+        public static bool InsertPosition(PositionModel Position)
         {
-            using (IDbConnection cnn = new MySqlConnection(LoadConnectionString()))
+            try
             {
-                cnn.Execute("INSERT INTO position (positionName, idSalary) VALUES" +
-                    "(@positionName, @idSalary)", Position);
+                using (IDbConnection cnn = new MySqlConnection(LoadConnectionString()))
+                {
+                    cnn.Execute("INSERT INTO position (positionName, idSalary) VALUES" +
+                        "(@positionName, @idSalary)", Position);
+                }
+                return true;
+            }
+            catch (Exception ex)
+            {
+
+                throw;
             }
         }
 
@@ -70,11 +79,20 @@ namespace DataBaseLibrary
         /// Delete a position from position
         /// </summary>
         /// <param name="Position"></param>
-        public static void DeletePosition(PositionModel Position)
+        public static bool DeletePosition(PositionModel Position)
         {
-            using (IDbConnection cnn = new MySqlConnection(LoadConnectionString()))
+            try
             {
-                cnn.Execute("DELETE FROM position WHERE idPosition = @idPosition", Position);
+                using (IDbConnection cnn = new MySqlConnection(LoadConnectionString()))
+                {
+                    cnn.Execute("DELETE FROM position WHERE idPosition = @idPosition", Position);
+                }
+                return true;
+            }
+            catch (Exception ex)
+            {
+
+                throw;
             }
         }
 
@@ -82,13 +100,22 @@ namespace DataBaseLibrary
         /// Update a position from position
         /// </summary>
         /// <param name="Position"></param>
-        public static void UpdatePosition(PositionModel Position)
+        public static bool UpdatePosition(PositionModel Position)
         {
-            using (IDbConnection cnn = new MySqlConnection(LoadConnectionString()))
+            try
             {
-                cnn.Execute("UPDATE position " +
-                    "SET positionName = @positionName, idSalary = @idSalary " +
-                    "WHERE idPosition = @idPosition", Position);
+                using (IDbConnection cnn = new MySqlConnection(LoadConnectionString()))
+                {
+                    cnn.Execute("UPDATE position " +
+                        "SET positionName = @positionName, idSalary = @idSalary " +
+                        "WHERE idPosition = @idPosition", Position);
+                }
+                return true;
+            }
+            catch (Exception ex)
+            {
+
+                throw;
             }
         }
     }

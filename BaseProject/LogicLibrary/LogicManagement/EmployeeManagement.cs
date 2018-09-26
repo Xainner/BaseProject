@@ -1,10 +1,7 @@
-﻿using BusinessLibrary.Conection;
-using ModelLibrary.Models;
+﻿using BusinessLibrary.Models;
+using DataBaseLibrary;
 using System;
 using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace LogicLibrary
 {
@@ -102,7 +99,7 @@ namespace LogicLibrary
                         CellphoneEmergency = cellphoneEmergency,
                         Image = photo
                     };
-                    return EmployeeConnection.InsertEmployee(employeeModel);
+                    return DBEmployee.InsertEmployee(employeeModel);
                 }
                 else
                 {
@@ -215,7 +212,7 @@ namespace LogicLibrary
                         CellphoneEmergency = cellphoneEmergency,
                         Image = photo
                     };
-                    return EmployeeConnection.UpdateEmployee(employeeModel);
+                    return DBEmployee.UpdateEmployee(employeeModel);
                 }
                 else
                 {
@@ -245,7 +242,7 @@ namespace LogicLibrary
                     {
                         IdEmployee = int.Parse(idEmployee),
                     };
-                    return EmployeeConnection.DeleteEmployee(employeeModel);
+                    return DBEmployee.DeleteEmployee(employeeModel);
                 }
                 else
                 {
@@ -275,7 +272,7 @@ namespace LogicLibrary
                     {
                         IdEmployee = int.Parse(idEmployee),
                     };
-                    return EmployeeConnection.SelectEmployee(employeeModel);
+                    return DBEmployee.SelectidEmployee(employeeModel);
                 }
                 else
                 {
@@ -356,7 +353,7 @@ namespace LogicLibrary
         {
             try
             {
-                return EmployeeConnection.SelectAllEmployee();
+                return DBEmployee.SelectEmployeeAll();
             }
             catch (Exception ex)
             {

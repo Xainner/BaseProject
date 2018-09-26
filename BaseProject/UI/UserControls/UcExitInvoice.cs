@@ -9,6 +9,7 @@ using System.Threading.Tasks;
 using System.Windows.Forms;
 using LogicLibrary;
 using ModelLibrary.Models;
+using BusinessLibrary.Models;
 
 namespace UI.UserControls
 {

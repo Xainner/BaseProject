@@ -4,9 +4,9 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace ModelLibrary.Models
+namespace BusinessLibrary.Models
 {
-    public class InternalSellinvoiceModel
+    public class ExternalSellinvoiceModel
     {
         public int idSellinvoice;
         public string numInvoice;
@@ -15,7 +15,7 @@ namespace ModelLibrary.Models
         public int idEmployee;
         public int idBusiness;
         public int idUser;
-        //public List<ProductModel> products;
+        public List<ProductModel> products;
         public string coinType;
         public string paymentType;
         public string iviAmount;
@@ -32,7 +32,7 @@ namespace ModelLibrary.Models
         public int IdEmployee { get => idEmployee; set => idEmployee = value; }
         public int IdBusiness { get => idBusiness; set => idBusiness = value; }
         public int IdUser { get => idUser; set => idUser = value; }
-        //public List<ProductModel> Products { get => products; set => products = value; }
+        public List<ProductModel> Products { get => products; set => products = value; }
         public string CoinType { get => coinType; set => coinType = value; }
         public string PaymentType { get => paymentType; set => paymentType = value; }
         public string IviAmount { get => iviAmount; set => iviAmount = value; }

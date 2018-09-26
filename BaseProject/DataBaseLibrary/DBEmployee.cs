@@ -9,6 +9,7 @@ using MySql.Data.MySqlClient;
 
 using ModelLibrary.Models;
 using System.Configuration;
+using BusinessLibrary.Models;
 
 namespace DataBaseLibrary
 {
@@ -87,19 +88,28 @@ namespace DataBaseLibrary
         /// Insert a employee from employee
         /// </summary>
         /// <param name="Employee"></param>
-        public static void InsertEmployee(EmployeeModel Employee)
+        public static bool InsertEmployee(EmployeeModel Employee)
         {
-            using (IDbConnection cnn = new MySqlConnection(LoadConnectionString()))
+            try
             {
-                cnn.Execute("INSERT INTO employee" +
-                    "(Name, lastName, identificationType, Identification, Residence, " +
-                    "bornDate, civilState, Childs, Telephone, Cellphone, enterStore, Nationality, " +
-                    "workingState, enterDate, endDate, Observation, Image, nameEmergency, " +
-                    "cellphoneEmergency, idPosition) VALUES" +
-                    "(@Name, @lastName, @identificationType, @Identification, @Residence, " +
-                    "@bornDate, @civilState, @Childs, @Telephone, @Cellphone, @enterStore, @Nationality, " +
-                    "@workingState, @enterDate, @endDate, @Observation, @Image, @nameEmergency, " +
-                    "@cellphoneEmergency, @idPosition)", Employee);
+                using (IDbConnection cnn = new MySqlConnection(LoadConnectionString()))
+                {
+                    cnn.Execute("INSERT INTO employee" +
+                        "(Name, lastName, identificationType, Identification, Residence, " +
+                        "bornDate, civilState, Childs, Telephone, Cellphone, enterStore, Nationality, " +
+                        "workingState, enterDate, endDate, Observation, Image, nameEmergency, " +
+                        "cellphoneEmergency, idPosition) VALUES" +
+                        "(@Name, @lastName, @identificationType, @Identification, @Residence, " +
+                        "@bornDate, @civilState, @Childs, @Telephone, @Cellphone, @enterStore, @Nationality, " +
+                        "@workingState, @enterDate, @endDate, @Observation, @Image, @nameEmergency, " +
+                        "@cellphoneEmergency, @idPosition)", Employee);
+                }
+                return true;
+            }
+            catch (Exception ex)
+            {
+
+                throw;
             }
         }
 
@@ -107,11 +117,20 @@ namespace DataBaseLibrary
         /// Delete a employee from employee
         /// </summary>
         /// <param name="Employee"></param>
-        public static void DeleteEmployee(EmployeeModel Employee)
+        public static bool DeleteEmployee(EmployeeModel Employee)
         {
-            using (IDbConnection cnn = new MySqlConnection(LoadConnectionString()))
+            try
             {
-                cnn.Execute("DELETE FROM employee WHERE idEmployee = @idEmployee", Employee);
+                using (IDbConnection cnn = new MySqlConnection(LoadConnectionString()))
+                {
+                    cnn.Execute("DELETE FROM employee WHERE idEmployee = @idEmployee", Employee);
+                }
+                return true;
+            }
+            catch (Exception ex)
+            {
+
+                throw;
             }
         }
 
@@ -119,18 +138,27 @@ namespace DataBaseLibrary
         /// Update a employee from employee
         /// </summary>
         /// <param name="Employee"></param>
-        public static void UpdateEmployee(EmployeeModel Employee)
+        public static bool UpdateEmployee(EmployeeModel Employee)
         {
-            using (IDbConnection cnn = new MySqlConnection(LoadConnectionString()))
+            try
             {
-                cnn.Execute("UPDATE employee " +
-                    "SET Name = @Name, lastName = @lastName, identificationType = @identificationType, " +
-                    "Identification = @Identification, residence = @Residence, " +
-                    "bornDate = @bornDate, civilState = @civilState, Childs = @Childs, Telephone = @Telephone, " +
-                    "Cellphone = @Cellphone, enterStore = @enterStore, Nationality = @Nationality, " +
-                    "workingState = @workingState, enterDate = @enterDate, endDate = @endDate, Observation = @Observation, " +
-                    "Image = @Image, nameEmergency = @nameEmergency, cellphoneEmergency = @cellphoneEmergency, " +
-                    "idPosition = @idPosition WHERE idEmployee = @idEmployee", Employee);
+                using (IDbConnection cnn = new MySqlConnection(LoadConnectionString()))
+                {
+                    cnn.Execute("UPDATE employee " +
+                        "SET Name = @Name, lastName = @lastName, identificationType = @identificationType, " +
+                        "Identification = @Identification, residence = @Residence, " +
+                        "bornDate = @bornDate, civilState = @civilState, Childs = @Childs, Telephone = @Telephone, " +
+                        "Cellphone = @Cellphone, enterStore = @enterStore, Nationality = @Nationality, " +
+                        "workingState = @workingState, enterDate = @enterDate, endDate = @endDate, Observation = @Observation, " +
+                        "Image = @Image, nameEmergency = @nameEmergency, cellphoneEmergency = @cellphoneEmergency, " +
+                        "idPosition = @idPosition WHERE idEmployee = @idEmployee", Employee);
+                }
+                return true;
+            }
+            catch (Exception ex)
+            {
+
+                throw;
             }
         }
     }

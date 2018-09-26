@@ -1,14 +1,11 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Data;
 using Dapper;
 using MySql.Data.MySqlClient;
-
-using ModelLibrary.Models;
 using System.Configuration;
+using BusinessLibrary.Models;
 
 namespace DataBaseLibrary
 {
@@ -72,13 +69,22 @@ namespace DataBaseLibrary
         /// Insert a salary from salary
         /// </summary>
         /// <param name="Salary"></param>
-        public static void InsertSalary(SalaryModel Salary)
+        public static bool InsertSalary(SalaryModel Salary)
         {
-            using (IDbConnection cnn = new MySqlConnection(LoadConnectionString()))
+            try
             {
-                cnn.Execute("INSERT INTO salary" +
-                    "(salaryAmount) VALUES" +
-                    "(@salaryAmount)", Salary);
+                using (IDbConnection cnn = new MySqlConnection(LoadConnectionString()))
+                {
+                    cnn.Execute("INSERT INTO salary" +
+                        "(salaryAmount) VALUES" +
+                        "(@salaryAmount)", Salary);
+                }
+                return true;
+            }
+            catch (Exception ex)
+            {
+
+                throw;
             }
         }
 
@@ -86,11 +92,20 @@ namespace DataBaseLibrary
         /// Delete a salary from salary
         /// </summary>
         /// <param name="Salary"></param>
-        public static void DeleteSalary(SalaryModel Salary)
+        public static bool DeleteSalary(SalaryModel Salary)
         {
-            using (IDbConnection cnn = new MySqlConnection(LoadConnectionString()))
+            try
             {
-                cnn.Execute("DELETE FROM salary WHERE idSalary = @idSalary", Salary);
+                using (IDbConnection cnn = new MySqlConnection(LoadConnectionString()))
+                {
+                    cnn.Execute("DELETE FROM salary WHERE idSalary = @idSalary", Salary);
+                }
+                return true;
+            }
+            catch (Exception ex)
+            {
+
+                throw;
             }
         }
 
@@ -98,13 +113,22 @@ namespace DataBaseLibrary
         /// Update a salary from salary
         /// </summary>
         /// <param name="Salary"></param>
-        public static void UpdateSalary(SalaryModel Salary)
+        public static bool UpdateSalary(SalaryModel Salary)
         {
-            using (IDbConnection cnn = new MySqlConnection(LoadConnectionString()))
+            try
             {
-                cnn.Execute("UPDATE salary " +
-                    "SET salaryAmount = @salaryAmount " +
-                    "WHERE idSalary = @idSalary", Salary);
+                using (IDbConnection cnn = new MySqlConnection(LoadConnectionString()))
+                {
+                    cnn.Execute("UPDATE salary " +
+                        "SET salaryAmount = @salaryAmount " +
+                        "WHERE idSalary = @idSalary", Salary);
+                }
+                return true;
+            }
+            catch (Exception ex)
+            {
+
+                throw;
             }
         }
     }

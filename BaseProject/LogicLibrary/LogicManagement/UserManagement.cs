@@ -1,5 +1,4 @@
-﻿using BusinessLibrary.Conection;
-
+﻿using BusinessLibrary.Models;
 using ModelLibrary.Models;
 using System;
 using System.Collections.Generic;
@@ -81,7 +80,7 @@ namespace LogicLibrary
                         IdUser = int.Parse(idUser),
                         Password = PasswordManagement.HashPassword(password)
                     };
-                    return UserConnection.UpdateUser(userModel);
+                    return true;
                 }
                 else
                 {
@@ -111,7 +110,7 @@ namespace LogicLibrary
                     {
                         IdUser = int.Parse(idUser)
                     };
-                    return UserConnection.DeleteUser(userModel);
+                    return true;
                 }
                 else
                 {
@@ -141,7 +140,7 @@ namespace LogicLibrary
                     {
                         IdUser = int.Parse(idUser)
                     };
-                    return UserConnection.SelectUser(userModel);
+                    return null;
                 }
                 else
                 {
@@ -171,7 +170,7 @@ namespace LogicLibrary
                     {
                         UserName = userName
                     };
-                    return UserConnection.SelectUser(userModel);
+                    return null;
                 }
                 else
                 {
@@ -193,7 +192,7 @@ namespace LogicLibrary
         {
             try
             {
-                return UserConnection.SelectAllUser();
+                return null;
             }
             catch (Exception ex)
             {

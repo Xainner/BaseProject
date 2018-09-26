@@ -1,14 +1,11 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Data;
 using Dapper;
 using MySql.Data.MySqlClient;
-
-using ModelLibrary.Models;
 using System.Configuration;
+using BusinessLibrary.Models;
 
 namespace DataBaseLibrary
 {
@@ -77,15 +74,24 @@ namespace DataBaseLibrary
         /// Insert a client from client
         /// </summary>
         /// <param name="Client"></param>
-        public static void InsertClient(ClientModel Client)
+        public static bool InsertClient(ClientModel Client)
         {
-            using (IDbConnection cnn = new MySqlConnection(LoadConnectionString()))
+            try
             {
-                cnn.Execute("INSERT INTO client" +
-                    "(Name, lastName, identificationType, Identification, Email, " +
-                    "bornDate) VALUES" +
-                    "(@Name, @lastName, @identificationType, @Identification, @Email, " +
-                    "@bornDate)", Client);
+                using (IDbConnection cnn = new MySqlConnection(LoadConnectionString()))
+                {
+                    cnn.Execute("INSERT INTO client" +
+                        "(Name, lastName, identificationType, Identification, Email, " +
+                        "bornDate) VALUES" +
+                        "(@Name, @lastName, @identificationType, @Identification, @Email, " +
+                        "@bornDate)", Client);
+                }
+                return true;
+            }
+            catch (Exception ex)
+            {
+
+                throw;
             }
         }
 
@@ -93,11 +99,20 @@ namespace DataBaseLibrary
         /// Delete a client from client
         /// </summary>
         /// <param name="Client"></param>
-        public static void DeleteClient(ClientModel Client)
+        public static bool DeleteClient(ClientModel Client)
         {
-            using (IDbConnection cnn = new MySqlConnection(LoadConnectionString()))
+            try
             {
-                cnn.Execute("DELETE FROM client WHERE idClient = @idClient", Client);
+                using (IDbConnection cnn = new MySqlConnection(LoadConnectionString()))
+                {
+                    cnn.Execute("DELETE FROM client WHERE idClient = @idClient", Client);
+                }
+                return true;
+            }
+            catch (Exception ex)
+            {
+
+                throw;
             }
         }
 
@@ -105,16 +120,25 @@ namespace DataBaseLibrary
         /// Update a client from client
         /// </summary>
         /// <param name="Client"></param>
-        public static void UpdateClient(ClientModel Client)
+        public static bool UpdateClient(ClientModel Client)
         {
-            using (IDbConnection cnn = new MySqlConnection(LoadConnectionString()))
+            try
             {
-                cnn.Execute("UPDATE client " +
-                    "SET Name = @Name, lastName = @lastName, " +
-                    "identificationType = @identificationType, " +
-                    "Identification = @Identification, Email = @Email, " +
-                    "bornDate = @bornDate " +
-                    "WHERE idClient = @idClient", Client);
+                using (IDbConnection cnn = new MySqlConnection(LoadConnectionString()))
+                {
+                    cnn.Execute("UPDATE client " +
+                        "SET Name = @Name, lastName = @lastName, " +
+                        "identificationType = @identificationType, " +
+                        "Identification = @Identification, Email = @Email, " +
+                        "bornDate = @bornDate " +
+                        "WHERE idClient = @idClient", Client);
+                }
+                return true;
+            }
+            catch (Exception ex)
+            {
+
+                throw;
             }
         }
     }

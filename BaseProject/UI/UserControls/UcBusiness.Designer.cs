@@ -29,10 +29,10 @@
         private void InitializeComponent()
         {
             this.components = new System.ComponentModel.Container();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle3 = new System.Windows.Forms.DataGridViewCellStyle();
-            this.txtSearchBusiness = new MetroFramework.Controls.MetroTextBox();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle4 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle5 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle6 = new System.Windows.Forms.DataGridViewCellStyle();
+            this.businessFantasyNameSearchTextBox = new MetroFramework.Controls.MetroTextBox();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
             this.updateButton = new MetroFramework.Controls.MetroButton();
             this.clearButton = new MetroFramework.Controls.MetroButton();
@@ -47,6 +47,11 @@
             this.txtSocietyName = new MetroFramework.Controls.MetroTextBox();
             this.txtFantasyName = new MetroFramework.Controls.MetroTextBox();
             this.pbLogo = new System.Windows.Forms.PictureBox();
+            this.metroContextMenu1 = new MetroFramework.Controls.MetroContextMenu(this.components);
+            this.toolStripMenuItem1 = new System.Windows.Forms.ToolStripMenuItem();
+            this.toolStripMenuItem2 = new System.Windows.Forms.ToolStripMenuItem();
+            this.toolStripSeparator1 = new System.Windows.Forms.ToolStripSeparator();
+            this.toolStripMenuItem3 = new System.Windows.Forms.ToolStripMenuItem();
             this.metroLabel9 = new MetroFramework.Controls.MetroLabel();
             this.metroLabel7 = new MetroFramework.Controls.MetroLabel();
             this.metroLabel8 = new MetroFramework.Controls.MetroLabel();
@@ -55,51 +60,46 @@
             this.metroLabel3 = new MetroFramework.Controls.MetroLabel();
             this.metroLabel2 = new MetroFramework.Controls.MetroLabel();
             this.metroLabel1 = new MetroFramework.Controls.MetroLabel();
-            this.dgvBusiness = new MetroFramework.Controls.MetroGrid();
+            this.businessGridView = new MetroFramework.Controls.MetroGrid();
             this.deleteButton = new MetroFramework.Controls.MetroButton();
-            this.metroContextMenu1 = new MetroFramework.Controls.MetroContextMenu(this.components);
-            this.toolStripMenuItem1 = new System.Windows.Forms.ToolStripMenuItem();
-            this.toolStripMenuItem2 = new System.Windows.Forms.ToolStripMenuItem();
-            this.toolStripMenuItem3 = new System.Windows.Forms.ToolStripMenuItem();
-            this.toolStripSeparator1 = new System.Windows.Forms.ToolStripSeparator();
             this.groupBox1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pbLogo)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.dgvBusiness)).BeginInit();
             this.metroContextMenu1.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.businessGridView)).BeginInit();
             this.SuspendLayout();
             // 
-            // txtSearchBusiness
+            // businessFantasyNameSearchTextBox
             // 
             // 
             // 
             // 
-            this.txtSearchBusiness.CustomButton.Image = null;
-            this.txtSearchBusiness.CustomButton.Location = new System.Drawing.Point(164, 1);
-            this.txtSearchBusiness.CustomButton.Name = "";
-            this.txtSearchBusiness.CustomButton.Size = new System.Drawing.Size(21, 21);
-            this.txtSearchBusiness.CustomButton.Style = MetroFramework.MetroColorStyle.Blue;
-            this.txtSearchBusiness.CustomButton.TabIndex = 1;
-            this.txtSearchBusiness.CustomButton.Theme = MetroFramework.MetroThemeStyle.Light;
-            this.txtSearchBusiness.CustomButton.UseSelectable = true;
-            this.txtSearchBusiness.CustomButton.Visible = false;
-            this.txtSearchBusiness.Lines = new string[0];
-            this.txtSearchBusiness.Location = new System.Drawing.Point(739, 394);
-            this.txtSearchBusiness.MaxLength = 32767;
-            this.txtSearchBusiness.Name = "txtSearchBusiness";
-            this.txtSearchBusiness.PasswordChar = '\0';
-            this.txtSearchBusiness.PromptText = "Ingrese texto a buscar";
-            this.txtSearchBusiness.ScrollBars = System.Windows.Forms.ScrollBars.None;
-            this.txtSearchBusiness.SelectedText = "";
-            this.txtSearchBusiness.SelectionLength = 0;
-            this.txtSearchBusiness.SelectionStart = 0;
-            this.txtSearchBusiness.ShortcutsEnabled = true;
-            this.txtSearchBusiness.Size = new System.Drawing.Size(186, 23);
-            this.txtSearchBusiness.TabIndex = 13;
-            this.txtSearchBusiness.UseSelectable = true;
-            this.txtSearchBusiness.WaterMark = "Ingrese texto a buscar";
-            this.txtSearchBusiness.WaterMarkColor = System.Drawing.Color.FromArgb(((int)(((byte)(109)))), ((int)(((byte)(109)))), ((int)(((byte)(109)))));
-            this.txtSearchBusiness.WaterMarkFont = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Pixel);
-            this.txtSearchBusiness.KeyUp += new System.Windows.Forms.KeyEventHandler(this.txtSearchBusiness_KeyUp);
+            this.businessFantasyNameSearchTextBox.CustomButton.Image = null;
+            this.businessFantasyNameSearchTextBox.CustomButton.Location = new System.Drawing.Point(164, 1);
+            this.businessFantasyNameSearchTextBox.CustomButton.Name = "";
+            this.businessFantasyNameSearchTextBox.CustomButton.Size = new System.Drawing.Size(21, 21);
+            this.businessFantasyNameSearchTextBox.CustomButton.Style = MetroFramework.MetroColorStyle.Blue;
+            this.businessFantasyNameSearchTextBox.CustomButton.TabIndex = 1;
+            this.businessFantasyNameSearchTextBox.CustomButton.Theme = MetroFramework.MetroThemeStyle.Light;
+            this.businessFantasyNameSearchTextBox.CustomButton.UseSelectable = true;
+            this.businessFantasyNameSearchTextBox.CustomButton.Visible = false;
+            this.businessFantasyNameSearchTextBox.Lines = new string[0];
+            this.businessFantasyNameSearchTextBox.Location = new System.Drawing.Point(739, 394);
+            this.businessFantasyNameSearchTextBox.MaxLength = 32767;
+            this.businessFantasyNameSearchTextBox.Name = "businessFantasyNameSearchTextBox";
+            this.businessFantasyNameSearchTextBox.PasswordChar = '\0';
+            this.businessFantasyNameSearchTextBox.PromptText = "Ingrese texto a buscar";
+            this.businessFantasyNameSearchTextBox.ScrollBars = System.Windows.Forms.ScrollBars.None;
+            this.businessFantasyNameSearchTextBox.SelectedText = "";
+            this.businessFantasyNameSearchTextBox.SelectionLength = 0;
+            this.businessFantasyNameSearchTextBox.SelectionStart = 0;
+            this.businessFantasyNameSearchTextBox.ShortcutsEnabled = true;
+            this.businessFantasyNameSearchTextBox.Size = new System.Drawing.Size(186, 23);
+            this.businessFantasyNameSearchTextBox.TabIndex = 13;
+            this.businessFantasyNameSearchTextBox.UseSelectable = true;
+            this.businessFantasyNameSearchTextBox.WaterMark = "Ingrese texto a buscar";
+            this.businessFantasyNameSearchTextBox.WaterMarkColor = System.Drawing.Color.FromArgb(((int)(((byte)(109)))), ((int)(((byte)(109)))), ((int)(((byte)(109)))));
+            this.businessFantasyNameSearchTextBox.WaterMarkFont = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Pixel);
+            this.businessFantasyNameSearchTextBox.KeyUp += new System.Windows.Forms.KeyEventHandler(this.businessFantasyNameSearchTextBox_KeyUp);
             // 
             // groupBox1
             // 
@@ -394,12 +394,46 @@
             // 
             this.pbLogo.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.pbLogo.ContextMenuStrip = this.metroContextMenu1;
+            this.pbLogo.Image = global::UI.Properties.Resources.Empty;
             this.pbLogo.Location = new System.Drawing.Point(681, 38);
             this.pbLogo.Name = "pbLogo";
             this.pbLogo.Size = new System.Drawing.Size(196, 180);
             this.pbLogo.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
             this.pbLogo.TabIndex = 4;
             this.pbLogo.TabStop = false;
+            // 
+            // metroContextMenu1
+            // 
+            this.metroContextMenu1.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.toolStripMenuItem1,
+            this.toolStripMenuItem2,
+            this.toolStripSeparator1,
+            this.toolStripMenuItem3});
+            this.metroContextMenu1.Name = "metroContextMenu1";
+            this.metroContextMenu1.Size = new System.Drawing.Size(169, 76);
+            // 
+            // toolStripMenuItem1
+            // 
+            this.toolStripMenuItem1.Name = "toolStripMenuItem1";
+            this.toolStripMenuItem1.Size = new System.Drawing.Size(168, 22);
+            this.toolStripMenuItem1.Text = "Agregar imágen";
+            // 
+            // toolStripMenuItem2
+            // 
+            this.toolStripMenuItem2.Name = "toolStripMenuItem2";
+            this.toolStripMenuItem2.Size = new System.Drawing.Size(168, 22);
+            this.toolStripMenuItem2.Text = "Modificar imágen";
+            // 
+            // toolStripSeparator1
+            // 
+            this.toolStripSeparator1.Name = "toolStripSeparator1";
+            this.toolStripSeparator1.Size = new System.Drawing.Size(165, 6);
+            // 
+            // toolStripMenuItem3
+            // 
+            this.toolStripMenuItem3.Name = "toolStripMenuItem3";
+            this.toolStripMenuItem3.Size = new System.Drawing.Size(168, 22);
+            this.toolStripMenuItem3.Text = "Quitar imágen";
             // 
             // metroLabel9
             // 
@@ -473,51 +507,51 @@
             this.metroLabel1.TabIndex = 0;
             this.metroLabel1.Text = "Nombre de fantasía";
             // 
-            // dgvBusiness
+            // businessGridView
             // 
-            this.dgvBusiness.AllowUserToResizeRows = false;
-            this.dgvBusiness.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
-            this.dgvBusiness.BackgroundColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(255)))), ((int)(((byte)(255)))));
-            this.dgvBusiness.BorderStyle = System.Windows.Forms.BorderStyle.None;
-            this.dgvBusiness.CellBorderStyle = System.Windows.Forms.DataGridViewCellBorderStyle.None;
-            this.dgvBusiness.ColumnHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.None;
-            dataGridViewCellStyle1.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(174)))), ((int)(((byte)(219)))));
-            dataGridViewCellStyle1.Font = new System.Drawing.Font("Segoe UI", 11F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Pixel);
-            dataGridViewCellStyle1.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(255)))), ((int)(((byte)(255)))));
-            dataGridViewCellStyle1.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(198)))), ((int)(((byte)(247)))));
-            dataGridViewCellStyle1.SelectionForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(17)))), ((int)(((byte)(17)))), ((int)(((byte)(17)))));
-            dataGridViewCellStyle1.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.dgvBusiness.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle1;
-            this.dgvBusiness.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            dataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle2.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(255)))), ((int)(((byte)(255)))));
-            dataGridViewCellStyle2.Font = new System.Drawing.Font("Segoe UI", 11F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Pixel);
-            dataGridViewCellStyle2.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(136)))), ((int)(((byte)(136)))), ((int)(((byte)(136)))));
-            dataGridViewCellStyle2.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(198)))), ((int)(((byte)(247)))));
-            dataGridViewCellStyle2.SelectionForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(17)))), ((int)(((byte)(17)))), ((int)(((byte)(17)))));
-            dataGridViewCellStyle2.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
-            this.dgvBusiness.DefaultCellStyle = dataGridViewCellStyle2;
-            this.dgvBusiness.EnableHeadersVisualStyles = false;
-            this.dgvBusiness.Font = new System.Drawing.Font("Segoe UI", 11F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Pixel);
-            this.dgvBusiness.GridColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(255)))), ((int)(((byte)(255)))));
-            this.dgvBusiness.Location = new System.Drawing.Point(14, 423);
-            this.dgvBusiness.Name = "dgvBusiness";
-            this.dgvBusiness.ReadOnly = true;
-            this.dgvBusiness.RowHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.None;
-            dataGridViewCellStyle3.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle3.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(174)))), ((int)(((byte)(219)))));
-            dataGridViewCellStyle3.Font = new System.Drawing.Font("Segoe UI", 11F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Pixel);
-            dataGridViewCellStyle3.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(255)))), ((int)(((byte)(255)))));
-            dataGridViewCellStyle3.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(198)))), ((int)(((byte)(247)))));
-            dataGridViewCellStyle3.SelectionForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(17)))), ((int)(((byte)(17)))), ((int)(((byte)(17)))));
-            dataGridViewCellStyle3.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.dgvBusiness.RowHeadersDefaultCellStyle = dataGridViewCellStyle3;
-            this.dgvBusiness.RowHeadersWidthSizeMode = System.Windows.Forms.DataGridViewRowHeadersWidthSizeMode.DisableResizing;
-            this.dgvBusiness.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.dgvBusiness.Size = new System.Drawing.Size(911, 217);
-            this.dgvBusiness.TabIndex = 14;
-            this.dgvBusiness.Click += new System.EventHandler(this.dgvBusiness_Click);
+            this.businessGridView.AllowUserToResizeRows = false;
+            this.businessGridView.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
+            this.businessGridView.BackgroundColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(255)))), ((int)(((byte)(255)))));
+            this.businessGridView.BorderStyle = System.Windows.Forms.BorderStyle.None;
+            this.businessGridView.CellBorderStyle = System.Windows.Forms.DataGridViewCellBorderStyle.None;
+            this.businessGridView.ColumnHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.None;
+            dataGridViewCellStyle4.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle4.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(174)))), ((int)(((byte)(219)))));
+            dataGridViewCellStyle4.Font = new System.Drawing.Font("Segoe UI", 11F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Pixel);
+            dataGridViewCellStyle4.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(255)))), ((int)(((byte)(255)))));
+            dataGridViewCellStyle4.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(198)))), ((int)(((byte)(247)))));
+            dataGridViewCellStyle4.SelectionForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(17)))), ((int)(((byte)(17)))), ((int)(((byte)(17)))));
+            dataGridViewCellStyle4.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.businessGridView.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle4;
+            this.businessGridView.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            dataGridViewCellStyle5.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle5.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(255)))), ((int)(((byte)(255)))));
+            dataGridViewCellStyle5.Font = new System.Drawing.Font("Segoe UI", 11F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Pixel);
+            dataGridViewCellStyle5.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(136)))), ((int)(((byte)(136)))), ((int)(((byte)(136)))));
+            dataGridViewCellStyle5.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(198)))), ((int)(((byte)(247)))));
+            dataGridViewCellStyle5.SelectionForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(17)))), ((int)(((byte)(17)))), ((int)(((byte)(17)))));
+            dataGridViewCellStyle5.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
+            this.businessGridView.DefaultCellStyle = dataGridViewCellStyle5;
+            this.businessGridView.EnableHeadersVisualStyles = false;
+            this.businessGridView.Font = new System.Drawing.Font("Segoe UI", 11F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Pixel);
+            this.businessGridView.GridColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(255)))), ((int)(((byte)(255)))));
+            this.businessGridView.Location = new System.Drawing.Point(14, 423);
+            this.businessGridView.Name = "businessGridView";
+            this.businessGridView.ReadOnly = true;
+            this.businessGridView.RowHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.None;
+            dataGridViewCellStyle6.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle6.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(174)))), ((int)(((byte)(219)))));
+            dataGridViewCellStyle6.Font = new System.Drawing.Font("Segoe UI", 11F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Pixel);
+            dataGridViewCellStyle6.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(255)))), ((int)(((byte)(255)))));
+            dataGridViewCellStyle6.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(198)))), ((int)(((byte)(247)))));
+            dataGridViewCellStyle6.SelectionForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(17)))), ((int)(((byte)(17)))), ((int)(((byte)(17)))));
+            dataGridViewCellStyle6.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.businessGridView.RowHeadersDefaultCellStyle = dataGridViewCellStyle6;
+            this.businessGridView.RowHeadersWidthSizeMode = System.Windows.Forms.DataGridViewRowHeadersWidthSizeMode.DisableResizing;
+            this.businessGridView.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
+            this.businessGridView.Size = new System.Drawing.Size(911, 217);
+            this.businessGridView.TabIndex = 14;
+            this.businessGridView.Click += new System.EventHandler(this.businessGridView_Click);
             // 
             // deleteButton
             // 
@@ -529,47 +563,14 @@
             this.deleteButton.UseSelectable = true;
             this.deleteButton.Click += new System.EventHandler(this.deleteButton_Click);
             // 
-            // metroContextMenu1
-            // 
-            this.metroContextMenu1.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.toolStripMenuItem1,
-            this.toolStripMenuItem2,
-            this.toolStripSeparator1,
-            this.toolStripMenuItem3});
-            this.metroContextMenu1.Name = "metroContextMenu1";
-            this.metroContextMenu1.Size = new System.Drawing.Size(169, 76);
-            // 
-            // toolStripMenuItem1
-            // 
-            this.toolStripMenuItem1.Name = "toolStripMenuItem1";
-            this.toolStripMenuItem1.Size = new System.Drawing.Size(168, 22);
-            this.toolStripMenuItem1.Text = "Agregar imágen";
-            // 
-            // toolStripMenuItem2
-            // 
-            this.toolStripMenuItem2.Name = "toolStripMenuItem2";
-            this.toolStripMenuItem2.Size = new System.Drawing.Size(168, 22);
-            this.toolStripMenuItem2.Text = "Modificar imágen";
-            // 
-            // toolStripMenuItem3
-            // 
-            this.toolStripMenuItem3.Name = "toolStripMenuItem3";
-            this.toolStripMenuItem3.Size = new System.Drawing.Size(168, 22);
-            this.toolStripMenuItem3.Text = "Quitar imágen";
-            // 
-            // toolStripSeparator1
-            // 
-            this.toolStripSeparator1.Name = "toolStripSeparator1";
-            this.toolStripSeparator1.Size = new System.Drawing.Size(165, 6);
-            // 
             // UcBusiness
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.AutoScroll = true;
             this.Controls.Add(this.deleteButton);
-            this.Controls.Add(this.dgvBusiness);
-            this.Controls.Add(this.txtSearchBusiness);
+            this.Controls.Add(this.businessGridView);
+            this.Controls.Add(this.businessFantasyNameSearchTextBox);
             this.Controls.Add(this.groupBox1);
             this.Name = "UcBusiness";
             this.Size = new System.Drawing.Size(955, 696);
@@ -578,15 +579,15 @@
             this.groupBox1.ResumeLayout(false);
             this.groupBox1.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pbLogo)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.dgvBusiness)).EndInit();
             this.metroContextMenu1.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.businessGridView)).EndInit();
             this.ResumeLayout(false);
 
         }
 
         #endregion
 
-        private MetroFramework.Controls.MetroTextBox txtSearchBusiness;
+        private MetroFramework.Controls.MetroTextBox businessFantasyNameSearchTextBox;
         private System.Windows.Forms.GroupBox groupBox1;
         private System.Windows.Forms.MaskedTextBox mtxtTelephone;
         private MetroFramework.Controls.MetroTextBox txtEmail;
@@ -606,7 +607,7 @@
         private MetroFramework.Controls.MetroLabel metroLabel2;
         private MetroFramework.Controls.MetroLabel metroLabel1;
         private MetroFramework.Controls.MetroButton selectImageButton;
-        private MetroFramework.Controls.MetroGrid dgvBusiness;
+        private MetroFramework.Controls.MetroGrid businessGridView;
         private MetroFramework.Controls.MetroButton updateButton;
         private MetroFramework.Controls.MetroButton createButton;
         private MetroFramework.Controls.MetroButton clearButton;

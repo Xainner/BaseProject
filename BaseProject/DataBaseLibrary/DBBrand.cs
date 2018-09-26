@@ -8,8 +8,8 @@ using System.Threading.Tasks;
 using Dapper;
 using MySql.Data.MySqlClient;
 
-using ModelLibrary.Models;
 using System.Windows.Forms;
+using BusinessLibrary.Models;
 
 namespace DataBaseLibrary
 {
@@ -49,9 +49,9 @@ namespace DataBaseLibrary
         {
             try
             {
+                Brand.Name += "%";
                 using (IDbConnection cnn = new MySqlConnection(LoadConnectionString()))
                 {
-                    Brand.Name += "%";
                     var output = cnn.Query<BrandModel>("SELECT * FROM brand WHERE Name like @Name", Brand);
 
                     return output.ToList();
@@ -92,11 +92,20 @@ namespace DataBaseLibrary
         /// Insert a brand en the table brand
         /// </summary>
         /// <param name="Brand"></param>
-        public static void InsertBrand(BrandModel Brand)
+        public static bool InsertBrand(BrandModel Brand)
         {
-            using (IDbConnection cnn = new MySqlConnection(LoadConnectionString()))
+            try
             {
-                cnn.Execute("INSERT INTO brand(Name) VALUES(@Name)", Brand);
+                using (IDbConnection cnn = new MySqlConnection(LoadConnectionString()))
+                {
+                    cnn.Execute("INSERT INTO brand(Name) VALUES(@Name)", Brand);
+                }
+                return true;
+            }
+            catch (Exception ex)
+            {
+
+                throw;
             }
         }
 
@@ -104,11 +113,20 @@ namespace DataBaseLibrary
         /// Delete a brand from brand
         /// </summary>
         /// <param name="Brand"></param>
-        public static void DeleteBrand(BrandModel Brand)
+        public static bool DeleteBrand(BrandModel Brand)
         {
-            using (IDbConnection cnn = new MySqlConnection(LoadConnectionString()))
+            try
             {
-                cnn.Execute("DELETE FROM brand WHERE idBrand = @idBrand", Brand);
+                using (IDbConnection cnn = new MySqlConnection(LoadConnectionString()))
+                {
+                    cnn.Execute("DELETE FROM brand WHERE idBrand = @idBrand", Brand);
+                }
+                return true;
+            }
+            catch (Exception)
+            {
+
+                throw;
             }
         }
 
@@ -116,11 +134,20 @@ namespace DataBaseLibrary
         /// Update a brand from brand
         /// </summary>
         /// <param name="Brand"></param>
-        public static void UpdateBrand(BrandModel Brand)
+        public static bool UpdateBrand(BrandModel Brand)
         {
-            using (IDbConnection cnn = new MySqlConnection(LoadConnectionString()))
+            try
             {
-                cnn.Execute("UPDATE brand SET Name = @Name WHERE idBrand = @idBrand", Brand);
+                using (IDbConnection cnn = new MySqlConnection(LoadConnectionString()))
+                {
+                    cnn.Execute("UPDATE brand SET Name = @Name WHERE idBrand = @idBrand", Brand);
+                }
+                return true;
+            }
+            catch (Exception ex)
+            {
+
+                throw;
             }
         }
     }

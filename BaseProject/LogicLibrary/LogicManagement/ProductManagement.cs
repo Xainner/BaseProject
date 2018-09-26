@@ -1,5 +1,6 @@
-﻿using BusinessLibrary.Conection;
-
+﻿
+using BusinessLibrary.Models;
+using DataBaseLibrary;
 using ModelLibrary.Models;
 using System;
 using System.Collections.Generic;
@@ -75,7 +76,7 @@ namespace LogicLibrary
                         Image = image
 
                     };
-                    return ProductConnection.InsertProduct(productModel);
+                    return DBProduct.InsertProduct(productModel);
                 }
                 else
                 {
@@ -158,7 +159,7 @@ namespace LogicLibrary
                         Image = image
 
                     };
-                    return ProductConnection.UpdateProduct(productModel);
+                    return DBProduct.UpdateProduct(productModel);
                 }
                 else
                 {
@@ -188,7 +189,7 @@ namespace LogicLibrary
                     {
                         IdProduct = int.Parse(idProduct),
                     };
-                    return ProductConnection.UpdateProduct(productModel);
+                    return DBProduct.UpdateProduct(productModel);
                 }
                 else
                 {
@@ -207,7 +208,7 @@ namespace LogicLibrary
         /// </summary>
         /// <param name="idProduct"></param>
         /// <returns></returns>
-        public static ProductModel SelectProductById(string idProduct)
+        public static List<ProductModel> SelectProductById(string idProduct)
         {
             try
             {
@@ -219,7 +220,7 @@ namespace LogicLibrary
                         IdProduct = int.Parse(idProduct),
 
                     };
-                    return ProductConnection.SelectProduct(productModel);
+                    return DBProduct.SelectidProduct(productModel);
                 }
                 else
                 {
@@ -399,7 +400,7 @@ namespace LogicLibrary
         {
             try
             {
-                return ProductConnection.SelectAllProduct();
+                return DBProduct.SelectProductAll();
             }
             catch (Exception ex)
             {

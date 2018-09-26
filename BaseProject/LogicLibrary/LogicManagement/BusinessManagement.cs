@@ -1,10 +1,7 @@
-﻿using BusinessLibrary.Conection;
-using ModelLibrary.Models;
+﻿using BusinessLibrary.Models;
+using DataBaseLibrary;
 using System;
 using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace LogicLibrary
 {
@@ -60,7 +57,7 @@ namespace LogicLibrary
                         WebPage = webPage,
                         Logo = logo
                     };
-                    return BusinessConnection.InsertBusiness(businessModel);
+                    return DBBusiness.InsertBusiness(businessModel);
                 }
                 else
                 {
@@ -129,7 +126,7 @@ namespace LogicLibrary
                         WebPage = webPage,
                         Logo = logo
                     };
-                    return BusinessConnection.UpdateBusiness(businessModel);
+                    return DBBusiness.UpdateBusiness(businessModel);
                 }
                 else
                 {
@@ -174,7 +171,7 @@ namespace LogicLibrary
                     {
                         IdBusiness = int.Parse(idBusiness)
                     };
-                    return BusinessConnection.UpdateBusiness(businessModel);
+                    return DBBusiness.UpdateBusiness(businessModel);
                 }
                 else
                 {
@@ -204,7 +201,7 @@ namespace LogicLibrary
                     {
                         IdBusiness = int.Parse(idBusiness)
                     };
-                    return BusinessConnection.DeleteBusiness(businessModel);
+                    return DBBusiness.DeleteBusiness(businessModel);
                 }
                 else
                 {
@@ -235,7 +232,7 @@ namespace LogicLibrary
                     {
                         IdBusiness = int.Parse(idBusiness)
                     };
-                    return BusinessConnection.SelectBusiness(businessModel);
+                    return DBBusiness.SelectBusinessId(businessModel);
                 }
                 else
                 {
@@ -249,7 +246,7 @@ namespace LogicLibrary
             }
         }
 
-        public static BusinessModel SelectBusinessByName(string name)
+        public static List<BusinessModel> SelectBusinessByName(string name)
         {
             try
             {
@@ -260,7 +257,7 @@ namespace LogicLibrary
                     {
                         fantasyName = name
                     };
-                    return BusinessConnection.SelectBusiness(businessModel);
+                    return DBBusiness.SelectBusinessByName(businessModel);
                 }
                 else
                 {
@@ -282,7 +279,7 @@ namespace LogicLibrary
         {
             try
             {
-                return BusinessConnection.SelectAllBusiness();
+                return DBBusiness.SelectBusinessAll();
             }
             catch (Exception ex)
             {

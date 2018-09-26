@@ -10,24 +10,53 @@ using System.Windows.Forms;
 using LogicLibrary;
 using UI.Utilities;
 using ModelLibrary.Models;
+using BusinessLibrary.Models;
 
 namespace UI.UserControls
 {
     public partial class UcBusiness : MetroFramework.Controls.MetroUserControl
     {
+        //---------GLOBALS---------//
+
         byte[] logo;
         string file;
 
-        //---------GLOBALS---------//
-
         List<BusinessModel> businessModels;
+
+        //---------FORM METHODS---------//
 
         public UcBusiness()
         {
             InitializeComponent();
-
-            FrmMain.Instance.ToolStripLabel.Text = "Estas en la pantalla de Negocio";
+            FrmMain.Instance.ToolStripLabel.Text = "Área de negocios.";
         }
+
+        private void UcBusiness_Load(object sender, EventArgs e)
+        {
+            //dgvBusiness.Columns["idBusiness"].DisplayIndex = 0;
+            //dgvBusiness.Columns["idBusiness"].HeaderText = "Id";
+            try
+            {
+                if (BusinessManagement.SelectAllBusiness() != null)
+                {
+                    businessModels = BusinessManagement.SelectAllBusiness();
+                    WireUpBusinessGridView();
+                    FrmMain.Instance.ToolStripLabel.Text = "Los registros de la base de datos fueron cargados.";
+                }
+            }
+            catch (Exception)
+            {
+                FrmMain.Instance.ToolStripLabel.Text = "No se encontraron registros en la base de datos.";
+                throw;
+            }
+        }
+
+        private void UcBusiness_Leave(object sender, EventArgs e)
+        {
+            this.Dispose();
+        }
+
+        //---------CUSTOM METHODS---------//
 
         public void Clear()
         {
@@ -42,44 +71,85 @@ namespace UI.UserControls
             pbLogo.Image = null;
             file = string.Empty;
             logo = null;
-        }
-
-        private void UcBusiness_Load(object sender, EventArgs e)
-        {
-            //dgvBusiness.Columns["idBusiness"].DisplayIndex = 0;
-            //dgvBusiness.Columns["idBusiness"].HeaderText = "Id";
-            try
-            {
-                if (BusinessManagement.SelectAllBusiness() != null)
-                {
-                    businessModels = BusinessManagement.SelectAllBusiness();
-                    WireUpBusinessGridView();
-                }
-            }
-            catch (Exception)
-            {
-                FrmMain.Instance.ToolStripLabel.Text = "No se encontraron registros en la base de datos.";
-                throw;
-            }
+            pbLogo.Image = Properties.Resources.Empty;
         }
 
         private void WireUpBusinessGridView()
         {
-            dgvBusiness.DataSource = businessModels;
-
+            businessGridView.DataSource = businessModels;
         }
 
-        private void UcBusiness_Leave(object sender, EventArgs e)
+        //---------EVENTS---------//
+
+        private void businessFantasyNameSearchTextBox_KeyUp(object sender, KeyEventArgs e)
         {
-            this.Dispose();
+            try
+            {
+                if (!string.IsNullOrEmpty(businessFantasyNameSearchTextBox.Text))
+                {
+                    businessGridView.DataSource = BusinessManagement.SelectBusinessByName(businessFantasyNameSearchTextBox.Text);
+                }
+                else
+                {
+                    WireUpBusinessGridView();
+                }
+            }
+            catch (Exception ex)
+            {
+
+                throw;
+            }
         }
 
+        private void selectImageButton_Click(object sender, EventArgs e)
+        {
+            using (OpenFileDialog openFileDialog = new OpenFileDialog()
+            {
+                Filter = "JPEG|*.jpg|PNG|*.png",
+                Title = "Seleccione la imagen del producto",
+                Multiselect = false,
+            })
+            {
+                if (openFileDialog.ShowDialog() == DialogResult.OK)
+                {
+                    pbLogo.Load(openFileDialog.FileName);
+                    logo = ImageManagement.ImageToByte(openFileDialog.FileName);
+                }
+            }
+        }
+
+        private void businessGridView_Click(object sender, EventArgs e)
+        {
+            try
+            {
+                if (businessGridView.SelectedRows.Count != 0)
+                {
+                    Clear();
+                    txtFantasyName.Text = businessGridView.CurrentRow.Cells[1].Value.ToString();
+                    txtSocietyName.Text = businessGridView.CurrentRow.Cells[2].Value.ToString();
+                    txtlegalCertification.Text = businessGridView.CurrentRow.Cells[3].Value.ToString();
+                    mtxtTelephone.Text = businessGridView.CurrentRow.Cells[4].Value.ToString();
+                    txaMainAddress.Text = businessGridView.CurrentRow.Cells[5].Value.ToString();
+                    txaGeneralAddress.Text = businessGridView.CurrentRow.Cells[6].Value.ToString();
+                    txtEmail.Text = businessGridView.CurrentRow.Cells[7].Value.ToString();
+                    txtWebPage.Text = businessGridView.CurrentRow.Cells[8].Value.ToString();
+                    logo = (byte[])businessGridView.CurrentRow.Cells[9].Value;
+                    pbLogo.Image = ImageManagement.ByteToImage((byte[])businessGridView.CurrentRow.Cells[9].Value);
+                }
+            }
+            catch (Exception ex)
+            {
+
+                throw;
+            }
+        }
 
         //---------BUTTONS---------//
 
         private void clearButton_Click(object sender, EventArgs e)
         {
             Clear();
+            WireUpBusinessGridView();
         }
 
         //---------CRUD---------//
@@ -101,7 +171,9 @@ namespace UI.UserControls
                 if (BusinessManagement.InsertBusiness(fantasyName, society, legalDoc, telephone, mainAddress, generalAddress,
                     email, webPage, logo))
                 {
-                    dgvBusiness.DataSource = BusinessManagement.SelectAllBusiness();
+                    Clear();
+                    businessModels = BusinessManagement.SelectAllBusiness();
+                    WireUpBusinessGridView();
                     FrmMain.Instance.ToolStripLabel.Text = "Negocio agregado correctamente";
                 }
                 else
@@ -118,7 +190,7 @@ namespace UI.UserControls
 
         private void updateButton_Click(object sender, EventArgs e)
         {
-            string id = dgvBusiness.CurrentRow.Cells[0].Value.ToString();
+            string id = businessGridView.CurrentRow.Cells[0].Value.ToString();
             string fantasyName = txtFantasyName.Text;
             string society = txtSocietyName.Text;
             string legalDoc = txtlegalCertification.Text;
@@ -138,7 +210,9 @@ namespace UI.UserControls
                 if (BusinessManagement.UpdateBusinessById(id, fantasyName, society, legalDoc, telephone, mainAddress, generalAddress,
                     email, webPage, logo))
                 {
-                    dgvBusiness.DataSource = BusinessManagement.SelectAllBusiness();
+                    Clear();
+                    businessModels = BusinessManagement.SelectAllBusiness();
+                    WireUpBusinessGridView();
                     FrmMain.Instance.ToolStripLabel.Text = "Negocio modificado correctamente";
                 }
                 else
@@ -158,11 +232,13 @@ namespace UI.UserControls
         {
             try
             {
-                string id = dgvBusiness.CurrentRow.Cells[0].Value.ToString();
+                string id = businessGridView.CurrentRow.Cells[0].Value.ToString();
 
                 if (BusinessManagement.DeleteBusinessById(id))
                 {
-                    dgvBusiness.DataSource = BusinessManagement.SelectAllBusiness();
+                    Clear();
+                    businessModels = BusinessManagement.SelectAllBusiness();
+                    WireUpBusinessGridView();
                     FrmMain.Instance.ToolStripLabel.Text = "El negocio ha sido elimado correctamente";
                 }
                 else
@@ -175,57 +251,6 @@ namespace UI.UserControls
 
                 throw;
             }
-        }
-
-        private void dgvBusiness_Click(object sender, EventArgs e)
-        {
-            try
-            {
-                if (dgvBusiness.SelectedRows.Count != 0)
-                {
-                    Clear();
-                    txtFantasyName.Text = dgvBusiness.CurrentRow.Cells[1].Value.ToString();
-                    txtSocietyName.Text = dgvBusiness.CurrentRow.Cells[2].Value.ToString();
-                    txtlegalCertification.Text = dgvBusiness.CurrentRow.Cells[3].Value.ToString();
-                    mtxtTelephone.Text = dgvBusiness.CurrentRow.Cells[4].Value.ToString();
-                    txaMainAddress.Text = dgvBusiness.CurrentRow.Cells[5].Value.ToString();
-                    txaGeneralAddress.Text = dgvBusiness.CurrentRow.Cells[6].Value.ToString();
-                    txtEmail.Text = dgvBusiness.CurrentRow.Cells[7].Value.ToString();
-                    txtWebPage.Text = dgvBusiness.CurrentRow.Cells[8].Value.ToString();
-                    logo = (byte[])dgvBusiness.CurrentRow.Cells[9].Value;
-                    pbLogo.Image = ImageManagement.ByteToImage((byte[])dgvBusiness.CurrentRow.Cells[9].Value);
-                }
-            }
-            catch (Exception ex)
-            {
-
-                throw;
-            }
-        }
-
-        private void txtSearchBusiness_KeyUp(object sender, KeyEventArgs e)
-        {
-            try
-            {
-                if (!string.IsNullOrEmpty(txtSearchBusiness.Text))
-                {
-                    dgvBusiness.DataSource = BusinessManagement.SelectBusinessByName(txtSearchBusiness.Text);
-                }
-                else
-                {
-                    WireUpBusinessGridView();
-                }
-            }
-            catch (Exception ex)
-            {
-
-                throw;
-            }
-        }
-
-        private void selectImageButton_Click(object sender, EventArgs e)
-        {
-
         }
     }
 }

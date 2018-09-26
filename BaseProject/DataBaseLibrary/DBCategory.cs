@@ -6,9 +6,8 @@ using System.Threading.Tasks;
 using System.Data;
 using Dapper;
 using MySql.Data.MySqlClient;
-
-using ModelLibrary.Models;
 using System.Configuration;
+using BusinessLibrary.Models;
 
 namespace DataBaseLibrary
 {
@@ -73,12 +72,21 @@ namespace DataBaseLibrary
         /// Insert a category from category
         /// </summary>
         /// <param name="Category"></param>
-        public static void InsertCategory(CategoryModel Category)
+        public static bool InsertCategory(CategoryModel Category)
         {
-            using (IDbConnection cnn = new MySqlConnection(LoadConnectionString()))
+            try
             {
-                cnn.Execute("INSERT INTO category(Name) VALUES" +
-                    "(@Name)", Category);
+                using (IDbConnection cnn = new MySqlConnection(LoadConnectionString()))
+                {
+                    cnn.Execute("INSERT INTO category(Name) VALUES" +
+                        "(@Name)", Category);
+                }
+                return true;
+            }
+            catch (Exception ex)
+            {
+
+                throw;
             }
         }
 
@@ -86,11 +94,20 @@ namespace DataBaseLibrary
         /// Delete a category from category
         /// </summary>
         /// <param name="Category"></param>
-        public static void DeleteCategory(CategoryModel Category)
+        public static bool DeleteCategory(CategoryModel Category)
         {
-            using (IDbConnection cnn = new MySqlConnection(LoadConnectionString()))
+            try
             {
-                cnn.Execute("DELETE FROM category WHERE idCategory = @idCategory", Category);
+                using (IDbConnection cnn = new MySqlConnection(LoadConnectionString()))
+                {
+                    cnn.Execute("DELETE FROM category WHERE idCategory = @idCategory", Category);
+                }
+                return true;
+            }
+            catch (Exception ex)
+            {
+
+                throw;
             }
         }
 
@@ -98,12 +115,21 @@ namespace DataBaseLibrary
         /// Update a category from category
         /// </summary>
         /// <param name="Category"></param>
-        public static void UpdateCategory(CategoryModel Category)
+        public static bool UpdateCategory(CategoryModel Category)
         {
-            using (IDbConnection cnn = new MySqlConnection(LoadConnectionString()))
+            try
             {
-                cnn.Execute("UPDATE category SET Name = @Name " +
-                    " WHERE idCategory = @idCategory", Category);
+                using (IDbConnection cnn = new MySqlConnection(LoadConnectionString()))
+                {
+                    cnn.Execute("UPDATE category SET Name = @Name " +
+                        " WHERE idCategory = @idCategory", Category);
+                }
+                return true;
+            }
+            catch (Exception ex)
+            {
+
+                throw;
             }
         }
     }

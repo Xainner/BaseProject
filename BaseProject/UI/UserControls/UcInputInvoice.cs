@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Windows.Forms;
 using ModelLibrary.Models;
 using LogicLibrary;
+using BusinessLibrary.Models;
 
 namespace UI.UserControls
 {

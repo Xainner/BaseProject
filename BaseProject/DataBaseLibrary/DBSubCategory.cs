@@ -10,6 +10,7 @@ using Dapper;
 using ModelLibrary.Models;
 using System.Configuration;
 using MySql.Data.MySqlClient;
+using BusinessLibrary.Models;
 
 namespace DataBaseLibrary
 {
@@ -73,11 +74,20 @@ namespace DataBaseLibrary
         /// Insert a subcategory from subcategory
         /// </summary>
         /// <param name="SubCategory"></param>
-        public static void InsertSubCategory(SubCategoryModel SubCategory)
+        public static bool InsertSubCategory(SubCategoryModel SubCategory)
         {
-            using (IDbConnection cnn = new MySqlConnection(LoadConnectionString()))
+            try
             {
-                cnn.Execute("INSERT INTO subcategory(Name, idCategory) VALUES(@Name, @idCategory)", SubCategory);
+                using (IDbConnection cnn = new MySqlConnection(LoadConnectionString()))
+                {
+                    cnn.Execute("INSERT INTO subcategory(Name, idCategory) VALUES(@Name, @idCategory)", SubCategory);
+                }
+                return true;
+            }
+            catch (Exception ex)
+            {
+
+                throw;
             }
         }
 
@@ -85,11 +95,20 @@ namespace DataBaseLibrary
         /// Delete a subcategory from subcategory
         /// </summary>
         /// <param name="SubCategory"></param>
-        public static void DeleteSubCategory(SubCategoryModel SubCategory)
+        public static bool DeleteSubCategory(SubCategoryModel SubCategory)
         {
-            using (IDbConnection cnn = new MySqlConnection(LoadConnectionString()))
+            try
             {
-                cnn.Execute("DELETE FROM subcategory WHERE idSubCategory = @idSubCategory", SubCategory);
+                using (IDbConnection cnn = new MySqlConnection(LoadConnectionString()))
+                {
+                    cnn.Execute("DELETE FROM subcategory WHERE idSubCategory = @idSubCategory", SubCategory);
+                }
+                return true;
+            }
+            catch (Exception ex)
+            {
+
+                throw;
             }
         }
 
@@ -97,11 +116,20 @@ namespace DataBaseLibrary
         /// Update a subcategory from subcategory
         /// </summary>
         /// <param name="SubCategory"></param>
-        public static void UpdateSubCategory(SubCategoryModel SubCategory)
+        public static bool UpdateSubCategory(SubCategoryModel SubCategory)
         {
-            using (IDbConnection cnn = new MySqlConnection(LoadConnectionString()))
+            try
             {
-                cnn.Execute("UPDATE subcategory SET Name = @Name WHERE idSubCategory = @idSubCategory", SubCategory);
+                using (IDbConnection cnn = new MySqlConnection(LoadConnectionString()))
+                {
+                    cnn.Execute("UPDATE subcategory SET Name = @Name WHERE idSubCategory = @idSubCategory", SubCategory);
+                }
+                return true;
+            }
+            catch (Exception ex)
+            {
+
+                throw;
             }
         }
     }

@@ -1,11 +1,7 @@
-﻿using BusinessLibrary.Conection;
-
-using ModelLibrary.Models;
+﻿using BusinessLibrary.Models;
+using DataBaseLibrary;
 using System;
 using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace LogicLibrary
 {
@@ -29,7 +25,7 @@ namespace LogicLibrary
                         IdCategory = int.Parse(idCategory),
                         Name = name,
                     };
-                    SubcategoryConnection.InsertSubcategory(subCategoryModel);
+                    DBSubCategory.InsertSubCategory(subCategoryModel);
                     return true;
                 }
                 else
@@ -57,7 +53,7 @@ namespace LogicLibrary
                         IdCategory = int.Parse(idCategory),
                         Name = name
                     };
-                    SubcategoryConnection.UpdateSubcategory(subCategoryModel);
+                    DBSubCategory.UpdateSubCategory(subCategoryModel);
                     return true;
                 }
                 else
@@ -84,7 +80,7 @@ namespace LogicLibrary
                     {
                         IdsubCategory = int.Parse(idSubCategory)
                     };
-                    return SubcategoryConnection.DeleteSubcategory(subCategoryModel);
+                    return DBSubCategory.DeleteSubCategory(subCategoryModel);
                 }
                 else
                 {
@@ -103,18 +99,18 @@ namespace LogicLibrary
         /// </summary>
         /// <param name="idSubCategory"></param>
         /// <returns></returns>
-        public static SubCategoryModel SelectSubCategoryById(string idSubCategory)
+        public static SubCategoryModel SelectSubCategoryByName(string name)
         {
             try
             {
-                string[] subCategory = new string[] { idSubCategory };
+                string[] subCategory = new string[] { name };
                 if (ValidateData.VerifyFields(subCategory))
                 {
                     SubCategoryModel subCategoryModel = new SubCategoryModel()
                     {
-                        IdsubCategory = int.Parse(idSubCategory)
+                        Name = name
                     };
-                    return SubcategoryConnection.SelectSubcategory(subCategoryModel);
+                    return DBSubCategory.SelectSubCategoryName(subCategoryModel);
                 }
                 else
                 {
@@ -136,7 +132,7 @@ namespace LogicLibrary
         {
             try
             {
-                return SubcategoryConnection.SelectAllSubcategory();
+                return DBSubCategory.SelectSubCategoryAll();
             }
             catch (Exception ex)
             {

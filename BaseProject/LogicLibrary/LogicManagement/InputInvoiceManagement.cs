@@ -1,5 +1,4 @@
-﻿using BusinessLibrary.Connection;
-
+﻿using BusinessLibrary.Models;
 using ModelLibrary.Models;
 using System;
 using System.Collections.Generic;
@@ -30,7 +29,7 @@ namespace LogicLibrary
                         Date = date,
                         Provider = provider,
                     }; ;
-                    return InputInvoiceConnection.InsertInputInvoice(inputInvoiceModel);
+                    return true;
                 }
                 else
                 {
@@ -65,7 +64,7 @@ namespace LogicLibrary
                         Date = date,
                         Provider = provider,
                     };
-                    return InputInvoiceConnection.UpdateInputInvoice(inputInvoiceModel);
+                    return true;
                 }
                 else
                 {
@@ -95,7 +94,7 @@ namespace LogicLibrary
                     {
                         IdInputInovice = int.Parse(idInputInvoice)
                     };
-                    return InputInvoiceConnection.DeleteInputInvoice(inputInvoiceModel);
+                    return true;
                 }
                 else
                 {
@@ -126,7 +125,7 @@ namespace LogicLibrary
                     {
                         IdInputInovice = int.Parse(idInputInvoice)
                     };
-                    return InputInvoiceConnection.SelectInputInvoice(inputInvoiceModel);
+                    return null;
                 }
                 else
                 {
@@ -148,7 +147,7 @@ namespace LogicLibrary
         {
             try
             {
-                return InputInvoiceConnection.SelectAllInputInvoice();
+                return null;
             }
             catch (Exception ex)
             {

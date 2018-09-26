@@ -9,146 +9,39 @@ using System.Threading.Tasks;
 using System.Windows.Forms;
 using LogicLibrary;
 using ModelLibrary.Models;
+using BusinessLibrary.Models;
 
 namespace UI.UserControls
 {
     public partial class UcCategory : MetroFramework.Controls.MetroUserControl
     {
+        //---------GLOBALS---------//
+
+        List<CategoryModel> categoryModels;
+        List<SubCategoryModel> subCategoryModels;
+
+        //---------FORM METHODS---------//
+
         public UcCategory()
         {
             InitializeComponent();
-
-            FrmMain.Instance.ToolStripLabel.Text = "Estas en la pantalla de Categorias y Subcategorias";
-        }
-
-        private void CleanAll()
-        {
-            txtIDCategory.Text = " ";
-            txtNameCategory.Text = " ";
-            txtNameSub.Text = " ";
-            dgvCategory.DataSource = CategoryManagement.SelectAllCategories();
-            dgvSubCategory.DataSource = SubCategoryManagement.SelectAllSubCategories();
-        }
-
-        public void SortAll()
-        {
-            dgvCategory.DataSource = CategoryManagement.SelectAllCategories();
-            dgvSubCategory.DataSource = SubCategoryManagement.SelectAllSubCategories();
-            cmbCategory.DataSource = CategoryManagement.SelectAllCategories();
-            cmbCategory.DisplayMember = "Name";
+            FrmMain.Instance.ToolStripLabel.Text = "Área de categorías y subcategorías.";
         }
 
         private void UcCategory_Load(object sender, EventArgs e)
         {
-            SortAll();
-        }
-
-        private void btnAddCategory_Click(object sender, EventArgs e)
-        {
-            
-        }
-
-        private void btnUpdateCategory_Click(object sender, EventArgs e)
-        {
-            
-        }
-
-        private void btnDeleteCategory_Click(object sender, EventArgs e)
-        {
-            
-        }
-
-        private void dgvCategory_Click(object sender, EventArgs e)
-        {
             try
             {
-                txtIDCategory.Text = dgvCategory.CurrentRow.Cells[0].Value.ToString();
-                txtNameCategory.Text = dgvCategory.CurrentRow.Cells[1].Value.ToString();
-            }
-            catch (Exception)
-            {
-
-                throw;
-            }
-        }
-
-        private void txtSearchCategory_KeyPress(object sender, KeyPressEventArgs e)
-        {
-            string text = txtSearchCategory.Text;
-
-            try
-            {
-                if (text != "")
+                if (CategoryManagement.SelectAllCategories() != null && SubCategoryManagement.SelectAllSubCategories() != null)
                 {
-                    //dgvCategory.DataSource = CategoryManagement.Select; buscar por categoria
-                }
-                else
-                {
-                    //dgvCategory.DataSource = ClientManagement.SelectAllClients();
+                    categoryModels = CategoryManagement.SelectAllCategories();
+                    FrmMain.Instance.ToolStripLabel.Text = "Los registros de la base de datos fueron cargados.";
+                    WireUpCategoryGridView();
+                    WireUpSubCategoryGridView();
+                    WireUpCategoryComboBox();
                 }
             }
-            catch (Exception)
-            {
-
-                throw;
-            }
-        }
-
-        //--------------------------SECTOR DE SUBCATEGORIAS----------------------------------
-
-        private void btnAddSub_Click(object sender, EventArgs e)
-        {
-            
-        }
-
-        private void btnUpdateSub_Click(object sender, EventArgs e)
-        {
-            
-        }
-
-        private void txtSearchSub_KeyPress(object sender, KeyPressEventArgs e)
-        {
-            string text = txtSearchSub.Text;
-
-            try
-            {
-                if (text != "")
-                {
-                    //dgvSubCategory.DataSource = SubCategoryManagement.se; buscar por subcategoria 
-                }
-                else
-                {
-                    //dgvSubCategory.DataSource = SubCategoryManagement.SelectAllSubCategories();
-                }
-            }
-            catch (Exception)
-            {
-
-                throw;
-            }
-        }
-
-        private void btnDeleteSub_Click(object sender, EventArgs e)
-        {
-            
-        }
-
-        private void dgvSubCategory_MouseClick(object sender, MouseEventArgs e)
-        {
-            try
-            {
-                foreach (CategoryModel item in cmbCategory.Items)
-                {
-                    int idCategory = int.Parse(dgvSubCategory.CurrentRow.Cells[2].Value.ToString());
-                    if (item.IdCategory == idCategory)
-                    {
-                        cmbCategory.SelectedItem = item;
-                    }
-                }
-
-                txtNameSub.Text = dgvSubCategory.CurrentRow.Cells[1].Value.ToString();
-            }
-            catch (Exception)
+            catch (Exception ex)
             {
 
                 throw;
@@ -160,34 +53,58 @@ namespace UI.UserControls
             this.Dispose();
         }
 
-        private void btnCleanAll_Click(object sender, EventArgs e)
+        //---------CUSTOM METHODS---------//
+
+        private void WireUpCategoryGridView()
         {
-            
+            categoryGridView.DataSource = categoryModels;
         }
+
+        private void WireUpSubCategoryGridView()
+        {
+            subCategoryGridView.DataSource = subCategoryModels;
+        }
+
+        private void WireUpCategoryComboBox()
+        {
+            cmbCategory.DataSource = categoryModels;
+            cmbCategory.DisplayMember = "Name";
+        }
+
+        private void Clear()
+        {
+            txtIDCategory.Text = " ";
+            txtNameCategory.Text = " ";
+            txtNameSub.Text = " ";
+        }
+
+        //---------BUTTONS---------//
 
         private void clearButton_Click(object sender, EventArgs e)
         {
-            CleanAll();
+            Clear();
+            WireUpCategoryGridView();
+            WireUpSubCategoryGridView();
+            WireUpCategoryComboBox();
         }
 
-        //----- CRUD---
+        //---------SUBCATEGORY---------//
 
-        //SUBCATEGORY
+        //---------EVENTS---------//
 
-        private void deleteSubCategoryButton_Click(object sender, EventArgs e)
+        private void subCategoryNameSearchTextBox_KeyPress(object sender, KeyPressEventArgs e)
         {
-            string id = dgvSubCategory.CurrentRow.Cells[0].Value.ToString();
+            string text = subCategoryNameSearchTextBox.Text;
 
             try
             {
-                if (SubCategoryManagement.DeleteSubCategoryById(id))
+                if (!string.IsNullOrEmpty(subCategoryNameSearchTextBox.Text))
                 {
-                    FrmMain.Instance.ToolStripLabel.Text = "Se elimino la Subcategoria correctamente";
-                    SortAll(); CleanAll();
+                    subCategoryGridView.DataSource = BusinessManagement.SelectBusinessByName(subCategoryNameSearchTextBox.Text);
                 }
                 else
                 {
-                    FrmMain.Instance.ToolStripLabel.Text = "Error al eliminar la Subcategoria";
+                    WireUpSubCategoryGridView();
                 }
             }
             catch (Exception)
@@ -196,6 +113,31 @@ namespace UI.UserControls
                 throw;
             }
         }
+
+        private void subCategoryGridView_Click(object sender, EventArgs e)
+        {
+            try
+            {
+                foreach (CategoryModel item in cmbCategory.Items)
+                {
+                    int idCategory = int.Parse(subCategoryGridView.CurrentRow.Cells[2].Value.ToString());
+                    if (item.IdCategory == idCategory)
+                    {
+                        cmbCategory.SelectedItem = item;
+                        break;
+                    }
+                }
+
+                txtNameSub.Text = subCategoryGridView.CurrentRow.Cells[1].Value.ToString();
+            }
+            catch (Exception ex)
+            {
+
+                throw;
+            }
+        }
+
+        //---------CRUD---------//
 
         private void createSubCategoryButton_Click(object sender, EventArgs e)
         {
@@ -206,12 +148,14 @@ namespace UI.UserControls
             {
                 if (SubCategoryManagement.InsertSubCategory(subcategory, categoryModel.IdCategory.ToString()))
                 {
-                    FrmMain.Instance.ToolStripLabel.Text = "Se agrego la Subcategoria correctamente";
-                    SortAll(); CleanAll();
+                    FrmMain.Instance.ToolStripLabel.Text = "Se agregó la subcategoría de manera correcta.";
+                    Clear();
+                    subCategoryModels = SubCategoryManagement.SelectAllSubCategories();
+                    WireUpSubCategoryGridView();
                 }
                 else
                 {
-                    FrmMain.Instance.ToolStripLabel.Text = "Error al agregar la Subcategoria";
+                    FrmMain.Instance.ToolStripLabel.Text = "Ha ocurrido un error al agregar la subcategoría, inténtelo nuevamente.";
                 }
             }
             catch (Exception)
@@ -223,7 +167,7 @@ namespace UI.UserControls
 
         private void updateSubCategoryButton_Click(object sender, EventArgs e)
         {
-            string id = dgvSubCategory.CurrentRow.Cells[0].Value.ToString();
+            string id = subCategoryGridView.CurrentRow.Cells[0].Value.ToString();
             string category = cmbCategory.Text;
             string subcategory = txtNameSub.Text;
 
@@ -231,12 +175,14 @@ namespace UI.UserControls
             {
                 if (SubCategoryManagement.UpdateSubCategoryById(id, category, subcategory))
                 {
-                    FrmMain.Instance.ToolStripLabel.Text = "Se agrego la Subcategoria correctamente";
-                    SortAll(); CleanAll();
+                    FrmMain.Instance.ToolStripLabel.Text = "Se modificó la subcategoría de manera correcta.";
+                    Clear();
+                    subCategoryModels = SubCategoryManagement.SelectAllSubCategories();
+                    WireUpSubCategoryGridView();
                 }
                 else
                 {
-                    FrmMain.Instance.ToolStripLabel.Text = "Error al agregar la Subcategoria";
+                    FrmMain.Instance.ToolStripLabel.Text = "Ha ocurrido un error al modificar la subcategoría, inténtelo nuevamente.";
                 }
             }
             catch (Exception)
@@ -246,8 +192,72 @@ namespace UI.UserControls
             }
         }
 
+        private void deleteSubCategoryButton_Click(object sender, EventArgs e)
+        {
+            string id = subCategoryGridView.CurrentRow.Cells[0].Value.ToString();
 
-        //----------CATEGORY//
+            try
+            {
+                if (SubCategoryManagement.DeleteSubCategoryById(id))
+                {
+                    FrmMain.Instance.ToolStripLabel.Text = "Se eliminó la subcategoría de manera correcta.";
+                    Clear();
+                    subCategoryModels = SubCategoryManagement.SelectAllSubCategories();
+                    WireUpSubCategoryGridView();
+                }
+                else
+                {
+                    FrmMain.Instance.ToolStripLabel.Text = "Ha ocurrido un error al eliminar la subcategoría, inténtelo nuevamente.";
+                }
+            }
+            catch (Exception)
+            {
+
+                throw;
+            }
+        }
+
+        //---------CATEGORY---------//
+
+        //---------EVENTS---------//
+
+        private void categoryNameSearchTextBox_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            string text = categoryNameSearchTextBox.Text;
+
+            try
+            {
+                if (!string.IsNullOrEmpty(categoryNameSearchTextBox.Text))
+                {
+                    categoryGridView.DataSource = CategoryManagement.SelectCategoryByName(categoryNameSearchTextBox.Text);
+                }
+                else
+                {
+                    WireUpCategoryGridView();
+                }
+            }
+            catch (Exception ex)
+            {
+
+                throw;
+            }
+        }
+
+        private void categoryGridView_Click(object sender, EventArgs e)
+        {
+            try
+            {
+                txtIDCategory.Text = categoryGridView.CurrentRow.Cells[0].Value.ToString();
+                txtNameCategory.Text = categoryGridView.CurrentRow.Cells[1].Value.ToString();
+            }
+            catch (Exception ex)
+            {
+
+                throw;
+            }
+        }
+
+        //---------CRUD---------//
 
         private void createCategoryButton_Click(object sender, EventArgs e)
         {
@@ -258,12 +268,15 @@ namespace UI.UserControls
             {
                 if (CategoryManagement.InsertCategory(category))
                 {
-                    FrmMain.Instance.ToolStripLabel.Text = "Se inserto la categoria correctamente";
-                    SortAll(); CleanAll();
+                    FrmMain.Instance.ToolStripLabel.Text = "Se insertó la categoría de manera correcta.";
+                    Clear();
+                    categoryModels = CategoryManagement.SelectAllCategories();
+                    WireUpCategoryGridView();
+                    WireUpCategoryComboBox();
                 }
                 else
                 {
-                    FrmMain.Instance.ToolStripLabel.Text = "Error al insertar la categoria";
+                    FrmMain.Instance.ToolStripLabel.Text = "Ha ocurrido un error al agregar la categoría, inténtelo nuevamente.";
                 }
             }
             catch (Exception)
@@ -282,12 +295,15 @@ namespace UI.UserControls
             {
                 if (CategoryManagement.UpdateCategoryById(id, category))
                 {
-                    FrmMain.Instance.ToolStripLabel.Text = "Se modifico la categoria correctamente";
-                    SortAll(); CleanAll();
+                    FrmMain.Instance.ToolStripLabel.Text = "Se modificó la categoría de manera correcta.";
+                    Clear();
+                    categoryModels = CategoryManagement.SelectAllCategories();
+                    WireUpCategoryGridView();
+                    WireUpCategoryComboBox();
                 }
                 else
                 {
-                    FrmMain.Instance.ToolStripLabel.Text = "Error al modificar la categoria";
+                    FrmMain.Instance.ToolStripLabel.Text = "Ha ocurrido un error al modificar la categoría, inténtelo nuevamente.";
                 }
             }
             catch (Exception)
@@ -305,12 +321,15 @@ namespace UI.UserControls
             {
                 if (CategoryManagement.DeleteCategoryById(id))
                 {
-                    FrmMain.Instance.ToolStripLabel.Text = "Se elimino la categoria correctamente";
-                    SortAll(); CleanAll();
+                    FrmMain.Instance.ToolStripLabel.Text = "Se eliminó la categoría de manera correcta.";
+                    Clear();
+                    categoryModels = CategoryManagement.SelectAllCategories();
+                    WireUpCategoryGridView();
+                    WireUpCategoryComboBox();
                 }
                 else
                 {
-                    FrmMain.Instance.ToolStripLabel.Text = "Error al eliminar la categoria";
+                    FrmMain.Instance.ToolStripLabel.Text = "Ha ocurrido un error al eliminar la categoría, inténtelo nuevamente.";
                 }
             }
             catch (Exception)
@@ -319,5 +338,6 @@ namespace UI.UserControls
                 throw;
             }
         }
+
     }
 }

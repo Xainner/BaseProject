@@ -10,6 +10,7 @@ using System.Windows.Forms;
 using LogicLibrary;
 using UI.Utilities;
 using ModelLibrary.Models;
+using BusinessLibrary.Models;
 
 namespace UI.UserControls
 {

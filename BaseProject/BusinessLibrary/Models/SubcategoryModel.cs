@@ -4,7 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace ModelLibrary.Models
+namespace BusinessLibrary.Models
 {
     public class SubCategoryModel
     {

@@ -4,14 +4,14 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace ModelLibrary.Models
+namespace BusinessLibrary.Models
 {
-    public class BrandModel
+    public class CategoryModel
     {
-        public int idBrand;
+        public int idCategory;
         public string name;
 
-        public int IdBrand { get => idBrand; set => idBrand = value; }
+        public int IdCategory { get => idCategory; set => idCategory = value; }
         public string Name { get => name; set => name = value; }
     }
 }

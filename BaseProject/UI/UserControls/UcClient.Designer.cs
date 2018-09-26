@@ -32,9 +32,13 @@
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle3 = new System.Windows.Forms.DataGridViewCellStyle();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
+            this.clearButton = new MetroFramework.Controls.MetroButton();
             this.txtEmailClient = new MetroFramework.Controls.MetroTextBox();
+            this.deleteButton = new MetroFramework.Controls.MetroButton();
+            this.updateButton = new MetroFramework.Controls.MetroButton();
             this.metroLabel2 = new MetroFramework.Controls.MetroLabel();
             this.metroLabel3 = new MetroFramework.Controls.MetroLabel();
+            this.createButton = new MetroFramework.Controls.MetroButton();
             this.metroLabel6 = new MetroFramework.Controls.MetroLabel();
             this.txtNameClient = new MetroFramework.Controls.MetroTextBox();
             this.txtLastnameClient = new MetroFramework.Controls.MetroTextBox();
@@ -45,13 +49,9 @@
             this.metroLabel5 = new MetroFramework.Controls.MetroLabel();
             this.metroLabel7 = new MetroFramework.Controls.MetroLabel();
             this.txtSearchClient = new MetroFramework.Controls.MetroTextBox();
-            this.dgvClient = new MetroFramework.Controls.MetroGrid();
-            this.createButton = new MetroFramework.Controls.MetroButton();
-            this.updateButton = new MetroFramework.Controls.MetroButton();
-            this.deleteButton = new MetroFramework.Controls.MetroButton();
-            this.clearButton = new MetroFramework.Controls.MetroButton();
+            this.clientsGridView = new MetroFramework.Controls.MetroGrid();
             this.groupBox1.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.dgvClient)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.clientsGridView)).BeginInit();
             this.SuspendLayout();
             // 
             // groupBox1
@@ -78,6 +78,16 @@
             this.groupBox1.TabIndex = 29;
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "Información del Cliente";
+            // 
+            // clearButton
+            // 
+            this.clearButton.Location = new System.Drawing.Point(837, 127);
+            this.clearButton.Name = "clearButton";
+            this.clearButton.Size = new System.Drawing.Size(75, 23);
+            this.clearButton.TabIndex = 31;
+            this.clearButton.Text = "Limpiar";
+            this.clearButton.UseSelectable = true;
+            this.clearButton.Click += new System.EventHandler(this.clearButton_Click);
             // 
             // txtEmailClient
             // 
@@ -109,6 +119,26 @@
             this.txtEmailClient.WaterMarkColor = System.Drawing.Color.FromArgb(((int)(((byte)(109)))), ((int)(((byte)(109)))), ((int)(((byte)(109)))));
             this.txtEmailClient.WaterMarkFont = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Pixel);
             // 
+            // deleteButton
+            // 
+            this.deleteButton.Location = new System.Drawing.Point(168, 127);
+            this.deleteButton.Name = "deleteButton";
+            this.deleteButton.Size = new System.Drawing.Size(75, 23);
+            this.deleteButton.TabIndex = 31;
+            this.deleteButton.Text = "Eliminar";
+            this.deleteButton.UseSelectable = true;
+            this.deleteButton.Click += new System.EventHandler(this.deleteButton_Click);
+            // 
+            // updateButton
+            // 
+            this.updateButton.Location = new System.Drawing.Point(87, 127);
+            this.updateButton.Name = "updateButton";
+            this.updateButton.Size = new System.Drawing.Size(75, 23);
+            this.updateButton.TabIndex = 31;
+            this.updateButton.Text = "Modificar";
+            this.updateButton.UseSelectable = true;
+            this.updateButton.Click += new System.EventHandler(this.updateButton_Click);
+            // 
             // metroLabel2
             // 
             this.metroLabel2.AutoSize = true;
@@ -126,6 +156,16 @@
             this.metroLabel3.Size = new System.Drawing.Size(63, 19);
             this.metroLabel3.TabIndex = 2;
             this.metroLabel3.Text = "Apellidos";
+            // 
+            // createButton
+            // 
+            this.createButton.Location = new System.Drawing.Point(6, 127);
+            this.createButton.Name = "createButton";
+            this.createButton.Size = new System.Drawing.Size(75, 23);
+            this.createButton.TabIndex = 31;
+            this.createButton.Text = "Agregar";
+            this.createButton.UseSelectable = true;
+            this.createButton.Click += new System.EventHandler(this.createButton_Click);
             // 
             // metroLabel6
             // 
@@ -311,14 +351,14 @@
             this.txtSearchClient.WaterMarkFont = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Pixel);
             this.txtSearchClient.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtSearchClient_KeyPress);
             // 
-            // dgvClient
+            // clientsGridView
             // 
-            this.dgvClient.AllowUserToResizeRows = false;
-            this.dgvClient.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.AllCells;
-            this.dgvClient.BackgroundColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(255)))), ((int)(((byte)(255)))));
-            this.dgvClient.BorderStyle = System.Windows.Forms.BorderStyle.None;
-            this.dgvClient.CellBorderStyle = System.Windows.Forms.DataGridViewCellBorderStyle.None;
-            this.dgvClient.ColumnHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.None;
+            this.clientsGridView.AllowUserToResizeRows = false;
+            this.clientsGridView.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.AllCells;
+            this.clientsGridView.BackgroundColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(255)))), ((int)(((byte)(255)))));
+            this.clientsGridView.BorderStyle = System.Windows.Forms.BorderStyle.None;
+            this.clientsGridView.CellBorderStyle = System.Windows.Forms.DataGridViewCellBorderStyle.None;
+            this.clientsGridView.ColumnHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.None;
             dataGridViewCellStyle1.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
             dataGridViewCellStyle1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(174)))), ((int)(((byte)(219)))));
             dataGridViewCellStyle1.Font = new System.Drawing.Font("Segoe UI", 11F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Pixel);
@@ -326,8 +366,8 @@
             dataGridViewCellStyle1.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(198)))), ((int)(((byte)(247)))));
             dataGridViewCellStyle1.SelectionForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(17)))), ((int)(((byte)(17)))), ((int)(((byte)(17)))));
             dataGridViewCellStyle1.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.dgvClient.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle1;
-            this.dgvClient.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.clientsGridView.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle1;
+            this.clientsGridView.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             dataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
             dataGridViewCellStyle2.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(255)))), ((int)(((byte)(255)))));
             dataGridViewCellStyle2.Font = new System.Drawing.Font("Segoe UI", 11F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Pixel);
@@ -335,14 +375,14 @@
             dataGridViewCellStyle2.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(198)))), ((int)(((byte)(247)))));
             dataGridViewCellStyle2.SelectionForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(17)))), ((int)(((byte)(17)))), ((int)(((byte)(17)))));
             dataGridViewCellStyle2.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
-            this.dgvClient.DefaultCellStyle = dataGridViewCellStyle2;
-            this.dgvClient.EnableHeadersVisualStyles = false;
-            this.dgvClient.Font = new System.Drawing.Font("Segoe UI", 11F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Pixel);
-            this.dgvClient.GridColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(255)))), ((int)(((byte)(255)))));
-            this.dgvClient.Location = new System.Drawing.Point(17, 208);
-            this.dgvClient.Name = "dgvClient";
-            this.dgvClient.ReadOnly = true;
-            this.dgvClient.RowHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.None;
+            this.clientsGridView.DefaultCellStyle = dataGridViewCellStyle2;
+            this.clientsGridView.EnableHeadersVisualStyles = false;
+            this.clientsGridView.Font = new System.Drawing.Font("Segoe UI", 11F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Pixel);
+            this.clientsGridView.GridColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(255)))), ((int)(((byte)(255)))));
+            this.clientsGridView.Location = new System.Drawing.Point(17, 208);
+            this.clientsGridView.Name = "clientsGridView";
+            this.clientsGridView.ReadOnly = true;
+            this.clientsGridView.RowHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.None;
             dataGridViewCellStyle3.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
             dataGridViewCellStyle3.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(174)))), ((int)(((byte)(219)))));
             dataGridViewCellStyle3.Font = new System.Drawing.Font("Segoe UI", 11F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Pixel);
@@ -350,58 +390,18 @@
             dataGridViewCellStyle3.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(198)))), ((int)(((byte)(247)))));
             dataGridViewCellStyle3.SelectionForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(17)))), ((int)(((byte)(17)))), ((int)(((byte)(17)))));
             dataGridViewCellStyle3.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.dgvClient.RowHeadersDefaultCellStyle = dataGridViewCellStyle3;
-            this.dgvClient.RowHeadersWidthSizeMode = System.Windows.Forms.DataGridViewRowHeadersWidthSizeMode.DisableResizing;
-            this.dgvClient.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.dgvClient.Size = new System.Drawing.Size(918, 313);
-            this.dgvClient.TabIndex = 30;
-            this.dgvClient.MouseClick += new System.Windows.Forms.MouseEventHandler(this.dgvClient_MouseClick);
-            // 
-            // createButton
-            // 
-            this.createButton.Location = new System.Drawing.Point(6, 127);
-            this.createButton.Name = "createButton";
-            this.createButton.Size = new System.Drawing.Size(75, 23);
-            this.createButton.TabIndex = 31;
-            this.createButton.Text = "Agregar";
-            this.createButton.UseSelectable = true;
-            this.createButton.Click += new System.EventHandler(this.createButton_Click);
-            // 
-            // updateButton
-            // 
-            this.updateButton.Location = new System.Drawing.Point(87, 127);
-            this.updateButton.Name = "updateButton";
-            this.updateButton.Size = new System.Drawing.Size(75, 23);
-            this.updateButton.TabIndex = 31;
-            this.updateButton.Text = "Modificar";
-            this.updateButton.UseSelectable = true;
-            this.updateButton.Click += new System.EventHandler(this.updateButton_Click);
-            // 
-            // deleteButton
-            // 
-            this.deleteButton.Location = new System.Drawing.Point(168, 127);
-            this.deleteButton.Name = "deleteButton";
-            this.deleteButton.Size = new System.Drawing.Size(75, 23);
-            this.deleteButton.TabIndex = 31;
-            this.deleteButton.Text = "Eliminar";
-            this.deleteButton.UseSelectable = true;
-            this.deleteButton.Click += new System.EventHandler(this.deleteButton_Click);
-            // 
-            // clearButton
-            // 
-            this.clearButton.Location = new System.Drawing.Point(837, 127);
-            this.clearButton.Name = "clearButton";
-            this.clearButton.Size = new System.Drawing.Size(75, 23);
-            this.clearButton.TabIndex = 31;
-            this.clearButton.Text = "Limpiar";
-            this.clearButton.UseSelectable = true;
-            this.clearButton.Click += new System.EventHandler(this.clearButton_Click);
+            this.clientsGridView.RowHeadersDefaultCellStyle = dataGridViewCellStyle3;
+            this.clientsGridView.RowHeadersWidthSizeMode = System.Windows.Forms.DataGridViewRowHeadersWidthSizeMode.DisableResizing;
+            this.clientsGridView.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
+            this.clientsGridView.Size = new System.Drawing.Size(918, 313);
+            this.clientsGridView.TabIndex = 30;
+            this.clientsGridView.Click += new System.EventHandler(this.clientsGridView_Click);
             // 
             // UcClient
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.Controls.Add(this.dgvClient);
+            this.Controls.Add(this.clientsGridView);
             this.Controls.Add(this.groupBox1);
             this.Controls.Add(this.txtSearchClient);
             this.Name = "UcClient";
@@ -410,7 +410,7 @@
             this.Leave += new System.EventHandler(this.UcClient_Leave);
             this.groupBox1.ResumeLayout(false);
             this.groupBox1.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.dgvClient)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.clientsGridView)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -431,7 +431,7 @@
         private MetroFramework.Controls.MetroLabel metroLabel5;
         private MetroFramework.Controls.MetroLabel metroLabel7;
         private MetroFramework.Controls.MetroTextBox txtSearchClient;
-        private MetroFramework.Controls.MetroGrid dgvClient;
+        private MetroFramework.Controls.MetroGrid clientsGridView;
         private MetroFramework.Controls.MetroButton createButton;
         private MetroFramework.Controls.MetroButton updateButton;
         private MetroFramework.Controls.MetroButton deleteButton;

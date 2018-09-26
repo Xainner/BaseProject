@@ -1,5 +1,5 @@
-﻿
-using BusinessLibrary.Connection;
+﻿using BusinessLibrary.Models;
+using DataBaseLibrary;
 using ModelLibrary.Models;
 using System;
 using System.Collections.Generic;
@@ -34,7 +34,7 @@ namespace LogicLibrary
                         Email = email,
                         BornDate = DateTime.Parse(bornDate)
                     };
-                    return ClientConnection.InsertClient(clientModel);
+                    return DBClient.InsertClient(clientModel);
                 }
                 else
                 {
@@ -76,7 +76,7 @@ namespace LogicLibrary
                         Email = email,
                         BornDate = DateTime.Parse(bornDate)
                     };
-                    return ClientConnection.UpdateClient(clientModel);
+                    return DBClient.UpdateClient(clientModel);
                 }
                 else
                 {
@@ -106,7 +106,7 @@ namespace LogicLibrary
                     {
                         IdClient = Int32.Parse(idClient)
                     };
-                    return ClientConnection.DeleteClient(clientModel);
+                    return DBClient.DeleteClient(clientModel);
                 }
                 else
                 {
@@ -168,7 +168,7 @@ namespace LogicLibrary
                         Name = toSearch,
                         Lastname = toSearch
                     };
-                    return ClientConnection.SelectNameOrLastName(clientModel);
+                    return DBClient.SelectNameOrLastName(clientModel);
                 }
                 else
                 {
@@ -190,7 +190,7 @@ namespace LogicLibrary
         {
             try
             {
-                return ClientConnection.SelectAllClient();
+                return DBClient.SelectClientAll();
             }
             catch (Exception ex)
             {

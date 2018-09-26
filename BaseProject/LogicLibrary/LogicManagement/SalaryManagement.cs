@@ -1,5 +1,6 @@
-﻿using BusinessLibrary.Conection;
-
+﻿
+using BusinessLibrary.Models;
+using DataBaseLibrary;
 using ModelLibrary.Models;
 using System;
 using System.Collections.Generic;
@@ -28,7 +29,7 @@ namespace LogicLibrary
                     {
                         SalaryAmount = decimal.Parse(salaryAmount),
                     };
-                    return SalaryConnection.InsertSalary(salaryModel);
+                    return DBSalary.InsertSalary(salaryModel);
                 }
                 else
                 {
@@ -61,7 +62,7 @@ namespace LogicLibrary
                         IdSalary = int.Parse(idSalary),
                         SalaryAmount = decimal.Parse(salaryAmount)
                     };
-                    return SalaryConnection.UpdateSalary(salaryModel);
+                    return DBSalary.UpdateSalary(salaryModel);
                 }
                 else
                 {
@@ -91,7 +92,7 @@ namespace LogicLibrary
                     {
                         IdSalary = int.Parse(idSalary)
                     };
-                    return SalaryConnection.DeleteSalary(salaryModel);
+                    return DBSalary.DeleteSalary(salaryModel);
                 }
                 else
                 {
@@ -110,7 +111,7 @@ namespace LogicLibrary
         /// </summary>
         /// <param name="idSalary"></param>
         /// <returns></returns>
-        public static SalaryModel SelectSalaryById(string idSalary)
+        public static List<SalaryModel> SelectSalaryById(string idSalary)
         {
             try
             {
@@ -121,7 +122,7 @@ namespace LogicLibrary
                     {
                         IdSalary = int.Parse(idSalary)
                     };
-                    return SalaryConnection.SelectSalary(salaryModel);
+                    return DBSalary.SelectidSalary(salaryModel);
                 }
                 else
                 {
@@ -174,7 +175,7 @@ namespace LogicLibrary
         {
             try
             {
-                return SalaryConnection.SelectAllSalary();
+                return DBSalary.SelectSalaryAll();
             }
             catch (Exception ex)
             {

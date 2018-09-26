@@ -1,5 +1,4 @@
-﻿using BusinessLibrary.Connection;
-
+﻿using BusinessLibrary.Models;
 using ModelLibrary.Models;
 using System;
 using System.Collections.Generic;
@@ -84,7 +83,7 @@ namespace LogicLibrary
                         Total = decimal.Parse(total),
                         TotalDiscount = decimal.Parse(totalDiscount)
                     };
-                    return ExternalSellinvoiceConnection.InsertExternalSellinvoice(internalSellinvoiceModel);
+                    return true;
                 }
                 else
                 {
@@ -177,7 +176,7 @@ namespace LogicLibrary
                         Total = decimal.Parse(total),
                         TotalDiscount = decimal.Parse(totalDiscount)
                     };
-                    return ExternalSellinvoiceConnection.UpdateExternalSellinvoice(internalSellinvoiceModel);
+                    return true;
                 }
                 else
                 {
@@ -207,7 +206,7 @@ namespace LogicLibrary
                     {
                         IdSellinvoice = int.Parse(idExternalSellinvoice)
                     };
-                    return ExternalSellinvoiceConnection.DeleteExternalSellinvoice(internalSellinvoiceModel);
+                    return true;
                 }
                 else
                 {
@@ -237,7 +236,7 @@ namespace LogicLibrary
                     {
                         IdSellinvoice = int.Parse(idExternalSellinvoice)
                     };
-                    return ExternalSellinvoiceConnection.SelectExternalSellinvoice(internalSellinvoiceModel);
+                    return null;
                 }
                 else
                 {
@@ -259,7 +258,7 @@ namespace LogicLibrary
         {
             try
             {
-                return ExternalSellinvoiceConnection.SelectAllExternalSellinvoice();
+                return null;
             }
             catch (Exception ex)
             {

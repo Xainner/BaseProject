@@ -1,4 +1,5 @@
-﻿using BusinessLibrary.Conection;
+﻿using BusinessLibrary.Models;
+using DataBaseLibrary;
 using ModelLibrary.Models;
 using System;
 using System.Collections.Generic;
@@ -26,7 +27,7 @@ namespace LogicLibrary
                     {
                         Name = name
                     };
-                    return BrandConnection.InsertBrand(brandModel);
+                    return DBBrand.InsertBrand(brandModel);
                 }
                 else
                 {
@@ -58,7 +59,7 @@ namespace LogicLibrary
                         IdBrand = int.Parse(idBrand),
                         name = name
                     };
-                    return BrandConnection.UpdateBrand(brandModel);
+                    return DBBrand.UpdateBrand(brandModel);
                 }
                 else
                 {
@@ -88,7 +89,7 @@ namespace LogicLibrary
                     {
                         IdBrand = int.Parse(idBrand)
                     };
-                    return BrandConnection.DeleteBrand(brandModel);
+                    return DBBrand.DeleteBrand(brandModel);
                 }
                 else
                 {
@@ -118,7 +119,7 @@ namespace LogicLibrary
                     {
                         IdBrand = int.Parse(idBrand)
                     };
-                    return BrandConnection.SelectBrandName(brandModel);
+                    return DBBrand.SelectBrandName(brandModel);
                 }
                 else
                 {
@@ -143,7 +144,7 @@ namespace LogicLibrary
                     {
                         Name = name
                     };
-                    return BrandConnection.SelectBrandName(brandModel);
+                    return DBBrand.SelectBrandName(brandModel);
                 }
                 else
                 {
@@ -165,7 +166,7 @@ namespace LogicLibrary
         {
             try
             {
-                return BrandConnection.SelectAllBrand();
+                return DBBrand.SelectBrandAll();
             }
             catch (Exception ex)
             {

@@ -6,9 +6,8 @@ using System.Threading.Tasks;
 using System.Data;
 using Dapper;
 using MySql.Data.MySqlClient;
-
-using ModelLibrary.Models;
 using System.Configuration;
+using BusinessLibrary.Models;
 
 namespace DataBaseLibrary
 {
@@ -53,19 +52,38 @@ namespace DataBaseLibrary
             }
         }
 
+        public static List<BusinessModel> SelectBusinessByName(BusinessModel Business)
+        {
+            Business.fantasyName += "%";
+            using (IDbConnection cnn = new MySqlConnection(LoadConnectionString()))
+            {
+                var output = cnn.Query<BusinessModel>("SELECT * FROM business WHERE fantasyName like @fantasyName", Business);
+                return output.ToList();
+            }
+        }
+
         /// <summary>
         /// Insert a business from business
         /// </summary>
         /// <param name="Business"></param>
-        public static void InsertBusiness(BusinessModel Business)
+        public static bool InsertBusiness(BusinessModel Business)
         {
-            using (IDbConnection cnn = new MySqlConnection(LoadConnectionString()))
+            try
             {
-                cnn.Execute("INSERT INTO business" +
-                    "(fantasyName, societyName, legalCertification, Telephone, mainAddress, " +
-                    "generalAddress, Email, webPage, Logo) VALUES" +
-                    "(@fantasyName, @societyName, @legalCertification, @Telephone, @mainAddress, " +
-                    "@generalAddress, @Email, @webPage, @Logo)", Business);
+                using (IDbConnection cnn = new MySqlConnection(LoadConnectionString()))
+                {
+                    cnn.Execute("INSERT INTO business" +
+                        "(fantasyName, societyName, legalCertification, Telephone, mainAddress, " +
+                        "generalAddress, Email, webPage, Logo) VALUES" +
+                        "(@fantasyName, @societyName, @legalCertification, @Telephone, @mainAddress, " +
+                        "@generalAddress, @Email, @webPage, @Logo)", Business);
+                }
+                return true;
+            }
+            catch (Exception ex)
+            {
+
+                throw;
             }
         }
 
@@ -73,11 +91,20 @@ namespace DataBaseLibrary
         /// Delete a business from business
         /// </summary>
         /// <param name="Business"></param>
-        public static void DeleteBusiness(BusinessModel Business)
+        public static bool DeleteBusiness(BusinessModel Business)
         {
-            using (IDbConnection cnn = new MySqlConnection(LoadConnectionString()))
+            try
             {
-                cnn.Execute("DELETE FROM business WHERE idBusiness = @idBusiness", Business);
+                using (IDbConnection cnn = new MySqlConnection(LoadConnectionString()))
+                {
+                    cnn.Execute("DELETE FROM business WHERE idBusiness = @idBusiness", Business);
+                }
+                return true;
+            }
+            catch (Exception ex)
+            {
+
+                throw;
             }
         }
 
@@ -85,15 +112,24 @@ namespace DataBaseLibrary
         /// Update a business from business
         /// </summary>
         /// <param name="Business"></param>
-        public static void UpdateBusiness(BusinessModel Business)
+        public static bool UpdateBusiness(BusinessModel Business)
         {
-            using (IDbConnection cnn = new MySqlConnection(LoadConnectionString()))
+            try
             {
-                cnn.Execute("UPDATE business " +
-                    "SET fantasyName = @fantasyName, Telephone = @Telephone, " +
-                    "mainAddress = @mainAddress, generalAddress = @generalAddress, " +
-                    "Email = @Email, webPage = @webPage, Logo = @Logo " +
-                    "WHERE idBusiness = @idBusiness", Business);
+                using (IDbConnection cnn = new MySqlConnection(LoadConnectionString()))
+                {
+                    cnn.Execute("UPDATE business " +
+                        "SET fantasyName = @fantasyName, Telephone = @Telephone, " +
+                        "mainAddress = @mainAddress, generalAddress = @generalAddress, " +
+                        "Email = @Email, webPage = @webPage, Logo = @Logo " +
+                        "WHERE idBusiness = @idBusiness", Business);
+                }
+                return true;
+            }
+            catch (Exception ex)
+            {
+
+                throw;
             }
         }
     }

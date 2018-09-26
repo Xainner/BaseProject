@@ -9,6 +9,7 @@ using MySql.Data.MySqlClient;
 
 using ModelLibrary.Models;
 using System.Configuration;
+using BusinessLibrary.Models;
 
 namespace DataBaseLibrary
 {
@@ -129,17 +130,26 @@ namespace DataBaseLibrary
         /// Insert a product from product
         /// </summary>
         /// <param name="Product"></param>
-        public static void InsertProduct(ProductModel Product)
+        public static bool InsertProduct(ProductModel Product)
         {
-            using (IDbConnection cnn = new MySqlConnection(LoadConnectionString()))
+            try
             {
-                cnn.Execute("INSERT INTO product" +
-                    "(Code, Style, idBrand, idsubCategory, Description, idCategory, " +
-                    "normalPrice, lowerPrice, estableQuantity, variableQuantity, " +
-                    "Image, Ivi, existingInvoice) VALUES" +
-                    "(@Code, @Style, @idBrand, @idsubCategory, @Description, @idCategory, " +
-                    "@normalPrice, @lowerPrice, @estableQuantity, @variableQuantity, " +
-                    "@Image, @Ivi, @existingInvoice)", Product);
+                using (IDbConnection cnn = new MySqlConnection(LoadConnectionString()))
+                {
+                    cnn.Execute("INSERT INTO product" +
+                        "(Code, Style, idBrand, idsubCategory, Description, idCategory, " +
+                        "normalPrice, lowerPrice, estableQuantity, variableQuantity, " +
+                        "Image, Ivi, existingInvoice) VALUES" +
+                        "(@Code, @Style, @idBrand, @idsubCategory, @Description, @idCategory, " +
+                        "@normalPrice, @lowerPrice, @estableQuantity, @variableQuantity, " +
+                        "@Image, @Ivi, @existingInvoice)", Product);
+                }
+                return true;
+            }
+            catch (Exception ex)
+            {
+
+                throw;
             }
         }
 
@@ -147,11 +157,20 @@ namespace DataBaseLibrary
         /// Delete a product from product
         /// </summary>
         /// <param name="Product"></param>
-        public static void DeleteProduct(ProductModel Product)
+        public static bool DeleteProduct(ProductModel Product)
         {
-            using (IDbConnection cnn = new MySqlConnection(LoadConnectionString()))
+            try
             {
-                cnn.Execute("DELETE FROM product WHERE idProduct = @idProduct", Product);
+                using (IDbConnection cnn = new MySqlConnection(LoadConnectionString()))
+                {
+                    cnn.Execute("DELETE FROM product WHERE idProduct = @idProduct", Product);
+                }
+                return true;
+            }
+            catch (Exception ex)
+            {
+
+                throw;
             }
         }
 
@@ -159,19 +178,28 @@ namespace DataBaseLibrary
         /// Update a product from product
         /// </summary>
         /// <param name="Product"></param>
-        public static void UpdateProduct(ProductModel Product)
+        public static bool UpdateProduct(ProductModel Product)
         {
-            using (IDbConnection cnn = new MySqlConnection(LoadConnectionString()))
+            try
             {
-                cnn.Execute("UPDATE product " +
-                    "SET Code = @Code, Style = @Style, idBrand = @idBrand, " +
-                    "idsubCategory = @idsubCategory, " +
-                    "Description = @Description, idCategory = @idCategory, " +
-                    "normalPrice = @normalPrice, lowerPrice = @lowerPrice, " +
-                    "estableQuantity = @estableQuantity, " +
-                    "variableQuantity = @variableQuantity, Image = @Image, " +
-                    "Ivi = @Ivi, existingInvoice = @existingInvoice " +
-                    "WHERE idProduct = @idProduct", Product);
+                using (IDbConnection cnn = new MySqlConnection(LoadConnectionString()))
+                {
+                    cnn.Execute("UPDATE product " +
+                        "SET Code = @Code, Style = @Style, idBrand = @idBrand, " +
+                        "idsubCategory = @idsubCategory, " +
+                        "Description = @Description, idCategory = @idCategory, " +
+                        "normalPrice = @normalPrice, lowerPrice = @lowerPrice, " +
+                        "estableQuantity = @estableQuantity, " +
+                        "variableQuantity = @variableQuantity, Image = @Image, " +
+                        "Ivi = @Ivi, existingInvoice = @existingInvoice " +
+                        "WHERE idProduct = @idProduct", Product);
+                }
+                return true;
+            }
+            catch (Exception ex)
+            {
+
+                throw;
             }
         }
     }

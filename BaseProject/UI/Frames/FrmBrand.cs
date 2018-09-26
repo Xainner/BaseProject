@@ -10,6 +10,7 @@ using MetroFramework.Forms;
 using System.Windows.Forms;
 using LogicLibrary;
 using ModelLibrary.Models;
+using BusinessLibrary.Models;
 
 namespace UI.Frames
 {
@@ -19,6 +20,8 @@ namespace UI.Frames
 
         List<BrandModel> brandModels;
 
+        //---------FORM METHODS---------//
+
         public FrmBrand()
         {
             InitializeComponent();
@@ -26,9 +29,8 @@ namespace UI.Frames
             ShowIcon = false;
             MaximizeBox = false;
             MinimizeBox = false;
+            toolStripStatusLabel1.Text = "Área de marcas.";
         }
-
-        //---------FORM METHODS---------//
 
         private void FrmBrand_Load(object sender, EventArgs e)
         {
@@ -38,7 +40,7 @@ namespace UI.Frames
                 {
                     brandModels = BrandManagement.SelectAllBrands();
                     WireUpBrandsGridView();
-                    toolStripStatusLabel1.Text = "Área de marcas.";
+                    toolStripStatusLabel1.Text = "Los registros de la base de datos fueron cargados.";
                 } else
                 {
                     toolStripStatusLabel1.Text = "No se encontraron registros en la base de datos.";
@@ -68,7 +70,6 @@ namespace UI.Frames
 
         private void WireUpBrandsGridView()
         {
-            Clear();
             brandsGridView.DataSource = brandModels;
         }
 
@@ -116,6 +117,7 @@ namespace UI.Frames
         private void clearButton_Click(object sender, EventArgs e)
         {
             Clear();
+            WireUpBrandsGridView();
         }
 
         //---------CRUD---------//
@@ -130,7 +132,9 @@ namespace UI.Frames
                 if (BrandManagement.InsertBrand(brand))
                 {
                     toolStripStatusLabel1.Text = "Se agregó la marca de manera correcta.";
-                    brandsGridView.DataSource = BrandManagement.SelectAllBrands();
+                    Clear();
+                    brandModels = BrandManagement.SelectAllBrands();
+                    WireUpBrandsGridView();
                 }
                 else
                 {
@@ -152,7 +156,9 @@ namespace UI.Frames
             {
                 if (BrandManagement.UpdateBrandById(id, brand))
                 {
-                    brandsGridView.DataSource = BrandManagement.SelectAllBrands();
+                    Clear();
+                    brandModels = BrandManagement.SelectAllBrands();
+                    WireUpBrandsGridView();
                     toolStripStatusLabel1.Text = "Se modificó la marca de manera correcta.";
                 }
                 else
@@ -175,7 +181,9 @@ namespace UI.Frames
             {
                 if (BrandManagement.DeleteBrandById(id))
                 {
-                    brandsGridView.DataSource = BrandManagement.SelectAllBrands();
+                    Clear();
+                    brandModels = BrandManagement.SelectAllBrands();
+                    WireUpBrandsGridView();
                     toolStripStatusLabel1.Text = "Se eliminó la marca de manera correcta";
                 }
                 else

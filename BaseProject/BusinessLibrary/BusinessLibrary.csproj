@@ -44,35 +44,25 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Connection\BrandConnection.cs" />
-    <Compile Include="Connection\BusinessConnection.cs" />
-    <Compile Include="Connection\CategoryConnection.cs" />
-    <Compile Include="Connection\ClientConnection.cs" />
-    <Compile Include="Connection\CreditInvoiceConnection.cs" />
-    <Compile Include="Connection\EmployeeConnection.cs" />
-    <Compile Include="Connection\ExitInvoiceConnection.cs" />
-    <Compile Include="Connection\ExternalSellinvoiceConnection.cs" />
-    <Compile Include="Connection\InputInvoiceConnection.cs" />
-    <Compile Include="Connection\InternalSellinvoiceConnection.cs" />
-    <Compile Include="Connection\PositionConnection.cs" />
-    <Compile Include="Connection\ProductConnection.cs" />
-    <Compile Include="Connection\SalaryConnection.cs" />
-    <Compile Include="Connection\SubcategoryConnection.cs" />
-    <Compile Include="Connection\UserConnection.cs" />
+    <Compile Include="Models\BrandModel.cs" />
+    <Compile Include="Models\BusinessModel.cs" />
+    <Compile Include="Models\CategoryModel.cs" />
+    <Compile Include="Models\ClientModel.cs" />
+    <Compile Include="Models\CreditInvoiceModel.cs" />
+    <Compile Include="Models\EmployeeModel.cs" />
+    <Compile Include="Models\ExitInvoiceModel.cs" />
+    <Compile Include="Models\ExternalSellinvoiceModel.cs" />
+    <Compile Include="Models\InputInvoiceModel.cs" />
+    <Compile Include="Models\InternalSellinvoiceModel.cs" />
+    <Compile Include="Models\PositionModel.cs" />
+    <Compile Include="Models\ProductModel.cs" />
+    <Compile Include="Models\SalaryModel.cs" />
+    <Compile Include="Models\SubcategoryModel.cs" />
+    <Compile Include="Models\UserModel.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="packages.config" />
-  </ItemGroup>
-  <ItemGroup>
-    <ProjectReference Include="..\DataBaseLibrary\DataBaseLibrary.csproj">
-      <Project>{f9c8ab95-c6c0-4b7f-ada3-690953e7358c}</Project>
-      <Name>DataBaseLibrary</Name>
-    </ProjectReference>
-    <ProjectReference Include="..\ModelLibrary\ModelLibrary.csproj">
-      <Project>{138d613d-c8cc-4270-8d49-f365939a9807}</Project>
-      <Name>ModelLibrary</Name>
-    </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>
