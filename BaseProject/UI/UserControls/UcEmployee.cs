@@ -15,6 +15,9 @@ namespace UI.UserControls
 {
     public partial class UcEmployee : UserControl
     {
+        byte[] photo;
+        string file;
+
         public UcEmployee()
         {
             InitializeComponent();
@@ -30,7 +33,7 @@ namespace UI.UserControls
             mtxtCellphone.Text = " ";
             cmbIdentificationType.SelectedItem = " ";
             txtIdentification.Text = " ";
-            datepBornDate.Text = " ";
+            datepBornDate.Value = DateTime.Today;
             txtEmailEmployee.Text = " ";
             txtNacionality.Text = " ";
             txtResidence.Text = " ";
@@ -41,12 +44,16 @@ namespace UI.UserControls
 
             cmbEnterStore.SelectedItem = " ";
             cmbPosition.SelectedItem = " ";
-            txtWorkStatus.Text = " ";
-            datepEndDate.Text = " ";
+            workingStateComboBox.Text = " ";
+            startDateDateTime.Value = DateTime.Today;
+            endDateDateTime.Value = DateTime.Today;
             txaObservation.Text = " ";
 
             txtEmergencyName.Text = " ";
             mtxtEmergencyPhone.Text = " ";
+
+            file = string.Empty;
+            photo = null;
         }
 
         private void UcEmployee_Load(object sender, EventArgs e)
@@ -86,14 +93,14 @@ namespace UI.UserControls
             string residence = txtResidence.Text;
             string civilStatus = cmbCivilState.Text;
             string childs = cmbChilds.Text;
-            byte[] photo = ImageManagement.ImageToByte(picPhoto.Image); 
+            photo = ImageManagement.ImageToByte(picPhoto.Image); 
 
             string enterStore = cmbEnterStore.Text;
 
             PositionModel position = (PositionModel)cmbPosition.SelectedItem;
 
-            string statusWorking = txtWorkStatus.Text;
-            string endDate = datepEndDate.Text;
+            string statusWorking = workingStateComboBox.Text;
+            string startDate = startDateDateTime.Text;
             string observation = txaObservation.Text;
 
             string emergencyName = txtEmergencyName.Text;
@@ -102,7 +109,7 @@ namespace UI.UserControls
             try
             {
                 if (EmployeeManagement.InsertEmployee(name, lastname, idType, identif, residence, bornDate, civilStatus, childs, telephone,
-                    cellphone, enterStore, nationality, position.idPosition.ToString(), statusWorking, enterStore, endDate, observation, photo, emergencyName, emergencyPhone))
+                    cellphone, enterStore, nationality, position.idPosition.ToString(), statusWorking, startDate, observation, photo, emergencyName, emergencyPhone))
                 {
                     dgvEmployee.DataSource = EmployeeManagement.SelectAllEmployees();
                     FrmMain.Instance.ToolStripLabel.Text = "Se agrego el trabajador correctamente";
@@ -134,21 +141,27 @@ namespace UI.UserControls
             string residence = txtResidence.Text;
             string civilStatus = cmbCivilState.Text;
             string childs = cmbChilds.Text;
-            byte[] photo = ImageManagement.ImageToByte(picPhoto.Image);
 
             string enterStore = cmbEnterStore.Text;
-            string position = cmbPosition.Text;
-            string statusWorking = txtWorkStatus.Text;
-            string endDate = datepEndDate.Text;
+
+            PositionModel position = (PositionModel)cmbPosition.SelectedItem;
+
+            string statusWorking = workingStateComboBox.Text;
+            string endDate = startDateDateTime.Text;
             string observation = txaObservation.Text;
 
             string emergencyName = txtEmergencyName.Text;
             string emergencyPhone = mtxtEmergencyPhone.Text;
 
+            if (!string.IsNullOrEmpty(file))
+            {
+                photo = ImageManagement.ImageToByte(file);
+            }
+
             try
             {
                 if (EmployeeManagement.UpdateEmployeeById(id, name, lastname, idType, identif, residence, bornDate, civilStatus, childs, telephone,
-                    cellphone, enterStore, nationality, position, statusWorking, enterStore, endDate, observation, photo, emergencyName, emergencyPhone))
+                    cellphone, enterStore, nationality, position.idPosition.ToString(), statusWorking, enterStore, endDate, observation, photo, emergencyName, emergencyPhone))
                 {
                     dgvEmployee.DataSource = EmployeeManagement.SelectAllEmployees();
                     FrmMain.Instance.ToolStripLabel.Text = "Se modifico el trabajador correctamente";
@@ -216,29 +229,30 @@ namespace UI.UserControls
             {
                 txtNameEmployee.Text = dgvEmployee.CurrentRow.Cells[1].Value.ToString();
                 txtLastnameEmployee.Text = dgvEmployee.CurrentRow.Cells[2].Value.ToString();
-                mtxtTelephone.Text = dgvEmployee.CurrentRow.Cells[3].Value.ToString();
-                mtxtCellphone.Text = dgvEmployee.CurrentRow.Cells[4].Value.ToString();
-                cmbIdentificationType.SelectedItem = dgvEmployee.CurrentRow.Cells[5].Value.ToString();
-                txtIdentification.Text = dgvEmployee.CurrentRow.Cells[6].Value.ToString();
-                datepBornDate.Text = dgvEmployee.CurrentRow.Cells[7].Value.ToString();
+                cmbIdentificationType.SelectedItem = dgvEmployee.CurrentRow.Cells[3].Value.ToString();
+                txtIdentification.Text = dgvEmployee.CurrentRow.Cells[4].Value.ToString();
+                mtxtTelephone.Text = dgvEmployee.CurrentRow.Cells[9].Value.ToString();
+                mtxtCellphone.Text = dgvEmployee.CurrentRow.Cells[10].Value.ToString();
+                datepBornDate.Text = dgvEmployee.CurrentRow.Cells[6].Value.ToString();
                 txtEmailEmployee.Text = dgvEmployee.CurrentRow.Cells[8].Value.ToString();
-                txtNacionality.Text = dgvEmployee.CurrentRow.Cells[9].Value.ToString();
-                txtResidence.Text = dgvEmployee.CurrentRow.Cells[10].Value.ToString();
-                cmbCivilState.SelectedItem = dgvEmployee.CurrentRow.Cells[11].Value.ToString();
-                cmbChilds.SelectedItem = dgvEmployee.CurrentRow.Cells[12].Value.ToString();
+                txtNacionality.Text = dgvEmployee.CurrentRow.Cells[12].Value.ToString();
+                txtResidence.Text = dgvEmployee.CurrentRow.Cells[5].Value.ToString();
+                cmbCivilState.SelectedItem = dgvEmployee.CurrentRow.Cells[7].Value.ToString();
+                cmbChilds.SelectedItem = dgvEmployee.CurrentRow.Cells[8].Value.ToString();
 
-                //photo = picPhoto; 
+                photo = (byte[])dgvEmployee.CurrentRow.Cells[18].Value;
+                picPhoto.Image = ImageManagement.ByteToImage((byte[])dgvEmployee.CurrentRow.Cells[18].Value);
 
-                cmbEnterStore.SelectedItem = dgvEmployee.CurrentRow.Cells[13].Value.ToString(); 
-                cmbPosition.SelectedItem = dgvEmployee.CurrentRow.Cells[14].Value.ToString(); 
-                txtWorkStatus.Text = dgvEmployee.CurrentRow.Cells[15].Value.ToString(); 
-                datepEndDate.Text = dgvEmployee.CurrentRow.Cells[16].Value.ToString(); 
+                cmbEnterStore.SelectedItem = dgvEmployee.CurrentRow.Cells[11].Value.ToString(); 
+                cmbPosition.SelectedItem = dgvEmployee.CurrentRow.Cells[13].Value.ToString(); 
+                workingStateComboBox.SelectedItem = dgvEmployee.CurrentRow.Cells[14].Value.ToString(); 
+                startDateDateTime.Text = dgvEmployee.CurrentRow.Cells[15].Value.ToString(); 
                 txaObservation.Text = dgvEmployee.CurrentRow.Cells[17].Value.ToString(); 
 
-                txtEmergencyName.Text = dgvEmployee.CurrentRow.Cells[18].Value.ToString(); 
-                mtxtEmergencyPhone.Text = dgvEmployee.CurrentRow.Cells[19].Value.ToString(); 
+                txtEmergencyName.Text = dgvEmployee.CurrentRow.Cells[19].Value.ToString(); 
+                mtxtEmergencyPhone.Text = dgvEmployee.CurrentRow.Cells[20].Value.ToString(); 
             }
-            catch (Exception)
+            catch (Exception ex)
             {
 
                 throw;

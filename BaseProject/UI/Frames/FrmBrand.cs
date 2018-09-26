@@ -44,7 +44,7 @@ namespace UI.Frames
                     toolStripStatusLabel1.Text = "No se encontraron registros en la base de datos.";
                 }
             }
-            catch (Exception)
+            catch (Exception ex)
             {
 
                 throw;
@@ -70,13 +70,6 @@ namespace UI.Frames
         {
             Clear();
             brandsGridView.DataSource = brandModels;
-        }
-
-        //---------BUTTONS---------//
-
-        private void clearButton_Click(object sender, EventArgs e)
-        {
-            Clear();
         }
 
         //---------EVENTS---------//
@@ -116,6 +109,13 @@ namespace UI.Frames
 
                 throw;
             }
+        }
+
+        //---------BUTTONS---------//
+
+        private void clearButton_Click(object sender, EventArgs e)
+        {
+            Clear();
         }
 
         //---------CRUD---------//
@@ -189,5 +189,6 @@ namespace UI.Frames
                 throw;
             }
         }
+
     }
 }
