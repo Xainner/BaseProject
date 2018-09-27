@@ -25,7 +25,7 @@ namespace UI.UserControls
             //string date = Proceso interno
             txtClient.Text = " ";
             txtEmployee.Text = " ";
-            txtUser.Text = " ";
+            txtNumInvoice.Text = " ";
             cmbTypeCoin.Text = " ";
             cmbTypePayment.Text = " ";
             txtDaxes.Text = " ";
@@ -52,7 +52,7 @@ namespace UI.UserControls
             //string date = Proceso interno
             string idClient = txtClient.Text;
             string idEmployee = txtEmployee.Text;
-            string idUser = txtUser.Text;
+            string idUser = txtNumInvoice.Text;
             string coinType = cmbTypeCoin.Text;
             string paymentType = cmbTypePayment.Text;
             string iviAmount = txtDaxes.Text;
