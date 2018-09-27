@@ -248,8 +248,7 @@ namespace LogicLibrary
                         Code = code,
 
                     };
-                    //return ProductConnection.SelectProductByCode(productModel);
-                    return null;
+                    return DBProduct.SelectCode(productModel);
                 }
                 else
                 {

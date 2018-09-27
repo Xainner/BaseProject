@@ -55,6 +55,15 @@ namespace DataBaseLibrary
             }
         }
 
+        public static SubCategoryModel SelectSubCategoryById(SubCategoryModel SubCategory)
+        {
+            using (IDbConnection cnn = new MySqlConnection(LoadConnectionString()))
+            {
+                var output = cnn.QuerySingle<SubCategoryModel>("SELECT * FROM subcategory WHERE idsubCategory = @idsubCategory", SubCategory);
+                return output;
+            }
+        }
+
         /// <summary>
         /// return all the names of the subcategories with like by name
         /// </summary>

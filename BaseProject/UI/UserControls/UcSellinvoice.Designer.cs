@@ -32,24 +32,11 @@
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle3 = new System.Windows.Forms.DataGridViewCellStyle();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
+            this.addProductButton = new MetroFramework.Controls.MetroButton();
+            this.ClearButton = new MetroFramework.Controls.MetroButton();
             this.groupBox3 = new System.Windows.Forms.GroupBox();
-            this.txtTypeChange = new MetroFramework.Controls.MetroTextBox();
             this.metroLabel11 = new MetroFramework.Controls.MetroLabel();
             this.cmbTypeCoin = new MetroFramework.Controls.MetroComboBox();
-            this.metroLabel13 = new MetroFramework.Controls.MetroLabel();
-            this.groupBox2 = new System.Windows.Forms.GroupBox();
-            this.txtChange = new MetroFramework.Controls.MetroTextBox();
-            this.txtSubtotal = new MetroFramework.Controls.MetroTextBox();
-            this.metroLabel9 = new MetroFramework.Controls.MetroLabel();
-            this.metroLabel10 = new MetroFramework.Controls.MetroLabel();
-            this.metroLabel12 = new MetroFramework.Controls.MetroLabel();
-            this.metroLabel14 = new MetroFramework.Controls.MetroLabel();
-            this.txtDaxes = new MetroFramework.Controls.MetroTextBox();
-            this.txtAmountCredit = new MetroFramework.Controls.MetroTextBox();
-            this.txtAmountCash = new MetroFramework.Controls.MetroTextBox();
-            this.metroLabel1 = new MetroFramework.Controls.MetroLabel();
-            this.txtTotalPay = new MetroFramework.Controls.MetroTextBox();
-            this.metroLabel8 = new MetroFramework.Controls.MetroLabel();
             this.productsGridView = new MetroFramework.Controls.MetroGrid();
             this.discountTextBox = new MetroFramework.Controls.MetroTextBox();
             this.taxesTextBox = new MetroFramework.Controls.MetroTextBox();
@@ -71,21 +58,18 @@
             this.metroLabel6 = new MetroFramework.Controls.MetroLabel();
             this.metroLabel5 = new MetroFramework.Controls.MetroLabel();
             this.txtNumInvoice = new MetroFramework.Controls.MetroTextBox();
-            this.ClearButton = new MetroFramework.Controls.MetroButton();
-            this.createInvoicePreviewButton = new MetroFramework.Controls.MetroButton();
-            this.addProductButton = new MetroFramework.Controls.MetroButton();
+            this.previewInvoiceButton = new MetroFramework.Controls.MetroButton();
             this.groupBox1.SuspendLayout();
             this.groupBox3.SuspendLayout();
-            this.groupBox2.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.productsGridView)).BeginInit();
             this.SuspendLayout();
             // 
             // groupBox1
             // 
+            this.groupBox1.Controls.Add(this.previewInvoiceButton);
             this.groupBox1.Controls.Add(this.addProductButton);
             this.groupBox1.Controls.Add(this.ClearButton);
             this.groupBox1.Controls.Add(this.groupBox3);
-            this.groupBox1.Controls.Add(this.groupBox2);
             this.groupBox1.Controls.Add(this.productsGridView);
             this.groupBox1.Controls.Add(this.discountTextBox);
             this.groupBox1.Controls.Add(this.taxesTextBox);
@@ -109,58 +93,46 @@
             this.groupBox1.Controls.Add(this.txtNumInvoice);
             this.groupBox1.Location = new System.Drawing.Point(12, 17);
             this.groupBox1.Name = "groupBox1";
-            this.groupBox1.Size = new System.Drawing.Size(918, 680);
+            this.groupBox1.Size = new System.Drawing.Size(918, 569);
             this.groupBox1.TabIndex = 29;
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "Detalles de la Factura";
             // 
+            // addProductButton
+            // 
+            this.addProductButton.Location = new System.Drawing.Point(875, 142);
+            this.addProductButton.Name = "addProductButton";
+            this.addProductButton.Size = new System.Drawing.Size(37, 23);
+            this.addProductButton.TabIndex = 28;
+            this.addProductButton.Text = "+";
+            this.addProductButton.UseSelectable = true;
+            this.addProductButton.Click += new System.EventHandler(this.addProductButton_Click);
+            // 
+            // ClearButton
+            // 
+            this.ClearButton.Location = new System.Drawing.Point(837, 70);
+            this.ClearButton.Name = "ClearButton";
+            this.ClearButton.Size = new System.Drawing.Size(75, 23);
+            this.ClearButton.TabIndex = 27;
+            this.ClearButton.Text = "Limpiar";
+            this.ClearButton.UseSelectable = true;
+            this.ClearButton.Click += new System.EventHandler(this.ClearButton_Click);
+            // 
             // groupBox3
             // 
-            this.groupBox3.Controls.Add(this.txtTypeChange);
             this.groupBox3.Controls.Add(this.metroLabel11);
             this.groupBox3.Controls.Add(this.cmbTypeCoin);
-            this.groupBox3.Controls.Add(this.metroLabel13);
-            this.groupBox3.Location = new System.Drawing.Point(23, 475);
+            this.groupBox3.Location = new System.Drawing.Point(379, 19);
             this.groupBox3.Name = "groupBox3";
-            this.groupBox3.Size = new System.Drawing.Size(299, 152);
+            this.groupBox3.Size = new System.Drawing.Size(297, 82);
             this.groupBox3.TabIndex = 26;
             this.groupBox3.TabStop = false;
             this.groupBox3.Text = "Formas de pago";
             // 
-            // txtTypeChange
-            // 
-            // 
-            // 
-            // 
-            this.txtTypeChange.CustomButton.Image = null;
-            this.txtTypeChange.CustomButton.Location = new System.Drawing.Point(146, 1);
-            this.txtTypeChange.CustomButton.Name = "";
-            this.txtTypeChange.CustomButton.Size = new System.Drawing.Size(21, 21);
-            this.txtTypeChange.CustomButton.Style = MetroFramework.MetroColorStyle.Blue;
-            this.txtTypeChange.CustomButton.TabIndex = 1;
-            this.txtTypeChange.CustomButton.Theme = MetroFramework.MetroThemeStyle.Light;
-            this.txtTypeChange.CustomButton.UseSelectable = true;
-            this.txtTypeChange.CustomButton.Visible = false;
-            this.txtTypeChange.Lines = new string[0];
-            this.txtTypeChange.Location = new System.Drawing.Point(119, 93);
-            this.txtTypeChange.MaxLength = 32767;
-            this.txtTypeChange.Name = "txtTypeChange";
-            this.txtTypeChange.PasswordChar = '\0';
-            this.txtTypeChange.ScrollBars = System.Windows.Forms.ScrollBars.None;
-            this.txtTypeChange.SelectedText = "";
-            this.txtTypeChange.SelectionLength = 0;
-            this.txtTypeChange.SelectionStart = 0;
-            this.txtTypeChange.ShortcutsEnabled = true;
-            this.txtTypeChange.Size = new System.Drawing.Size(168, 23);
-            this.txtTypeChange.TabIndex = 16;
-            this.txtTypeChange.UseSelectable = true;
-            this.txtTypeChange.WaterMarkColor = System.Drawing.Color.FromArgb(((int)(((byte)(109)))), ((int)(((byte)(109)))), ((int)(((byte)(109)))));
-            this.txtTypeChange.WaterMarkFont = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Pixel);
-            // 
             // metroLabel11
             // 
             this.metroLabel11.AutoSize = true;
-            this.metroLabel11.Location = new System.Drawing.Point(5, 34);
+            this.metroLabel11.Location = new System.Drawing.Point(22, 34);
             this.metroLabel11.Name = "metroLabel11";
             this.metroLabel11.Size = new System.Drawing.Size(91, 19);
             this.metroLabel11.TabIndex = 14;
@@ -176,282 +148,11 @@
             this.cmbTypeCoin.TabIndex = 24;
             this.cmbTypeCoin.UseSelectable = true;
             // 
-            // metroLabel13
-            // 
-            this.metroLabel13.AutoSize = true;
-            this.metroLabel13.Location = new System.Drawing.Point(5, 88);
-            this.metroLabel13.Name = "metroLabel13";
-            this.metroLabel13.Size = new System.Drawing.Size(86, 19);
-            this.metroLabel13.TabIndex = 14;
-            this.metroLabel13.Text = "Tipo cambio:";
-            // 
-            // groupBox2
-            // 
-            this.groupBox2.Controls.Add(this.createInvoicePreviewButton);
-            this.groupBox2.Controls.Add(this.txtChange);
-            this.groupBox2.Controls.Add(this.txtSubtotal);
-            this.groupBox2.Controls.Add(this.metroLabel9);
-            this.groupBox2.Controls.Add(this.metroLabel10);
-            this.groupBox2.Controls.Add(this.metroLabel12);
-            this.groupBox2.Controls.Add(this.metroLabel14);
-            this.groupBox2.Controls.Add(this.txtDaxes);
-            this.groupBox2.Controls.Add(this.txtAmountCredit);
-            this.groupBox2.Controls.Add(this.txtAmountCash);
-            this.groupBox2.Controls.Add(this.metroLabel1);
-            this.groupBox2.Controls.Add(this.txtTotalPay);
-            this.groupBox2.Controls.Add(this.metroLabel8);
-            this.groupBox2.Location = new System.Drawing.Point(349, 471);
-            this.groupBox2.Name = "groupBox2";
-            this.groupBox2.Size = new System.Drawing.Size(544, 191);
-            this.groupBox2.TabIndex = 25;
-            this.groupBox2.TabStop = false;
-            this.groupBox2.Text = "Área de Pagos";
-            // 
-            // txtChange
-            // 
-            // 
-            // 
-            // 
-            this.txtChange.CustomButton.Image = null;
-            this.txtChange.CustomButton.Location = new System.Drawing.Point(82, 1);
-            this.txtChange.CustomButton.Name = "";
-            this.txtChange.CustomButton.Size = new System.Drawing.Size(21, 21);
-            this.txtChange.CustomButton.Style = MetroFramework.MetroColorStyle.Blue;
-            this.txtChange.CustomButton.TabIndex = 1;
-            this.txtChange.CustomButton.Theme = MetroFramework.MetroThemeStyle.Light;
-            this.txtChange.CustomButton.UseSelectable = true;
-            this.txtChange.CustomButton.Visible = false;
-            this.txtChange.Lines = new string[0];
-            this.txtChange.Location = new System.Drawing.Point(374, 34);
-            this.txtChange.MaxLength = 32767;
-            this.txtChange.Name = "txtChange";
-            this.txtChange.PasswordChar = '\0';
-            this.txtChange.ScrollBars = System.Windows.Forms.ScrollBars.None;
-            this.txtChange.SelectedText = "";
-            this.txtChange.SelectionLength = 0;
-            this.txtChange.SelectionStart = 0;
-            this.txtChange.ShortcutsEnabled = true;
-            this.txtChange.Size = new System.Drawing.Size(104, 23);
-            this.txtChange.TabIndex = 16;
-            this.txtChange.UseSelectable = true;
-            this.txtChange.WaterMarkColor = System.Drawing.Color.FromArgb(((int)(((byte)(109)))), ((int)(((byte)(109)))), ((int)(((byte)(109)))));
-            this.txtChange.WaterMarkFont = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Pixel);
-            // 
-            // txtSubtotal
-            // 
-            // 
-            // 
-            // 
-            this.txtSubtotal.CustomButton.Image = null;
-            this.txtSubtotal.CustomButton.Location = new System.Drawing.Point(82, 1);
-            this.txtSubtotal.CustomButton.Name = "";
-            this.txtSubtotal.CustomButton.Size = new System.Drawing.Size(21, 21);
-            this.txtSubtotal.CustomButton.Style = MetroFramework.MetroColorStyle.Blue;
-            this.txtSubtotal.CustomButton.TabIndex = 1;
-            this.txtSubtotal.CustomButton.Theme = MetroFramework.MetroThemeStyle.Light;
-            this.txtSubtotal.CustomButton.UseSelectable = true;
-            this.txtSubtotal.CustomButton.Visible = false;
-            this.txtSubtotal.Lines = new string[0];
-            this.txtSubtotal.Location = new System.Drawing.Point(374, 73);
-            this.txtSubtotal.MaxLength = 32767;
-            this.txtSubtotal.Name = "txtSubtotal";
-            this.txtSubtotal.PasswordChar = '\0';
-            this.txtSubtotal.ScrollBars = System.Windows.Forms.ScrollBars.None;
-            this.txtSubtotal.SelectedText = "";
-            this.txtSubtotal.SelectionLength = 0;
-            this.txtSubtotal.SelectionStart = 0;
-            this.txtSubtotal.ShortcutsEnabled = true;
-            this.txtSubtotal.Size = new System.Drawing.Size(104, 23);
-            this.txtSubtotal.TabIndex = 16;
-            this.txtSubtotal.UseSelectable = true;
-            this.txtSubtotal.WaterMarkColor = System.Drawing.Color.FromArgb(((int)(((byte)(109)))), ((int)(((byte)(109)))), ((int)(((byte)(109)))));
-            this.txtSubtotal.WaterMarkFont = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Pixel);
-            // 
-            // metroLabel9
-            // 
-            this.metroLabel9.AutoSize = true;
-            this.metroLabel9.Location = new System.Drawing.Point(273, 34);
-            this.metroLabel9.Name = "metroLabel9";
-            this.metroLabel9.Size = new System.Drawing.Size(59, 19);
-            this.metroLabel9.TabIndex = 14;
-            this.metroLabel9.Text = "Cambio:";
-            // 
-            // metroLabel10
-            // 
-            this.metroLabel10.AutoSize = true;
-            this.metroLabel10.Location = new System.Drawing.Point(34, 133);
-            this.metroLabel10.Name = "metroLabel10";
-            this.metroLabel10.Size = new System.Drawing.Size(72, 19);
-            this.metroLabel10.TabIndex = 14;
-            this.metroLabel10.Text = "Descuento:";
-            // 
-            // metroLabel12
-            // 
-            this.metroLabel12.AutoSize = true;
-            this.metroLabel12.Location = new System.Drawing.Point(273, 73);
-            this.metroLabel12.Name = "metroLabel12";
-            this.metroLabel12.Size = new System.Drawing.Size(60, 19);
-            this.metroLabel12.TabIndex = 14;
-            this.metroLabel12.Text = "Subtotal:";
-            // 
-            // metroLabel14
-            // 
-            this.metroLabel14.AutoSize = true;
-            this.metroLabel14.Location = new System.Drawing.Point(273, 114);
-            this.metroLabel14.Name = "metroLabel14";
-            this.metroLabel14.Size = new System.Drawing.Size(90, 19);
-            this.metroLabel14.TabIndex = 14;
-            this.metroLabel14.Text = "Total a pagar:";
-            // 
-            // txtDaxes
-            // 
-            // 
-            // 
-            // 
-            this.txtDaxes.CustomButton.Image = null;
-            this.txtDaxes.CustomButton.Location = new System.Drawing.Point(82, 1);
-            this.txtDaxes.CustomButton.Name = "";
-            this.txtDaxes.CustomButton.Size = new System.Drawing.Size(21, 21);
-            this.txtDaxes.CustomButton.Style = MetroFramework.MetroColorStyle.Blue;
-            this.txtDaxes.CustomButton.TabIndex = 1;
-            this.txtDaxes.CustomButton.Theme = MetroFramework.MetroThemeStyle.Light;
-            this.txtDaxes.CustomButton.UseSelectable = true;
-            this.txtDaxes.CustomButton.Visible = false;
-            this.txtDaxes.Lines = new string[0];
-            this.txtDaxes.Location = new System.Drawing.Point(135, 133);
-            this.txtDaxes.MaxLength = 32767;
-            this.txtDaxes.Name = "txtDaxes";
-            this.txtDaxes.PasswordChar = '\0';
-            this.txtDaxes.ScrollBars = System.Windows.Forms.ScrollBars.None;
-            this.txtDaxes.SelectedText = "";
-            this.txtDaxes.SelectionLength = 0;
-            this.txtDaxes.SelectionStart = 0;
-            this.txtDaxes.ShortcutsEnabled = true;
-            this.txtDaxes.Size = new System.Drawing.Size(104, 23);
-            this.txtDaxes.TabIndex = 16;
-            this.txtDaxes.UseSelectable = true;
-            this.txtDaxes.WaterMarkColor = System.Drawing.Color.FromArgb(((int)(((byte)(109)))), ((int)(((byte)(109)))), ((int)(((byte)(109)))));
-            this.txtDaxes.WaterMarkFont = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Pixel);
-            // 
-            // txtAmountCredit
-            // 
-            // 
-            // 
-            // 
-            this.txtAmountCredit.CustomButton.Image = null;
-            this.txtAmountCredit.CustomButton.Location = new System.Drawing.Point(81, 1);
-            this.txtAmountCredit.CustomButton.Name = "";
-            this.txtAmountCredit.CustomButton.Size = new System.Drawing.Size(21, 21);
-            this.txtAmountCredit.CustomButton.Style = MetroFramework.MetroColorStyle.Blue;
-            this.txtAmountCredit.CustomButton.TabIndex = 1;
-            this.txtAmountCredit.CustomButton.Theme = MetroFramework.MetroThemeStyle.Light;
-            this.txtAmountCredit.CustomButton.UseSelectable = true;
-            this.txtAmountCredit.CustomButton.Visible = false;
-            this.txtAmountCredit.Lines = new string[] {
-        "0"};
-            this.txtAmountCredit.Location = new System.Drawing.Point(136, 85);
-            this.txtAmountCredit.MaxLength = 32767;
-            this.txtAmountCredit.Name = "txtAmountCredit";
-            this.txtAmountCredit.PasswordChar = '\0';
-            this.txtAmountCredit.ScrollBars = System.Windows.Forms.ScrollBars.None;
-            this.txtAmountCredit.SelectedText = "";
-            this.txtAmountCredit.SelectionLength = 0;
-            this.txtAmountCredit.SelectionStart = 0;
-            this.txtAmountCredit.ShortcutsEnabled = true;
-            this.txtAmountCredit.Size = new System.Drawing.Size(103, 23);
-            this.txtAmountCredit.TabIndex = 16;
-            this.txtAmountCredit.Text = "0";
-            this.txtAmountCredit.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
-            this.txtAmountCredit.UseSelectable = true;
-            this.txtAmountCredit.WaterMarkColor = System.Drawing.Color.FromArgb(((int)(((byte)(109)))), ((int)(((byte)(109)))), ((int)(((byte)(109)))));
-            this.txtAmountCredit.WaterMarkFont = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Pixel);
-            // 
-            // txtAmountCash
-            // 
-            // 
-            // 
-            // 
-            this.txtAmountCash.CustomButton.Image = null;
-            this.txtAmountCash.CustomButton.Location = new System.Drawing.Point(81, 1);
-            this.txtAmountCash.CustomButton.Name = "";
-            this.txtAmountCash.CustomButton.Size = new System.Drawing.Size(21, 21);
-            this.txtAmountCash.CustomButton.Style = MetroFramework.MetroColorStyle.Blue;
-            this.txtAmountCash.CustomButton.TabIndex = 1;
-            this.txtAmountCash.CustomButton.Theme = MetroFramework.MetroThemeStyle.Light;
-            this.txtAmountCash.CustomButton.UseSelectable = true;
-            this.txtAmountCash.CustomButton.Visible = false;
-            this.txtAmountCash.Lines = new string[] {
-        "0"};
-            this.txtAmountCash.Location = new System.Drawing.Point(136, 34);
-            this.txtAmountCash.MaxLength = 32767;
-            this.txtAmountCash.Name = "txtAmountCash";
-            this.txtAmountCash.PasswordChar = '\0';
-            this.txtAmountCash.ScrollBars = System.Windows.Forms.ScrollBars.None;
-            this.txtAmountCash.SelectedText = "";
-            this.txtAmountCash.SelectionLength = 0;
-            this.txtAmountCash.SelectionStart = 0;
-            this.txtAmountCash.ShortcutsEnabled = true;
-            this.txtAmountCash.Size = new System.Drawing.Size(103, 23);
-            this.txtAmountCash.TabIndex = 16;
-            this.txtAmountCash.Text = "0";
-            this.txtAmountCash.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
-            this.txtAmountCash.UseSelectable = true;
-            this.txtAmountCash.WaterMarkColor = System.Drawing.Color.FromArgb(((int)(((byte)(109)))), ((int)(((byte)(109)))), ((int)(((byte)(109)))));
-            this.txtAmountCash.WaterMarkFont = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Pixel);
-            // 
-            // metroLabel1
-            // 
-            this.metroLabel1.AutoSize = true;
-            this.metroLabel1.Location = new System.Drawing.Point(30, 85);
-            this.metroLabel1.Name = "metroLabel1";
-            this.metroLabel1.Size = new System.Drawing.Size(96, 19);
-            this.metroLabel1.TabIndex = 14;
-            this.metroLabel1.Text = "Monto credito:";
-            // 
-            // txtTotalPay
-            // 
-            // 
-            // 
-            // 
-            this.txtTotalPay.CustomButton.Image = null;
-            this.txtTotalPay.CustomButton.Location = new System.Drawing.Point(82, 1);
-            this.txtTotalPay.CustomButton.Name = "";
-            this.txtTotalPay.CustomButton.Size = new System.Drawing.Size(21, 21);
-            this.txtTotalPay.CustomButton.Style = MetroFramework.MetroColorStyle.Blue;
-            this.txtTotalPay.CustomButton.TabIndex = 1;
-            this.txtTotalPay.CustomButton.Theme = MetroFramework.MetroThemeStyle.Light;
-            this.txtTotalPay.CustomButton.UseSelectable = true;
-            this.txtTotalPay.CustomButton.Visible = false;
-            this.txtTotalPay.Lines = new string[0];
-            this.txtTotalPay.Location = new System.Drawing.Point(374, 114);
-            this.txtTotalPay.MaxLength = 32767;
-            this.txtTotalPay.Name = "txtTotalPay";
-            this.txtTotalPay.PasswordChar = '\0';
-            this.txtTotalPay.ScrollBars = System.Windows.Forms.ScrollBars.None;
-            this.txtTotalPay.SelectedText = "";
-            this.txtTotalPay.SelectionLength = 0;
-            this.txtTotalPay.SelectionStart = 0;
-            this.txtTotalPay.ShortcutsEnabled = true;
-            this.txtTotalPay.Size = new System.Drawing.Size(104, 23);
-            this.txtTotalPay.TabIndex = 16;
-            this.txtTotalPay.UseSelectable = true;
-            this.txtTotalPay.WaterMarkColor = System.Drawing.Color.FromArgb(((int)(((byte)(109)))), ((int)(((byte)(109)))), ((int)(((byte)(109)))));
-            this.txtTotalPay.WaterMarkFont = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Pixel);
-            // 
-            // metroLabel8
-            // 
-            this.metroLabel8.AutoSize = true;
-            this.metroLabel8.Location = new System.Drawing.Point(30, 34);
-            this.metroLabel8.Name = "metroLabel8";
-            this.metroLabel8.Size = new System.Drawing.Size(100, 19);
-            this.metroLabel8.TabIndex = 14;
-            this.metroLabel8.Text = "Monto efectivo:";
-            // 
             // productsGridView
             // 
             this.productsGridView.AllowUserToAddRows = false;
             this.productsGridView.AllowUserToResizeRows = false;
-            this.productsGridView.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.ColumnHeader;
+            this.productsGridView.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.AllCells;
             this.productsGridView.BackgroundColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(255)))), ((int)(((byte)(255)))));
             this.productsGridView.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.productsGridView.CellBorderStyle = System.Windows.Forms.DataGridViewCellBorderStyle.None;
@@ -489,8 +190,9 @@
             this.productsGridView.RowHeadersDefaultCellStyle = dataGridViewCellStyle3;
             this.productsGridView.RowHeadersWidthSizeMode = System.Windows.Forms.DataGridViewRowHeadersWidthSizeMode.DisableResizing;
             this.productsGridView.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.productsGridView.Size = new System.Drawing.Size(885, 273);
+            this.productsGridView.Size = new System.Drawing.Size(885, 349);
             this.productsGridView.TabIndex = 23;
+            this.productsGridView.CellEndEdit += new System.Windows.Forms.DataGridViewCellEventHandler(this.productsGridView_CellEndEdit);
             // 
             // discountTextBox
             // 
@@ -883,35 +585,15 @@
             this.txtNumInvoice.WaterMarkColor = System.Drawing.Color.FromArgb(((int)(((byte)(109)))), ((int)(((byte)(109)))), ((int)(((byte)(109)))));
             this.txtNumInvoice.WaterMarkFont = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Pixel);
             // 
-            // ClearButton
+            // previewInvoiceButton
             // 
-            this.ClearButton.Location = new System.Drawing.Point(837, 70);
-            this.ClearButton.Name = "ClearButton";
-            this.ClearButton.Size = new System.Drawing.Size(75, 23);
-            this.ClearButton.TabIndex = 27;
-            this.ClearButton.Text = "Limpiar";
-            this.ClearButton.UseSelectable = true;
-            this.ClearButton.Click += new System.EventHandler(this.ClearButton_Click);
-            // 
-            // createInvoicePreviewButton
-            // 
-            this.createInvoicePreviewButton.Location = new System.Drawing.Point(463, 162);
-            this.createInvoicePreviewButton.Name = "createInvoicePreviewButton";
-            this.createInvoicePreviewButton.Size = new System.Drawing.Size(75, 23);
-            this.createInvoicePreviewButton.TabIndex = 28;
-            this.createInvoicePreviewButton.Text = "Facturar";
-            this.createInvoicePreviewButton.UseSelectable = true;
-            this.createInvoicePreviewButton.Click += new System.EventHandler(this.createInvoicePreviewButton_Click);
-            // 
-            // addProductButton
-            // 
-            this.addProductButton.Location = new System.Drawing.Point(875, 142);
-            this.addProductButton.Name = "addProductButton";
-            this.addProductButton.Size = new System.Drawing.Size(37, 23);
-            this.addProductButton.TabIndex = 28;
-            this.addProductButton.Text = "+";
-            this.addProductButton.UseSelectable = true;
-            this.addProductButton.Click += new System.EventHandler(this.addProductButton_Click);
+            this.previewInvoiceButton.Location = new System.Drawing.Point(787, 537);
+            this.previewInvoiceButton.Name = "previewInvoiceButton";
+            this.previewInvoiceButton.Size = new System.Drawing.Size(121, 23);
+            this.previewInvoiceButton.TabIndex = 29;
+            this.previewInvoiceButton.Text = "Previsualizar factura";
+            this.previewInvoiceButton.UseSelectable = true;
+            this.previewInvoiceButton.Click += new System.EventHandler(this.previewInvoiceButton_Click);
             // 
             // UcSellinvoice
             // 
@@ -920,15 +602,13 @@
             this.AutoScroll = true;
             this.Controls.Add(this.groupBox1);
             this.Name = "UcSellinvoice";
-            this.Size = new System.Drawing.Size(955, 715);
+            this.Size = new System.Drawing.Size(955, 592);
             this.Load += new System.EventHandler(this.UcSellinvoice_Load);
             this.Leave += new System.EventHandler(this.UcSellinvoice_Leave);
             this.groupBox1.ResumeLayout(false);
             this.groupBox1.PerformLayout();
             this.groupBox3.ResumeLayout(false);
             this.groupBox3.PerformLayout();
-            this.groupBox2.ResumeLayout(false);
-            this.groupBox2.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.productsGridView)).EndInit();
             this.ResumeLayout(false);
 
@@ -942,22 +622,11 @@
         private MetroFramework.Controls.MetroLabel metroLabel5;
         private MetroFramework.Controls.MetroTextBox txtNumInvoice;
         private MetroFramework.Controls.MetroGrid productsGridView;
-        private MetroFramework.Controls.MetroTextBox txtTotalPay;
-        private MetroFramework.Controls.MetroTextBox txtSubtotal;
-        private MetroFramework.Controls.MetroTextBox txtAmountCash;
         private MetroFramework.Controls.MetroTextBox txtClient;
-        private MetroFramework.Controls.MetroLabel metroLabel14;
-        private MetroFramework.Controls.MetroLabel metroLabel12;
-        private MetroFramework.Controls.MetroLabel metroLabel10;
-        private MetroFramework.Controls.MetroLabel metroLabel13;
         private MetroFramework.Controls.MetroLabel metroLabel11;
         private MetroFramework.Controls.MetroLabel metroLabel4;
-        private MetroFramework.Controls.MetroTextBox txtTypeChange;
-        private MetroFramework.Controls.MetroLabel metroLabel8;
         private MetroFramework.Controls.MetroComboBox cmbTypeCoin;
-        private MetroFramework.Controls.MetroTextBox txtDaxes;
         private MetroFramework.Controls.MetroLabel metroLabel7;
-        private System.Windows.Forms.GroupBox groupBox2;
         private MetroFramework.Controls.MetroTextBox discountTextBox;
         private MetroFramework.Controls.MetroTextBox taxesTextBox;
         private MetroFramework.Controls.MetroTextBox amountTextBox;
@@ -972,12 +641,8 @@
         private MetroFramework.Controls.MetroLabel metroLabel16;
         private MetroFramework.Controls.MetroLabel metroLabel2;
         private System.Windows.Forms.GroupBox groupBox3;
-        private MetroFramework.Controls.MetroTextBox txtAmountCredit;
-        private MetroFramework.Controls.MetroLabel metroLabel1;
-        private MetroFramework.Controls.MetroTextBox txtChange;
-        private MetroFramework.Controls.MetroLabel metroLabel9;
         private MetroFramework.Controls.MetroButton ClearButton;
-        private MetroFramework.Controls.MetroButton createInvoicePreviewButton;
         private MetroFramework.Controls.MetroButton addProductButton;
+        private MetroFramework.Controls.MetroButton previewInvoiceButton;
     }
 }

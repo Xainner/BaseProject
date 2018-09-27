@@ -124,6 +124,32 @@ namespace LogicLibrary
             }
         }
 
+
+        public static SubCategoryModel SelectSubCategoryById(string id)
+        {
+            try
+            {
+                string[] subCategory = new string[] { id };
+                if (ValidateData.VerifyFields(subCategory))
+                {
+                    SubCategoryModel subCategoryModel = new SubCategoryModel()
+                    {
+                        IdsubCategory = int.Parse(id)
+                    };
+                    return DBSubCategory.SelectSubCategoryById(subCategoryModel);
+                }
+                else
+                {
+                    return null;
+                }
+            }
+            catch (Exception ex)
+            {
+                //Log4Net
+                return null;
+            }
+        }
+
         /// <summary>
         /// 
         /// </summary>

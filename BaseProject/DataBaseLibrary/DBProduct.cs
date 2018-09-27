@@ -59,12 +59,12 @@ namespace DataBaseLibrary
         /// </summary>
         /// <param name="Product"></param>
         /// <returns>output</returns>
-        public static List<ProductModel> SelectCode(ProductModel Product)
+        public static ProductModel SelectCode(ProductModel Product)
         {
             using (IDbConnection cnn = new MySqlConnection(LoadConnectionString()))
             {
                 var output = cnn.Query<ProductModel>("SELECT * FROM product WHERE Code = @Code", Product);
-                return output.ToList();
+                return output.Single();
             }
         }
 
