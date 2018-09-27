@@ -19,6 +19,9 @@ namespace UI.UserControls
         byte[] photo;
         string file;
 
+        List<CategoryModel> categoryModels;
+        List<SubCategoryModel> subCategoryModels;
+
         public UcProduct()
         {
             InitializeComponent();
@@ -48,11 +51,28 @@ namespace UI.UserControls
 
         private void UcProduct_Load(object sender, EventArgs e)
         {
+            categoryModels = CategoryManagement.SelectAllCategories();
+            subCategoryModels = SubCategoryManagement.SelectAllSubCategories();
+
+
             dgvProduct.DataSource = ProductManagement.SelectAllProducts();
             cmbBrand.DataSource = BrandManagement.SelectAllBrands();
             cmbBrand.DisplayMember = "Name";
-            cmbCategory.DataSource = CategoryManagement.SelectAllCategories();
+
+            WireUpCategoryComboBox();
+            WireUpSubCategoryComboBox();
+        }
+
+        private void WireUpCategoryComboBox()
+        {
+            cmbCategory.DataSource = categoryModels;
             cmbCategory.DisplayMember = "Name";
+        }
+
+        private void WireUpSubCategoryComboBox()
+        {
+            cmbSubcategory.DataSource = subCategoryModels;
+            cmbSubcategory.DisplayMember = "Name";
         }
 
         private void btnSelectImage_Click(object sender, EventArgs e)
@@ -146,6 +166,10 @@ namespace UI.UserControls
             if (!string.IsNullOrEmpty(file))
             {
                 photo = ImageManagement.ImageToByte(file);
+            }
+            else
+            {
+
             }
 
             try
@@ -297,9 +321,42 @@ namespace UI.UserControls
 
         private void cmbCategory_SelectedIndexChanged(object sender, EventArgs e)
         {
-            int ID = CategoryManagement.SelectCategoryByNameId(cmbCategory.SelectedItem.ToString());
-            cmbSubcategory.DataSource = SubCategoryManagement.SelectCatWithSub(ID);
-            //cmbSubcategory.DisplayMember = "Name";
+
+            CategoryModel categoryModel = (CategoryModel)cmbCategory.SelectedItem;
+            int id = categoryModel.IdCategory;
+
+            cmbSubcategory.DataSource = SubCategoryManagement.SelectCatWithSub(id);
+            cmbSubcategory.DisplayMember = "Name";
+        }
+
+        private void btnRotRight_Click(object sender, EventArgs e)
+        {
+            try
+            {
+                RotateFlipType rp = RotateFlipType.Rotate90FlipXY;
+                Image newImage = pbProduct.Image;
+                newImage.RotateFlip(rp);
+                pbProduct.Image = newImage;
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message);
+            }
+        }
+
+        private void btnRotLeft_Click(object sender, EventArgs e)
+        {
+            try
+            {
+                RotateFlipType rp = RotateFlipType.Rotate90FlipNone;
+                Image newImage = pbProduct.Image;
+                newImage.RotateFlip(rp);
+                pbProduct.Image = newImage;
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message);
+            }
         }
     }
 }

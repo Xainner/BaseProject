@@ -155,19 +155,6 @@ namespace LogicLibrary
             }
         }
 
-        public static int SelectCategoryByNameId(string name)
-        {
-            try
-            {
-                return DBCategory.SelectCategoryId(name);
-            }
-            catch (Exception ex)
-            {
-                //Log4Net
-                return 0;
-            }
-        }
-
         /// <summary>
         /// 
         /// </summary>

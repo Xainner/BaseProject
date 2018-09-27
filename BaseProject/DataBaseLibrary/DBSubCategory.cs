@@ -75,11 +75,11 @@ namespace DataBaseLibrary
         /// </summary>
         /// <param name="SubCategory"></param>
         /// <returns></returns>
-        public static List<SubCategoryModel> SelectCatWithSub(int idCategory)
+        public static List<SubCategoryModel> SelectCatWithSub(SubCategoryModel subCategoryModel)
         {
             using (IDbConnection cnn = new MySqlConnection(LoadConnectionString()))
             {
-                var output = cnn.Query<SubCategoryModel>("SELECT Name FROM subcategory WHERE idCategory = @idCategory", idCategory);
+                var output = cnn.Query<SubCategoryModel>("SELECT * FROM subcategory WHERE idCategory = @idCategory", subCategoryModel);
                 return output.ToList();
             }
         }
