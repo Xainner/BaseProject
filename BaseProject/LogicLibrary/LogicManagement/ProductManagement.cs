@@ -279,8 +279,7 @@ namespace LogicLibrary
                         Style = style,
 
                     };
-                    //return ProductConnection.SelectProductByStyle(productModel);
-                    return null;
+                    return DBProduct.SelectStyle(productModel);
                 }
                 else
                 {
@@ -299,7 +298,7 @@ namespace LogicLibrary
         /// </summary>
         /// <param name="idBrand"></param>
         /// <returns></returns>
-        public static ProductModel SelectProductByIdBrand(string idBrand)
+        public static List<ProductModel> SelectProductByIdBrand(string idBrand)
         {
             try
             {
@@ -311,8 +310,7 @@ namespace LogicLibrary
                         IdBrand = int.Parse(idBrand),
 
                     };
-                    //return ProductConnection.SelectProductByIdBrand(productModel);
-                    return null;
+                    return DBProduct.SelectidBrand(productModel);
                 }
                 else
                 {
@@ -331,7 +329,7 @@ namespace LogicLibrary
         /// </summary>
         /// <param name="description"></param>
         /// <returns></returns>
-        public static ProductModel SelectProductByDescription(string description)
+        public static List<ProductModel> SelectProductByDescription(string description)
         {
             try
             {
@@ -342,8 +340,7 @@ namespace LogicLibrary
                     {
                         Description = description,
                     };
-                    //return ProductConnection.SelectProductByDescription(productModel);
-                    return null;
+                    return DBProduct.SelectDescription(productModel);
                 }
                 else
                 {

@@ -73,12 +73,12 @@ namespace DataBaseLibrary
         /// </summary>
         /// <param name="Product"></param>
         /// <returns>output</returns>
-        public static List<ProductModel> SelectStyle(ProductModel Product)
+        public static ProductModel SelectStyle(ProductModel Product)
         {
             using (IDbConnection cnn = new MySqlConnection(LoadConnectionString()))
             {
                 var output = cnn.Query<ProductModel>("SELECT * FROM product WHERE Style = @Style", Product);
-                return output.ToList();
+                return output.Single();
             }
         }
 
@@ -105,9 +105,13 @@ namespace DataBaseLibrary
         {
             using (IDbConnection cnn = new MySqlConnection(LoadConnectionString()))
             {
+                string description = "";
+                description = Product.Description;
+                description = "%" + description + "%";
+                Product.Description = description;
                 var output = cnn.Query<ProductModel>(
                     "SELECT * FROM product WHERE " +
-                    "(Description = "+"%"+"@Description" + "%)", Product);
+                    "(Description like @Description)", Product);
                 return output.ToList();
             }
         }

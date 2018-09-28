@@ -4,6 +4,7 @@ using System.Windows.Forms;
 using ModelLibrary.Models;
 using LogicLibrary;
 using BusinessLibrary.Models;
+using UI.Frames;
 
 namespace UI.UserControls
 {
@@ -20,7 +21,7 @@ namespace UI.UserControls
         private void WrapProductsGridView()
         {
             productModel = ProductManagement.SelectAllProducts();
-            metroGrid1.DataSource = productModel;
+            dgvInputProduct.DataSource = productModel;
         }
 
         private void UcInputInvoice_Load(object sender, EventArgs e)
@@ -68,6 +69,50 @@ namespace UI.UserControls
         {
             providerTextBox.Text = string.Empty;
             totalPaymentTextBox.Text = string.Empty;
+        }
+
+        private void codeTextBox_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            string code = codeTextBox.Text;
+
+            if (e.KeyChar == Convert.ToChar(Keys.Enter))
+            {
+                try
+                {
+                    if (code != " ")
+                    {
+                        FrmSearchProduct frmInvoice = new FrmSearchProduct(code);
+                        frmInvoice.Show();
+                    }
+                }
+                catch (Exception)
+                {
+
+                    throw;
+                }
+            }
+        }
+
+        private void descriptionTextBox_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            string description = descriptionTextBox.Text;
+
+            if (e.KeyChar == Convert.ToChar(Keys.Enter))
+            {
+                try
+                {
+                    if (description != " ")
+                    {
+                        FrmSearchProduct frmInvoice = new FrmSearchProduct(description);
+                        frmInvoice.Show();
+                    }
+                }
+                catch (Exception)
+                {
+
+                    throw;
+                }
+            }
         }
     }
 }
