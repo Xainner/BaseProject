@@ -9,7 +9,7 @@ namespace BusinessLibrary.Models
     public class ProductModel
     {
         public int idProduct;
-        public int code;
+        public string code;
         public string style;
         public int idBrand;
         public string description;
@@ -23,7 +23,7 @@ namespace BusinessLibrary.Models
         public bool existingInvoice;
 
         public int IdProduct { get => idProduct; set => idProduct = value; }
-        public int Code { get => code; set => code = value; }
+        public string Code { get => code; set => code = value; }
         public string Style { get => style; set => style = value; }
         public int IdBrand { get => idBrand; set => idBrand = value; }
         public string Description { get => description; set => description = value; }

@@ -133,7 +133,11 @@ namespace LogicLibrary
         {
             try
             {
-                return DBSubCategory.SelectCatWithSub(idCategory);
+                SubCategoryModel subCategoryModel = new SubCategoryModel()
+                {
+                    IdCategory = idCategory,
+                };
+                return DBSubCategory.SelectCatWithSub(subCategoryModel);
             }
             catch (Exception ex)
             {

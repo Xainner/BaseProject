@@ -62,7 +62,7 @@ namespace LogicLibrary
                 {
                     ProductModel productModel = new ProductModel()
                     {
-                        Code = int.Parse(code),
+                        Code = code,
                         Style = style,
                         IdBrand = int.Parse(idBrand),
                         Description = description,
@@ -142,7 +142,7 @@ namespace LogicLibrary
                     ProductModel productModel = new ProductModel()
                     {
                         IdProduct = int.Parse(idProduct),
-                        Code = int.Parse(code),
+                        Code = code,
                         Style = style,
                         IdBrand = int.Parse(idBrand),
                         Description = description,
@@ -245,7 +245,7 @@ namespace LogicLibrary
                 {
                     ProductModel productModel = new ProductModel()
                     {
-                        Code = int.Parse(code),
+                        Code = code,
 
                     };
                     //return ProductConnection.SelectProductByCode(productModel);
