@@ -64,6 +64,12 @@
     <Compile Include="Frames\FrmBrand.Designer.cs">
       <DependentUpon>FrmBrand.cs</DependentUpon>
     </Compile>
+    <Compile Include="Frames\FrmInvoice.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Frames\FrmInvoice.Designer.cs">
+      <DependentUpon>FrmInvoice.cs</DependentUpon>
+    </Compile>
     <Compile Include="Frames\FrmMain.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -141,6 +147,9 @@
     <Compile Include="Utilities\ImageManagement.cs" />
     <EmbeddedResource Include="Frames\FrmBrand.resx">
       <DependentUpon>FrmBrand.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Frames\FrmInvoice.resx">
+      <DependentUpon>FrmInvoice.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Frames\FrmMain.resx">
       <DependentUpon>FrmMain.cs</DependentUpon>
