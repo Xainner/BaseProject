@@ -54,6 +54,20 @@ namespace DataBaseLibrary
         }
 
         /// <summary>
+        /// Show a specific category by name
+        /// </summary>
+        /// <param name="Category"></param>
+        /// <returns>output</returns>
+        public static int SelectCategoryId(string  Category)
+        {
+            using (IDbConnection cnn = new MySqlConnection(LoadConnectionString()))
+            {
+                var output = cnn.QuerySingle<int>("SELECT idCategory FROM category WHERE Name = @Name", Category);
+                return output;
+            }
+        }
+
+        /// <summary>
         /// return all categories by like name
         /// </summary>
         /// <param name="Category"></param>

@@ -71,6 +71,20 @@ namespace DataBaseLibrary
         }
 
         /// <summary>
+        /// return all the names of the subcategories with like by name
+        /// </summary>
+        /// <param name="SubCategory"></param>
+        /// <returns></returns>
+        public static List<SubCategoryModel> SelectCatWithSub(int idCategory)
+        {
+            using (IDbConnection cnn = new MySqlConnection(LoadConnectionString()))
+            {
+                var output = cnn.Query<SubCategoryModel>("SELECT Name FROM subcategory WHERE idCategory = @idCategory", idCategory);
+                return output.ToList();
+            }
+        }
+
+        /// <summary>
         /// Insert a subcategory from subcategory
         /// </summary>
         /// <param name="SubCategory"></param>

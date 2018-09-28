@@ -53,9 +53,6 @@ namespace UI.UserControls
             cmbBrand.DisplayMember = "Name";
             cmbCategory.DataSource = CategoryManagement.SelectAllCategories();
             cmbCategory.DisplayMember = "Name";
-            cmbSubcategory.DataSource = SubCategoryManagement.SelectAllSubCategories();
-            cmbSubcategory.DisplayMember = "Name";
-
         }
 
         private void btnSelectImage_Click(object sender, EventArgs e)
@@ -296,6 +293,13 @@ namespace UI.UserControls
         private void btnCleanProduct_Click(object sender, EventArgs e)
         {
             CleanProduct();
+        }
+
+        private void cmbCategory_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            int ID = CategoryManagement.SelectCategoryByNameId(cmbCategory.SelectedItem.ToString());
+            cmbSubcategory.DataSource = SubCategoryManagement.SelectCatWithSub(ID);
+            //cmbSubcategory.DisplayMember = "Name";
         }
     }
 }

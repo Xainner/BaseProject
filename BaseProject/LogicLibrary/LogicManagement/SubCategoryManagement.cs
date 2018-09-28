@@ -127,6 +127,24 @@ namespace LogicLibrary
         /// <summary>
         /// 
         /// </summary>
+        /// <param name="idSubCategory"></param>
+        /// <returns></returns>
+        public static List<SubCategoryModel> SelectCatWithSub(int idCategory)
+        {
+            try
+            {
+                return DBSubCategory.SelectCatWithSub(idCategory);
+            }
+            catch (Exception ex)
+            {
+                //Log4Net
+                return null;
+            }
+        }
+
+        /// <summary>
+        /// 
+        /// </summary>
         /// <returns></returns>
         public static List<SubCategoryModel> SelectAllSubCategories()
         {

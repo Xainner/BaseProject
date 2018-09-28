@@ -27,10 +27,9 @@ namespace UI.UserControls
             txtEmployee.Text = " ";
             txtNumInvoice.Text = " ";
             cmbTypeCoin.Text = " ";
-            cmbTypePayment.Text = " ";
             txtDaxes.Text = " ";
             txtTypeChange.Text = " ";
-            txtPayment.Text = " ";
+            txtAmountCash.Text = " ";
             txtDiscount.Text = " ";
             txtSubtotal.Text = " ";
             txtTotalPay.Text = " "; 
@@ -54,10 +53,9 @@ namespace UI.UserControls
             string idEmployee = txtEmployee.Text;
             string idUser = txtNumInvoice.Text;
             string coinType = cmbTypeCoin.Text;
-            string paymentType = cmbTypePayment.Text;
             string iviAmount = txtDaxes.Text;
             string currencyType = txtTypeChange.Text;
-            string paymentCash = txtPayment.Text;
+            string paymentCash = txtAmountCash.Text;
             string totalDiscount = txtDiscount.Text;
             string subTotal = txtSubtotal.Text;
             string total = txtTotalPay.Text;

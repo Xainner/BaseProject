@@ -269,6 +269,7 @@
             this.cmbCategory.Size = new System.Drawing.Size(140, 29);
             this.cmbCategory.TabIndex = 2;
             this.cmbCategory.UseSelectable = true;
+            this.cmbCategory.SelectedIndexChanged += new System.EventHandler(this.cmbCategory_SelectedIndexChanged);
             // 
             // txaDescription
             // 
