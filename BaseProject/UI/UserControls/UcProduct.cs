@@ -298,6 +298,7 @@ namespace UI.UserControls
                 {
                     rbNonexistingNoPermit.Select();
                 }
+                txtCode.Focus();
             }
             catch (Exception)
             {

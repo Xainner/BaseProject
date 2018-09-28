@@ -27,6 +27,14 @@ namespace UI.UserControls
 
         private void UcSellinvoice_Load(object sender, EventArgs e)
         {
+            if (ExternalSellInvoiceManagement.SelectAllExternalSellinvoice() == null)
+            {
+                invoiceIdLabel.Text = "0";
+            } else
+            {
+                invoiceIdLabel.Text = (ExternalSellInvoiceManagement.SelectAllExternalSellinvoice().Count + 1).ToString();
+            }
+            
             WireUpProductsGridView();
         }
 
@@ -41,10 +49,10 @@ namespace UI.UserControls
             productsGridView.Columns.Add("id", "Código");
             productsGridView.Columns.Add("description", "Descripción");
             productsGridView.Columns.Add("subcategory", "Sub-Categoría");
-            productsGridView.Columns.Add("amount", "Cantidad");
+            productsGridView.Columns.Add("quantity", "Cantidad");
             productsGridView.Columns.Add("price", "Precio");
             productsGridView.Columns.Add("paymentAmount", "Monto");
-            productsGridView.Columns.Add("discount", "Descuento");
+            productsGridView.Columns.Add("discount", "Descuento (%)");
             productsGridView.Columns.Add("taxes", "I.V.I");
 
             foreach (DataGridViewColumn dataGridViewColumn in productsGridView.Columns)
@@ -52,6 +60,9 @@ namespace UI.UserControls
                 dataGridViewColumn.ReadOnly = true;
             }
             productsGridView.Columns[4].ReadOnly = false;
+            productsGridView.Columns[7].ReadOnly = false;
+
+
 
             productsGridView.MultiSelect = false;
 
@@ -70,7 +81,7 @@ namespace UI.UserControls
                     dataGridViewRow.Selected = true;
                     int quantity = int.Parse(productsGridView.CurrentRow.Cells[4].Value.ToString());
                     productsGridView.CurrentRow.Cells[4].Value = (quantity + 1);
-                    ModifyProductQuantity();
+                    ModifyProductsDetail();
                     return true;
                 }
             }
@@ -82,16 +93,20 @@ namespace UI.UserControls
             Clear();
         }
 
-        private void ModifyProductQuantity()
+        private void ModifyProductsDetail()
         {
-            decimal amount = decimal.Parse(productsGridView.CurrentRow.Cells[4].Value.ToString());
+            decimal quantity = decimal.Parse(productsGridView.CurrentRow.Cells[4].Value.ToString());
             decimal price = decimal.Parse(productsGridView.CurrentRow.Cells[5].Value.ToString());
-            decimal newPrice = amount * price;
-            productsGridView.CurrentRow.Cells[6].Value = newPrice.ToString();
+            decimal amount = quantity * price;
+
+            decimal discount = decimal.Parse(productsGridView.CurrentRow.Cells[7].Value.ToString());
+            //decimal newAmount = amount - (amount * (discount / 100));
+
+            productsGridView.CurrentRow.Cells[6].Value = amount.ToString("##,##0.00");
 
             string tax = "0,13";
-            decimal taxes = (newPrice * decimal.Parse(tax));
-            productsGridView.CurrentRow.Cells[8].Value = taxes.ToString();
+            decimal taxes = (amount * decimal.Parse(tax));
+            productsGridView.CurrentRow.Cells[8].Value = taxes.ToString("##,##0.00");
         }
 
         private void createInvoicePreviewButton_Click(object sender, EventArgs e)
@@ -100,11 +115,10 @@ namespace UI.UserControls
             //string date = Proceso interno
             string idClient = txtClient.Text;
             string idEmployee = txtEmployee.Text;
-            string idUser = txtNumInvoice.Text;
+            string idUser = invoiceIdLabel.Text;
             string coinType = cmbTypeCoin.Text;
             //string iviAmount = txtDaxes.Text;
             //string paymentCash = txtAmountCash.Text;
-            string totalDiscount = discountTextBox.Text;
             //string subTotal = txtSubtotal.Text;
             //string total = txtTotalPay.Text;
         }
@@ -115,7 +129,7 @@ namespace UI.UserControls
             //string date = Proceso interno
             txtClient.Text = " ";
             txtEmployee.Text = " ";
-            txtNumInvoice.Text = " ";
+            invoiceIdLabel.Text = " ";
             cmbTypeCoin.Text = " ";
             //txtDaxes.Text = " ";
             //txtAmountCash.Text = " ";
@@ -139,22 +153,16 @@ namespace UI.UserControls
                     SubCategoryModel subCategoryModel = SubCategoryManagement.SelectSubCategoryById(productModel.IdSubCategory.ToString());
                     string tax = "0,13";
                     decimal taxes = (productModel.NormalPrice * decimal.Parse(tax));
-                    productsGridView.Rows.Add(productModel.IdProduct.ToString(), productModel.Code, productModel.Description, subCategoryModel.Name, 1, productModel.NormalPrice, productModel.NormalPrice, 0, taxes);
+                    productsGridView.Rows.Add(productModel.IdProduct.ToString(), productModel.Code, productModel.Description, subCategoryModel.Name, 1, productModel.NormalPrice, productModel.NormalPrice, "0", taxes.ToString("##,##0.00"));
                 }
+                codeTextBox.Focus();
+                codeTextBox.Text = string.Empty;
             }
-        }
-
-        private void addProductButton_Click(object sender, EventArgs e)
-        {
-            
         }
 
         private void productsGridView_CellEndEdit(object sender, DataGridViewCellEventArgs e)
         {
-            if (productsGridView.CurrentCell.ColumnIndex == 4)
-            {
-                ModifyProductQuantity();
-            }
+            ModifyProductsDetail();
         }
 
         private void previewInvoiceButton_Click(object sender, EventArgs e)

@@ -113,6 +113,7 @@ namespace UI.UserControls
                 if (openFileDialog.ShowDialog() == DialogResult.OK)
                 {
                     pbLogo.Load(openFileDialog.FileName);
+                    file = openFileDialog.FileName;
                     logo = ImageManagement.ImageToByte(openFileDialog.FileName);
                 }
             }
@@ -164,7 +165,7 @@ namespace UI.UserControls
             string generalAddress = txaGeneralAddress.Text;
             string email = txtEmail.Text;
             string webPage = txtWebPage.Text;
-            byte[] logo = ImageManagement.ImageToByte(file);
+            logo = ImageManagement.ImageToByte(file);
 
             try
             {

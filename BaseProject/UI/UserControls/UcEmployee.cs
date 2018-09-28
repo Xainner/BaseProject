@@ -73,6 +73,7 @@ namespace UI.UserControls
                 {
                     photo = ImageManagement.ImageToByte(openFileDialog1.FileName);
                     picPhoto.Load(this.openFileDialog1.FileName);
+                    file = openFileDialog1.FileName;
                 }
             }
             catch (Exception ex)
