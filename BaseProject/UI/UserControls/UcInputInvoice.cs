@@ -118,7 +118,6 @@ namespace UI.UserControls
                     {
                         FrmSearchProduct frmInvoice = new FrmSearchProduct(code);
                         frmInvoice.Show();
-
                     }
                 }
                 catch (Exception)
@@ -136,7 +135,53 @@ namespace UI.UserControls
                 string style = styleTextBox.Text;
                 try
                 {
-                    toSearch(sender, style);
+                    if (style != " ")
+                    {
+                        FrmSearchProduct frmInvoice = new FrmSearchProduct(style);
+                        frmInvoice.Show();
+                    }
+                }
+                catch (Exception)
+                {
+
+                    throw;
+                }
+            }
+        }
+
+        private void brandTextBox_KeyUp(object sender, KeyEventArgs e)
+        {
+            if (e.KeyCode == Keys.Enter)
+            {
+                string brand = subcategoryTextBox.Text;
+                try
+                {
+                    if (brand != " ")
+                    {
+                        FrmSearchProduct frmInvoice = new FrmSearchProduct(brand);
+                        frmInvoice.Show();
+                    }
+                }
+                catch (Exception)
+                {
+
+                    throw;
+                }
+            }
+        }
+
+        private void subcategoryTextBox_KeyUp(object sender, KeyEventArgs e)
+        {
+            if (e.KeyCode == Keys.Enter)
+            {
+                string subCategory = subcategoryTextBox.Text;
+                try
+                {
+                    if (subCategory != " ")
+                    {
+                        FrmSearchProduct frmInvoice = new FrmSearchProduct(subCategory);
+                        frmInvoice.Show();
+                    }
                 }
                 catch (Exception)
                 {
