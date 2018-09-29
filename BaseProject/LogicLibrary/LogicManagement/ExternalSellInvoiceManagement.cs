@@ -1,4 +1,5 @@
 ﻿using BusinessLibrary.Models;
+using DataBaseLibrary;
 using ModelLibrary.Models;
 using System;
 using System.Collections.Generic;
@@ -258,7 +259,7 @@ namespace LogicLibrary
         {
             try
             {
-                return null;
+                return DBExternalInvoiceSell.SelectAllExternalInvoices();
             }
             catch (Exception ex)
             {

@@ -22,18 +22,17 @@ namespace UI.Frames
 
         private void WireUpForm(MetroGrid metroGrid)
         {
-            metroGrid1.Columns.Add("id", "Id");
-            metroGrid1.Columns.Add("id", "Código");
-            metroGrid1.Columns.Add("description", "Descripción");
-            metroGrid1.Columns.Add("subcategory", "Sub-Categoría");
-            metroGrid1.Columns.Add("amount", "Cantidad");
-            metroGrid1.Columns.Add("price", "Precio");
-            metroGrid1.Columns.Add("paymentAmount", "Monto");
-            metroGrid1.Columns.Add("discount", "Descuento");
-            metroGrid1.Columns.Add("taxes", "I.V.I");
             try
             {
-                metroGrid1.Rows.Clear();
+                metroGrid1.Columns.Add("id", "Id");
+                metroGrid1.Columns.Add("id", "Código");
+                metroGrid1.Columns.Add("description", "Descripción");
+                metroGrid1.Columns.Add("subcategory", "Sub-Categoría");
+                metroGrid1.Columns.Add("quantity", "Cantidad");
+                metroGrid1.Columns.Add("price", "Precio");
+                metroGrid1.Columns.Add("paymentAmount", "Monto");
+                metroGrid1.Columns.Add("discount", "Descuento (%)");
+                metroGrid1.Columns.Add("taxes", "I.V.I");
                 for (int i = 0; i < metroGrid.Rows.Count; i++)
                 {
                     metroGrid1.Rows.Add(metroGrid.Rows[i].Cells[0]);
@@ -47,6 +46,32 @@ namespace UI.Frames
                     metroGrid1.Rows[i].Cells[7].Value = metroGrid.Rows[i].Cells[7].Value.ToString();
                     metroGrid1.Rows[i].Cells[8].Value = metroGrid.Rows[i].Cells[8].Value.ToString();
                 }
+                decimal taxes = 0;
+                foreach (DataGridViewRow dataGridViewRow in metroGrid1.Rows)
+                {
+                    taxes += decimal.Parse(dataGridViewRow.Cells[8].Value.ToString());
+                }
+                taxesTextBox.Text = taxes.ToString();
+
+                decimal subtotal = 0;
+                foreach (DataGridViewRow dataGridViewRow in metroGrid1.Rows)
+                {
+                    subtotal += decimal.Parse(dataGridViewRow.Cells[6].Value.ToString());
+                }
+
+                decimal totalDiscount = 0;
+                foreach (DataGridViewRow dataGridViewRow in metroGrid1.Rows)
+                {
+                    decimal amount = decimal.Parse(dataGridViewRow.Cells[6].Value.ToString());
+                    decimal discount = decimal.Parse(dataGridViewRow.Cells[7].Value.ToString());
+
+                    totalDiscount += amount * (discount / 100);
+                }
+
+                subTotalTextBox.Text = subtotal.ToString();
+                discountTextBox.Text = totalDiscount.ToString();
+                decimal totalPayment = subtotal - totalDiscount;
+                totalPaymentTextBox.Text = totalPayment.ToString();
             }
             catch (Exception ex)
             {
@@ -62,6 +87,35 @@ namespace UI.Frames
         private void FrmInvoice_Leave(object sender, EventArgs e)
         {
             Dispose();
+        }
+
+        private void createInvoicePreviewButton_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void ChangeAdjustment()
+        {
+            decimal creditAmount = decimal.Parse(creditAmountTextBox.Text);
+            decimal cashAmount = decimal.Parse(cashAmountTextBox.Text);
+            decimal totalPayment = decimal.Parse(totalPaymentTextBox.Text);
+            changeTextBox.Text = ((creditAmount + cashAmount) - totalPayment).ToString();
+        }
+
+        private void cashAmountTextBox_KeyUp(object sender, KeyEventArgs e)
+        {
+            if (!string.IsNullOrEmpty(cashAmountTextBox.Text) && cashAmountTextBox.Text.Equals("0"))
+            {
+                ChangeAdjustment();
+            }
+        }
+
+        private void creditAmountTextBox_KeyUp(object sender, KeyEventArgs e)
+        {
+            if (!string.IsNullOrEmpty(cashAmountTextBox.Text) && cashAmountTextBox.Text.Equals("0"))
+            {
+                ChangeAdjustment();
+            }
         }
     }
 }
