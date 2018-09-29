@@ -20,14 +20,19 @@ namespace UI.Utilities
             }
         }
 
-        public static byte[] ImageToByte(Image image)
+        public static string ImageToByte(Image image)
         {
-            Bitmap bitmap = (Bitmap)image;
-            using (var ms = new MemoryStream())
+            string filePath = Path.GetTempFileName() + ".jpg";
+            using (Stream fileStream = File.Create(filePath))
             {
-                bitmap.Save(ms, System.Drawing.Imaging.ImageFormat.Jpeg);
-                return ms.ToArray();
+                image.Save(fileStream, System.Drawing.Imaging.ImageFormat.Jpeg);
             }
+            //using (var ms = new MemoryStream())
+            //{
+            //    bitmap.Save(ms, System.Drawing.Imaging.ImageFormat.Jpeg);
+            //    return ms.ToArray();
+            //}
+            return filePath;
         }
 
         public static Image ByteToImage(byte[] image)

@@ -164,7 +164,7 @@ namespace UI.UserControls
             string generalAddress = txaGeneralAddress.Text;
             string email = txtEmail.Text;
             string webPage = txtWebPage.Text;
-            byte[] logo = ImageManagement.ImageToByte(pbLogo.Image);
+            byte[] logo = ImageManagement.ImageToByte(file);
 
             try
             {

@@ -95,7 +95,7 @@ namespace UI.UserControls
             string residence = txtResidence.Text;
             string civilStatus = cmbCivilState.Text;
             string childs = cmbChilds.Text;
-            photo = ImageManagement.ImageToByte(picPhoto.Image); 
+            photo = ImageManagement.ImageToByte(file); 
 
             string enterStore = cmbEnterStore.Text;
 

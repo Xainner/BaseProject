@@ -11,6 +11,7 @@ using LogicLibrary;
 using UI.Utilities;
 using ModelLibrary.Models;
 using BusinessLibrary.Models;
+using System.IO;
 
 namespace UI.UserControls
 {
@@ -106,7 +107,7 @@ namespace UI.UserControls
             string unityPrice = txtNormalPrice.Text;
             string lowerPrice = txtLowerPrice.Text;
 
-            byte[] foto = ImageManagement.ImageToByte(pbProduct.Image);
+            byte[] foto = ImageManagement.ImageToByte(file);
 
             if (rbIviExcent.Checked)
             {
@@ -166,10 +167,6 @@ namespace UI.UserControls
             if (!string.IsNullOrEmpty(file))
             {
                 photo = ImageManagement.ImageToByte(file);
-            }
-            else
-            {
-
             }
 
             try
@@ -333,10 +330,15 @@ namespace UI.UserControls
         {
             try
             {
+                if (File.Exists(file))
+                {
+                    File.Delete(file);
+                }
                 RotateFlipType rp = RotateFlipType.Rotate90FlipXY;
                 Image newImage = pbProduct.Image;
                 newImage.RotateFlip(rp);
                 pbProduct.Image = newImage;
+                file = ImageManagement.ImageToByte(newImage);
             }
             catch (Exception ex)
             {
@@ -348,10 +350,16 @@ namespace UI.UserControls
         {
             try
             {
+                if (File.Exists(file))
+                {
+                    File.Delete(file);
+                }
+
                 RotateFlipType rp = RotateFlipType.Rotate90FlipNone;
                 Image newImage = pbProduct.Image;
                 newImage.RotateFlip(rp);
                 pbProduct.Image = newImage;
+                file = ImageManagement.ImageToByte(newImage);
             }
             catch (Exception ex)
             {
