@@ -82,6 +82,21 @@ namespace DataBaseLibrary
             }
         }
 
+        public static List<ProductModel> SelectStyles(ProductModel Product)
+        {
+            using (IDbConnection cnn = new MySqlConnection(LoadConnectionString()))
+            {
+                string style = "";
+                style = Product.style;
+                style = "%" + style + "%";
+                Product.style = style;
+                var output = cnn.Query<ProductModel>(
+                    "SELECT * FROM product WHERE " +
+                    "(Description like @Description)", Product);
+                return output.ToList();
+            }
+        }
+
         /// <summary>
         /// Show a specific product by idBrand
         /// </summary>

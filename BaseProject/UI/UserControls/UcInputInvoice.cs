@@ -30,7 +30,7 @@ namespace UI.UserControls
 
             if (!string.IsNullOrEmpty(search))
             {
-                FrmSearchProduct.Code = search;
+                FrmSearchProduct.code = search;
                 FrmSearchProduct frmInvoice = new FrmSearchProduct(obj);
                 frmInvoice.Show();
             }

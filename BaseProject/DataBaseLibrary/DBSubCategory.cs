@@ -55,6 +55,8 @@ namespace DataBaseLibrary
             }
         }
 
+
+
         public static SubCategoryModel SelectSubCategoryById(SubCategoryModel SubCategory)
         {
             using (IDbConnection cnn = new MySqlConnection(LoadConnectionString()))

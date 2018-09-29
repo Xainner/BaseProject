@@ -86,6 +86,7 @@
             this.Controls.Add(this.dgvSearchProduct);
             this.Name = "FrmSearchProduct";
             this.Text = "FrmSearchProduct";
+            this.Load += new System.EventHandler(this.FrmSearchProduct_Load);
             this.Leave += new System.EventHandler(this.FrmSearchProduct_Leave);
             ((System.ComponentModel.ISupportInitialize)(this.dgvSearchProduct)).EndInit();
             this.ResumeLayout(false);
