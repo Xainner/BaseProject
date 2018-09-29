@@ -18,27 +18,26 @@ namespace UI.Frames
         {
             InitializeComponent();
 
-            LoadDescription(search);
+            Search(search);
         }
 
-        public void LoadDescription (string info)
-        {
-            //dgvSearchProduct.Columns.Add("idProduct", "ID");
-            //dgvSearchProduct.Columns.Add("code", "Código");
-            //dgvSearchProduct.Columns.Add("idBrand", "Marca");
-            //dgvSearchProduct.Columns.Add("Description", "Descripción");
-            //dgvSearchProduct.Columns.Add("idsubCategory", "Sub-Categoria");
-            //dgvSearchProduct.Columns.Add("varibleQuantity", "Cantidad");
-            //dgvSearchProduct.Columns.Add("Ivi", "IVI");
+        public static string code;
 
-            try
-            {
-                dgvSearchProduct.DataSource = ProductManagement.SelectProductByDescription(info);
-            }
-            catch (Exception ex)
-            {
-                MessageBox.Show(ex.Message);
-            }
+        public static string Code { get => code; set => code = value; }
+
+        private void Search(string text)
+        {
+            List<ProductModel> list = new List<ProductModel>();
+            ProductModel product = ProductManagement.SelectProductByCode(text);
+            list.Add(product);
+            dgvSearchProduct.DataSource = list;
+
+            //dgvSearchProduct.DataSource = ProductManagement.SelectProductByDescription(text);
+        }
+
+        private void FrmSearchProduct_Leave(object sender, EventArgs e)
+        {
+            Dispose();
         }
     }
 }

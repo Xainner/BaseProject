@@ -24,6 +24,18 @@ namespace UI.UserControls
             dgvInputProduct.DataSource = productModel;
         }
 
+        private void toSearch(Object sender, string search)
+        {
+            string obj = ((MetroFramework.Controls.MetroTextBox)sender).Text;
+
+            if (!string.IsNullOrEmpty(search))
+            {
+                FrmSearchProduct.Code = search;
+                FrmSearchProduct frmInvoice = new FrmSearchProduct(obj);
+                frmInvoice.Show();
+            }
+        }
+
         private void UcInputInvoice_Load(object sender, EventArgs e)
         {
 
@@ -71,18 +83,19 @@ namespace UI.UserControls
             totalPaymentTextBox.Text = string.Empty;
         }
 
-        private void codeTextBox_KeyPress(object sender, KeyPressEventArgs e)
+        private void descriptionTextBox_KeyUp(object sender, KeyEventArgs e)
         {
-            string code = codeTextBox.Text;
-
-            if (e.KeyChar == Convert.ToChar(Keys.Enter))
+            if (e.KeyCode == Keys.Enter)
             {
+                string description = descriptionTextBox.Text;
+
                 try
                 {
-                    if (code != " ")
+                    if (description != " ")
                     {
-                        FrmSearchProduct frmInvoice = new FrmSearchProduct(code);
+                        FrmSearchProduct frmInvoice = new FrmSearchProduct(description);
                         frmInvoice.Show();
+
                     }
                 }
                 catch (Exception)
@@ -93,19 +106,37 @@ namespace UI.UserControls
             }
         }
 
-        private void descriptionTextBox_KeyPress(object sender, KeyPressEventArgs e)
+        private void codeTextBox_KeyUp(object sender, KeyEventArgs e)
         {
-            string description = descriptionTextBox.Text;
 
-            if (e.KeyChar == Convert.ToChar(Keys.Enter))
+            if (e.KeyCode == Keys.Enter)
             {
+                string code = codeTextBox.Text;
                 try
                 {
-                    if (description != " ")
+                    if (code != " ")
                     {
-                        FrmSearchProduct frmInvoice = new FrmSearchProduct(description);
+                        FrmSearchProduct frmInvoice = new FrmSearchProduct(code);
                         frmInvoice.Show();
+
                     }
+                }
+                catch (Exception)
+                {
+
+                    throw;
+                }
+            }
+        }
+
+        private void styleTextBox_KeyUp(object sender, KeyEventArgs e)
+        {
+            if (e.KeyCode == Keys.Enter)
+            {
+                string style = styleTextBox.Text;
+                try
+                {
+                    toSearch(sender, style);
                 }
                 catch (Exception)
                 {
