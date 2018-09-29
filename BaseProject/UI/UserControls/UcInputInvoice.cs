@@ -87,21 +87,13 @@ namespace UI.UserControls
         {
             if (e.KeyCode == Keys.Enter)
             {
-                string description = descriptionTextBox.Text;
+                string obj = descriptionTextBox.Text;
 
-                try
+                if (!string.IsNullOrEmpty(obj))
                 {
-                    if (description != " ")
-                    {
-                        FrmSearchProduct frmInvoice = new FrmSearchProduct(description);
-                        frmInvoice.Show();
-
-                    }
-                }
-                catch (Exception)
-                {
-
-                    throw;
+                    FrmSearchProduct.description = obj;
+                    FrmSearchProduct frmInvoice = new FrmSearchProduct(obj);
+                    frmInvoice.Show();
                 }
             }
         }
@@ -111,19 +103,13 @@ namespace UI.UserControls
 
             if (e.KeyCode == Keys.Enter)
             {
-                string code = codeTextBox.Text;
-                try
-                {
-                    if (code != " ")
-                    {
-                        FrmSearchProduct frmInvoice = new FrmSearchProduct(code);
-                        frmInvoice.Show();
-                    }
-                }
-                catch (Exception)
-                {
+                string obj = codeTextBox.Text;
 
-                    throw;
+                if (!string.IsNullOrEmpty(obj))
+                {
+                    FrmSearchProduct.code = obj;
+                    FrmSearchProduct frmInvoice = new FrmSearchProduct(obj);
+                    frmInvoice.Show();
                 }
             }
         }
@@ -132,19 +118,13 @@ namespace UI.UserControls
         {
             if (e.KeyCode == Keys.Enter)
             {
-                string style = styleTextBox.Text;
-                try
-                {
-                    if (style != " ")
-                    {
-                        FrmSearchProduct frmInvoice = new FrmSearchProduct(style);
-                        frmInvoice.Show();
-                    }
-                }
-                catch (Exception)
-                {
+                string obj = styleTextBox.Text;
 
-                    throw;
+                if (!string.IsNullOrEmpty(obj))
+                {
+                    FrmSearchProduct.style = obj;
+                    FrmSearchProduct frmInvoice = new FrmSearchProduct(obj);
+                    frmInvoice.Show();
                 }
             }
         }
@@ -153,19 +133,13 @@ namespace UI.UserControls
         {
             if (e.KeyCode == Keys.Enter)
             {
-                string brand = subcategoryTextBox.Text;
-                try
-                {
-                    if (brand != " ")
-                    {
-                        FrmSearchProduct frmInvoice = new FrmSearchProduct(brand);
-                        frmInvoice.Show();
-                    }
-                }
-                catch (Exception)
-                {
+                string obj = brandTextBox.Text;
 
-                    throw;
+                if (!string.IsNullOrEmpty(obj))
+                {
+                    FrmSearchProduct.brand = obj;
+                    FrmSearchProduct frmInvoice = new FrmSearchProduct(obj);
+                    frmInvoice.Show();
                 }
             }
         }
@@ -174,19 +148,13 @@ namespace UI.UserControls
         {
             if (e.KeyCode == Keys.Enter)
             {
-                string subCategory = subcategoryTextBox.Text;
-                try
-                {
-                    if (subCategory != " ")
-                    {
-                        FrmSearchProduct frmInvoice = new FrmSearchProduct(subCategory);
-                        frmInvoice.Show();
-                    }
-                }
-                catch (Exception)
-                {
+                string obj = subcategoryTextBox.Text;
 
-                    throw;
+                if (!string.IsNullOrEmpty(obj))
+                {
+                    FrmSearchProduct.subcategory = obj;
+                    FrmSearchProduct frmInvoice = new FrmSearchProduct(obj);
+                    frmInvoice.Show();
                 }
             }
         }
