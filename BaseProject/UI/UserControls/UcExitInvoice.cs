@@ -21,11 +21,11 @@ namespace UI.UserControls
             FrmMain.Instance.ToolStripLabel.Text = "Estas en la pantalla de facturas de salida de mercaderia";
         }
 
-        List<ExitInvoiceModel> exitInvoices;
+        //List<ExitInvoiceModel> exitInvoices;
         private void WrapProductsGridView()
         {
-            exitInvoices = ExitInvoiceManagement.SelectAllexitInvoices();
-            metroGrid1.DataSource = exitInvoices;
+            //exitInvoices = ExitInvoiceManagement.SelectAllexitInvoices();
+            //metroGrid1.DataSource = exitInvoices;
         }
 
         private void UcExitInvoice_Load(object sender, EventArgs e)
@@ -40,20 +40,20 @@ namespace UI.UserControls
 
         private void AddOutputInvoiceTile_Click(object sender, EventArgs e)
         {
-            List<ProductModel> test = new List<ProductModel>();
-            try
-            {
-                if (ExitInvoiceManagement.InsertExitInvoice("0", test, dateDateTime.Text, destinyTextBox.Text))
-                {
-                    FrmMain.Instance.ToolStripLabel.Text = "Agregado correctamente";
-                } else {
-                    FrmMain.Instance.ToolStripLabel.Text = "Error al agregar";
-                }
-            }
-            catch (Exception ex)
-            {
+            //List<ProductModel> test = new List<ProductModel>();
+            //try
+            //{
+            //    if (ExitInvoiceManagement.InsertExitInvoice("0", test, dateDateTime.Text, destinyTextBox.Text))
+            //    {
+            //        FrmMain.Instance.ToolStripLabel.Text = "Agregado correctamente";
+            //    } else {
+            //        FrmMain.Instance.ToolStripLabel.Text = "Error al agregar";
+            //    }
+            //}
+            //catch (Exception ex)
+            //{
 
-            }
+            //}
         }
 
         private void clearTitle_Click(object sender, EventArgs e)

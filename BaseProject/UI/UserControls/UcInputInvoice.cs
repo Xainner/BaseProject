@@ -66,14 +66,14 @@ namespace UI.UserControls
         {
             try
             {
-                if (InputInvoiceManagement.InsertinputInvoice(null, dateDateTime.Text, providerTextBox.Text))
-                {
-                    FrmMain.Instance.ToolStripLabel.Text = "Agregado correctamente";
-                }
-                else
-                {
-                    FrmMain.Instance.ToolStripLabel.Text = "Error al agregar";
-                }
+                //if (InputInvoiceManagement.InsertinputInvoice(null, dateDateTime.Text, providerTextBox.Text))
+                //{
+                //    FrmMain.Instance.ToolStripLabel.Text = "Agregado correctamente";
+                //}
+                //else
+                //{
+                //    FrmMain.Instance.ToolStripLabel.Text = "Error al agregar";
+                //}
             }
             catch (Exception ex)
             {
