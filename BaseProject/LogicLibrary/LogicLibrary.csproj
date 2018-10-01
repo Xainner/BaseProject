@@ -47,11 +47,10 @@
     <Compile Include="LogicManagement\CategoryManagement.cs" />
     <Compile Include="LogicManagement\ClientManagement.cs" />
     <Compile Include="LogicManagement\CreditInvoiceManagement.cs" />
+    <Compile Include="LogicManagement\InputExitInvoiceManagement.cs" />
     <Compile Include="Utilities\ValidateData.cs" />
     <Compile Include="LogicManagement\EmployeeManagement.cs" />
-    <Compile Include="LogicManagement\ExitInvoiceManagement.cs" />
     <Compile Include="LogicManagement\ExternalSellInvoiceManagement.cs" />
-    <Compile Include="LogicManagement\InputInvoiceManagement.cs" />
     <Compile Include="LogicManagement\InternalSellInvoiceManagement.cs" />
     <Compile Include="Utilities\PasswordManagement.cs" />
     <Compile Include="LogicManagement\PositionManagement.cs" />
