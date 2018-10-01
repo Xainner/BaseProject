@@ -64,6 +64,7 @@
     <Compile Include="DBBusiness.cs" />
     <Compile Include="DBCategory.cs" />
     <Compile Include="DBClient.cs" />
+    <Compile Include="DBDetailExternalInvoiceSell.cs" />
     <Compile Include="DBDetailInvoiceInput.cs" />
     <Compile Include="DBDetailsInputExit.cs" />
     <Compile Include="DBEmployee.cs" />
