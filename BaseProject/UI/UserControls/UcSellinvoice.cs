@@ -167,15 +167,23 @@ namespace UI.UserControls
 
         private void previewInvoiceButton_Click(object sender, EventArgs e)
         {
-            
-            DetailExternalSellinvoiceModel detailExternalSellinvoiceModel = new DetailExternalSellinvoiceModel()
+
+            try
             {
-                IdClient = int.Parse(txtClient.Text),
-                IdEmployee = int.Parse(txtEmployee.Text),
-                CurrencyType = cmbTypeCoin.SelectedValue.ToString(),
-            };
-            FrmInvoice frmInvoice = new FrmInvoice(invoiceIdLabel.Text ,detailExternalSellinvoiceModel, productsGridView);
-            frmInvoice.Show();
+                DetailExternalSellinvoiceModel detailExternalSellinvoiceModel = new DetailExternalSellinvoiceModel()
+                {
+                    IdClient = int.Parse(txtClient.Text),
+                    IdEmployee = int.Parse(txtEmployee.Text),
+                    CurrencyType = cmbTypeCoin.SelectedValue.ToString(),
+                };
+                FrmInvoice frmInvoice = new FrmInvoice(invoiceIdLabel.Text, detailExternalSellinvoiceModel, productsGridView);
+                frmInvoice.Show();
+            }
+            catch (Exception ex)
+            {
+
+                MessageBox.Show(ex.Message);
+            }
         }
     }
 }

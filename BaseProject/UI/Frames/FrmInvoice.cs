@@ -21,9 +21,9 @@ namespace UI.Frames
         {
             InitializeComponent();
             
-            WireUpForm(metroGrid);
-            metroLabel3.Text = idInvoice;
-            DetailExternalSellinvoiceModel = detailExternalSellinvoiceModel;
+            //WireUpForm(metroGrid);
+            //metroLabel3.Text = idInvoice;
+            //DetailExternalSellinvoiceModel = detailExternalSellinvoiceModel;
         }
 
         private void WireUpForm(MetroGrid metroGrid)
