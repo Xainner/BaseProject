@@ -11,17 +11,16 @@ namespace LogicLibrary.LogicManagement
     public class InputExitInvoiceManagement
     {
 
-        public static bool InsertInputInvoice(string idEmployee, string typeTrasaction, string provider)
+        public static bool InsertInputInvoice(string idEmployee, string provider)
         {
             try
             {
-                string[] inputInvoice = new string[] { idEmployee, typeTrasaction, provider };
+                string[] inputInvoice = new string[] { idEmployee, provider };
                 if (ValidateData.VerifyFields(inputInvoice))
                 {
                     InputExitDetaillsModel inputInvoiceModel = new InputExitDetaillsModel()
                     {
                         idEmployee = int.Parse(idEmployee),
-                        TypeTransaction = typeTrasaction,
                         ProviderBusiness = int.Parse(provider)
                     };
                     return DBInputExitInvoice.InsertInputInvoice(inputInvoiceModel);
@@ -38,17 +37,16 @@ namespace LogicLibrary.LogicManagement
             }
         }
 
-        public static bool InsertExitInvoice(string idEmployee, string typeTrasaction, string destiny)
+        public static bool InsertExitInvoice(string idEmployee, string destiny)
         {
             try
             {
-                string[] inputInvoice = new string[] { idEmployee, typeTrasaction, destiny };
+                string[] inputInvoice = new string[] { idEmployee, destiny };
                 if (ValidateData.VerifyFields(inputInvoice))
                 {
                     InputExitDetaillsModel inputInvoiceModel = new InputExitDetaillsModel()
                     {
                         idEmployee = int.Parse(idEmployee),
-                        TypeTransaction = typeTrasaction,
                         DestinyBusiness = int.Parse(destiny)
                     }; ;
                     return DBInputExitInvoice.InsertExitInvoice(inputInvoiceModel);
@@ -105,31 +103,6 @@ namespace LogicLibrary.LogicManagement
                         IdNumInvoice = int.Parse(idNumFact)
                     };
                     return DBInputExitInvoice.SelectInputExitInvoiceByIdNum(inputInvoiceModel);
-                }
-                else
-                {
-                    return null;
-                }
-            }
-            catch (Exception ex)
-            {
-                //Log4Net
-                return null;
-            }
-        }
-
-        public static List<InputExitDetaillsModel> SelectInputExitInvoiceByType(string typeTransaction)
-        {
-            try
-            {
-                string[] inputInvoice = new string[] { typeTransaction };
-                if (ValidateData.VerifyFields(inputInvoice))
-                {
-                    InputExitDetaillsModel detaillInvoiceExitInput = new InputExitDetaillsModel()
-                    {
-                        TypeTransaction = typeTransaction
-                    };
-                    return DBInputExitInvoice.SelectInputExitInvoiceByType(detaillInvoiceExitInput);
                 }
                 else
                 {

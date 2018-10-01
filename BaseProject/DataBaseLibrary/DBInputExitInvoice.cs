@@ -24,8 +24,8 @@ namespace DataBaseLibrary
             {
                 using (IDbConnection cnn = new MySqlConnection(LoadConnectionString()))
                 {
-                    cnn.Execute("INSERT INTO DetailInvoice (idEmployee, typeTransaction, Provider)" +
-                        " VALUES(@idEmployee, @typeTransaction, @Provider)", inputInvoice);
+                    cnn.Execute("INSERT INTO DetailInvoice (idEmployee, Provider)" +
+                        " VALUES(@idEmployee, @Provider)", inputInvoice);
                 }
                 return true;
             }
@@ -42,8 +42,8 @@ namespace DataBaseLibrary
             {
                 using (IDbConnection cnn = new MySqlConnection(LoadConnectionString()))
                 {
-                    cnn.Execute("INSERT INTO DetailInvoice (idEmployee, typeTransaction, Destiny)" +
-                        " VALUES(@idEmployee, @typeTransaction, @Destiny)", inputInvoice);
+                    cnn.Execute("INSERT INTO DetailInvoice (idEmployee, Destiny)" +
+                        " VALUES(@idEmployee, @Destiny)", inputInvoice);
                 }
                 return true;
             }
@@ -54,11 +54,11 @@ namespace DataBaseLibrary
             }
         }
 
-        public static List<InputExitDetaillsModel> SelectAllInputInvoice(InputExitDetaillsModel inputInvoice)
+        public static List<InputExitDetaillsModel> SelectInputExitInvoiceByEmployee(InputExitDetaillsModel inputInvoice)
         {
             using (IDbConnection cnn = new MySqlConnection(LoadConnectionString()))
             {
-                var output = cnn.Query<InputExitDetaillsModel>("SELECT * FROM DetailInvoice WHERE typeTransaction = @Entrada", inputInvoice);
+                var output = cnn.Query<InputExitDetaillsModel>("SELECT * FROM DetailInvoice WHERE idEmployee = @idEmployee", inputInvoice);
                 return output.ToList();
             }
         }
@@ -78,15 +78,6 @@ namespace DataBaseLibrary
             {
                 var output = cnn.Query<InputExitDetaillsModel>("SELECT * FROM DetailInvoice WHERE idNumInvoice = @idNumInvoice", IdNum);
                 return output.Single();
-            }
-        }
-
-        public static List<InputExitDetaillsModel> SelectInputExitInvoiceByType(InputExitDetaillsModel inputInvoice)
-        {
-            using (IDbConnection cnn = new MySqlConnection(LoadConnectionString()))
-            {
-                var output = cnn.Query<InputExitDetaillsModel>("SELECT * FROM DetailInvoice WHERE typeTransaction = @typeTransaction", inputInvoice);
-                return output.ToList();
             }
         }
     }

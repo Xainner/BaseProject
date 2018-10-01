@@ -24,6 +24,7 @@ namespace DataBaseLibrary
             {
                 var output = cnn.Query<DetailExternalSellinvoiceModel>("SELECT * FROM detailexternalinvoicesell");
                 return output.ToList();
+                //
             }
         }
 
