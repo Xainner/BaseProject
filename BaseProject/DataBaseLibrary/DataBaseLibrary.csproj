@@ -32,10 +32,6 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <ItemGroup>
-    <Reference Include="BusinessLibrary, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL">
-      <SpecificVersion>False</SpecificVersion>
-      <HintPath>bin\Debug\BusinessLibrary.dll</HintPath>
-    </Reference>
     <Reference Include="Dapper, Version=1.50.5.0, Culture=neutral, processorArchitecture=MSIL">
       <HintPath>..\packages\Dapper.1.50.5\lib\net451\Dapper.dll</HintPath>
     </Reference>
@@ -70,18 +66,13 @@
     <Compile Include="DBClient.cs" />
     <Compile Include="DBDetailInvoiceInput.cs" />
     <Compile Include="DBEmployee.cs" />
-    <Compile Include="DBDetailExternalInvoiceSell.cs" />
     <Compile Include="DBExternalInvoiceSell.cs" />
+    <Compile Include="DBExternalSellInvoice.cs" />
     <Compile Include="DBInputExitInvoice.cs" />
     <Compile Include="DBPosition.cs" />
     <Compile Include="DBProduct.cs" />
     <Compile Include="DBSalary.cs" />
     <Compile Include="DBSubCategory.cs" />
-    <Compile Include="dbtrabajoDataSet.Designer.cs">
-      <AutoGen>True</AutoGen>
-      <DesignTime>True</DesignTime>
-      <DependentUpon>dbtrabajoDataSet.xsd</DependentUpon>
-    </Compile>
     <Compile Include="DBUser.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Properties\Settings.Designer.cs">
@@ -93,22 +84,17 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="app.config" />
-    <None Include="dbtrabajoDataSet.xsc">
-      <DependentUpon>dbtrabajoDataSet.xsd</DependentUpon>
-    </None>
-    <None Include="dbtrabajoDataSet.xsd">
-      <Generator>MSDataSetGenerator</Generator>
-      <LastGenOutput>dbtrabajoDataSet.Designer.cs</LastGenOutput>
-      <SubType>Designer</SubType>
-    </None>
-    <None Include="dbtrabajoDataSet.xss">
-      <DependentUpon>dbtrabajoDataSet.xsd</DependentUpon>
-    </None>
     <None Include="packages.config" />
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>
       <LastGenOutput>Settings.Designer.cs</LastGenOutput>
     </None>
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\BusinessLibrary\BusinessLibrary.csproj">
+      <Project>{193fe192-0dc3-44cf-b2e1-b9e9aa513a39}</Project>
+      <Name>BusinessLibrary</Name>
+    </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>
