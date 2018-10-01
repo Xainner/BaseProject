@@ -1,5 +1,6 @@
 ﻿using BusinessLibrary.Models;
 using LogicLibrary;
+using MetroFramework.Controls;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -9,6 +10,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using UI.UserControls;
 
 namespace UI.Frames
 {
@@ -25,6 +27,26 @@ namespace UI.Frames
             InitializeComponent();
 
             Search(search);
+        }
+
+        public void LoadProducts(MetroGrid dgv)
+        {
+            dgv.Columns.Add("id", "Id");
+            dgv.Columns.Add("id", "Código");
+            dgv.Columns.Add("description", "Descripción");
+            dgv.Columns.Add("subcategory", "Sub-Categoría");
+            dgv.Columns.Add("quantity", "Cantidad");
+            dgv.Columns.Add("price", "Precio");
+            for (int i = 0; i < dgvSearchProduct.Rows.Count; i++)
+            {
+                dgv.Rows.Add(dgvSearchProduct.Rows[i].Cells[0]);
+                dgv.Rows[i].Cells[0].Value = dgvSearchProduct.Rows[i].Cells[0].Value.ToString();
+                dgv.Rows[i].Cells[1].Value = dgvSearchProduct.Rows[i].Cells[1].Value.ToString();
+                dgv.Rows[i].Cells[2].Value = dgvSearchProduct.Rows[i].Cells[2].Value.ToString();
+                dgv.Rows[i].Cells[3].Value = dgvSearchProduct.Rows[i].Cells[3].Value.ToString();
+                dgv.Rows[i].Cells[4].Value = dgvSearchProduct.Rows[i].Cells[4].Value.ToString();
+                dgv.Rows[i].Cells[5].Value = dgvSearchProduct.Rows[i].Cells[5].Value.ToString();
+            }
         }
 
         private void Search(string text)
@@ -72,8 +94,6 @@ namespace UI.Frames
                     }
                 }
             }
-
-            //dgvSearchProduct.DataSource = ProductManagement.SelectProductByDescription(text);
         }
 
         private void FrmSearchProduct_Load(object sender, EventArgs e)
@@ -84,6 +104,20 @@ namespace UI.Frames
         private void FrmSearchProduct_Leave(object sender, EventArgs e)
         {
             Dispose();
+        }
+
+        private void dgvSearchProduct_DoubleClick(object sender, EventArgs e)
+        {
+            try
+            {
+                UcInputInvoice inputInvoice = new UcInputInvoice();
+                LoadProducts(inputInvoice.dgvProduct);
+            }
+            catch (Exception ex)
+            {
+
+                throw;
+            }
         }
     }
 }

@@ -5,6 +5,7 @@ using ModelLibrary.Models;
 using LogicLibrary;
 using BusinessLibrary.Models;
 using UI.Frames;
+using MetroFramework.Controls;
 
 namespace UI.UserControls
 {
@@ -18,10 +19,13 @@ namespace UI.UserControls
         }
 
         List<ProductModel> productModel;
+
+        public MetroGrid dgvProduct { get; set ; }
+
         private void WrapProductsGridView()
         {
             productModel = ProductManagement.SelectAllProducts();
-            dgvInputProduct.DataSource = productModel;
+            dgvInputProduct.DataSource = dgvProduct;
         }
 
         private void toSearch(Object sender, string search)
@@ -53,7 +57,7 @@ namespace UI.UserControls
 
         private void clearTitle_Click(object sender, EventArgs e)
         {
-            
+            WrapProductsGridView();
         }
 
         //CRUD

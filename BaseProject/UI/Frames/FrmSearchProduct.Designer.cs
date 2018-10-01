@@ -64,6 +64,7 @@
             this.dgvSearchProduct.GridColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(255)))), ((int)(((byte)(255)))));
             this.dgvSearchProduct.Location = new System.Drawing.Point(2, 63);
             this.dgvSearchProduct.Name = "dgvSearchProduct";
+            this.dgvSearchProduct.ReadOnly = true;
             this.dgvSearchProduct.RowHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.None;
             dataGridViewCellStyle3.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
             dataGridViewCellStyle3.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(174)))), ((int)(((byte)(219)))));
@@ -77,6 +78,7 @@
             this.dgvSearchProduct.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
             this.dgvSearchProduct.Size = new System.Drawing.Size(796, 364);
             this.dgvSearchProduct.TabIndex = 0;
+            this.dgvSearchProduct.DoubleClick += new System.EventHandler(this.dgvSearchProduct_DoubleClick);
             // 
             // FrmSearchProduct
             // 
