@@ -27,12 +27,12 @@ namespace UI.UserControls
 
         private void UcSellinvoice_Load(object sender, EventArgs e)
         {
-            if (ExternalSellInvoiceManagement.SelectAllExternalSellinvoice() == null)
+            if (DetailExternalSellInvoiceManagement.SelectAllExternalSellinvoice() == null)
             {
                 invoiceIdLabel.Text = "0";
             } else
             {
-                invoiceIdLabel.Text = (ExternalSellInvoiceManagement.SelectAllExternalSellinvoice().Count + 1).ToString();
+                invoiceIdLabel.Text = (DetailExternalSellInvoiceManagement.SelectAllExternalSellinvoice().Count + 1).ToString();
             }
             
             WireUpProductsGridView();
@@ -167,7 +167,14 @@ namespace UI.UserControls
 
         private void previewInvoiceButton_Click(object sender, EventArgs e)
         {
-            FrmInvoice frmInvoice = new FrmInvoice(productsGridView);
+            
+            DetailExternalSellinvoiceModel detailExternalSellinvoiceModel = new DetailExternalSellinvoiceModel()
+            {
+                IdClient = int.Parse(txtClient.Text),
+                IdEmployee = int.Parse(txtEmployee.Text),
+                CurrencyType = cmbTypeCoin.SelectedValue.ToString(),
+            };
+            FrmInvoice frmInvoice = new FrmInvoice(invoiceIdLabel.Text ,detailExternalSellinvoiceModel, productsGridView);
             frmInvoice.Show();
         }
     }

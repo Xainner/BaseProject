@@ -125,6 +125,10 @@
             // 
             this.cmbTypeCoin.FormattingEnabled = true;
             this.cmbTypeCoin.ItemHeight = 23;
+            this.cmbTypeCoin.Items.AddRange(new object[] {
+            "Colón",
+            "Dolar",
+            "Euro"});
             this.cmbTypeCoin.Location = new System.Drawing.Point(119, 34);
             this.cmbTypeCoin.Name = "cmbTypeCoin";
             this.cmbTypeCoin.Size = new System.Drawing.Size(168, 29);
