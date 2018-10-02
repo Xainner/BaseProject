@@ -230,7 +230,7 @@
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\BusinessLibrary\BusinessLibrary.csproj">
-      <Project>{193FE192-0DC3-44CF-B2E1-B9E9AA513A39}</Project>
+      <Project>{193fe192-0dc3-44cf-b2e1-b9e9aa513a39}</Project>
       <Name>BusinessLibrary</Name>
     </ProjectReference>
     <ProjectReference Include="..\LogicLibrary\LogicLibrary.csproj">

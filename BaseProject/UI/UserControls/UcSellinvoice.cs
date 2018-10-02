@@ -170,11 +170,11 @@ namespace UI.UserControls
 
             try
             {
-                DetailExternalSellinvoiceModel detailExternalSellinvoiceModel = new DetailExternalSellinvoiceModel()
+                DetailExternalModel detailExternalSellinvoiceModel = new DetailExternalModel()
                 {
                     IdClient = int.Parse(txtClient.Text),
                     IdEmployee = int.Parse(txtEmployee.Text),
-                    CurrencyType = cmbTypeCoin.SelectedValue.ToString(),
+                    CurrencyType = cmbTypeCoin.SelectedItem.ToString(),
                 };
                 FrmInvoice frmInvoice = new FrmInvoice(invoiceIdLabel.Text, detailExternalSellinvoiceModel, productsGridView);
                 frmInvoice.Show();

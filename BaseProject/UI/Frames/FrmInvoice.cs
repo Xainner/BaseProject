@@ -3,28 +3,22 @@ using LogicLibrary;
 using LogicLibrary.LogicManagement;
 using MetroFramework.Controls;
 using System;
-using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
-using System.Drawing;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows.Forms;
 
 namespace UI.Frames
 {
     public partial class FrmInvoice : MetroFramework.Forms.MetroForm
     {
-        DetailExternalSellinvoiceModel DetailExternalSellinvoiceModel;
-        public FrmInvoice(string idInvoice, DetailExternalSellinvoiceModel detailExternalSellinvoiceModel, MetroGrid metroGrid)
+        DetailExternalModel DetailExternalSellinvoiceModel;
+        public FrmInvoice(string idInvoice, DetailExternalModel detailExternalSellinvoiceModel, MetroGrid metroGrid)
         {
             InitializeComponent();
-            
-            //WireUpForm(metroGrid);
-            //metroLabel3.Text = idInvoice;
-            //DetailExternalSellinvoiceModel = detailExternalSellinvoiceModel;
+
+            WireUpForm(metroGrid);
+            metroLabel3.Text = idInvoice;
+            this.DetailExternalSellinvoiceModel = detailExternalSellinvoiceModel;
         }
+
 
         private void WireUpForm(MetroGrid metroGrid)
         {
@@ -116,7 +110,7 @@ namespace UI.Frames
             catch (Exception ex)
             {
 
-                MessageBox.Show("");
+                MessageBox.Show(ex.Message);
             }
         }
 

@@ -67,7 +67,7 @@
       <Name>BusinessLibrary</Name>
     </ProjectReference>
     <ProjectReference Include="..\DataBaseLibrary\DataBaseLibrary.csproj">
-      <Project>{F9C8AB95-C6C0-4B7F-ADA3-690953E7358C}</Project>
+      <Project>{f9c8ab95-c6c0-4b7f-ada3-690953e7358c}</Project>
       <Name>DataBaseLibrary</Name>
     </ProjectReference>
   </ItemGroup>
