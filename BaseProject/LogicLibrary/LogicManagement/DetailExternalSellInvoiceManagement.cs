@@ -32,7 +32,7 @@ namespace LogicLibrary
                 };
                 if (ValidateData.VerifyFields(externalSellinvoice))
                 {
-                    DetailExternalModel externalSellinvoiceModel = new DetailExternalModel()
+                    DetailExternalSellinvoiceModel externalSellinvoiceModel = new DetailExternalSellinvoiceModel()
                     {
                         IdClient = IdClient,
                         IdEmployee = IdEmployee,
@@ -45,7 +45,7 @@ namespace LogicLibrary
                         SubTotal = SubTotal,
                         Total = Total
                     };
-                    return DBDetailEDBExternalInvoiceSell.InsertExternalInvoice(externalSellinvoiceModel);
+                    return DBDetailExternalInvoiceSell.InsertExternalInvoice(externalSellinvoiceModel);
                 }
                 else
                 {
@@ -86,7 +86,7 @@ namespace LogicLibrary
                 };
                 if (ValidateData.VerifyFields(externalSellinvoice))
                 {
-                    DetailExternalModel externalSellinvoiceModel = new DetailExternalModel()
+                    DetailExternalSellinvoiceModel externalSellinvoiceModel = new DetailExternalSellinvoiceModel()
                     {
                         NumberInvoice = int.Parse(NumberInvoice),
                         ActualDate = ActualDate,
@@ -127,7 +127,7 @@ namespace LogicLibrary
                 string[] externalSellinvoice = new string[] { idExternalSellinvoice };
                 if (ValidateData.VerifyFields(externalSellinvoice))
                 {
-                    DetailExternalModel internalSellinvoiceModel = new DetailExternalModel()
+                    DetailExternalSellinvoiceModel internalSellinvoiceModel = new DetailExternalSellinvoiceModel()
                     {
                         NumberInvoice = int.Parse(idExternalSellinvoice)
                     };
@@ -150,14 +150,14 @@ namespace LogicLibrary
         /// </summary>
         /// <param name="idExternalSellinvoice"></param>
         /// <returns></returns>
-        public static DetailExternalModel SelectExternalSellinvoiceById(string idExternalSellinvoice)
+        public static DetailExternalSellinvoiceModel SelectExternalSellinvoiceById(string idExternalSellinvoice)
         {
             try
             {
                 string[] externalSellinvoice = new string[] { idExternalSellinvoice };
                 if (ValidateData.VerifyFields(externalSellinvoice))
                 {
-                    DetailExternalModel externalSellinvoiceModel = new DetailExternalModel()
+                    DetailExternalSellinvoiceModel externalSellinvoiceModel = new DetailExternalSellinvoiceModel()
                     {
                         NumberInvoice = int.Parse(idExternalSellinvoice)
                     };
@@ -179,7 +179,7 @@ namespace LogicLibrary
         /// 
         /// </summary>
         /// <returns></returns>
-        public static List<DetailExternalModel> SelectAllExternalSellinvoice()
+        public static List<DetailExternalSellinvoiceModel> SelectAllExternalSellinvoice()
         {
             try
             {

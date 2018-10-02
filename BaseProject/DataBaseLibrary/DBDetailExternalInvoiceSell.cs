@@ -34,8 +34,8 @@ namespace DataBaseLibrary
             {
                 using (IDbConnection cnn = new MySqlConnection(LoadConnectionString()))
                 {
-                    cnn.Execute("INSERT INTO DetailExternalInvoiceSell(ActualDate, idClient, idEmployee, idBusiness, currencyType, iviAmount, cashDeposit, cardDeposit, totalDiscount, subTotal, Total) VALUES(" +
-                        "@ActualDate, @idClient, @idEmployee, @idBusiness,@currencyType, @iviAmount, @cashDeposit, @cardDeposit,@totalDiscount, @subTotal, @Total)", externalSellinvoiceModel);
+                    cnn.Execute("INSERT INTO detailexternalinvoicesell(idClient, idEmployee, idBusiness, currencyType, iviAmount, cashDeposit, cardDeposit, totalDiscount, subTotal, Total) VALUES(" +
+                        "@idClient, @idEmployee, @idBusiness,@currencyType, @iviAmount, @cashDeposit, @cardDeposit,@totalDiscount, @subTotal, @Total)", externalSellinvoiceModel);
                 }
                 return true;
             }
@@ -52,7 +52,7 @@ namespace DataBaseLibrary
             {
                 using (IDbConnection cnn = new MySqlConnection(LoadConnectionString()))
                 {
-                    cnn.Execute("UPDATE  DetailExternalInvoiceSell SET (ActualDate, idClient, idEmployee, idBusiness, currencyType, iviAmount, cashDeposit, cardDeposit, totalDiscount, subTotal, Total) VALUES(" +
+                    cnn.Execute("UPDATE  detailexternalinvoicesell SET (idClient, idEmployee, idBusiness, currencyType, iviAmount, cashDeposit, cardDeposit, totalDiscount, subTotal, Total) VALUES(" +
                         "@ActualDate, @idClient, @idEmployee, @idBusiness,@currencyType, @iviAmount, @cashDeposit, @cardDeposit,@totalDiscount, @subTotal, @Total)", externalSellinvoiceModel);
                 }
                 return true;

@@ -103,7 +103,7 @@ namespace UI.Frames
 
                 foreach (DataGridViewRow dataGridViewRow in metroGrid1.Rows)
                 {
-                    ExternalInvoiceSellManagement.InsertExternalInvoice(metroLabel3.Text, dataGridViewRow.Cells[1].Value.ToString());
+                    ExternalInvoiceSellManagement.InsertExternalInvoice(metroLabel3.Text, dataGridViewRow.Cells[0].Value.ToString());
                 }
                 MetroFramework.MetroMessageBox.Show(this, "Se registró la factura de manera exitosa.");
             }

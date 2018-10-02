@@ -9,6 +9,6 @@ namespace BusinessLibrary.Models
     public class ExternalInvoiceSellModel
     {
         public int idDetailExternalInvoiceSell { get; set; }
-        public int Product_idProduct1 { get; set; }
+        public int Product_idProduct { get; set; }
     }
 }

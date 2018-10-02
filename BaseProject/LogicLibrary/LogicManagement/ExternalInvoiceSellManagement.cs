@@ -17,7 +17,7 @@ namespace LogicLibrary.LogicManagement
                 ExternalInvoiceSellModel externalInvoiceSellModel = new ExternalInvoiceSellModel()
                 {
                     idDetailExternalInvoiceSell = int.Parse(idInvoice),
-                    Product_idProduct1 = int.Parse(idProduct)
+                    Product_idProduct = int.Parse(idProduct)
                 };
                 return DBExternalInvoiceSell.InsertExternalInvoiceSell(externalInvoiceSellModel);
             }
