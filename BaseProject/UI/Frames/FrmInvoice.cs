@@ -116,7 +116,7 @@ namespace UI.Frames
             catch (Exception ex)
             {
 
-                throw;
+                MessageBox.Show("");
             }
         }
 
