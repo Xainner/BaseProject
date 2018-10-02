@@ -52,7 +52,8 @@
     <Compile Include="Models\CreditInvoiceModel.cs" />
     <Compile Include="Models\EmployeeModel.cs" />
     <Compile Include="Models\ExitInvoiceModel.cs" />
-    <Compile Include="Models\ExternalSellinvoiceModel.cs" />
+    <Compile Include="Models\ExternalInvoiceSellModel.cs" />
+    <Compile Include="Models\DetailExternalSellinvoiceModel.cs" />
     <Compile Include="Models\InputInvoiceModel.cs" />
     <Compile Include="Models\InternalSellinvoiceModel.cs" />
     <Compile Include="Models\PositionModel.cs" />

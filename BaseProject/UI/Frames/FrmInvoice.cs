@@ -1,4 +1,7 @@
-﻿using MetroFramework.Controls;
+﻿using BusinessLibrary.Models;
+using LogicLibrary;
+using LogicLibrary.LogicManagement;
+using MetroFramework.Controls;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -13,11 +16,14 @@ namespace UI.Frames
 {
     public partial class FrmInvoice : MetroFramework.Forms.MetroForm
     {
-        public FrmInvoice(MetroGrid metroGrid)
+        DetailExternalSellinvoiceModel DetailExternalSellinvoiceModel;
+        public FrmInvoice(string idInvoice, DetailExternalSellinvoiceModel detailExternalSellinvoiceModel, MetroGrid metroGrid)
         {
             InitializeComponent();
             
             WireUpForm(metroGrid);
+            metroLabel3.Text = idInvoice;
+            DetailExternalSellinvoiceModel = detailExternalSellinvoiceModel;
         }
 
         private void WireUpForm(MetroGrid metroGrid)
@@ -91,7 +97,27 @@ namespace UI.Frames
 
         private void createInvoicePreviewButton_Click(object sender, EventArgs e)
         {
+            try
+            {
+                DetailExternalSellinvoiceModel.Total = decimal.Parse(totalPaymentTextBox.Text);
+                DetailExternalSellinvoiceModel.TotalDiscount = decimal.Parse(discountTextBox.Text);
+                DetailExternalSellinvoiceModel.SubTotal = decimal.Parse(subTotalTextBox.Text);
+                DetailExternalSellinvoiceModel.CashDeposit = decimal.Parse(cashAmountTextBox.Text);
+                DetailExternalSellinvoiceModel.CreditDeposit = decimal.Parse(creditAmountTextBox.Text);
 
+                DetailExternalSellInvoiceManagement.InsertExternalSellinvoice(DetailExternalSellinvoiceModel.IdClient, DetailExternalSellinvoiceModel.IdEmployee, DetailExternalSellinvoiceModel.IdBusiness, DetailExternalSellinvoiceModel.CurrencyType, decimal.Parse(taxesTextBox.Text), decimal.Parse(cashAmountTextBox.Text), decimal.Parse(creditAmountTextBox.Text), decimal.Parse(discountTextBox.Text), decimal.Parse(subTotalTextBox.Text), decimal.Parse(totalPaymentTextBox.Text));
+
+                foreach (DataGridViewRow dataGridViewRow in metroGrid1.Rows)
+                {
+                    ExternalInvoiceSellManagement.InsertExternalInvoice(metroLabel3.Text, dataGridViewRow.Cells[1].Value.ToString());
+                }
+                MetroFramework.MetroMessageBox.Show(this, "Se registró la factura de manera exitosa.");
+            }
+            catch (Exception ex)
+            {
+
+                throw;
+            }
         }
 
         private void ChangeAdjustment()
@@ -104,7 +130,7 @@ namespace UI.Frames
 
         private void cashAmountTextBox_KeyUp(object sender, KeyEventArgs e)
         {
-            if (!string.IsNullOrEmpty(cashAmountTextBox.Text) && cashAmountTextBox.Text.Equals("0"))
+            if (!string.IsNullOrEmpty(cashAmountTextBox.Text) && !cashAmountTextBox.Text.Equals("0"))
             {
                 ChangeAdjustment();
             }
@@ -112,7 +138,7 @@ namespace UI.Frames
 
         private void creditAmountTextBox_KeyUp(object sender, KeyEventArgs e)
         {
-            if (!string.IsNullOrEmpty(cashAmountTextBox.Text) && cashAmountTextBox.Text.Equals("0"))
+            if (!string.IsNullOrEmpty(creditAmountTextBox.Text) && !creditAmountTextBox.Text.Equals("0"))
             {
                 ChangeAdjustment();
             }

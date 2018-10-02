@@ -66,6 +66,7 @@
     <Compile Include="DBClient.cs" />
     <Compile Include="DBDetailInvoiceInput.cs" />
     <Compile Include="DBEmployee.cs" />
+    <Compile Include="DBDetailExternalInvoiceSell.cs" />
     <Compile Include="DBExternalInvoiceSell.cs" />
     <Compile Include="DBPosition.cs" />
     <Compile Include="DBProduct.cs" />
