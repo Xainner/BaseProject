@@ -45,12 +45,12 @@ namespace DataBaseLibrary
         /// </summary>
         /// <param name="Product"></param>
         /// <returns>output</returns>
-        public static List<ProductModel> SelectidProduct(ProductModel Product)
+        public static ProductModel SelectidProduct(ProductModel Product)
         {
             using (IDbConnection cnn = new MySqlConnection(LoadConnectionString()))
             {
                 var output = cnn.Query<ProductModel>("SELECT * FROM product WHERE idProduct = @idProduct", Product);
-                return output.ToList();
+                return output.Single();
             }
         }
 
@@ -207,6 +207,24 @@ namespace DataBaseLibrary
                         "variableQuantity = @variableQuantity, Image = @Image, " +
                         "Ivi = @Ivi, existingInvoice = @existingInvoice " +
                         "WHERE idProduct = @idProduct", Product);
+                }
+                return true;
+            }
+            catch (Exception ex)
+            {
+
+                throw;
+            }
+        }
+
+        public static bool UpdateQuantity(ProductModel Product)
+        {
+            try
+            {
+                using (IDbConnection cnn = new MySqlConnection(LoadConnectionString()))
+                {
+                    cnn.Query("UPDATE product " +
+                            "SET variableQuantity = @variableQuantity WHERE idProduct = @idProduct", Product);
                 }
                 return true;
             }

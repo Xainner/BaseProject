@@ -32,12 +32,11 @@
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle3 = new System.Windows.Forms.DataGridViewCellStyle();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
+            this.EmployeeComboBox = new MetroFramework.Controls.MetroComboBox();
             this.DestinyComboBox = new MetroFramework.Controls.MetroComboBox();
             this.ProviderComboBox = new MetroFramework.Controls.MetroComboBox();
-            this.dateDateTime = new MetroFramework.Controls.MetroDateTime();
             this.AddProductButton = new MetroFramework.Controls.MetroButton();
             this.metroLabel1 = new MetroFramework.Controls.MetroLabel();
-            this.metroLabel4 = new MetroFramework.Controls.MetroLabel();
             this.metroLabel5 = new MetroFramework.Controls.MetroLabel();
             this.metroLabel6 = new MetroFramework.Controls.MetroLabel();
             this.clearButton = new MetroFramework.Controls.MetroButton();
@@ -46,7 +45,6 @@
             this.metroLabel10 = new MetroFramework.Controls.MetroLabel();
             this.searchButton = new MetroFramework.Controls.MetroButton();
             this.dgvInputExitProduct = new MetroFramework.Controls.MetroGrid();
-            this.EmployeeComboBox = new MetroFramework.Controls.MetroComboBox();
             this.groupBox1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgvInputExitProduct)).BeginInit();
             this.SuspendLayout();
@@ -56,10 +54,8 @@
             this.groupBox1.Controls.Add(this.EmployeeComboBox);
             this.groupBox1.Controls.Add(this.DestinyComboBox);
             this.groupBox1.Controls.Add(this.ProviderComboBox);
-            this.groupBox1.Controls.Add(this.dateDateTime);
             this.groupBox1.Controls.Add(this.AddProductButton);
             this.groupBox1.Controls.Add(this.metroLabel1);
-            this.groupBox1.Controls.Add(this.metroLabel4);
             this.groupBox1.Controls.Add(this.metroLabel5);
             this.groupBox1.Controls.Add(this.metroLabel6);
             this.groupBox1.Location = new System.Drawing.Point(18, 16);
@@ -68,6 +64,16 @@
             this.groupBox1.TabIndex = 28;
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "Factura de entrada de mercaderia";
+            // 
+            // EmployeeComboBox
+            // 
+            this.EmployeeComboBox.FormattingEnabled = true;
+            this.EmployeeComboBox.ItemHeight = 23;
+            this.EmployeeComboBox.Location = new System.Drawing.Point(126, 16);
+            this.EmployeeComboBox.Name = "EmployeeComboBox";
+            this.EmployeeComboBox.Size = new System.Drawing.Size(193, 29);
+            this.EmployeeComboBox.TabIndex = 30;
+            this.EmployeeComboBox.UseSelectable = true;
             // 
             // DestinyComboBox
             // 
@@ -89,19 +95,9 @@
             this.ProviderComboBox.TabIndex = 30;
             this.ProviderComboBox.UseSelectable = true;
             // 
-            // dateDateTime
-            // 
-            this.dateDateTime.Format = System.Windows.Forms.DateTimePickerFormat.Short;
-            this.dateDateTime.Location = new System.Drawing.Point(718, 14);
-            this.dateDateTime.MinimumSize = new System.Drawing.Size(0, 29);
-            this.dateDateTime.Name = "dateDateTime";
-            this.dateDateTime.Size = new System.Drawing.Size(194, 29);
-            this.dateDateTime.TabIndex = 12;
-            this.dateDateTime.Value = new System.DateTime(2018, 9, 26, 14, 53, 58, 0);
-            // 
             // AddProductButton
             // 
-            this.AddProductButton.Location = new System.Drawing.Point(733, 58);
+            this.AddProductButton.Location = new System.Drawing.Point(733, 10);
             this.AddProductButton.Name = "AddProductButton";
             this.AddProductButton.Size = new System.Drawing.Size(179, 33);
             this.AddProductButton.TabIndex = 45;
@@ -117,15 +113,6 @@
             this.metroLabel1.Size = new System.Drawing.Size(98, 19);
             this.metroLabel1.TabIndex = 14;
             this.metroLabel1.Text = "Tienda Destino:";
-            // 
-            // metroLabel4
-            // 
-            this.metroLabel4.AutoSize = true;
-            this.metroLabel4.Location = new System.Drawing.Point(669, 16);
-            this.metroLabel4.Name = "metroLabel4";
-            this.metroLabel4.Size = new System.Drawing.Size(43, 19);
-            this.metroLabel4.TabIndex = 15;
-            this.metroLabel4.Text = "Fecha";
             // 
             // metroLabel5
             // 
@@ -261,16 +248,6 @@
             this.dgvInputExitProduct.Size = new System.Drawing.Size(918, 332);
             this.dgvInputExitProduct.TabIndex = 68;
             // 
-            // EmployeeComboBox
-            // 
-            this.EmployeeComboBox.FormattingEnabled = true;
-            this.EmployeeComboBox.ItemHeight = 23;
-            this.EmployeeComboBox.Location = new System.Drawing.Point(126, 16);
-            this.EmployeeComboBox.Name = "EmployeeComboBox";
-            this.EmployeeComboBox.Size = new System.Drawing.Size(193, 29);
-            this.EmployeeComboBox.TabIndex = 30;
-            this.EmployeeComboBox.UseSelectable = true;
-            // 
             // UcInputInvoice
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -297,8 +274,6 @@
         #endregion
 
         private System.Windows.Forms.GroupBox groupBox1;
-        private MetroFramework.Controls.MetroDateTime dateDateTime;
-        private MetroFramework.Controls.MetroLabel metroLabel4;
         private MetroFramework.Controls.MetroLabel metroLabel6;
         private MetroFramework.Controls.MetroButton clearButton;
         private MetroFramework.Controls.MetroButton commitButton;

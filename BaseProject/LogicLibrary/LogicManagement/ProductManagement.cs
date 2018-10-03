@@ -205,7 +205,7 @@ namespace LogicLibrary
         /// </summary>
         /// <param name="idProduct"></param>
         /// <returns></returns>
-        public static List<ProductModel> SelectProductById(string idProduct)
+        public static ProductModel SelectProductById(string idProduct)
         {
             try
             {
@@ -378,6 +378,32 @@ namespace LogicLibrary
             {
                 //Log4Net
                 return null;
+            }
+        }
+
+        public static bool UpdateQuantity(string idProduct, string quantity)
+        {
+            try
+            {
+                string[] product = new string[] { idProduct, quantity };
+                if (ValidateData.VerifyFields(product))
+                {
+                    ProductModel productModel = new ProductModel()
+                    {
+                        IdProduct = int.Parse(idProduct),
+                        variableQuantity = int.Parse(quantity)
+                    };
+                    return DBProduct.UpdateQuantity(productModel);
+                }
+                else
+                {
+                    return false;
+                }
+            }
+            catch (Exception ex)
+            {
+                //Log4Net
+                return false;
             }
         }
 

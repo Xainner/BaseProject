@@ -22,7 +22,7 @@ namespace UI.UserControls
         private void WrapProductsGridView()
         {
             dgvInputExitProduct.Columns.Add("id", "Id");
-            dgvInputExitProduct.Columns.Add("id", "Código");
+            dgvInputExitProduct.Columns.Add("code", "Código");
             dgvInputExitProduct.Columns.Add("description", "Descripción");
             dgvInputExitProduct.Columns.Add("subcategory", "Sub-Categoría");
             dgvInputExitProduct.Columns.Add("quantity", "Cantidad");
@@ -34,6 +34,25 @@ namespace UI.UserControls
             }
             dgvInputExitProduct.Columns[4].ReadOnly = false;
             dgvInputExitProduct.MultiSelect = false;
+        }
+
+        private bool MinusQuantity(BusinessModel provider)
+        {
+            if (provider.fantasyName.ToString().Equals("Principal"))
+            {
+                for (int i = 0; i < dgvInputExitProduct.RowCount; i++)
+                {
+                    string idProduct = dgvInputExitProduct.Rows[i].Cells[0].Value.ToString();
+                    int quantity = int.Parse(dgvInputExitProduct.Rows[i].Cells[4].Value.ToString());
+                    ProductModel LastQuantity = ProductManagement.SelectProductById(idProduct);
+
+                    if (LastQuantity.variableQuantity < quantity)
+                    {
+                        return false;
+                    }
+                }
+            }
+            return true;
         }
 
         private bool SearchDuplicates(string productCode)
@@ -126,24 +145,44 @@ namespace UI.UserControls
 
             try
             {
-                if (DetaillsInputExitManagement.InsertDetailsInputExit(employee.IdEmployee.ToString(), destiny.IdBusiness.ToString(), provider.IdBusiness.ToString()))
+                if (MinusQuantity(provider))
                 {
-                    InputExitDetaillsModel id = DetaillsInputExitManagement.SelectDetailsInputExitID();
-
-                    for (int i = 0; i < dgvInputExitProduct.RowCount; i++)
+                    if (DetaillsInputExitManagement.InsertDetailsInputExit(employee.IdEmployee.ToString(), destiny.IdBusiness.ToString(), provider.IdBusiness.ToString()))
                     {
-                        string idProduct = dgvInputExitProduct.Rows[i].Cells[0].Value.ToString();
-                        string quantity = dgvInputExitProduct.Rows[i].Cells[4].Value.ToString();
+                        InputExitDetaillsModel id = DetaillsInputExitManagement.SelectDetailsInputExitID();
 
-                        if (InputExitInvoiceManagement.InsertInputExitInvoice(id.idNumInvoice.ToString(), idProduct, quantity))
+                        for (int i = 0; i < dgvInputExitProduct.RowCount; i++)
                         {
-                            FrmMain.Instance.ToolStripLabel.Text = "Se agrego correctamente la factura de entrada";
+                            string idProduct = dgvInputExitProduct.Rows[i].Cells[0].Value.ToString();
+                            int quantity = int.Parse(dgvInputExitProduct.Rows[i].Cells[4].Value.ToString());
+
+                            if (InputExitInvoiceManagement.InsertInputExitInvoice(id.idNumInvoice.ToString(), idProduct, quantity.ToString()))
+                            {
+                                if (destiny.fantasyName.ToString().Equals("Principal"))
+                                {
+                                    ProductModel LastQuantity = ProductManagement.SelectProductById(idProduct);
+                                    int newQuantity = LastQuantity.variableQuantity + quantity;
+                                    ProductManagement.UpdateQuantity(idProduct, newQuantity.ToString());
+                                }
+
+                                if (provider.fantasyName.ToString().Equals("Principal"))
+                                {
+                                    ProductModel LastQuantity = ProductManagement.SelectProductById(idProduct);
+                                    int newQuantity = LastQuantity.variableQuantity - quantity;
+                                    ProductManagement.UpdateQuantity(idProduct, newQuantity.ToString());
+                                }
+                            }
+                            else
+                            {
+                                FrmMain.Instance.ToolStripLabel.Text = "Error al agregar la factura de entrada";
+                            }
                         }
-                        else
-                        {
-                            FrmMain.Instance.ToolStripLabel.Text = "Error al agregar la factura de entrada";
-                        }
+                        FrmMain.Instance.ToolStripLabel.Text = "Producto modificado correctamente";
                     }
+                }
+                else
+                {
+                    MessageBox.Show("La cantidad no puede ser menor que la que se cuenta en la tienda");
                 }
             }
             catch (Exception)

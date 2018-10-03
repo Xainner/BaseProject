@@ -24,7 +24,7 @@ namespace DataBaseLibrary
             {
                 using (IDbConnection cnn = new MySqlConnection(LoadConnectionString()))
                 {
-                    cnn.Execute("INSERT INTO InvoiceInputExit (idNumInvoice, idProduct, Quantity)" +
+                    cnn.Execute("INSERT INTO invoiceinputexit (idNumInvoice, idProduct, Quantity)" +
                         " VALUES(@idNumInvoice, @idProduct, @Quantity)", inputInvoice);
                 }
                 return true;
