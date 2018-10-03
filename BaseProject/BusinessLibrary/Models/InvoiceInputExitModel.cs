@@ -10,8 +10,10 @@ namespace BusinessLibrary.Models
     {
         public int idNumInvoice;
         public int idProduct;
+        public int quantity;
 
         public int IdNumInvoice { get => idNumInvoice; set => idNumInvoice = value; }
         public int IdProduct { get => idProduct; set => idProduct = value; }
+        public int Quantity { get => quantity; set => quantity = value; }
     }
 }

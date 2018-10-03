@@ -67,21 +67,17 @@ namespace UI.UserControls
             productsGridView.MultiSelect = false;
 
 
-        }
-
-        
+        }        
 
         private bool SearchDuplicates(string productCode)
         {
-            foreach (DataGridViewRow dataGridViewRow in productsGridView.Rows)
+            for (int i = 0; i < productsGridView.RowCount; i++)
             {
-                string code = dataGridViewRow.Cells[1].Value.ToString();
+                string code = productsGridView.Rows[i].Cells[1].Value.ToString();
                 if (productCode == code)
                 {
-                    dataGridViewRow.Selected = true;
-                    int quantity = int.Parse(productsGridView.CurrentRow.Cells[4].Value.ToString());
-                    productsGridView.CurrentRow.Cells[4].Value = (quantity + 1);
-                    ModifyProductsDetail();
+                    int quantity = int.Parse(productsGridView.Rows[i].Cells[4].Value.ToString());
+                    productsGridView.Rows[i].Cells[4].Value = (quantity + 1);
                     return true;
                 }
             }

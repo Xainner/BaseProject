@@ -51,23 +51,11 @@ namespace LogicLibrary.LogicManagement
             }
         }
 
-        public static InputExitDetaillsModel SelectDetailsInputExitByIdNum(string idNumFact)
+        public static InputExitDetaillsModel SelectDetailsInputExitID()
         {
             try
             {
-                string[] inputExitInvoice = new string[] { idNumFact };
-                if (ValidateData.VerifyFields(inputExitInvoice))
-                {
-                    InputExitDetaillsModel inputInvoiceModel = new InputExitDetaillsModel()
-                    {
-                        IdNumInvoice = int.Parse(idNumFact)
-                    };
-                    return DBDetailsInputExit.SelectInputExitInvoiceByIdNum(inputInvoiceModel);
-                }
-                else
-                {
-                    return null;
-                }
+                return DBDetailsInputExit.SelectDetailsInputExitID();
             }
             catch (Exception ex)
             {

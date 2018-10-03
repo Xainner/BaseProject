@@ -6,6 +6,7 @@ using LogicLibrary;
 using BusinessLibrary.Models;
 using UI.Frames;
 using MetroFramework.Controls;
+using LogicLibrary.LogicManagement;
 
 namespace UI.UserControls
 {
@@ -15,34 +16,50 @@ namespace UI.UserControls
         {
             InitializeComponent();
 
-            FrmMain.Instance.ToolStripLabel.Text = "Estas en la pantalla de facturas de entrada";
+            FrmMain.Instance.ToolStripLabel.Text = "Estas en la pantalla de facturas de entrada y salida";
         }
-
-        List<ProductModel> productModel;
-
-        public MetroGrid dgvProduct { get; set ; }
 
         private void WrapProductsGridView()
         {
-            productModel = ProductManagement.SelectAllProducts();
-            dgvInputProduct.DataSource = dgvProduct;
+            dgvInputExitProduct.Columns.Add("id", "Id");
+            dgvInputExitProduct.Columns.Add("id", "Código");
+            dgvInputExitProduct.Columns.Add("description", "Descripción");
+            dgvInputExitProduct.Columns.Add("subcategory", "Sub-Categoría");
+            dgvInputExitProduct.Columns.Add("quantity", "Cantidad");
+            dgvInputExitProduct.Columns.Add("price", "Precio");
+
+            foreach (DataGridViewColumn dataGridViewColumn in dgvInputExitProduct.Columns)
+            {
+                dataGridViewColumn.ReadOnly = true;
+            }
+            dgvInputExitProduct.Columns[4].ReadOnly = false;
+            dgvInputExitProduct.MultiSelect = false;
         }
 
-        private void toSearch(Object sender, string search)
+        private bool SearchDuplicates(string productCode)
         {
-            string obj = ((MetroFramework.Controls.MetroTextBox)sender).Text;
-
-            if (!string.IsNullOrEmpty(search))
+            for (int i = 0; i < dgvInputExitProduct.RowCount; i++)
             {
-                FrmSearchProduct.code = search;
-                FrmSearchProduct frmInvoice = new FrmSearchProduct(obj);
-                frmInvoice.Show();
+                string code = dgvInputExitProduct.Rows[i].Cells[1].Value.ToString();
+                if (productCode == code)
+                {
+                    int quantity = int.Parse(dgvInputExitProduct.Rows[i].Cells[4].Value.ToString());
+                    dgvInputExitProduct.Rows[i].Cells[4].Value = (quantity + 1);
+                    return true;
+                }
             }
+            return false;
         }
 
         private void UcInputInvoice_Load(object sender, EventArgs e)
         {
-
+            EmployeeComboBox.DataSource = EmployeeManagement.SelectAllEmployees();
+            EmployeeComboBox.DisplayMember = "Name";
+            DestinyComboBox.DataSource = BusinessManagement.SelectAllBusiness();
+            DestinyComboBox.DisplayMember = "fantasyName";
+            ProviderComboBox.DataSource = BusinessManagement.SelectAllBusiness();
+            ProviderComboBox.DisplayMember = "fantasyName";
+            WrapProductsGridView();
         }
 
         private void UcInputInvoice_Leave(object sender, EventArgs e)
@@ -62,104 +79,77 @@ namespace UI.UserControls
 
         //CRUD
 
-        private void createButton_Click(object sender, EventArgs e)
-        {
-            try
-            {
-                //if (InputInvoiceManagement.InsertinputInvoice(null, dateDateTime.Text, providerTextBox.Text))
-                //{
-                //    FrmMain.Instance.ToolStripLabel.Text = "Agregado correctamente";
-                //}
-                //else
-                //{
-                //    FrmMain.Instance.ToolStripLabel.Text = "Error al agregar";
-                //}
-            }
-            catch (Exception ex)
-            {
-
-            }
-        }
-
         private void clearButton_Click(object sender, EventArgs e)
         {
-            providerTextBox.Text = string.Empty;
-            totalPaymentTextBox.Text = string.Empty;
+            dgvInputExitProduct.Rows.Clear();
         }
 
-        private void descriptionTextBox_KeyUp(object sender, KeyEventArgs e)
+        private void AddProductButton_Click(object sender, EventArgs e)
         {
-            if (e.KeyCode == Keys.Enter)
+            UcProduct ucProduct = new UcProduct
             {
-                string obj = descriptionTextBox.Text;
-
-                if (!string.IsNullOrEmpty(obj))
-                {
-                    FrmSearchProduct.description = obj;
-                    FrmSearchProduct frmInvoice = new FrmSearchProduct(obj);
-                    frmInvoice.Show();
-                }
-            }
+                Dock = DockStyle.Fill
+            };
+            FrmMain.Instance.MetroContainer.Controls.Add(ucProduct);
+            FrmMain.Instance.MetroContainer.Controls["ucProduct"].BringToFront();
+            FrmMain.Instance.MetroBack.Visible = true;
         }
 
         private void codeTextBox_KeyUp(object sender, KeyEventArgs e)
         {
-
             if (e.KeyCode == Keys.Enter)
             {
-                string obj = codeTextBox.Text;
+                string productCode = codeTextBox.Text;
+                ProductModel productModel = ProductManagement.SelectProductByCode(productCode);
 
-                if (!string.IsNullOrEmpty(obj))
+                if (!SearchDuplicates(productCode))
                 {
-                    FrmSearchProduct.code = obj;
-                    FrmSearchProduct frmInvoice = new FrmSearchProduct(obj);
-                    frmInvoice.Show();
+                    SubCategoryModel subCategoryModel = SubCategoryManagement.SelectSubCategoryById(productModel.IdSubCategory.ToString());
+                    dgvInputExitProduct.Rows.Add(productModel.IdProduct.ToString(), productModel.Code, productModel.Description, subCategoryModel.Name, 1, productModel.NormalPrice);
                 }
+                codeTextBox.Focus();
+                codeTextBox.Text = string.Empty;
             }
         }
 
-        private void styleTextBox_KeyUp(object sender, KeyEventArgs e)
+        private void searchButton_Click(object sender, EventArgs e)
         {
-            if (e.KeyCode == Keys.Enter)
-            {
-                string obj = styleTextBox.Text;
-
-                if (!string.IsNullOrEmpty(obj))
-                {
-                    FrmSearchProduct.style = obj;
-                    FrmSearchProduct frmInvoice = new FrmSearchProduct(obj);
-                    frmInvoice.Show();
-                }
-            }
+            FrmSearchProduct frmSearchProduct = new FrmSearchProduct();
+            frmSearchProduct.Show();
         }
 
-        private void brandTextBox_KeyUp(object sender, KeyEventArgs e)
+        private void commitButton_Click(object sender, EventArgs e)
         {
-            if (e.KeyCode == Keys.Enter)
-            {
-                string obj = brandTextBox.Text;
+            EmployeeModel employee = (EmployeeModel)EmployeeComboBox.SelectedItem;
+            BusinessModel destiny = (BusinessModel)DestinyComboBox.SelectedItem;
+            BusinessModel provider = (BusinessModel)ProviderComboBox.SelectedItem;
 
-                if (!string.IsNullOrEmpty(obj))
+            try
+            {
+                if (DetaillsInputExitManagement.InsertDetailsInputExit(employee.IdEmployee.ToString(), destiny.IdBusiness.ToString(), provider.IdBusiness.ToString()))
                 {
-                    FrmSearchProduct.brand = obj;
-                    FrmSearchProduct frmInvoice = new FrmSearchProduct(obj);
-                    frmInvoice.Show();
+                    InputExitDetaillsModel id = DetaillsInputExitManagement.SelectDetailsInputExitID();
+
+                    for (int i = 0; i < dgvInputExitProduct.RowCount; i++)
+                    {
+                        string idProduct = dgvInputExitProduct.Rows[i].Cells[0].Value.ToString();
+                        string quantity = dgvInputExitProduct.Rows[i].Cells[4].Value.ToString();
+
+                        if (InputExitInvoiceManagement.InsertInputExitInvoice(id.idNumInvoice.ToString(), idProduct, quantity))
+                        {
+                            FrmMain.Instance.ToolStripLabel.Text = "Se agrego correctamente la factura de entrada";
+                        }
+                        else
+                        {
+                            FrmMain.Instance.ToolStripLabel.Text = "Error al agregar la factura de entrada";
+                        }
+                    }
                 }
             }
-        }
-
-        private void subcategoryTextBox_KeyUp(object sender, KeyEventArgs e)
-        {
-            if (e.KeyCode == Keys.Enter)
+            catch (Exception)
             {
-                string obj = subcategoryTextBox.Text;
 
-                if (!string.IsNullOrEmpty(obj))
-                {
-                    FrmSearchProduct.subcategory = obj;
-                    FrmSearchProduct frmInvoice = new FrmSearchProduct(obj);
-                    frmInvoice.Show();
-                }
+                throw;
             }
         }
     }

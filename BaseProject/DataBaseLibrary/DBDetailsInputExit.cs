@@ -24,8 +24,8 @@ namespace DataBaseLibrary
             {
                 using (IDbConnection cnn = new MySqlConnection(LoadConnectionString()))
                 {
-                    cnn.Execute("INSERT INTO DetailInvoice (idEmployee, Provider, Destiny)" +
-                        " VALUES(@idEmployee, @Provider, @Destiny)", DetailsInputExit);
+                    cnn.Execute("INSERT INTO detailinvoice (idEmployee, Provider, Destiny)" +
+                        " VALUES(@idEmployee, @providerBusiness, @destinyBusiness)", DetailsInputExit);
                 }
                 return true;
             }
@@ -40,7 +40,7 @@ namespace DataBaseLibrary
         {
             using (IDbConnection cnn = new MySqlConnection(LoadConnectionString()))
             {
-                var output = cnn.Query<InputExitDetaillsModel>("SELECT * FROM DetailInvoice WHERE idEmployee = @idEmployee", DetailsInputExit);
+                var output = cnn.Query<InputExitDetaillsModel>("SELECT * FROM detailinvoice WHERE idEmployee = @idEmployee", DetailsInputExit);
                 return output.ToList();
             }
         }
@@ -49,7 +49,7 @@ namespace DataBaseLibrary
         {
             using (IDbConnection cnn = new MySqlConnection(LoadConnectionString()))
             {
-                var output = cnn.Query<InputExitDetaillsModel>("SELECT * FROM DetailInvoice", DetailsInputExit);
+                var output = cnn.Query<InputExitDetaillsModel>("SELECT * FROM detailinvoice", DetailsInputExit);
                 return output.ToList();
             }
         }
@@ -58,10 +58,18 @@ namespace DataBaseLibrary
         {
             using (IDbConnection cnn = new MySqlConnection(LoadConnectionString()))
             {
-                var output = cnn.Query<InputExitDetaillsModel>("SELECT * FROM DetailInvoice WHERE idNumInvoice = @idNumInvoice", IdNum);
+                var output = cnn.Query<InputExitDetaillsModel>("SELECT * FROM detailinvoice WHERE idNumInvoice = @idNumInvoice", IdNum);
                 return output.Single();
             }
         }
 
+        public static InputExitDetaillsModel SelectDetailsInputExitID()
+        {
+            using (IDbConnection cnn = new MySqlConnection(LoadConnectionString()))
+            {
+                var output = cnn.Query<InputExitDetaillsModel>("SELECT * FROM detailinvoice ORDER BY idNumInvoice DESC LIMIT 1");
+                return output.Single();
+            }
+        }
     }
 }

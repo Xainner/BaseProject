@@ -111,6 +111,15 @@ namespace DataBaseLibrary
             }
         }
 
+        public static List<ProductModel> SelectidSubCategory(ProductModel Product)
+        {
+            using (IDbConnection cnn = new MySqlConnection(LoadConnectionString()))
+            {
+                var output = cnn.Query<ProductModel>("SELECT * FROM product WHERE idsubCategory = @idsubCategory", Product);
+                return output.ToList();
+            }
+        }
+
         /// <summary>
         /// Show a specific product by Description
         /// </summary>

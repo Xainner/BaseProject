@@ -325,6 +325,32 @@ namespace LogicLibrary
             }
         }
 
+        public static List<ProductModel> SelectProductByIdSubCategory(string idSubCategory)
+        {
+            try
+            {
+                string[] product = new string[] { idSubCategory };
+                if (ValidateData.VerifyFields(product))
+                {
+                    ProductModel productModel = new ProductModel()
+                    {
+                        IdSubCategory = int.Parse(idSubCategory),
+
+                    };
+                    return DBProduct.SelectidSubCategory(productModel);
+                }
+                else
+                {
+                    return null;
+                }
+            }
+            catch (Exception ex)
+            {
+                //Log4Net
+                return null;
+            }
+        }
+
         /// <summary>
         /// 
         /// </summary>

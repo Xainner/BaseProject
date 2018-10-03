@@ -10,16 +10,17 @@ namespace LogicLibrary.LogicManagement
 {
     public class InputExitInvoiceManagement
     {
-        public static bool InsertInputExitInvoice(string idNumInvoice, string idProduct)
+        public static bool InsertInputExitInvoice(string idNumInvoice, string idProduct, string quantity)
         {
             try
             {
                 InvoiceInputExitModel inputInvoiceModel = new InvoiceInputExitModel()
                 {
                     IdNumInvoice = int.Parse(idNumInvoice),
-                    IdProduct = int.Parse(idProduct)
+                    IdProduct = int.Parse(idProduct),
+                    Quantity = int.Parse(quantity)
                 };
-                return true;
+                return DBInputExitInvoice.InsertInputExitInvoice(inputInvoiceModel);
             }
             catch (Exception ex)
             {
