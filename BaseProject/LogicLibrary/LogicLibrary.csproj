@@ -42,11 +42,13 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="LogicManagement\ApartInvoiceManagement.cs" />
     <Compile Include="LogicManagement\BrandManagement.cs" />
     <Compile Include="LogicManagement\BusinessManagement.cs" />
     <Compile Include="LogicManagement\CategoryManagement.cs" />
     <Compile Include="LogicManagement\ClientManagement.cs" />
     <Compile Include="LogicManagement\CreditInvoiceManagement.cs" />
+    <Compile Include="LogicManagement\DetailApartManagement.cs" />
     <Compile Include="LogicManagement\DetailExternalSellInvoiceManagement.cs" />
     <Compile Include="LogicManagement\DetaillsInputExitManagement.cs" />
     <Compile Include="LogicManagement\ExternalInvoiceSellManagement.cs" />

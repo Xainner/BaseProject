@@ -37,10 +37,10 @@
             this.brandTile = new MetroFramework.Controls.MetroTile();
             this.btnInputInvoice = new MetroFramework.Controls.MetroTile();
             this.btnSellinvoice = new MetroFramework.Controls.MetroTile();
-            this.btnApartInvoice = new MetroFramework.Controls.MetroTile();
             this.btnCreditInvoice = new MetroFramework.Controls.MetroTile();
             this.metroTile6 = new MetroFramework.Controls.MetroTile();
             this.btnExitInvoice = new MetroFramework.Controls.MetroTile();
+            this.btnAparts = new MetroFramework.Controls.MetroTile();
             this.SuspendLayout();
             // 
             // btnProducts
@@ -143,16 +143,6 @@
             this.btnSellinvoice.UseSelectable = true;
             this.btnSellinvoice.Click += new System.EventHandler(this.btnSellinvoice_Click);
             // 
-            // btnApartInvoice
-            // 
-            this.btnApartInvoice.ActiveControl = null;
-            this.btnApartInvoice.Location = new System.Drawing.Point(218, 26);
-            this.btnApartInvoice.Name = "btnApartInvoice";
-            this.btnApartInvoice.Size = new System.Drawing.Size(140, 105);
-            this.btnApartInvoice.TabIndex = 2;
-            this.btnApartInvoice.Text = "Factura Apartado";
-            this.btnApartInvoice.UseSelectable = true;
-            // 
             // btnCreditInvoice
             // 
             this.btnCreditInvoice.ActiveControl = null;
@@ -185,13 +175,24 @@
             this.btnExitInvoice.UseSelectable = true;
             this.btnExitInvoice.Click += new System.EventHandler(this.btnExitInvoice_Click);
             // 
+            // btnAparts
+            // 
+            this.btnAparts.ActiveControl = null;
+            this.btnAparts.Location = new System.Drawing.Point(218, 26);
+            this.btnAparts.Name = "btnAparts";
+            this.btnAparts.Size = new System.Drawing.Size(140, 105);
+            this.btnAparts.TabIndex = 2;
+            this.btnAparts.Text = "Factura Apartado";
+            this.btnAparts.UseSelectable = true;
+            this.btnAparts.Click += new System.EventHandler(this.btnAparts_Click);
+            // 
             // UcDashboard
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            this.Controls.Add(this.btnAparts);
             this.Controls.Add(this.btnSellinvoice);
             this.Controls.Add(this.metroTile6);
-            this.Controls.Add(this.btnApartInvoice);
             this.Controls.Add(this.btnCreditInvoice);
             this.Controls.Add(this.btnExitInvoice);
             this.Controls.Add(this.btnInputInvoice);
@@ -219,9 +220,9 @@
         private MetroFramework.Controls.MetroTile brandTile;
         private MetroFramework.Controls.MetroTile btnInputInvoice;
         private MetroFramework.Controls.MetroTile btnSellinvoice;
-        private MetroFramework.Controls.MetroTile btnApartInvoice;
         private MetroFramework.Controls.MetroTile btnCreditInvoice;
         private MetroFramework.Controls.MetroTile metroTile6;
         private MetroFramework.Controls.MetroTile btnExitInvoice;
+        private MetroFramework.Controls.MetroTile btnAparts;
     }
 }

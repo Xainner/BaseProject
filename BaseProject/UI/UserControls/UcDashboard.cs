@@ -141,5 +141,16 @@ namespace UI.UserControls
             FrmMain.Instance.MetroContainer.Controls["ucCreditInvoice"].BringToFront();
             FrmMain.Instance.MetroBack.Visible = true;
         }
+
+        private void btnAparts_Click(object sender, EventArgs e)
+        {
+            UcAparts ucAparts = new UcAparts
+            {
+                Dock = DockStyle.Fill
+            };
+            FrmMain.Instance.MetroContainer.Controls.Add(ucAparts);
+            FrmMain.Instance.MetroContainer.Controls["ucAparts"].BringToFront();
+            FrmMain.Instance.MetroBack.Visible = true;
+        }
     }
 }

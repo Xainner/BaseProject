@@ -60,12 +60,14 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="DBApartInvoice.cs" />
     <Compile Include="DBBrand.cs" />
     <Compile Include="DBBusiness.cs" />
     <Compile Include="DBCategory.cs" />
     <Compile Include="DBClient.cs" />
     <Compile Include="DBDetailExternalInvoiceSell.cs" />
     <Compile Include="DBDetailInvoiceInput.cs" />
+    <Compile Include="DBDetailsApart.cs" />
     <Compile Include="DBDetailsInputExit.cs" />
     <Compile Include="DBEmployee.cs" />
     <Compile Include="DBExternalInvoiceSell.cs" />
